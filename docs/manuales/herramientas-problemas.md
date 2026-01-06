@@ -149,7 +149,7 @@ Problema: "Churn alto de usuarios"
 **Componentes:**
 
 | Componente | What | Escala |
-|:-----------|:-----|:-------|
+| :----------- | :----- | :------- |
 | **Modo de Fallo** | ¿Cómo puede fallar? | N/A |
 | **Efecto** | ¿Qué pasa si falla? | N/A |
 | **Severidad (S)** | Impacto del fallo | 1-10 (10=catastrófico) |
@@ -168,7 +168,7 @@ Problema: "Churn alto de usuarios"
 **Ejemplo - Sistema de pagos:**
 
 | Modo Fallo | Efecto | S | O | D | RPN | Acción |
-|:-----------|:-------|:--|:--|:--|:----|:-------|
+| :----------- | :------- | :-- | :-- | :-- | :---- | :------- |
 | DB caída | No se procesan pagos | 9 | 2 | 2 | 36 | Redundancia DB |
 | API timeout | Usuario ve error | 5 | 6 | 3 | 90 | Retry logic + circuit breaker |
 | Doble cobro | Usuario cobra 2x | 10 | 4 | 7 | 280 🔴 | **Idempotency keys obligatorios** |
@@ -289,7 +289,7 @@ Problema: "Churn alto de usuarios"
 **Ejemplo - Bugs en producción (último mes):**
 
 | Tipo Bug | Cantidad | % Acumulado |
-|:---------|:---------|:------------|
+| :--------- | :--------- | :------------ |
 | Validación inputs | 45 | 45% |
 | Timeouts API | 30 | 75% |
 | UI responsive | 15 | 90% |
@@ -473,7 +473,7 @@ Problema: "Churn alto de usuarios"
 **Ejemplo - Elegir framework frontend:**
 
 | Criterio | Peso | React | Vue | Angular |
-|:---------|:-----|:------|:----|:--------|
+| :--------- | :----- | :------ | :---- | :-------- |
 | Performance | 5 | 8×5=40 | 9×5=45 | 7×5=35 |
 | Curva aprendizaje | 3 | 7×3=21 | 9×3=27 | 5×3=15 |
 | Ecosistema | 4 | 10×4=40 | 7×4=28 | 8×4=32 |
@@ -486,7 +486,7 @@ Problema: "Churn alto de usuarios"
 ## 🚫 Errores Comunes
 
 | Error | Problema | Solución |
-|:------|:---------|:---------|
+| :------ | :--------- | :--------- |
 | **Saltar al "cómo" sin el "por qué"** | Resolver síntoma, no causa | Usar 5 Porqués primero |
 | **Análisis parálisis** | Sobre-analizar sin actuar | Timeboxear, decidir con datos disponibles |
 | **Sesgo de confirmación** | Buscar solo evidencia que confirme hipótesis | Buscar activamente evidencia contraria |

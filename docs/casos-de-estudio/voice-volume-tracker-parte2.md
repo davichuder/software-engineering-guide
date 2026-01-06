@@ -452,7 +452,7 @@ public class ScreenOverlayService : IAlertService
 **Decisión**: 3 niveles de alerta según cuánto se excede el umbral
 
 | Nivel | Exceso | Color | Acción |
-|:------|:-------|:------|:-------|
+| :------ | :------- | :------ | :------- |
 | **Advertencia** | 0-5 dB | Amarillo | Toast notification |
 | **Moderado** | 5-10 dB | Naranja | Toast + Bordes finos |
 | **Severo** | > 10 dB | Rojo | Toast + Bordes gruesos + Vibración |
@@ -670,7 +670,7 @@ public class AudioProcessingBenchmarks
 
 ```text
 | Method             | Mean      | Allocated |
-|------------------- |----------:|----------:|
+| ------------------- | ----------: | ----------: |
 | CalculateDecibels  | 15.2 μs   | 32 B      |
 | ExtractEmbedding   | 45.3 ms   | 2.4 KB    |
 ```

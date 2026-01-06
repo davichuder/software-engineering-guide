@@ -44,7 +44,7 @@ Este caso de estudio documenta el desarrollo de una aplicación web para el segu
 ### 1.2 Requisitos Funcionales
 
 | ID | Requisito | Prioridad |
-|:---|:----------|:----------|
+| :--- | :---------- | :---------- |
 | RF-01 | Login exclusivo con Google (OAuth 2.0) | 🔴 Alta |
 | RF-02 | Selección de modelo de emociones (Ekman, Plutchik, PAD) | 🔴 Alta |
 | RF-03 | Wizard multinivel para identificar emoción específica | 🔴 Alta |
@@ -59,7 +59,7 @@ Este caso de estudio documenta el desarrollo de una aplicación web para el segu
 ### 1.3 Requisitos No Funcionales
 
 | ID | Requisito | Métrica |
-|:---|:----------|:--------|
+| :--- | :---------- | :-------- |
 | RNF-01 | **Privacidad**: Datos sensibles (PII/PHI) | Encriptación en reposo y tránsito |
 | RNF-02 | **Performance**: Carga de visualizaciones | < 2s para 1 año de datos |
 | RNF-03 | **Escalabilidad**: Consultas de series temporales | TimescaleDB optimizado |
@@ -232,7 +232,7 @@ Calma:
 ### 2.5 Comparación de Modelos
 
 | Criterio | Ekman | Plutchik | PAD | Ganador |
-|:---------|:------|:---------|:----|:--------|
+| :--------- | :------ | :--------- | :---- | :-------- |
 | **Simplicidad** | ✅ Muy simple | ⚠️ Moderado | ❌ Complejo | Ekman |
 | **Precisión** | ⚠️ Básica | ✅ Buena | ✅ Excelente | PAD |
 | **Velocidad de uso** | ✅ Rápido (< 30s) | ⚠️ Moderado (1-2min) | ❌ Lento (2-3min) | Ekman |
@@ -521,7 +521,7 @@ backend/
 **Justificación**:
 
 | Criterio | MongoDB | InfluxDB | PostgreSQL + TimescaleDB | Ganador |
-|:---------|:--------|:---------|:-------------------------|:--------|
+| :--------- | :-------- | :--------- | :------------------------- | :-------- |
 | **Consultas temporales** | ⚠️ Manual | ✅ Optimizado | ✅ Optimizado | InfluxDB/TimescaleDB |
 | **Integridad de datos** | ❌ Eventual | ⚠️ Limitada | ✅ ACID | PostgreSQL |
 | **Relaciones** | ❌ Difícil | ❌ No soporta | ✅ Nativo | PostgreSQL |
@@ -561,7 +561,7 @@ Si el volumen de datos crece exponencialmente (millones de usuarios), considerar
 **Justificación**:
 
 | Criterio | Django | Flask | FastAPI | Ganador |
-|:---------|:-------|:------|:--------|:--------|
+| :--------- | :------- | :------ | :-------- | :-------- |
 | **Performance (async)** | ⚠️ Limitado | ❌ Sync | ✅ Async nativo | FastAPI |
 | **Documentación automática** | ❌ Manual | ❌ Manual | ✅ OpenAPI | FastAPI |
 | **Validación de datos** | ⚠️ Serializers | ❌ Manual | ✅ Pydantic | FastAPI |
@@ -1142,7 +1142,7 @@ class TestDetectPatterns:
 **Objetivo**: ≥ 80% en lógica crítica
 
 | Módulo | Cobertura Objetivo | Cobertura Actual |
-|:-------|:-------------------|:-----------------|
+| :------- | :------------------- | :----------------- |
 | **Domain (Core)** | ≥ 90% | 92% ✅ |
 | **Pattern Analysis** | ≥ 85% | 88% ✅ |
 | **API Endpoints** | ≥ 75% | 78% ✅ |
@@ -1321,14 +1321,14 @@ Usar K-Means Clustering (No Supervisado)
 ### 10.1 North Star Metric
 
 | Métrica | Objetivo | Resultado | Estado |
-|:--------|:---------|:----------|:-------|
+| :-------- | :--------- | :---------- | :------- |
 | **D7 Retention** | > 40% | 43% | ✅ |
 | **D30 Retention** | > 25% | 28% | ✅ |
 
 ### 10.2 Métricas HEART
 
 | Métrica | Objetivo | Resultado | Estado |
-|:--------|:---------|:----------|:-------|
+| :-------- | :--------- | :---------- | :------- |
 | **Happiness (NPS)** | > 40 | 45 | ✅ |
 | **Engagement (Tasa completación)** | > 85% | 87% | ✅ |
 | **Adoption (Usuarios activos)** | 1,000 | 1,250 | ✅ |
@@ -1338,7 +1338,7 @@ Usar K-Means Clustering (No Supervisado)
 ### 10.3 Métricas Técnicas
 
 | Métrica | Objetivo | Resultado | Estado |
-|:--------|:---------|:----------|:-------|
+| :-------- | :--------- | :---------- | :------- |
 | **Uptime** | > 99.5% | 99.7% | ✅ |
 | **P95 Latency (API)** | < 500ms | 320ms | ✅ |
 | **P95 Latency (Visualizaciones)** | < 2s | 1.8s | ✅ |
@@ -1347,7 +1347,7 @@ Usar K-Means Clustering (No Supervisado)
 ### 10.4 Métricas de Negocio
 
 | Métrica | Resultado |
-|:--------|:----------|
+| :-------- | :---------- |
 | **Tiempo de desarrollo** | 8 semanas |
 | **Costo** | $0 (hosting gratuito en Render) |
 | **Usuarios registrados (primer mes)** | 1,250 |

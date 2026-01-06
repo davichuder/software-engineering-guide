@@ -180,7 +180,7 @@ Requisitos:
 ### ❌ Qué NO Delegar a IA
 
 | Tarea | Por qué NO |
-|:------|:-----------|
+| :------ | :----------- |
 | **Decisiones arquitectónicas críticas** | IA no entiende trade-offs de negocio, escalabilidad futura, constraints organizacionales |
 | **Compliance y regulaciones** | IA puede generar código que viola GDPR, HIPAA, SOC2 sin saberlo |
 | **Ethical decisions** | IA no tiene moral ni contexto social (ej: features que pueden ser usadas para discriminación) |
@@ -192,7 +192,7 @@ Requisitos:
 ### ⚠️ Qué Delegar CON Validación Rigurosa
 
 | Tarea | Validación Requerida |
-|:------|:---------------------|
+| :------ | :--------------------- |
 | **Boilerplate code** | Revisar que siga convenciones del proyecto |
 | **Tests unitarios** | Ejecutar tests, revisar coverage, verificar que testean comportamiento (no implementación) |
 | **Documentación** | Revisar precisión técnica, claridad, ejemplos correctos |
@@ -283,7 +283,7 @@ Genera un endpoint CRUD para la entidad Product siguiendo estas convenciones.
 ### AI Output Validation Rubric
 
 | Criterio | ✅ Pasa | ❌ Falla |
-|:---------|:--------|:---------|
+| :--------- | :-------- | :--------- |
 | **Correctness** | Código compila/ejecuta sin errores | Syntax errors, runtime errors |
 | **Security** | No vulnerabilidades (OWASP Top 10) | SQL injection, XSS, secrets expuestos |
 | **Performance** | No bottlenecks obvios (N+1 queries, loops innecesarios) | Complejidad O(n²) donde O(n) es posible |
@@ -416,7 +416,7 @@ jobs:
 Decidir si usar IA para una tarea:
 
 | Criterio | Usar IA | NO usar IA |
-|:---------|:--------|:-----------|
+| :--------- | :-------- | :----------- |
 | **Repetitividad** | Tarea repetitiva (boilerplate, tests) | Tarea única, creativa |
 | **Riesgo** | Bajo riesgo (código no crítico) | Alto riesgo (security, compliance) |
 | **Complejidad** | Complejidad baja-media | Complejidad alta (arquitectura) |

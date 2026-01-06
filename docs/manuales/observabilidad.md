@@ -21,7 +21,7 @@
 **Qué:** Eventos discretos con timestamp, nivel y contexto.
 
 | Aspecto | Qué | Por qué | Cómo | Herramientas |
-|:--------|:-----|:----|:----|:-------------|
+| :-------- | :----- | :---- | :---- | :------------- |
 | **Structured Logs** | JSON con campos consistentes | Queryable, parseable | `{"timestamp": "...", "level": "error", "trace_id": "..."}` | [Winston](https://github.com/winstonjs/winston), [Loguru](https://github.com/Delgan/loguru), [Log4j2](https://logging.apache.org/log4j/2.x/) |
 | **Niveles** | DEBUG, INFO, WARN, ERROR, FATAL | Filtrar por severidad | INFO en prod, DEBUG en dev | Configuración por entorno |
 | **Correlation IDs** | `trace_id` único por request | Rastrear request completo | Generar UUID en gateway, propagar headers | `X-Trace-Id`, OpenTelemetry |
@@ -48,7 +48,7 @@
 **Qué:** Valores numéricos agregados en el tiempo.
 
 | Framework | Qué | Cuándo | Ejemplo |
-|:----------|:-----|:-----|:--------|
+| :---------- | :----- | :----- | :-------- |
 | **RED** | Rate, Errors, Duration | User-facing services | requests/sec, error rate %, p95 latency |
 | **USE** | Utilization, Saturation, Errors | Resources (CPU, disk) | CPU %, queue depth, disk errors |
 | **Golden Signals** | Latency, Traffic, Errors, Saturation | Google SRE approach | p99 latency, QPS, 5xx rate, memory % |
@@ -56,7 +56,7 @@
 ### Tipos de Métricas
 
 | Tipo | Qué | Cuándo | Ejemplo |
-|:-----|:-----|:-----|:--------|
+| :----- | :----- | :----- | :-------- |
 | **Counter** | Solo aumenta (nunca decrece) | Total requests, errores | `http_requests_total` |
 | **Gauge** | Valor que sube y baja | Memoria, CPU, connections activas | `active_connections` |
 | **Histogram** | Distribución de valores | Latencias, tamaños de response | `http_request_duration_seconds` |
@@ -65,7 +65,7 @@
 ### Herramientas de Métricas
 
 | Tool | Qué | Por qué | Cómo |
-|:-----|:-----|:----|:----|
+| :----- | :----- | :---- | :---- |
 | [Prometheus](https://prometheus.io/) | Time-series DB con pull model | Estándar de facto, PromQL potente | Exponer `/metrics`, Prometheus scrapes cada 15s |
 | [Grafana](https://grafana.com/) | Dashboards para múltiples fuentes | Visualización flexible | Datasource → Query → Panel |
 | [StatsD](https://github.com/statsd/statsd) | Aggregation daemon con push model | Fácil instrumentar | Cliente envía UDP, StatsD agrega |
@@ -80,7 +80,7 @@
 **Por qué:** En microservicios, una operación toca N servicios. Tracing muestra el path completo.
 
 | Componente | Qué | Cómo | Herramientas |
-|:-----------|:-----|:----|:-------------|
+| :----------- | :----- | :---- | :------------- |
 | **Trace** | Request completo (raíz a hojas) | ID único propagado por headers | `X-B3-TraceId` |
 | **Span** | Operación individual dentro de trace | Parent-child relationships | `POST /users` (50ms) → `INSERT INTO users` (30ms) |
 | **Context Propagation** | Pasar trace_id entre servicios | Headers HTTP, gRPC metadata | [OpenTelemetry](https://opentelemetry.io/) |
@@ -89,7 +89,7 @@
 ### Herramientas de Tracing
 
 | Tool | Qué | Por qué | Cuándo |
-|:-----|:-----|:----|:-----|
+| :----- | :----- | :---- | :----- |
 | [Jaeger](https://www.jaegertracing.io/) | Tracing distribuido (Uber) | Open source, escalable | Microservicios con alta complejidad |
 | [Zipkin](https://zipkin.io/) | Tracing distribuido (Twitter) | Maduro, ampliamente adoptado | Alternativa a Jaeger |
 | [OpenTelemetry](https://opentelemetry.io/) | Estándar unificado (logs+metrics+traces) | Vendor-neutral, CNCF | Reemplazo de OpenTracing+OpenCensus |
@@ -102,7 +102,7 @@
 **Qué:** Endpoints para validar estado del servicio.
 
 | Tipo | Qué | Cuándo | Endpoint | Valida |
-|:-----|:-----|:-----|:---------|:-------|
+| :----- | :----- | :----- | :--------- | :------- |
 | **Liveness** | ¿Está vivo el proceso? | K8s reinicia si falla | `/live` o `/healthz` | Proceso responde |
 | **Readiness** | ¿Listo para recibir tráfico? | K8s no envía tráfico si falla | `/ready` | DB conectada, dependencias OK |
 | **Startup** | ¿Terminó inicialización? | K8s espera antes de liveness | `/startup` | Warmup completado |
@@ -131,7 +131,7 @@ GET /ready
 **Por qué:** Detectar y responder antes que usuarios reporten.
 
 | Concepto | Qué | Cómo |
-|:---------|:-----|:----|
+| :--------- | :----- | :---- |
 | **Threshold** | Valor que dispara alerta | `error_rate > 5%` |
 | **Window** | Periodo de evaluación | Últimos 5 minutos |
 | **Severity** | Nivel de urgencia | Critical → page, Warning → ticket |
@@ -141,7 +141,7 @@ GET /ready
 ### Herramientas de Alerting
 
 | Tool | Qué | Cuándo |
-|:-----|:-----|:-----|
+| :----- | :----- | :----- |
 | [Alertmanager](https://prometheus.io/docs/alerting/latest/alertmanager/) | Alertas de Prometheus | Stack Prometheus |
 | [PagerDuty](https://www.pagerduty.com/) | Incident management | Equipos on-call |
 | [Opsgenie](https://www.atlassian.com/software/opsgenie) | Alertas + escalations | Alternativa PagerDuty |
@@ -168,7 +168,7 @@ GET /ready
 **Por qué:** Detecta N+1 queries, memory leaks, slow transactions sin instrumentación manual.
 
 | Tool | Qué | Cuándo |
-|:-----|:-----|:-----|
+| :----- | :----- | :----- |
 | [New Relic](https://newrelic.com/) | APM full-stack | Enterprise, soporte 24/7 |
 | [Datadog APM](https://www.datadoghq.com/product/apm/) | APM + Infra + Logs | Unified platform |
 | [Elastic APM](https://www.elastic.co/apm) | APM integrado con ELK | Ya usas Elasticsearch |
@@ -179,7 +179,7 @@ GET /ready
 ## 🎯 SLIs, SLOs, SLAs
 
 | Concepto | Qué | Ejemplo |
-|:---------|:-----|:--------|
+| :--------- | :----- | :-------- |
 | **SLI** (Service Level Indicator) | Métrica que mide servicio | Latencia p95, error rate |
 | **SLO** (Service Level Objective) | Target interno | p95 < 300ms en 99.9% requests |
 | **SLA** (Service Level Agreement) | Contrato con usuario | 99.9% uptime, créditos si incumple |
@@ -228,7 +228,7 @@ Si SLO = 99.9%, Error Budget = 0.1% = 43.2 min/mes
 ## 🚫 Anti-patrones
 
 | Anti-patrón | Problema | Solución |
-|:------------|:---------|:---------|
+| :------------ | :--------- | :--------- |
 | **Log everything** | Ruido, costo storage | Log lo relevante, sampling en high cardinality |
 | **No correlation IDs** | Impossible rastrear request | Siempre trace_id + user_id |
 | **Alertas no accionables** | Alert fatigue | Alerta solo si requiere acción humana |

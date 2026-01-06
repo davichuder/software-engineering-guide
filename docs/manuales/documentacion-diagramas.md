@@ -21,7 +21,7 @@
 ## 📖 Lenguajes de Documentación
 
 | Lenguaje | Qué | Cuándo | Ejemplo |
-|:---------|:-----|:-----|:--------|
+| :--------- | :----- | :----- | :-------- |
 | [Markdown](https://www.markdownguide.org/) | Formato texto plano ligero | READMEs, wikis, docs generales | `# Título\n**negrita**` |
 | [AsciiDoc](https://asciidoc.org/) | Markdown con esteroides | Docs técnicas complejas, libros | Soporte tablas, includes |
 | [reStructuredText](https://docutils.sourceforge.io/rst.html) | Formato Python docs | Sphinx, docs Python | `.. code-block:: python` |
@@ -35,7 +35,7 @@
 ### Diagramas como Código
 
 | Herramienta | Qué | Sintaxis | Caso de Uso |
-|:------------|:-----|:---------|:---------|
+| :------------ | :----- | :--------- | :--------- |
 | [Mermaid](https://mermaid.js.org/) | Diagramas en Markdown | Texto declarativo | Flowcharts, secuencia, Gantt, ER |
 | [PlantUML](https://plantuml.com/) | UML y más | Texto declarativo | Clases, secuencia, componentes |
 | [D2](https://d2lang.com/) | Diagramas declarativos modernos | Texto declarativo | Arquitectura, diagramas técnicos |
@@ -51,7 +51,7 @@
 ### Herramientas Visuales
 
 | Herramienta | Qué | Cuándo |
-|:------------|:-----|:-----|
+| :------------ | :----- | :----- |
 | [draw.io](https://www.draw.io/) | Diagramas drag-and-drop free | Prototipado rápido |
 | [Lucidchart](https://www.lucidchart.com/) | Diagramas profesionales | Colaboración, org charts |
 | [Excalidraw](https://excalidraw.com/) | Sketch-style diagramas | Brainstorming, wireframes |
@@ -97,7 +97,7 @@ graph TD
 **Niveles:**
 
 | Nivel | Audiencia | Detalle | Ejemplo |
-|:------|:----------|:--------|:--------|
+| :------ | :---------- | :-------- | :-------- |
 | **C1: Context** | Todos (non-tech inclusive) | Sistema y usuarios/sistemas externos | "E-commerce interactúa con Payment Gateway" |
 | **C2: Containers** | Tech leads, architects | Apps, DBs, servicios | "Web App (React) → API (FastAPI) → PostgreSQL" |
 | **C3: Components** | Developers | Módulos dentro de container | "UserController, AuthService, UserRepository" |
@@ -135,13 +135,13 @@ C4Container
 
 ```mermaid
 erDiagram
-    USER ||--o{ ORDER : places
+    USER || -- o{ ORDER : places
     USER {
         int id PK
         string email
         string name
     }
-    ORDER ||--|{ ORDER_ITEM : contains
+    ORDER || -- |{ ORDER_ITEM : contains
     ORDER {
         int id PK
         int user_id FK
@@ -154,7 +154,7 @@ erDiagram
         int product_id FK
         int quantity
     }
-    PRODUCT ||--o{ ORDER_ITEM : "ordered in"
+    PRODUCT || -- o{ ORDER_ITEM : "ordered in"
     PRODUCT {
         int id PK
         string name
@@ -164,8 +164,8 @@ erDiagram
 
 **Cardinalidad:**
 
-- `||--||`: One-to-one
-- `||--o{`: One-to-many
+- `|| -- ||`: One-to-one
+- `|| -- o{`: One-to-many
 - `}o--o{`: Many-to-many
 
 ---
@@ -211,7 +211,7 @@ Order "1" *-- "*" OrderItem : contains
 - `-->`: Asociación
 - `*--`: Composición
 - `o--`: Agregación
-- `<|--`: Herencia
+- `<| --`: Herencia
 - `<..`: Dependencia
 
 ---
@@ -389,7 +389,7 @@ be --> s3
 ## 📚 Tipos de Documentación
 
 | Tipo | Audiencia | Contenido | Ejemplo |
-|:-----|:----------|:----------|:--------|
+| :----- | :---------- | :---------- | :-------- |
 | **README** | Developers | Qué es, setup, uso básico | `README.md` en root |
 | **API Docs** | API consumers | Endpoints, schemas, auth | Swagger UI, Redoc |
 | **Architecture Decision Records (ADR)** | Team | Por qué tomamos decisión X | `docs/adr/0use-postgres.md` |
@@ -402,7 +402,7 @@ be --> s3
 ## ✍️ Best Practices Documentación
 
 | Práctica | Por qué | Cómo |
-|:---------|:----|:-----|
+| :--------- | :---- | :----- |
 | **Docs como código** | Versionado, CI/CD | Markdown en repo, auto-deploy |
 | **Single Source of Truth** | Evitar duplicación | Una ubicación canónica |
 | **Living Documentation** | Actualizado con código | PR incluye doc changes |
@@ -415,7 +415,7 @@ be --> s3
 ## 🚫 Anti-patrones
 
 | Anti-patrón | Problema | Solución |
-|:------------|:---------|:---------|
+| :------------ | :--------- | :--------- |
 | **Docs desactualizadas** | Peor que no tener docs | CI checks, code+docs juntos |
 | **Over-documentation** | Nadie lee 100 páginas | Conciso, TL;DR sections |
 | **Documentar obvio** | Ruido | Documentar el "por qué", no el "qué" |

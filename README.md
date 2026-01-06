@@ -128,7 +128,7 @@ Visita <http://127.0.0.1:8000> en tu navegador.
 
 ## 📂 Estructura del Proyecto
 
-```
+```text
 mkdocs/
 ├── docs/                           # Documentación en Markdown
 │   ├── index.md                   # Página principal
@@ -175,7 +175,7 @@ git push origin feature/mi-mejora
 ## 📝 Niveles de Criticidad
 
 | Criticidad | Emoji | Explicación |
-|------------|-------|-------------|
+| ------------ | ------- | ------------- |
 | Crítico | 🔴 | Incumplimiento = bug de seguridad o caída |
 | Alto | 🟠 | Afecta mantenibilidad o rendimiento |
 | Estilo | 🟢 | Preferencia de equipo, sin impacto funcional |

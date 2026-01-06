@@ -19,7 +19,7 @@ Ver [Tabla de Niveles de Criticidad](../indice.md#niveles-de-criticidad) en el �
 **¿Cuánto cuesta?** Conocimiento base esencial, inversión de 1-2 días para conceptos fundamentales.
 
 | Concepto | Qué es | Por qué | Cuándo aplicarlo | Dónde | Cómo | Recurso |
-|:---------|:-------|:--------|:-----------------|:------|:-----|:--------|
+| :--------- | :------- | :-------- | :----------------- | :------ | :----- | :-------- |
 | **Modelo Cliente-Servidor** | Arquitectura donde clientes solicitan recursos/servicios y servidores los proveen | Base de la mayoría de aplicaciones web y distribuidas | En toda aplicación que requiera comunicación entre componentes | Web apps, APIs, microservicios | Cliente envía request (HTTP, gRPC), servidor procesa y responde | [MDN - Client-Server](https://developer.mozilla.org/en-US/docs/Learn/Server-side/First_steps/Client-Server_overview) |
 | **Dirección IP** | Identificador único de un dispositivo en una red (IPv4: `192.168.1.1`, IPv6: `2001:0db8::1`) | Permite enrutar paquetes al destino correcto | Configuración de servidores, debugging de red, seguridad | Networking, deployment, firewall rules | IPv4 (32 bits, 4 octetos), IPv6 (128 bits, 8 grupos hex). Privadas (10.x, 172.31.x, 192.168.x) vs Públicas | [Wikipedia - IP Address](https://en.wikipedia.org/wiki/IP_address) |
 | **DNS** | Domain Name System - Traduce nombres de dominio (`example.com`) a direcciones IP | Humanos recuerdan nombres, máquinas usan IPs | Al configurar dominios, troubleshooting de conectividad | Todos los servicios web, email, CDN | Cliente consulta DNS resolver → obtiene IP → conecta. Tipos: A (IPv4), AAAA (IPv6), CNAME (alias), MX (email) | [Cloudflare - What is DNS](https://www.cloudflare.com/learning/dns/what-is-dns/) |
@@ -58,7 +58,7 @@ sequenceDiagram
 **¿Cuánto cuesta?** Inversión inicial en aprendizaje (1-2 semanas), ahorro exponencial en mantenimiento.
 
 | Nivel | Principio | Qué es | Por qué | Cuándo aplicarlo | Dónde | Cómo | Recurso |
-|:------|:----------|:--------------|:--------------|:------------------------|:--------------|:-----------|:--------|
+| :------ | :---------- | :-------------- | :-------------- | :------------------------ | :-------------- | :----------- | :-------- |
 | 🔴 | **SOLID** | Conjunto de 5 principios para diseño OOP mantenible: SRP, OCP, LSP, ISP, DIP | Reduce acoplamiento, aumenta cohesión, facilita testing y extensibilidad | En toda clase, servicio o módulo con responsabilidades | Servicios, controladores, clases de dominio | SRP: una clase = una razón para cambiar. OCP: abierto a extensión, cerrado a modificación | [Clean Coder](https://blog.cleancoder.com/uncle-bob/2020/10/18/Solid-Relevance.html) |
 | 🔴 | **HC/LC** | High Cohesion, Low Coupling - Objetos enfocados y poco dependientes | Cohesión: código relacionado junto. Acoplamiento: dependencias mínimas. Es la meta de SOLID y GRASP. | Al diseñar cualquier módulo o asignar responsabilidades | Arquitectura, paquetes, clases | Alta Cohesión: Clase hace una sola cosa bien. Bajo Acoplamiento: Cambiar A no rompe B. | [GeeksforGeeks](https://www.geeksforgeeks.org/software-engineering-coupling-and-cohesion/) |
 | 🟢 | **KISS** | Keep It Simple, Stupid - Favorecer soluciones simples | Código simple es más fácil de entender, mantener y depurar | Siempre, al diseñar cualquier solución | Toda lógica de negocio, algoritmos | Evitar condicionales anidados, abstracciones innecesarias, over-engineering | [FreeCodeCamp](https://www.freecodecamp.org/news/keep-it-simple-stupid-how-to-use-the-kiss-principle-in-design/) |
@@ -94,7 +94,7 @@ sequenceDiagram
 **¿Por qué?** Cada lenguaje tiene idioms y herramientas específicas que mejoran calidad y productividad.
 
 | Lenguaje | Qué es | Por qué | Cuándo | Cómo | Herramientas de Validación |
-|:---------|:--------------|:--------------|:--------------|:-----------|:---------------------------|
+| :--------- | :-------------- | :-------------- | :-------------- | :----------- | :--------------------------- |
 | [Python](https://www.python.org/) | Lenguaje dinámico con tipado opcional | Productividad alta, ecosistema rico | Backend APIs, scripts, ML/Data Science | Usar `typing`, `pydantic` para validación, `dataclasses` para estructuras, `mypy` para chequeo estático | `mypy`, `ruff`, `black`, `pylint` |
 | [Java](https://www.java.com/es/) | Lenguaje fuertemente tipado y OOP | Robustez, performance, ecosistema enterprise | Backend enterprise, Android, sistemas distribuidos | Usar `Optional` evitando `null`, `Streams` para colecciones, `Records` (Java 14+), aplicar SOLID | `Checkstyle`, `SpotBugs`, `SonarQube` |
 | [TypeScript](https://www.typescriptlang.org/) | Superset de JS con tipado estático | Detecta errores en compilación, mejor IDE support | Frontend, Backend Node.js | Usar `strict mode`, interfaces, tipos utilitarios (`Record<K,V>`, `Partial<T>`), evitar `any` | `tsc --strict`, `ESLint`, `Prettier` |
@@ -106,7 +106,7 @@ sequenceDiagram
 **¿Por qué?** Los frameworks establecen patrones que, si se siguen, maximizan productividad y maintainability.
 
 | Framework | Qué es | Por qué | Cuándo | Cómo | Herramientas |
-|:----------|:--------------|:--------------|:--------------|:-----------|:-------------|
+| :---------- | :-------------- | :-------------- | :-------------- | :----------- | :------------- |
 | [Angular](https://angular.dev/) | Framework frontend con enfoque en componentes y signals | Escalabilidad, arquitectura clara, TypeScript nativo | SPAs empresariales, dashboards complejos | Usar `signals` (v17+), `@for` en templates, zoneless rendering, `RxJS` para async, `NgRx` para estado, estructura modular | Angular CLI, Nx |
 | [React](https://es.react.dev/) | Librería para UIs declarativas | Flexibilidad, ecosistema gigante, performance | SPAs, mobile (React Native), SSR (Next.js) | Usar `hooks`, `signals` (experimental), `context` para estado, `Suspense` para async, `Server Components` (Next.js), tipado con TS | Vite, Next.js, ESLint React |
 | [Django](https://www.djangoproject.com/) | Framework Python full-stack con ORM y admin | Productividad, "batteries included", comunidad madura | Backends complejos, CMS, dashboards admin | Usar `models`, `forms`, `signals`, `class-based views`, `DRF` para APIs REST. Separar lógica en `views`, `serializers` | Django Debug Toolbar, pytest-django |
@@ -122,7 +122,7 @@ sequenceDiagram
 **Cuándo:** Proyectos empresariales que necesitan auditoría, REST rápido, y tareas batch.
 
 | Feature | Qué es | Cuándo | Cómo |
-|:--------|:-----|:-----|:----|
+| :-------- | :----- | :----- | :---- |
 | **@EntityListeners** | Callbacks en ciclo de vida de entidad | Auditoría, validaciones pre-persist | `@PrePersist`, `@PreUpdate`, `@PreRemove`, `@PostLoad` |
 | **AuditorAware** | Auditoría automática global | Trackear quién modificó qué | Implementar `AuditorAware<String>`, retornar username actual |
 | **@StoredProcedure** | Llamar stored procedures | Lógica compleja en DB, performance | `@NamedStoredProcedureQuery` + `@StoredProcedureParameter` |

@@ -371,7 +371,7 @@ Proceed? YES / NO
 ## 🚫 Errores Comunes
 
 | Error | Consecuencia | Prevención |
-|:--------|:-------------|:-----------|
+| :-------- | :------------- | :----------- |
 | "Skip tests, bajo riesgo" | Bugs en producción | Nunca skip tests |
 | "Deploy viernes 17h" | Weekend debugging | Deploy martes-jueves AM |
 | "No probé rollback" | Rollback falla cuando se necesita | Test rollback en staging |

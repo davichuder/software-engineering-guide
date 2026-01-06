@@ -146,7 +146,7 @@
 **9 Bloques:**
 
 | | | |
-|:---|:---|:---|
+| :--- | :--- | :--- |
 | **Problema**; Top 3 problemas | **Solución**; Top 3 features | **Propuesta de Valor Única**; Mensaje claro y convincente |
 | **Ventaja Especial**; No se puede copiar fácil | **Segmento de Clientes**; Target users | |
 | **Métricas Clave**; KPIs críticos | **Canales**; Path to customers | |
@@ -353,7 +353,7 @@
 **Ejemplos:**
 
 | Producto | North Star | Por qué |
-|:---------|:-----------|:--------|
+| :--------- | :----------- | :-------- |
 | **Airbnb** | Noches reservadas | Refleja value para host y guest |
 | **Spotify** | Tiempo escuchando | Engagement = retención = suscripciones |
 | **Slack** | Mensajes enviados | Core value = comunicación |
@@ -450,7 +450,7 @@ Pregunta a usuarios: "¿Qué tan decepcionado estarías si ya no pudieras usar e
 **Qué:** Modelo para priorizar features: Reach × Impact × Confidence / Effort
 
 | Factor | Qué | Escala |
-|:-------|:-----|:-------|
+| :------- | :----- | :------- |
 | **Reach** | ¿Cuántos usuarios afecta? | Usuarios/trimestre |
 | **Impact** | ¿Qué tanto ayuda? | 3=Massive, 2=High, 1=Medium, 0.5=Low, 0.25=Minimal |
 | **Confidence** | ¿Qué tan seguros? | 100%=High data, 80%=Medium, 50%=Low |
@@ -461,7 +461,7 @@ Pregunta a usuarios: "¿Qué tan decepcionado estarías si ya no pudieras usar e
 **Ejemplo:**
 
 | Feature | Reach | Impact | Confidence | Effort | Score |
-|:--------|:------|:-------|:-----------|:-------|:------|
+| :-------- | :------ | :------- | :----------- | :------- | :------ |
 | Dark mode | 10k | 1 | 80% | 0.5 | 16 |
 | AI suggestions | 50k | 3 | 50% | 4 | 18.75 ⭐ |
 | Export PDF | 5k | 2 | 100% | 1 | 10 |
@@ -477,7 +477,7 @@ Pregunta a usuarios: "¿Qué tan decepcionado estarías si ya no pudieras usar e
 ### Value vs Effort Matrix
 
 | | **High Value** | **Low Value** |
-|:---|:--------------|:--------------|
+| :--- | :-------------- | :-------------- |
 | **Low Effort** | 🚀 **Quick Wins** - Hacer primero | 💤 **Fill-ins** - Cuando hay tiempo |
 | **High Effort** | 🎯 **Big Bets** - Planear bien | ❌ **Money Pit** - Evitar |
 
@@ -510,7 +510,7 @@ Pregunta a usuarios: "¿Qué tan decepcionado estarías si ya no pudieras usar e
 ## 🔍 Discovery Techniques
 
 | Técnica | Qué | Cuándo |
-|:--------|:-----|:-----|
+| :-------- | :----- | :----- |
 | **User Interviews** | Conversaciones 1:1 | Entender problemas profundos |
 | **Surveys** | Cuestionarios masivos | Validar cuantitativamente |
 | **Usability Testing** | Observar usuarios usando producto | Identificar fricciones |
@@ -523,7 +523,7 @@ Pregunta a usuarios: "¿Qué tan decepcionado estarías si ya no pudieras usar e
 ## 🚫 Anti-patrones
 
 | Anti-patrón | Problema | Solución |
-|:------------|:---------|:---------|
+| :------------ | :--------- | :--------- |
 | **HiPPO decisions** | Highest Paid Person's Opinion | User research, data-driven |
 | **Feature factory** | Construir sin strategy | OKRs, JTBD, medir outcomes |
 | **Build it they will come** | No validar demanda | Discovery, MVPs, pre-sales |

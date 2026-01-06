@@ -63,7 +63,7 @@ Los casos de estudio sirven para:
 Los casos de estudio integran conceptos de múltiples capítulos:
 
 | Concepto | Capítulo de Referencia |
-|:---------|:----------------------|
+| :--------- | :---------------------- |
 | **Arquitectura Hexagonal** | [06 - Arquitectura y Patrones](../manuales/arquitectura-patrones.md) |
 | **Screaming Architecture** | [06 - Arquitectura y Patrones](../manuales/arquitectura-patrones.md) |
 | **ADR (Architecture Decision Record)** | [34 - Plantillas y Artefactos](../manuales/plantillas-artefactos.md) |

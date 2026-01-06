@@ -29,7 +29,7 @@
 ### DMAIC (Metodología Six Sigma)
 
 | Fase | Qué | Cómo | Herramientas |
-|:-----|:-----|:----|:-------------|
+| :----- | :----- | :---- | :------------- |
 | **Define** (Definir) | Identificar problema y objetivo | Project charter, VOC (Voice of Customer) | Diagrama Ishikawa, 5W2H |
 | **Measure** (Medir) | Recopilar datos actuales | Métricas baseline, capability analysis | Control charts, histogramas |
 | **Analyze** (Analizar) | Encontrar causas raíz | Análisis estadístico, correlaciones | 5 Porqués, Pareto, scatter plots |
@@ -91,7 +91,7 @@
 El acrónimo **DOWNTIME** ayuda a recordar los 8 desperdicios de Lean:
 
 | Desperdicio | Qué | Ejemplo Software |
-|:------------|:-----|:-----------------|
+| :------------ | :----- | :----------------- |
 | **Defects** (Defectos) | Errores, retrabajos | Bugs, hotfixes |
 | **Overproduction** (Sobreproducción) | Producir más de lo necesario | Features no usadas |
 | **Waiting** (Esperas) | Tiempo ocioso | Esperar code review, deploys |
@@ -119,7 +119,7 @@ El acrónimo **DOWNTIME** ayuda a recordar los 8 desperdicios de Lean:
 **Cuándo:** Implementar cualquier mejora, resolver problemas.
 
 | Fase | Qué | Cómo | Output |
-|:-----|:-----|:----|:-------|
+| :----- | :----- | :---- | :------- |
 | **Plan** | Identificar oportunidad, planear cambio | Análisis causa raíz, definir objetivo SMART | Plan de acción |
 | **Do** | Ejecutar plan en pequeña escala | Piloto, experimento controlado | Datos de prueba |
 | **Check** | Medir resultados vs objetivo | Comparar métricas antes/después | Learnings |
@@ -145,7 +145,7 @@ El acrónimo **DOWNTIME** ayuda a recordar los 8 desperdicios de Lean:
 **Cuándo:** Organizar codebase, repos, herramientas, espacios físicos.
 
 | Fase | Japonés | Español | Qué | Cómo (Software) |
-|:-----|:--------|:--------|:-----|:---------------|
+| :----- | :-------- | :-------- | :----- | :--------------- |
 | **1** | Seiri | **Clasificar** | Separar necesario de innecesario | Borrar código muerto, deps sin usar |
 | **2** | Seiton | **Ordenar** | Un lugar para cada cosa | Estructura de carpetas lógica, naming conventions |
 | **3** | Seiso | **Limpiar** | Mantener limpio | Formateo automático, linting, refactoring |
@@ -170,7 +170,7 @@ El acrónimo **DOWNTIME** ayuda a recordar los 8 desperdicios de Lean:
 **Cuándo:** Problemas críticos recurrentes, post-mortems importantes.
 
 | Disciplina | Qué | Output |
-|:-----------|:-----|:-------|
+| :----------- | :----- | :------- |
 | **D0** | Preparar | Reconocer problema, decidir usar 8D |
 | **D1** | Formar equipo | Equipo multifuncional con conocimiento relevante |
 | **D2** | Describir problema | Descripción detallada con datos (5W2H) |
@@ -227,7 +227,7 @@ El acrónimo **DOWNTIME** ayuda a recordar los 8 desperdicios de Lean:
 **Qué:** Métricas de confiabilidad y mantenibilidad de sistemas.
 
 | Métrica | Qué | Fórmula | Objetivo |
-|:--------|:-----|:--------|:---------|
+| :-------- | :----- | :-------- | :--------- |
 | **MTBF** (Mean Time Between Failures) | Tiempo promedio entre fallos | Tiempo operativo / # de fallos | ↑ Maximizar |
 | **MTTR** (Mean Time To Repair) | Tiempo promedio para reparar | Tiempo downtime / # de incidents | ↓ Minimizar |
 | **MTTF** (Mean Time To Failure) | Tiempo hasta primer fallo | - | ↑ Maximizar |
@@ -250,7 +250,7 @@ El acrónimo **DOWNTIME** ayuda a recordar los 8 desperdicios de Lean:
 ## 📊 Comparación de Metodologías
 
 | Metodología | Enfoque | Duración | Complejidad | Mejor Para |
-|:------------|:--------|:---------|:------------|:-----------|
+| :------------ | :-------- | :--------- | :------------ | :----------- |
 | **Six Sigma** | Reducir variabilidad | 3-6 meses | Alta | Procesos críticos, manufactura |
 | **Kaizen** | Mejora incremental | Continuo | Baja | Cultura diaria |
 | **Lean** | Eliminar desperdicio | Continuo | Media | Optimizar flujo |
@@ -263,7 +263,7 @@ El acrónimo **DOWNTIME** ayuda a recordar los 8 desperdicios de Lean:
 ## 🚫 Anti-patrones
 
 | Anti-patrón | Problema | Solución |
-|:------------|:---------|:---------|
+| :------------ | :--------- | :--------- |
 | **Mejora sin métricas** | No saber si funcionó | Definir baseline y target |
 | **Iniciativas sin seguimiento** | Se abandonan | Ownership claro, reviews periódicas |
 | **Cambios enormes** | Alta resistencia | Pequeños cambios incrementales |

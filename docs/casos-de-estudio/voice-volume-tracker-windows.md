@@ -46,7 +46,7 @@ Este caso de estudio documenta el desarrollo de una aplicación nativa de Window
 ### 1.2 Requisitos Funcionales
 
 | ID | Requisito | Prioridad | Complejidad |
-|:---|:----------|:----------|:------------|
+| :--- | :---------- | :---------- | :------------ |
 | RF-01 | Monitoreo continuo de micrófono en segundo plano | 🔴 Alta | Alta |
 | RF-02 | Cálculo de volumen en decibeles (dBFS) en tiempo real | 🔴 Alta | Media |
 | RF-03 | Identificación de voz del usuario (Speaker Verification) | 🔴 Alta | Muy Alta |
@@ -63,7 +63,7 @@ Este caso de estudio documenta el desarrollo de una aplicación nativa de Window
 ### 1.3 Requisitos No Funcionales
 
 | ID | Requisito | Métrica | Criticidad |
-|:---|:----------|:--------|:-----------|
+| :--- | :---------- | :-------- | :----------- |
 | RNF-01 | **Latencia**: Detección y alerta | < 200ms | 🔴 Crítica |
 | RNF-02 | **Performance CPU**: Uso en idle | < 3% | 🔴 Crítica |
 | RNF-03 | **Performance CPU**: Uso durante habla | < 8% | 🟠 Alta |
@@ -78,7 +78,7 @@ Este caso de estudio documenta el desarrollo de una aplicación nativa de Window
 ### 1.4 Requisitos de Seguridad y Privacidad
 
 | Requisito | Justificación | Implementación |
-|:----------|:--------------|:---------------|
+| :---------- | :-------------- | :--------------- |
 | **No almacenar audio crudo** | El audio es PII sensible | Solo guardar embeddings vectoriales |
 | **Encriptación de embeddings** | Proteger identidad vocal | AES-256 en reposo |
 | **Logs sin PII** | Cumplimiento GDPR | Solo registrar timestamps y niveles de dB |
@@ -103,7 +103,7 @@ Este caso de estudio documenta el desarrollo de una aplicación nativa de Window
 **Justificación**:
 
 | Criterio | Python | Electron | C++ | C# + .NET | Ganador |
-|:---------|:-------|:---------|:----|:----------|:--------|
+| :--------- | :------- | :--------- | :---- | :---------- | :-------- |
 | **Performance** | ❌ Lento | ❌ Alto overhead | ✅ Excelente | ✅ Muy bueno | C++/C# |
 | **Acceso bajo nivel (audio)** | ⚠️ Limitado | ❌ Difícil | ✅ Total | ✅ Bueno (P/Invoke) | C++/C# |
 | **Windows Service** | ❌ Difícil | ❌ No nativo | ✅ Nativo | ✅ Nativo | C++/C# |

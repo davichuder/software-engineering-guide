@@ -19,7 +19,7 @@
 ## 🔐 Principios Fundamentales
 
 | Principio | Qué | Por qué | Cuándo | Cómo | Herramientas |
-|:----------|:-----|:----|:-----|:----|:-------------|
+| :---------- | :----- | :---- | :----- | :---- | :------------- |
 | **Least Privilege** | Acceso mínimo necesario | Limitar impacto de compromiso | Siempre | RBAC, políticas IAM granulares | [AWS IAM](https://aws.amazon.com/iam/), [Keycloak](https://www.keycloak.org/) |
 | **Zero Trust** | Nunca confiar, siempre verificar | No asumir red interna = segura | Redes corporativas, cloud | Autenticar cada request, micro-segmentación | [BeyondCorp](https://cloud.google.com/beyondcorp), [Istio](https://istio.io/) |
 | **Defense in Depth** | Múltiples capas de seguridad | Si una falla, otras protegen | Toda la arquitectura | WAF + Firewall + Encryption + Auth + Monitoring | Stack completo |
@@ -31,7 +31,7 @@
 ## 🛡️ OWASP Top 10 (2021)
 
 | Vulnerabilidad | Qué | Por qué crítico | Cómo prevenir | Ejemplo |
-|:---------------|:-----|:------------|:--------------|:--------|
+| :--------------- | :----- | :------------ | :-------------- | :-------- |
 | **A01: Broken Access Control** | Usuarios acceden a recursos no autorizados | Exposición de datos sensibles | Validar autorización en backend, no confiar en cliente | Usuario cambia `user_id` en URL y ve datos ajenos |
 | **A02: Cryptographic Failures** | Datos sensibles sin cifrado adecuado | Robo de datos en tránsito/reposo | TLS 1.3, cifrado AES-256, no almacenar contraseñas en claro | Contraseñas en texto plano en DB |
 | **A03: Injection** | SQL, NoSQL, LDAP, OS command injection | Ejecución de código arbitrario | Prepared statements, ORMs, validación de inputs | `SELECT * FROM users WHERE name = '${input}'` |
@@ -48,7 +48,7 @@
 ## 🔑 Autenticación y Autorización
 
 | Mecanismo | Qué | Por qué | Cuándo | Cómo |
-|:----------|:-----|:----|:-----|:----|
+| :---------- | :----- | :---- | :----- | :---- |
 | **JWT** | JSON Web Token: token autofirmado | Stateless, escalable | APIs REST, microservicios | Firmar con secret (HS256) o keypair (RS256), validar en cada request |
 | **OAuth 2.0** | Delegación de autorización | No compartir contraseñas | Integraciones third-party (Login con Google) | Authorization Code Flow con PKCE |
 | **SAML** | Security Assertion Markup Language | SSO empresarial | Organizaciones con IdP central | Identity Provider emite assertions XML |
@@ -71,7 +71,7 @@
 ## 🛡️ Patrones de Seguridad Avanzados
 
 | Patrón | Qué | Por qué | Cuándo | Cómo | Herramientas |
-|:-------|:-----|:----|:-----|:----|:-------------|
+| :------- | :----- | :---- | :----- | :---- | :------------- |
 | **WAF** | Web Application Firewall | Filtrar tráfico HTTP malicioso | Apps públicas | Reglas contra SQL injection, XSS, bots | [Cloudflare WAF](https://www.cloudflare.com/waf/), [AWS WAF](https://aws.amazon.com/waf/) |
 | **DDoS Protection** | Mitigar ataques de denegación | Mantener disponibilidad | Servicios públicos | Rate limiting, CDN, anycast | [Cloudflare](https://www.cloudflare.com/), [AWS Shield](https://aws.amazon.com/shield/) |
 | **Key Rotation** | Rotar claves criptográficas periódicamente | Limitar ventana de compromiso | Siempre | Generar nueva key, re-encriptar, deprecar antigua | Vault Transit Engine, KMS |
@@ -85,7 +85,7 @@
 ## 🔍 Security Testing
 
 | Tipo | Qué | Por qué | Cuándo | Cómo | Herramientas |
-|:-----|:-----|:----|:-----|:----|:-------------|
+| :----- | :----- | :---- | :----- | :---- | :------------- |
 | **SAST** | Static Application Security Testing | Detectar bugs en código fuente | CI/CD pipeline | Analizar código sin ejecutarlo | [SonarQube](https://www.sonarsource.com/products/sonarqube/), [Checkmarx](https://checkmarx.com/) |
 | **DAST** | Dynamic Application Security Testing | Detectar vulnerabilidades en runtime | Staging, prod (controlled) | Testear app running como atacante | [OWASP ZAP](https://www.zaproxy.org/), [Burp Suite](https://portswigger.net/burp) |
 | **SCA** | Software Composition Analysis | Escanear dependencias por CVEs | Pre-commit, CI | Analizar `package.json`, `requirements.txt` | [Snyk](https://snyk.io/), [Dependabot](https://github.com/dependabot) |
@@ -97,7 +97,7 @@
 ## 🔐 Cifrado
 
 | Tipo | Qué | Cuándo | Algoritmos | Ejemplo |
-|:-----|:-----|:-----|:-----------|:--------|
+| :----- | :----- | :----- | :----------- | :-------- |
 | **Simétrico** | Misma key para cifrar/descifrar | Datos en reposo, comunicación interna | AES-2GCM | Cifrar DB backups |
 | **Asimétrico** | Keypair pública/privada | Firmas, intercambio de keys | RSA-4096, Ed25519 | HTTPS (TLS), SSH |
 | **Hashing** | One-way, no reversible | Contraseñas, integridad | bcrypt, Argon2, SHA-256 | Almacenar passwords |
@@ -109,7 +109,7 @@
 ## 🚨 Incident Response
 
 | Fase | Qué | Cómo |
-|:-----|:-----|:----|
+| :----- | :----- | :---- |
 | **Preparation** | Plan, runbooks, contactos | Documentar escalation, access a logs |
 | **Detection** | Identificar brecha | SIEM, alertas, anomalías |
 | **Containment** | Limitar daño | Aislar sistemas afectados, revocar tokens |
@@ -152,7 +152,7 @@
 ## 🚫 Anti-patrones
 
 | Anti-patrón | Problema | Solución |
-|:------------|:---------|:---------|
+| :------------ | :--------- | :--------- |
 | **Security through obscurity** | Confiar en que atacante no conoce sistema | Asumir que sí conoce, aplicar defensa real |
 | **Hardcoded secrets** | Credentials en código | Vault, environment variables |
 | **Admin interface expuesta** | `/admin` sin IP whitelist | VPN, IP allowlist, strong auth |

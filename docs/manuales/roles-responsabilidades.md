@@ -430,7 +430,7 @@
 Matriz para definir responsabilidades en proyectos:
 
 | Tarea / Decisión | Tech Lead | EM | PM | Frontend | Backend | QA |
-|:-----------------|:---------:|:--:|:--:|:--------:|:-------:|:--:|
+| :----------------- | :---------: | :--: | :--: | :--------: | :-------: | :--: |
 | Decisión arquitectónica | **A** | C | I | C | C | I |
 | Priorización de features | C | C | **A** | I | I | I |
 | Code review | **R** | I | I | R | R | I |
@@ -485,7 +485,7 @@ Basado en el libro "Team Topologies" de Matthew Skelton y Manuel Pais.
 **Tipos de equipos:**
 
 | Tipo | Propósito | Ejemplos |
-|:-----|:----------|:---------|
+| :----- | :---------- | :--------- |
 | **Stream-Aligned** | Entregar valor end-to-end para un flujo de negocio | Equipo de Checkout, Equipo de Payments |
 | **Enabling** | Ayudar a otros equipos a adoptar nuevas tecnologías | Platform Adoption Team, Security Champions |
 | **Complicated Subsystem** | Construir y mantener subsistemas complejos | ML Platform Team, Video Processing Team |
@@ -494,7 +494,7 @@ Basado en el libro "Team Topologies" de Matthew Skelton y Manuel Pais.
 **Modos de interacción:**
 
 | Modo | Descripción | Cuándo usar |
-|:-----|:------------|:------------|
+| :----- | :------------ | :------------ |
 | **Collaboration** | Dos equipos trabajan juntos temporalmente | Adopción de nueva tecnología, migración compleja |
 | **X-as-a-Service** | Un equipo consume servicios de otro | Platform team provee APIs a stream-aligned teams |
 | **Facilitating** | Un equipo ayuda a otro a mejorar capacidades | Enabling team ayuda a adoptar nuevas prácticas |

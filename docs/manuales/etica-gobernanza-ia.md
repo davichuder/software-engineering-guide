@@ -15,7 +15,7 @@
 ### Principios Fundamentales
 
 | Principio | Explicación |
-|:----------|:------------|
+| :---------- | :------------ |
 | **Fairness** | El modelo no debe discriminar por raza, género, edad, etc. |
 | **Transparency** | Las decisiones del modelo deben ser explicables |
 | **Privacy** | Proteger datos personales y sensibles |
@@ -29,7 +29,7 @@
 ### Tipos de Bias
 
 | Tipo | Descripción | Ejemplo |
-|:-----|:------------|:--------|
+| :----- | :------------ | :-------- |
 | **Historical Bias** | Bias en datos históricos refleja discriminación pasada | Dataset de contrataciones con más hombres en tech → modelo aprende a preferir hombres |
 | **Representation Bias** | Grupos subrepresentados en datos de entrenamiento | Dataset de reconocimiento facial con 90% personas blancas → peor performance en personas de color |
 | **Measurement Bias** | Features usadas como proxies para atributos protegidos | Usar código postal como proxy para raza/ingresos |
@@ -43,7 +43,7 @@
 ### Clasificación de Riesgo (EU AI Act)
 
  | Nivel | Descripción | Ejemplos | Requisito de Auditoría |
- |:------|:------------|:---------|:-----------------------|
+ | :------ | :------------ | :--------- | :----------------------- |
  | **Riesgo Inaceptable** | Amenaza a seguridad o derechos | Social scoring, manipulación subliminal | 🛑 **Prohibido** |
  | **Alto Riesgo** | Infraestructura crítica, empleo, servicios esenciales | Auth, Crypto, Hiring, Crédito | 👮 **Auditoría Humana Obligatoria** |
  | **Riesgo Limitado** | Chatbots, deepfakes | Customer service, generación de contenido | ⚠️ **Transparencia** (avisar que es IA) |
@@ -111,7 +111,7 @@ for group in df['protected_attribute'].unique():
 ### Mitigación de Bias
 
 | Técnica | Cuándo Usar | Ejemplo |
-|:--------|:------------|:--------|
+| :-------- | :------------ | :-------- |
 | **Pre-processing** | Antes de entrenar modelo | Rebalancear dataset (oversampling, undersampling, SMOTE) |
 | **In-processing** | Durante entrenamiento | Agregar fairness constraints (adversarial debiasing, reweighting) |
 | **Post-processing** | Después de entrenar modelo | Ajustar thresholds por grupo para igualar métricas de fairness |
@@ -265,7 +265,7 @@ P(Y_true=1 | Y_pred=p, A=0) = P(Y_true=1 | Y_pred=p, A=1)
 ### ¿Por Qué Explicabilidad?
 
 | Razón | Ejemplo |
-|:------|:--------|
+| :------ | :-------- |
 | **Regulaciones** | GDPR "derecho a explicación" |
 | **Trust** | Usuarios confían más en decisiones explicables |
 | **Debugging** | Detectar errores en modelo |
@@ -412,7 +412,7 @@ for round in range(num_rounds):
 **Técnicas:**
 
 | Técnica | Descripción | Ejemplo |
-|:--------|:------------|:--------|
+| :-------- | :------------ | :-------- |
 | **K-anonymity** | Cada registro es indistinguible de al menos k-1 otros | Generalizar edad (25 → 30) |
 | **L-diversity** | Cada grupo de k registros tiene al menos L valores distintos en atributos sensibles | Grupo de 5 personas con 3 diagnósticos diferentes |
 | **T-closeness** | Distribución de atributos sensibles en cada grupo es similar a distribución global | Distribución de salarios en grupo similar a distribución general |

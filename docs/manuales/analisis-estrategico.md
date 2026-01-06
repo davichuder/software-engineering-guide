@@ -29,7 +29,7 @@
 **Cómo:** Workshop 2-3 horas con stakeholders, matriz 2x2.
 
 | | **Positivo** | **Negativo** |
-|:---|:-------------|:-------------|
+| :--- | :------------- | :------------- |
 | **Interno** | **Fortalezas** (Strengths); ¿Qué hacemos bien?; ¿Qué recursos únicos tenemos? | **Debilidades** (Weaknesses); ¿Qué podemos mejorar?; ¿Qué nos falta? |
 | **Externo** | **Oportunidades** (Opportunities); ¿Qué tendencias favorecen?; ¿Qué gaps de mercado? | **Amenazas** (Threats); ¿Qué competencia?; ¿Qué riesgos externos? |
 
@@ -78,7 +78,7 @@
 **Cuándo:** Inmediatamente después de FODA.
 
 | FODA | CAME | Descripción | Acción |
-|:-----|:-----|:------------|:-------|
+| :----- | :----- | :------------ | :------- |
 | **Fortalezas** | **Mantener** (Corregir) | Seguir invirtiendo, defender ventaja | Mantener velocidad: contratar más devs |
 | **Oportunidades** | **Explotar** (Afrontar) | Capitalizar, actuar rápido | Lanzar campaña en nicho remote work |
 | **Debilidades** | **Corregir** (Mantener) | Mejorar, invertir recursos | Contratar CMO, aumentar budget marketing |
@@ -97,7 +97,7 @@
 **Cómo:** Investigar cada factor, identificar impacto en negocio.
 
 | Factor | Qué | Preguntas | Ejemplo Tech |
-|:-------|:-----|:----------|:-------------|
+| :------- | :----- | :---------- | :------------- |
 | **Político** | Estabilidad, políticas, gobierno | ¿Cambios en regulación tech?; ¿Incentivos fiscales? | Subsidios I+D, restricciones export chips |
 | **Económico** | Inflación, tasas, PBI, empleo | ¿Recesión?; ¿Poder adquisitivo? | Startup funding afectado por tasas altas |
 | **Social** | Demografía, cultura, tendencias | ¿Adopción tecnológica?; ¿Valores? | Remote work normalizado post-COVID |
@@ -132,7 +132,7 @@
 ```
 
 | Fuerza | Qué | Alta = ⚠️ | Baja = ✅ |
-|:-------|:-----|:----------|:---------|
+| :------- | :----- | :---------- | :--------- |
 | **Rivalidad entre competidores** | Intensidad competencia actual | Muchos competidores similares, guerra precios | Pocos competidores, diferenciación clara |
 | **Amenaza nuevos entrantes** | Facilidad para nuevos competidores | Bajas barreras entrada, capital bajo | Altas barreras (regulación, capital, tech) |
 | **Poder de negociación proveedores** | Influencia de proveedores | Pocos proveedores, altos costos cambio | Muchos proveedores, fácil cambiar |
@@ -162,7 +162,7 @@
 **Preguntas:**
 
 | Pregunta | Resultado |
-|:---------|:----------|
+| :--------- | :---------- |
 | ¿Agrega **Valor**? | No → Desventaja competitiva |
 | ¿Es **Raro**? | No → Paridad competitiva |
 | ¿Es **Inimitable** (difícil copiar)? | No → Ventaja temporal |
@@ -171,7 +171,7 @@
 **Ejemplo - Tesla:**
 
 | Recurso | Valor | Raro | Inimitable | Organizado | Resultado |
-|:--------|:------|:-----|:-----------|:-----------|:----------|
+| :-------- | :------ | :----- | :----------- | :----------- | :---------- |
 | Marca | ✅ | ✅ | ✅ (reputación construida años) | ✅ | Ventaja sostenible |
 | Baterías propias | ✅ | ✅ | ⚠️ (competidores invierten I+D) | ✅ | Ventaja temporal |
 | Software OTA | ✅ | ⚠️ (otros adoptan) | ❌ | ✅ | Ventaja temporal |
@@ -234,7 +234,7 @@ Quote: "Si no puedo configurarlo en 5 minutos, busco alternativa."
 **Criterios:**
 
 | Categoría | Ejemplos |
-|:----------|:---------|
+| :---------- | :--------- |
 | **Firmográficos** | Industria (SaaS, Fintech); Tamaño (500 empleados); Revenue ($5M-$50M); Ubicación (LATAM, USA) |
 | **Tecnográficos** | Stack tech (React, AWS); Herramientas (Salesforce, Slack); Madurez tech (cloud-native) |
 | **Comportamiento** | Budget disponible ($50k+/año); Ciclo compra (3-6 meses); Decision makers (CTO, VP Eng) |
@@ -270,7 +270,7 @@ Quote: "Si no puedo configurarlo en 5 minutos, busco alternativa."
 
 ```text
 Tarea                  | Sem1 | Sem2 | Sem3 | Sem4 |
------------------------|------|------|------|------|
+-----------------------| ------ | ------ | ------ | ------ |
 Diseño UX              | ███  |      |      |      |
 Desarrollo Backend     |   ████████  |      |      |
 Desarrollo Frontend    |      |  █████████  |      |
@@ -285,7 +285,7 @@ Deploy                 |      |      |      | █    |
 ## 🚫 Errores Comunes
 
 | Error | Problema | Solución |
-|:------|:---------|:---------|
+| :------ | :--------- | :--------- |
 | **Análisis sin acción** | Documentos que nadie usa | Derivar OKRs y plan concreto |
 | **Assumptions sin validar** | Decisiones basadas en guesses | Customer interviews, MVP |
 | **Personas genéricas** | "Todas las empresas" | Segmentar, priorizar ICP |

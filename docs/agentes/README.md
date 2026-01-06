@@ -89,7 +89,7 @@ Prompt del sistema y comportamiento del agente...
 ### 🔧 Backend
 
 | Agent Name | Stack | Propósito | Definición |
-|:-----------|:------|:----------|:-----------|
+| :----------- | :------ | :---------- | :----------- |
 | **Java Expert** | Java 17+, Maven, Gradle, JUnit 5, Mockito | Diseño OOP, debugging, performance, best practices Java moderno | [java-expert.md](./backend/java-expert.md) |
 | **Spring Expert** | Spring Boot 3.x, Spring Security, Spring Data, Actuator | Microservicios, seguridad OAuth2/JWT, reactive programming | [spring-expert.md](./backend/spring-expert.md) |
 | **Python Expert** | Python 3.11+, pytest, black, mypy, ruff | Code review, patterns Pythonic, type hints, async/await | [python-expert.md](./backend/python-expert.md) |
@@ -104,7 +104,7 @@ Prompt del sistema y comportamiento del agente...
 ### 🎨 Frontend
 
 | Agent Name | Stack | Propósito | Definición |
-|:-----------|:------|:----------|:-----------|
+| :----------- | :------ | :---------- | :----------- |
 | **TypeScript Expert** | TypeScript 5.x, ESLint, type-fest, zod | Tipado avanzado (generics, conditional types), migraciones JS→TS | [typescript-expert.md](./frontend/typescript-expert.md) |
 | **React Expert** | React 18+, Hooks, Redux Toolkit, React Query, Vite | Component design, state management, performance optimization | [react-expert.md](./frontend/react-expert.md) |
 | **Next.js Expert** | Next.js 14+, App Router, Server Components, Middleware | SSR, SSG, ISR, routing, performance, SEO | [nextjs-expert.md](./frontend/nextjs-expert.md) |
@@ -117,7 +117,7 @@ Prompt del sistema y comportamiento del agente...
 ### 🗄️ Bases de Datos
 
 | Agent Name | Stack | Propósito | Definición |
-|:-----------|:------|:----------|:-----------|
+| :----------- | :------ | :---------- | :----------- |
 | **PostgreSQL Expert** | PostgreSQL 15+, pgAdmin, EXPLAIN ANALYZE, partitioning | Modelado, índices, query tuning, partitioning | [postgresql-expert.md](./databases/postgresql-expert.md) |
 | **MSSQL Expert** | SQL Server 2022, T-SQL, SSMS, execution plans | Stored procedures, triggers, índices, performance tuning | [mssql-expert.md](./databases/mssql-expert.md) |
 | **MongoDB Expert** | MongoDB 6.x+, Compass, aggregation framework, sharding | Modelado NoSQL, aggregation pipelines, sharding | [mongodb-expert.md](./databases/mongodb-expert.md) |
@@ -129,7 +129,7 @@ Prompt del sistema y comportamiento del agente...
 ### 🏗️ Arquitectura y DevOps
 
 | Agent Name | Stack | Propósito | Definición |
-|:-----------|:------|:----------|:-----------|
+| :----------- | :------ | :---------- | :----------- |
 | **Software Architecture Expert** | C4 Model, UML, ADR, Mermaid, PlantUML | Decision records, trade-offs, patterns arquitectónicos | [software-architecture-expert.md](./architecture-devops/software-architecture-expert.md) |
 | **Microservices Expert** | Docker, Kubernetes, gRPC, Kafka, Istio | Bounded contexts, comunicación, resiliencia, service mesh | [microservices-expert.md](./architecture-devops/microservices-expert.md) |
 | **Event-Driven Expert** | Kafka, RabbitMQ, EventBridge, Debezium | Diseño de eventos, idempotencia, ordering, CQRS | [event-driven-expert.md](./architecture-devops/event-driven-expert.md) |
@@ -145,7 +145,7 @@ Prompt del sistema y comportamiento del agente...
 ### 🧪 Testing
 
 | Agent Name | Stack | Propósito | Definición |
-|:-----------|:------|:----------|:-----------|
+| :----------- | :------ | :---------- | :----------- |
 | **TDD Expert** | TDD workflow, JUnit, pytest, Jest, Vitest | Test-first development, red-green-refactor, anti-patterns | [tdd-expert.md](./testing/tdd-expert.md) |
 | **BDD Expert** | Cucumber, Gherkin, SpecFlow, Behave | Criterios de aceptación, escenarios Given-When-Then | [bdd-expert.md](./testing/bdd-expert.md) |
 | **Performance Testing Expert** | JMeter, k6, Locust, Gatling | Planes de carga (load, stress, spike), benchmarks | [performance-testing-expert.md](./testing/performance-testing-expert.md) |
@@ -157,7 +157,7 @@ Prompt del sistema y comportamiento del agente...
 ### 📊 Datos, ML y Finanzas
 
 | Agent Name | Stack | Propósito | Definición |
-|:-----------|:------|:----------|:-----------|
+| :----------- | :------ | :---------- | :----------- |
 | **Data Science Expert** | pandas, NumPy, scikit-learn, Jupyter, MLflow | EDA, feature engineering, pipelines reproducibles | [data-science-expert.md](./data-ml-finance/data-science-expert.md) |
 | **ML/DL Expert** | TensorFlow, PyTorch, Keras, Hugging Face | Model design, training, hyperparameter tuning, deployment | [ml-dl-expert.md](./data-ml-finance/ml-dl-expert.md) |
 | **RL Expert** | OpenAI Gym, Stable Baselines3, Ray RLlib | Diseño de entornos, reward shaping, algoritmos (DQN, PPO) | [rl-expert.md](./data-ml-finance/rl-expert.md) |
@@ -172,7 +172,7 @@ Prompt del sistema y comportamiento del agente...
 ### 📝 Documentación y Contenido
 
 | Agent Name | Stack | Propósito | Definición |
-|:-----------|:------|:----------|:-----------|
+| :----------- | :------ | :---------- | :----------- |
 | **Technical Writer Expert** | Markdown, MkDocs, Docusaurus, Sphinx, Vale | Redacción de manuales, API docs, tutorials, style guides | [technical-writer-expert.md](./documentation/technical-writer-expert.md) |
 | **API Documentation Expert** | OpenAPI/Swagger, AsyncAPI, Redoc, Stoplight | Documentación de APIs, ejemplos, authentication | [api-documentation-expert.md](./documentation/api-documentation-expert.md) |
 | **Content Creator Expert** | LinkedIn/Twitter formats, copywriting, Canva | Adaptar contenido técnico a posts, threads, visuales | [content-creator-expert.md](./documentation/content-creator-expert.md) |
@@ -183,7 +183,7 @@ Prompt del sistema y comportamiento del agente...
 ### 👥 Roles de Negocio
 
 | Agent Name | Stack | Propósito | Definición |
-|:-----------|:------|:----------|:-----------|
+| :----------- | :------ | :---------- | :----------- |
 | **PM/PO Advisor** | Roadmaps, OKRs, user stories, RICE, MoSCoW | Definición de scope, priorización, acceptance criteria | [pm-po-advisor.md](./business-roles/pm-po-advisor.md) |
 | **UX Research Expert** | User interviews, personas, usability testing, A/B testing | Diseñar tests de usabilidad, interpretar resultados | [ux-research-expert.md](./business-roles/ux-research-expert.md) |
 | **UX/UI Designer** | Figma, Sketch, design systems, prototyping, WCAG | Wireframes, mockups, prototypes, design systems | [ux-ui-designer.md](./business-roles/ux-ui-designer.md) |
@@ -197,7 +197,7 @@ Prompt del sistema y comportamiento del agente...
 ### 🔍 Debugging y Troubleshooting
 
 | Agent Name | Stack | Propósito | Definición |
-|:-----------|:------|:----------|:-----------|
+| :----------- | :------ | :---------- | :----------- |
 | **Debugging & Root Cause Expert** | Tracing (Jaeger), profiling (pprof, py-spy), flamegraphs | Diagnóstico de incidentes, RCA, performance profiling | [debugging-root-cause-expert.md](./debugging/debugging-root-cause-expert.md) |
 | **Migration Specialist** | DB migration tools, feature flags, canary deploys | Planes de migración, rollback strategies, zero-downtime | [migration-specialist.md](./debugging/migration-specialist.md) |
 | **Code Review Expert** | GitHub/GitLab PR reviews, SonarQube, ESLint | Code review best practices, feedback efectivo | [code-review-expert.md](./debugging/code-review-expert.md) |
@@ -207,7 +207,7 @@ Prompt del sistema y comportamiento del agente...
 ### 🎯 Compliance y Gobernanza
 
 | Agent Name | Stack | Propósito | Definición |
-|:-----------|:------|:----------|:-----------|
+| :----------- | :------ | :---------- | :----------- |
 | **Compliance & Governance Expert** | GDPR, SOC2, ISO 27001, audit trails, policies | Requisitos regulatorios, auditorías, controles de acceso | [compliance-governance-expert.md](./compliance/compliance-governance-expert.md) |
 | **Accessibility Expert** | WCAG 2.1, ARIA, axe DevTools, screen readers | Auditorías de accesibilidad, remediación, WCAG compliance | [accessibility-expert.md](./compliance/accessibility-expert.md) |
 
@@ -216,7 +216,7 @@ Prompt del sistema y comportamiento del agente...
 ## 📊 Resumen de Agentes
 
 | Categoría | Cantidad | Agentes |
-|:----------|:--------:|:--------|
+| :---------- | :--------: | :-------- |
 | **Backend** | 8 | Java, Spring, Python, FastAPI, Django, Node.js, Express, NestJS |
 | **Frontend** | 6 | TypeScript, React, Next.js, Angular, Vue, CSS/Styling |
 | **Bases de Datos** | 5 | PostgreSQL, MSSQL, MongoDB, Redis, SQLite |

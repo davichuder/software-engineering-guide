@@ -19,7 +19,7 @@
 ## 🗄️ Base de Datos
 
 | Técnica | Qué | Por qué | Cuándo | Cómo | Herramientas |
-|:--------|:-----|:----|:-----|:----|:-------------|
+| :-------- | :----- | :---- | :----- | :---- | :------------- |
 | **Indexing** | Estructuras para búsqueda rápida | O(log n) vs O(n) | Columnas en WHERE, JOIN, ORDER BY | `CREATE INDEX idx_users_email ON users(email)` | [EXPLAIN ANALYZE](https://www.postgresql.org/docs/current/sql-explain.html) |
 | **Query Optimization** | Mejorar queries lentas | Reducir scans completos | Queries > 100ms | Evitar SELECT *, usar covering indexes, LIMIT | [DataGrip](https://www.jetbrains.com/datagrip/), [pgAdmin](https://www.pgadmin.org/) |
 | **Connection Pooling** | Reutilizar conexiones | Evitar overhead de TCP handshake | Siempre | Pool de 50 conexiones | [HikariCP](https://github.com/brettwooldridge/HikariCP), [pgBouncer](https://www.pgbouncer.org/) |
@@ -33,7 +33,7 @@
 ## 🚀 Backend
 
 | Técnica | Qué | Por qué | Cuándo | Cómo | Herramientas |
-|:--------|:-----|:----|:-----|:----|:-------------|
+| :-------- | :----- | :---- | :----- | :---- | :------------- |
 | **Caching** | Almacenar resultados para reutilizar | Evitar cómputo/DB repetidos | Datos que cambian poco | Cache-Aside, Write-Through, TTL | [Redis](https://redis.io/), [Memcached](https://memcached.org/) |
 | **Async Processing** | Desacoplar operaciones lentas | No bloquear request | Emails, reports, ML inference | Job queues, event-driven | [Celery](https://docs.celeryq.dev/), [BullMQ](https://docs.bullmq.io/) |
 | **Rate Limiting** | Limitar requests por cliente | Prevenir abuse, proteger recursos | APIs públicas | Token bucket, sliding window | [redis-cell](https://github.com/brandur/redis-cell), [express-rate-limit](https://github.com/express-rate-limit/express-rate-limit) |
@@ -47,7 +47,7 @@
 ## 💻 Frontend
 
 | Técnica | Qué | Por qué | Cuándo | Cómo | Herramientas |
-|:--------|:-----|:----|:-----|:----|:-------------|
+| :-------- | :----- | :---- | :----- | :---- | :------------- |
 | **Code Splitting** | Dividir bundle en chunks | Cargar solo lo necesario | SPAs grandes | Dynamic imports, route-based splitting | [Webpack](https://webpack.js.org/), [Vite](https://vitejs.dev/) |
 | **Lazy Loading** | Cargar recursos al scrollear | Reducir initial load | Imágenes, componentes below fold | `loading="lazy"`, Intersection Observer | [react-lazyload](https://github.com/twobin/react-lazyload) |
 | **Tree Shaking** | Eliminar código no usado | Reducir bundle size | Siempre | ES6 imports, `sideEffects: false` | Webpack, Rollup |
@@ -63,7 +63,7 @@
 ## 🌐 Networking
 
 | Técnica | Qué | Por qué | Cuándo | Cómo |
-|:--------|:-----|:----|:-----|:----|
+| :-------- | :----- | :---- | :----- | :---- |
 | **HTTP Keep-Alive** | Reutilizar conexión TCP | Evitar handshakes | Siempre | `Connection: keep-alive` header |
 | **DNS Prefetch** | Resolver DNS antes de click | Reducir latencia | Links externos | `<link rel="dns-prefetch" href="//example.com">` |
 | **HTTP/3 (QUIC)** | UDP en vez de TCP | Reducir latency en redes lossy | Mobile, alta latencia | Habilitar en CDN/server |
@@ -74,7 +74,7 @@
 ## 📊 Profiling y Diagnóstico
 
 | Herramienta | Qué | Cuándo | Cómo leer |
-|:------------|:-----|:-----|:----------|
+| :------------ | :----- | :----- | :---------- |
 | [Chrome DevTools](https://developer.chrome.com/docs/devtools/) | Performance tab, Network, Lighthouse | Frontend | Flamegraphs, waterfall charts |
 | [py-spy](https://github.com/benfred/py-spy) | Profiler Python sin modificar código | Backend Python | Flamegraph de CPU time |
 | [async-profiler](https://github.com/async-profiler/async-profiler) | Profiler Java low-overhead | Backend Java | Flamegraphs, allocation profiling |
@@ -87,7 +87,7 @@
 ## 🎯 Métricas Clave
 
 | Métrica | Objetivo | Cómo medir |
-|:--------|:---------|:-----------|
+| :-------- | :--------- | :----------- |
 | **TTFB** (Time To First Byte) | < 200ms | Chrome DevTools Network |
 | **FCP** (First Contentful Paint) | < 1.8s | Lighthouse, Web Vitals |
 | **LCP** (Largest Contentful Paint) | < 2.5s | Core Web Vitals |
@@ -102,7 +102,7 @@
 ## 💾 Caching Strategies
 
 | Strategy | Qué | Cuándo | Ejemplo |
-|:---------|:-----|:-----|:--------|
+| :--------- | :----- | :----- | :-------- |
 | **Cache-Aside** | App lee cache, si miss → DB → cache | Lectura intensiva | `getUser() → check Redis → query DB → set Redis` |
 | **Write-Through** | Escribir en cache y DB simultáneamente | Consistencia fuerte | `updateUser() → write DB + write Redis` |
 | **Write-Behind** | Escribir en cache, async a DB | Alta carga escritura | Logs, metrics (eventual consistency OK) |
@@ -119,7 +119,7 @@
 ## 🚫 Anti-patrones
 
 | Anti-patrón | Problema | Solución |
-|:------------|:---------|:---------|
+| :------------ | :--------- | :--------- |
 | **N+1 Queries** | Un query por item en lista | Eager loading, JOIN |
 | **SELECT \*** | Traer columnas innecesarias | SELECT solo lo necesario |
 | **Sin indexes** | Full table scans | Indexar columnas en WHERE |

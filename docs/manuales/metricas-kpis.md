@@ -27,7 +27,7 @@
 **Cuándo:** Definir métricas de producto, dashboards.
 
 | Dimensión | Qué | Métricas Ejemplo | Cuándo usar |
-|:----------|:-----|:-----------------|:------------|
+| :---------- | :----- | :----------------- | :------------ |
 | **Happiness** | Satisfacción y actitud | NPS, CSAT, app store rating | Productos consumer, SaaS |
 | **Engagement** | Nivel de actividad | DAU/MAU, sesiones/usuario, tiempo en app | Apps sociales, contenido |
 | **Adoption** | Nuevos usuarios usando feature | % usuarios activos usando feature X | Lanzar features |
@@ -53,7 +53,7 @@
 **Cuándo:** Startups growth, optimización conversión.
 
 | Etapa | Qué | Métricas | Optimizar |
-|:------|:-----|:---------|:----------|
+| :------ | :----- | :--------- | :---------- |
 | **Acquisition** | Cómo llegan usuarios | Tráfico, cost per acquisition (CPA), canales | SEO, ads, referrals |
 | **Activation** | Primera experiencia positiva | % completan onboarding, time to value | Onboarding, aha moment |
 | **Retention** | Usuarios regresan | D7/D30 retention, churn rate | Engagement loops, notifs |
@@ -89,7 +89,7 @@
 **Cuándo:** Evaluar madurez DevOps, benchmarking.
 
 | Métrica | Qué | Elite | High | Medium | Low |
-|:--------|:-----|:------|:-----|:-------|:----|
+| :-------- | :----- | :------ | :----- | :------- | :---- |
 | **Deployment Frequency** | Frecuencia de deploys a prod | On-demand | Semanal-mensual | Mensual-semestral | < Semestral |
 | **Lead Time for Changes** | Commit → producción | < 1 hora | < 1 día | < 1 semana | > 1 semana |
 | **Change Failure Rate** | % deploys que fallan | 0-15% | 30% | 45% | > 45% |
@@ -140,7 +140,7 @@
 **Comparación:**
 
 | Métrica | Predice | Cuándo |
-|:--------|:--------|:-------|
+| :-------- | :-------- | :------- |
 | **NPS** | Loyalty, growth | Long-term health |
 | **CSAT** | Satisfacción momento | Experiencia específica |
 | **CES** | Retention | Esfuerzo usuario |
@@ -152,7 +152,7 @@
 ### SaaS Metrics
 
 | Métrica | Qué | Fórmula | Target |
-|:--------|:-----|:--------|:-------|
+| :-------- | :----- | :-------- | :------- |
 | **MRR** | Monthly Recurring Revenue | Suma suscripciones mensuales | Crecimiento 10%+ MoM |
 | **ARR** | Annual Recurring Revenue | MRR × 12 | - |
 | **ARPU** | Average Revenue Per User | MRR / Total usuarios | ↑ Over time |
@@ -173,7 +173,7 @@
 ### E-commerce
 
 | Métrica | Qué | Fórmula |
-|:--------|:-----|:--------|
+| :-------- | :----- | :-------- |
 | **Conversion Rate** | % visitantes que compran | Compras / Visitantes × 100 |
 | **AOV** | Average Order Value | Revenue / # Órdenes |
 | **Cart Abandonment** | % carritos no completados | Carritos abandonados / Carritos iniciados |
@@ -184,7 +184,7 @@
 ## 📈 Métricas de Engagement
 
 | Métrica | Qué | Cálculo | Interpretación |
-|:--------|:-----|:--------|:---------------|
+| :-------- | :----- | :-------- | :--------------- |
 | **DAU/MAU** | Daily/Monthly Active Users | Ratio DAU/MAU | >20% = sticky product |
 | **Sessions/User** | Frecuencia de uso | Sesiones totales / Usuarios | Engagement alto |
 | **Session Duration** | Tiempo por visita | Avg tiempo sesión | Depende producto |
@@ -208,7 +208,7 @@
 **Ejemplo:**
 
 | Cohort | Week 0 | Week 1 | Week 2 | Week 3 | Week 4 |
-|:-------|:-------|:-------|:-------|:-------|:-------|
+| :------- | :------- | :------- | :------- | :------- | :------- |
 | Jan W1 | 100% | 40% | 30% | 25% | 23% |
 | Jan W2 | 100% | 45% | 35% | 30% | 28% |
 | Jan W3 | 100% | 50% | 40% | 35% | 33% |
@@ -222,7 +222,7 @@
 ## ⚠️ Vanity Metrics vs Actionable Metrics
 
 | Vanity (Evitar) | Por qué engañosa | Actionable (Preferir) |
-|:----------------|:-----------------|:----------------------|
+| :---------------- | :----------------- | :---------------------- |
 | Total usuarios registrados | No dice cuántos activos | MAU, DAU |
 | Page views | No refleja engagement real | Tiempo en página, conversión |
 | Followers sociales | Pueden ser bots, inactivos | Engagement rate, clicks |
@@ -262,7 +262,7 @@
 ## 🔬 A/B Testing Metrics
 
 | Concepto | Qué | Ejemplo |
-|:---------|:-----|:--------|
+| :--------- | :----- | :-------- |
 | **Primary Metric** | Métrica principal a mover | Conversion rate |
 | **Secondary Metrics** | Otras métricas a monitorear | AOV, retention |
 | **Guardrail Metrics** | No deben empeorar | Load time, error rate |
@@ -308,7 +308,7 @@
 ## 🚫 Errores Comunes
 
 | Error | Problema | Solución |
-|:------|:---------|:---------|
+| :------ | :--------- | :--------- |
 | **Demasiadas métricas** | Parálisis, falta foco | 5-7 KPIs máximo |
 | **Métricas sin ownership** | Nadie responsable | Asignar owner por métrica |
 | **No segmentar** | Promedios esconden insights | Segmentar por persona, feature, cohorte |

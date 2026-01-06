@@ -21,7 +21,7 @@
 ## 📊 Fases FinOps
 
 | Fase | Qué | Actividades |
-|:-----|:-----|:------------|
+| :----- | :----- | :------------ |
 | **Inform** | Visibilidad total | Tagging, dashboards, chargeback |
 | **Optimize** | Reducir desperdicio | Right-sizing, RIs, eliminar recursos idle |
 | **Operate** | Cultura continua | Alertas, governance, automation |
@@ -39,7 +39,7 @@
 **Tags obligatorios:**
 
 | Tag | Ejemplo | Uso |
-|:----|:--------|:----|
+| :---- | :-------- | :---- |
 | `Environment` | prod, staging, dev | Separar ambientes |
 | `Project` | payments, analytics | Chargeback por proyecto |
 | `Owner` | team-platform, <alice@company.com> | Ownership |
@@ -95,7 +95,7 @@ EC2 m5.4xlarge (16 vCPU, 64GB RAM)
 **Qué:** Compromiso de uso 1-3 años a cambio de descuento.
 
 | Tipo | Compromiso | Descuento | Flexibilidad | Cuándo |
-|:-----|:-----------|:----------|:-------------|:-------|
+| :----- | :----------- | :---------- | :------------- | :------- |
 | **On-Demand** | Ninguno | 0% | Total | Carga variable |
 | **Savings Plans** | $/hora, 1-3 años | 50% | Alta (tipo instancia) | Carga estable |
 | **Reserved Instances** | Instancia específica, 1-3 años | 70% | Baja | Carga muy predecible |
@@ -131,7 +131,7 @@ Ahorro: $2,800/mes = $33,600/año
 **Patrones:**
 
 | Pattern | Qué | Ejemplo |
-|:--------|:-----|:--------|
+| :-------- | :----- | :-------- |
 | **Stateless apps** | Sin estado local | Workers procesando cola |
 | **Checkpointing** | Guardar estado periódicamente | ML training con S3 checkpoints |
 | **Spot Fleet** | Mezcla tipos instancias | Diversificar para disponibilidad |
@@ -147,7 +147,7 @@ Ahorro: $2,800/mes = $33,600/año
 ## 📉 Eliminar Desperdicio (Waste)
 
 | Desperdicio | Qué | Cómo detectar | Solución |
-|:------|:-----|:--------------|:---------|
+| :------ | :----- | :-------------- | :--------- |
 | **Recursos idle** | Recursos sin uso | CPU <5%, network mínimo | Apagar fuera horario, auto-stop |
 | **Snapshots antiguos** | Backups obsoletos | >90 días | Lifecycle policy automático |
 | **EBS unattached** | Discos sin instancia | Filter: available | Eliminar tras verificar |
@@ -198,7 +198,7 @@ $5,000/mes → $1,800/mes = $3,200/mes ahorro
 ### S3 Storage Classes
 
 | Class | Latency | Costo | Uso |
-|:------|:--------|:------|:----|
+| :------ | :-------- | :------ | :---- |
 | **Standard** | ms | $0.023/GB | Acceso frecuente |
 | **Intelligent-Tiering** | ms | Auto-optimiza | Patrón desconocido |
 | **Infrequent Access** | ms | $0.0125/GB | Acceso mensual |
@@ -238,7 +238,7 @@ $5,000/mes → $1,800/mes = $3,200/mes ahorro
 **Optimización:**
 
 | Técnica | Qué | Ahorro |
-|:--------|:----|:-------|
+| :-------- | :---- | :------- |
 | **CloudFront CDN** | Cache assets, reduce origin requests | 80% |
 | **S3 Transfer Acceleration** | Optimiza uploads globales | Variable |
 | **VPC Endpoints** | Tráfico privado AWS (sin internet) | Evita $0.09/GB |
@@ -275,7 +275,7 @@ Alert: Recursos sin tags
 ## 🎯 FinOps KPIs
 
 | Métrica | Target | Fórmula |
-|:--------|:-------|:--------|
+| :-------- | :------- | :-------- |
 | **Savings Rate** | >20% | (Savings / Total Spend) × 100 |
 | **RI/SP Coverage** | >70% | Horas covered / Total horas |
 | **Sin Etiquetar** | 0% | Recursos sin tags / Total |
@@ -289,7 +289,7 @@ Alert: Recursos sin tags
 ### Shared Responsibility
 
 | Stakeholder | Responsabilidad |
-|:------------|:----------------|
+| :------------ | :---------------- |
 | **Engineers** | Write efficient code, right-size, apagar recursos |
 | **Architects** | Diseñar cost-effective, usar managed services |
 | **Finance** | Budgets, forecasting, chargeback |
@@ -308,7 +308,7 @@ Alert: Recursos sin tags
 ## 🚫 Anti-patrones
 
 | Anti-patrón | Problema | Solución |
-|:------------|:---------|:---------|
+| :------------ | :--------- | :--------- |
 | **Lift & shift sin optimizar** | Migrar infra sin cambios | Modernizar para cloud-native |
 | **No monitorear costos** | Sorpresas en bill | Alertas, dashboards diarios |
 | **Over-provisioning "por las dudas"** | Pagar capacidad no usada | Auto-scaling, right-sizing |

@@ -612,13 +612,13 @@ Si el año que viene decides construirlo, este es el orden "Senior" para no fall
 ### 13.1 North Star Metric
 
 | Métrica | Objetivo | Resultado | Estado |
-|:--------|:---------|:----------|:-------|
+| :-------- | :--------- | :---------- | :------- |
 | **Tasa de Corrección de Volumen** | > 70% | 78% | ✅ |
 
 ### 13.2 Métricas Técnicas
 
 | Métrica | Objetivo | Resultado | Estado |
-|:--------|:---------|:----------|:-------|
+| :-------- | :--------- | :---------- | :------- |
 | **Latencia de Detección** | < 200ms | 150ms | ✅ |
 | **Precisión ML** | > 95% | 97% | ✅ |
 | **Falsos Positivos** | < 5% | 3% | ✅ |
@@ -629,7 +629,7 @@ Si el año que viene decides construirlo, este es el orden "Senior" para no fall
 ### 13.3 Métricas de Negocio
 
 | Métrica | Resultado |
-|:--------|:----------|
+| :-------- | :---------- |
 | **Tiempo de desarrollo** | 12 semanas |
 | **Usuarios beta** | 50 |
 | **Satisfacción (NPS)** | 65 |

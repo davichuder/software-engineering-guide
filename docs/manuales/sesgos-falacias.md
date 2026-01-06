@@ -23,7 +23,7 @@
 ## 📐 Leyes Fundamentales en Tecnología
 
 | Ley | Definición | Aplicación en Tech/Negocio | Ejemplo Real |
-|:----|:-----------|:---------------------------|:-------------|
+| :---- | :----------- | :--------------------------- | :------------- |
 | **Ley de Murphy** | "Si algo puede salir mal, saldrá mal" | Siempre tener plan B, runbooks, rollback plan | Deploy sin rollback → caída total del sistema |
 | **Ley de Kiddlin** | "Si escribes el problema con suficiente claridad, ya tienes la mitad de la solución" | 5W2H, SCQA framework, documentar problemas claramente | Documentar bug con contexto completo acelera resolución |
 | **Ley de Gilbert** | "Cuando actúas, el éxito no está garantizado. Pero cuando no actúas, el fracaso sí lo está" | Bias to action, MVPs, fail fast | No lanzar MVP por miedo = oportunidad perdida |
@@ -45,7 +45,7 @@
 ## 🎯 Sesgos de Decisión y Juicio
 
 | Sesgo | Qué | Causa | Apariciones | Impacto | Cómo Mitigar |
-|:------|:-----|:-----------|:-------------|:--------|:-------------|
+| :------ | :----- | :----------- | :------------- | :-------- | :------------- |
 | **Confirmation Bias (Confirmación)** | Buscar solo evidencia que confirme creencias pre-existentes | Cerebro busca coherencia y evita disonancia cognitiva | Evaluar nuevas tecnologías, revisar métricas, code review | Ignorar señales de que el producto no funciona, mantener código legacy innecesariamente | Pre-mortem: "¿Por qué podría fallar esto?", buscar evidencia contradictoria activamente |
 | **Anchoring Bias (Anclaje)** | Sobre-ponderar la primera información recibida | La información inicial establece un punto de referencia mental | Estimaciones de tiempo, negociaciones salariales, planning de sprints | Estimaciones sesgadas por número inicial, presupuestos irreales | Múltiples estimaciones independientes, usar base rates históricos |
 | **Availability Bias (Disponibilidad)** | Sobrevalorar información fácilmente recordable (reciente, dramática) | Memoria privilegia eventos vívidos y recientes | Evaluar riesgos después de un incidente, priorizar features | Temer riesgos raros pero visibles, ignorar problemas comunes pero menos dramáticos | Datos estadísticos en lugar de anécdotas, mantener registros históricos |
@@ -63,7 +63,7 @@
 ## 📊 Sesgos en Datos y Análisis
 
 | Sesgo | Qué | Causa | Impacto | Ejemplo | Cómo Mitigar |
-|:------|:-----|:-----------|:--------|:--------|:-------------|
+| :------ | :----- | :----------- | :-------- | :-------- | :------------- |
 | **Survivorship Bias (Supervivencia)** | Analizar solo lo que "sobrevivió", ignorar lo que falló | Los fracasos son menos visibles y se olvidan | Conclusiones erróneas sobre causas de éxito | Estudiar startups exitosas sin analizar las que fallaron | Incluir data de failures, buscar casos de estudio negativos |
 | **Selection Bias (Selección)** | Muestra no representativa de población | Acceso limitado a ciertos grupos de datos | Decisiones basadas en data sesgada | User surveys solo responden los muy satisfechos/insatisfechos | Random sampling, analizar non-responders, múltiples fuentes |
 | **Cherry Picking** | Seleccionar data que apoya tu argumento | Sesgo de confirmación en análisis de datos | Validar hipótesis falsas | Mostrar solo trimestres de crecimiento, ocultar los malos | Pre-registrar análisis, third-party review, análisis ciego |
@@ -78,7 +78,7 @@
 ## 👥 Sesgos Sociales y de Grupo
 
 | Sesgo | What | Why ocurre | Impacto | Cómo Mitigar |
-|:------|:-----|:-----------|:--------|:-------------|
+| :------ | :----- | :----------- | :-------- | :------------- |
 | **Authority Bias (Autoridad)** | Confiar excesivamente en "expertos" | Estructura social jerárquica, deferencia a experiencia | Seguir malas ideas de seniors, falta de pensamiento crítico | Question everything, "disagree and commit", meritocracia de ideas |
 | **Halo Effect (Efecto halo)** | Atributo positivo influye juicio general | Generalización de impresiones | Sobrevalorar a persona por un logro aislado | Evaluar dimensiones independientemente, rubricas estructuradas |
 | **Horn Effect (Efecto cuerno)** | Atributo negativo contamina todo | Generalización negativa por primera impresión | Subestimar por error pasado, oportunidades perdidas | Separar evaluaciones, fresh start mentality, focus en mejora |
@@ -95,7 +95,7 @@
 ## 🔍 Sesgos Perceptuales y de Evaluación
 
 | Sesgo | What | Why ocurre | Impacto | Cómo Mitigar |
-|:------|:-----|:-----------|:--------|:-------------|
+| :------ | :----- | :----------- | :-------- | :------------- |
 | **Dunning-Kruger Effect** | Incompetentes sobrestiman habilidad, expertos subestiman | Falta de metacognición en novatos, conciencia de complejidad en expertos | Juniors overconfident, seniors con impostor syndrome | Calibración con feedback objetivo, rubricas de evaluación claras |
 | **Observer-Expectancy Effect** | Expectativas influencian observación | Profecía autocumplida, procesamiento selectivo | Self-fulfilling prophecies en testing y métricas | Blind testing, double-blind reviews, procesos estandarizados |
 | **Outcome Bias (Por resultados)** | Juzgar decisión por resultado, no por proceso | Atajo mental para evaluar calidad decisión | Validar mal proceso porque tuvo suerte, castigar buena decisión con mal resultado | Evaluar decisión con info disponible en momento, análisis de proceso |
@@ -110,7 +110,7 @@
 ### Sesgos Adicionales de Percepción y Memoria
 
 | Sesgo | Qué | Ejemplo | Mitigación |
-|:------|:-----|:--------|:-----------|
+| :------ | :----- | :-------- | :----------- |
 | **Sesgo de Atención** | Atender selectivamente a ciertos estímulos | Notar solo bugs en framework que no te gusta | Systematic observation, checklists |
 | **Sesgo de Distinción** | Valorar más cuando comparamos opciones lado a lado | Feature parece mejor en comparación directa | Evaluar absolutamente también |
 | **Sesgo Egocéntrico** | Sobrevalorar propio rol en eventos | "El proyecto fue exitoso gracias a mí" | Reconocer contribuciones del equipo |
@@ -124,7 +124,7 @@
 ## ⚖️ Falacias Lógicas Críticas
 
 | Falacia | Qué | Ejemplo en Tech | Por qué es problema | Cómo Refutar |
-|:--------|:-----|:----------------|:-------------------|:-------------|
+| :-------- | :----- | :---------------- | :------------------- | :------------- |
 | **Straw Man (Hombre de paja)** | Distorsionar argumento del oponente para refutarlo fácil | "¿Quieres microservicios? ¿Quieres 100 repos imposibles de mantener?" | Evita discusión real, crea conflictos artificiales | "Estoy proponiendo servicios bounded context, no microservicios extremos" |
 | **Ad Hominem** | Atacar a la persona, no al argumento | "No le hagas caso, es junior/no tiene experiencia" | Ignora méritos del argumento | "Evaluemos la idea por sus méritos técnicos" |
 | **Appeal to Authority (Verecundiam)** | "X lo dice, debe ser verdad" | "Google usa microservicios, nosotros también debemos" | Ignora contexto específico | "Context matters, evaluemos fit con nuestras necesidades" |
@@ -152,7 +152,7 @@
 ## ⚠️ Leyes y Efectos Paradójicos
 
 | Efecto/Ley | Qué | Por qué es paradójico | Ejemplo en Tech | Mitigación |
-|:-----------|:-----|:---------------------|:----------------|:-----------|
+| :----------- | :----- | :--------------------- | :---------------- | :----------- |
 | **Goodhart's Law** | "Cuando una medida se convierte en objetivo, deja de ser buena medida" | Optimizar métricas corrompe su validez | Optimizar lines of code → código inflado | Métricas múltiples, auditorías, qualitative + quantitative |
 | **Campbell's Law** | Similar a Goodhart: indicador social bajo presión corrompe procesos | Medición bajo presión se corrompe | Teaching to the test, gaming de KPIs | Auditorías, métricas difíciles de gamear |
 | **Cobra Effect** | Solución al problema empeora el problema | Incentivos mal diseñados crean comportamientos no deseados | Pagar por bugs reportados → crear bugs ficticios | Diseñar incentivos alineados, métricas balanceadas |
@@ -168,7 +168,7 @@
 ## 📊 Sesgos en Data Science y ML
 
 | Sesgo | Qué | Fase del proceso | Impacto | Mitigación |
-|:------|:-----|:-----------------|:--------|:-----------|
+| :------ | :----- | :----------------- | :-------- | :----------- |
 | **Training Data Bias** | Data no representa población real | Data collection | Modelo discrimina grupos subrepresentados | Audit datasets, fairness metrics, data augmentation |
 | **Label Bias** | Labels incorrectos o sesgados | Data labeling | Modelo aprende sesgos humanos | Multiple labelers, blind labeling, consensus protocols |
 | **Confirmation in EDA** | Buscar patrones que confirman hipótesis | Exploratory analysis | Overfitting a narrativa preexistente | Pre-register hypotheses, análisis ciego |

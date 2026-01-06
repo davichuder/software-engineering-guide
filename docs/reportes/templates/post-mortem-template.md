@@ -80,7 +80,7 @@ Todas las horas en UTC
 ## ✅ Acciones (Action Items)
 
 | Tarea | Tipo | Dueño | Prioridad | Ticket |
-|:------|:-----|:------|:----------|:-------|
+| :------ | :----- | :------ | :---------- | :------- |
 | Agregar alerta de latencia | Preventivo | @dev | Alta | JIRA-101 |
 | Mejorar documentación de runbook | Proceso | @sre | Media | JIRA-102 |
 | Fix bug de race condition | Reparación | @backend | Crítica | JIRA-103 |

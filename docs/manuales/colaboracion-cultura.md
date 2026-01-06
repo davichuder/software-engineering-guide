@@ -36,7 +36,7 @@
 **Tipos:**
 
 | Estilo | Qué | Cuándo |
-|:-------|:-----|:-----|
+| :------- | :----- | :----- |
 | **Driver-Navigator** | Clásico: uno escribe, otro guía | General |
 | **Ping Pong** | TDD: uno escribe test, otro implementa, alternan | TDD estricto |
 | **Strong-Style** | Navigator dicta ideas, Driver implementa sin cuestionar | Enseñar patterns |
@@ -98,7 +98,7 @@
 ### Best Practices - Autor
 
 | Práctica | Por qué | Cómo |
-|:---------|:----|:-----|
+| :--------- | :---- | :----- |
 | **PRs pequeños** | Más rápido revisar, menos errores | <400 líneas, 1 concepto |
 | **Descripción clara** | Contexto para reviewer | Qué, por qué, cómo testear |
 | **Self-review primero** | Catch obvious issues | Revisar diff antes de pedir review |
@@ -108,7 +108,7 @@
 ### Best Practices - Reviewer
 
 | Práctica | Por qué | Cómo |
-|:---------|:----|:-----|
+| :--------- | :---- | :----- |
 | **Revisar pronto** | No bloquear | <24 horas, idealmente <4h |
 | **Ser constructivo** | Ambiente de confianza | "¿Consideraste X?" vs "Esto está mal" |
 | **Explicar el por qué** | Educativo | "Esto podría causar N+1 queries" |
@@ -176,7 +176,7 @@
 ### 5. Action Items
 
 | Acción | Owner | Deadline | Status |
-|:-------|:------|:---------|:-------|
+| :------- | :------ | :--------- | :------- |
 | Agregar validación migrations | @alice | 2015 | Done ✅ |
 | Actualizar runbook rollback | @bob | 2010 | Done ✅ |
 | Setup staging con prod data anonymized | @carol | 2020 | In Progress |
@@ -205,7 +205,7 @@
 #### Técnica: Start-Stop-Continue
 
 | Start | Stop | Continue |
-|:------|:-----|:---------|
+| :------ | :----- | :--------- |
 | Daily standups async | Meetings de 2h | Pair programming viernes |
 | Code reviews en <4h | Interrupciones constantes | Pizza Fridays 🍕 |
 
@@ -319,7 +319,7 @@
 ## 🎓 Knowledge Sharing
 
 | Práctica | Qué | Cuándo |
-|:---------|:-----|:-----|
+| :--------- | :----- | :----- |
 | **Tech Talks** | Presentaciones internas | Viernes 1h mensual |
 | **Brown Bags** | Lunch & learn informales | Ad-hoc |
 | **Wiki/Docs** | Documentación centralizada | Continuo |
@@ -354,7 +354,7 @@
 ## 🚫 Anti-patrones
 
 | Anti-patrón | Problema | Solución |
-|:------------|:---------|:---------|
+| :------------ | :--------- | :--------- |
 | **Hero culture** | Depender de 1 persona | Knowledge sharing, documentation |
 | **Blame culture** | Miedo a admitir errores | Blameless post-mortems |
 | **Not invented here** | Rechazar soluciones externas | Pragmatismo, evaluar objetivamente |

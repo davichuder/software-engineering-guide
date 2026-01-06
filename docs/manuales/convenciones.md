@@ -23,7 +23,7 @@
 ### Por Lenguaje
 
 | Lenguaje | Variables/Funciones | Clases/Tipos | Constantes | Archivos |
-|:---------|:-------------------|:-------------|:-----------|:---------|
+| :--------- | :------------------- | :------------- | :----------- | :--------- |
 | **Python** | `snake_case` | `PascalCase` | `UPPER_SNAKE` | `snake_case.py` |
 | **JavaScript/TS** | `camelCase` | `PascalCase` | `UPPER_SNAKE` | `kebab-case.ts` o `PascalCase.tsx` |
 | **Java** | `camelCase` | `PascalCase` | `UPPER_SNAKE` | `PascalCase.java` |
@@ -33,7 +33,7 @@
 ### Principios Generales
 
 | Principio | Mal ❌ | Bien ✅ |
-|:----------|:-------|:--------|
+| :---------- | :------- | :-------- |
 | **Descriptivo** | `d`, `tmp`, `data` | `userCreatedAt`, `tempPassword` |
 | **Específico** | `process()`, `handle()` | `validateEmail()`, `handleLoginClick()` |
 | **Evitar abreviaturas** | `usr`, `btn`, `msg` | `user`, `button`, `message` |
@@ -557,7 +557,7 @@ monorepo/
 ### Comparación y Decisión
 
 | Estructura | Proyecto Ideal | Complejidad | Escalabilidad | Curva Aprendizaje |
-|:-----------|:--------------|:------------|:--------------|:------------------|
+| :----------- | :-------------- | :------------ | :-------------- | :------------------ |
 | **Por Tipo** | Pequeño, 1 equipo | Baja ⭐ | Baja ⭐⭐ | Baja ⭐ |
 | **Por Funcionalidad** | Mediano-grande, múltiples features | Media ⭐⭐ | Alta ⭐⭐⭐⭐ | Media ⭐⭐ |
 | **Hexagonal** | Testability crítica, cambios frecuentes de infra | Alta ⭐⭐⭐ | Alta ⭐⭐⭐⭐ | Alta ⭐⭐⭐⭐ |
@@ -597,7 +597,7 @@ monorepo/
 ### Branch Naming
 
 | Tipo | Formato | Ejemplo |
-|:-----|:--------|:--------|
+| :----- | :-------- | :-------- |
 | **Feature** | `feature/descripcion-corta` | `feature/user-authentication` |
 | **Bugfix** | `fix/descripcion-bug` | `fix/login-redirect-loop` |
 | **Hotfix** | `hotfix/descripcion` | `hotfix/critical-security-patch` |
@@ -636,7 +636,7 @@ chore(deps): upgrade React to 18.2
 ### GitFlow vs Trunk-Based
 
 | Aspecto | GitFlow | Trunk-Based |
-|:--------|:--------|:------------|
+| :-------- | :-------- | :------------ |
 | **Branches** | `main`, `develop`, `feature/*`, `release/*`, `hotfix/*` | `main`, `feature/*` (short-lived) |
 | **Merge a main** | Via `release` branch | Directo (tras CI/CD) |
 | **Feature lifetime** | Días/semanas | <24 horas ideal |
@@ -657,7 +657,7 @@ main ─────●─────●─────●────→ (siem
 ### Package Managers
 
 | Lenguaje | Manager | Lock File | Comando Install |
-|:---------|:--------|:----------|:----------------|
+| :--------- | :-------- | :---------- | :---------------- |
 | **JavaScript** | npm, pnpm, yarn | `package-lock.json`, `pnpm-lock.yaml` | `npm install` |
 | **Python** | pip, poetry, conda | `requirements.txt`, `poetry.lock` | `pip install -r requirements.txt` |
 | **Java** | Maven, Gradle | `pom.xml`, `gradle.lock` | `mvn install` |
@@ -667,7 +667,7 @@ main ─────●─────●─────●────→ (siem
 ### Best Practices
 
 | Práctica | Por qué | Cómo |
-|:---------|:----|:-----|
+| :--------- | :---- | :----- |
 | **Pin versions** | Reproducibilidad | `react@18.2.0` no `react@^18.0.0` (prod) |
 | **Commit lock files** | Builds deterministas | Git add `package-lock.json` |
 | **Security scanning** | Detectar CVEs | Dependabot, Snyk, `npm audit` |
@@ -723,7 +723,7 @@ main ─────●─────●─────●────→ (siem
 ### Best Practices - i18n
 
 | Práctica | Cómo |
-|:---------|:-----|
+| :--------- | :----- |
 | **Claves descriptivas** | `user.profile.editButton` no `btn1` |
 | **Pluralización** | Usar librería con soporte (ICU) |
 | **Variables** | `"Hello {{name}}"` con interpolación |
@@ -743,7 +743,7 @@ main ─────●─────●─────●────→ (siem
 ### Environments
 
 | Ambiente | Propósito | Características |
-|:---------|:----------|:----------------|
+| :--------- | :---------- | :---------------- |
 | **local** | Desarrollo individual | DB local, debug on, hot reload |
 | **dev** | Integración equipo | Shared DB dev, CI/CD, feature branches |
 | **staging** | Pre-producción | Datos prod-like, testing final |
@@ -819,7 +819,7 @@ coverage/
 ### Formatters (automático)
 
 | Lenguaje | Herramienta | Config |
-|:---------|:------------|:-------|
+| :--------- | :------------ | :------- |
 | **JavaScript/TS** | Prettier | `.prettierrc` |
 | **Python** | Black, Ruff | `pyproject.toml` |
 | **Java** | google-java-format | Maven/Gradle plugin |
@@ -827,7 +827,7 @@ coverage/
 ### Linters (reglas)
 
 | Lenguaje | Herramienta | Config |
-|:---------|:------------|:-------|
+| :--------- | :------------ | :------- |
 | **JavaScript/TS** | ESLint | `.eslintrc.json` |
 | **Python** | Pylint, Ruff | `.pylintrc` |
 | **Java** | Checkstyle | `checkstyle.xml` |
@@ -857,7 +857,7 @@ coverage/
 ### Cuándo comentar
 
 | ✅ Comentar | ❌ No comentar |
-|:-----------|:---------------|
+| :----------- | :--------------- |
 | **Por qué** existe código complejo | Qué hace (obvio del código) |
 | Workarounds temporales | Código autoexplicativo |
 | Decisiones arquitecturales | Restating código en español |
@@ -922,7 +922,7 @@ function isValidEmail(email: string): boolean {
 ## 🚫 Anti-patrones
 
 | Anti-patrón | Problema | Solución |
-|:------------|:---------|:---------|
+| :------------ | :--------- | :--------- |
 | **Inconsistencia** | Parte camelCase, parte snake_case | Style guide + linter |
 | **Magic numbers** | `if (status === 3)` | `if (status === OrderStatus.COMPLETED)` |
 | **Branches long-lived** | Merge conflicts, context switching | Feature flags, trunk-based |

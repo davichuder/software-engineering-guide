@@ -23,7 +23,7 @@
 **Why:** Detecta problemas temprano, reduce "works on my machine", deploys predecibles.
 
 | Componente | Qué | Por qué | Cuándo | Cómo | Herramientas |
-|:-----------|:----|:--------|:-------|:-----|:-------------|
+| :----------- | :---- | :-------- | :------- | :----- | :------------- |
 | **CI** | Integrar cambios frecuentemente con tests automáticos | Detectar conflictos/bugs rápido | Cada push, cada PR | Pipeline: checkout → build → test → report | [GitHub Actions](https://github.com/features/actions), [GitLab CI](https://docs.gitlab.com/ee/ci/), [Jenkins](https://www.jenkins.io/) |
 | **CD** | Deploy automático a staging/producción | Reducir errores humanos, entregas rápidas | Tras merge a main (staging), manual/automático (prod) | Pipeline: build → test → package → deploy | [Argo CD](https://argo-cd.readthedocs.io/), [Spinnaker](https://spinnaker.io/) |
 | **Pipelines** | Secuencia de pasos automatizados | Reproducibilidad, auditoría | Definir en código (YAML) | Stages paralelos, artifacts entre stages | [Tekton](https://tekton.dev/), [CircleCI](https://circleci.com/) |
@@ -39,7 +39,7 @@
 **Why:** Reproducibilidad, auditoría, disaster recovery rápido.
 
 | Herramienta | Qué | Por qué | Cuándo | Cómo |
-|:------------|:-----|:----|:-----|:----|
+| :------------ | :----- | :---- | :----- | :---- |
 | [Terraform](https://www.terraform.io/) | Provisionar infraestructura multi-nube | Agnóstico de proveedor, state management | Infraestructura compleja, multi-cloud | HCL (`.tf`), plan → apply, state en S3/Terraform Cloud |
 | [Pulumi](https://www.pulumi.com/) | IaC en lenguajes generales (TS, Python, Go) | Reutilizar lógica de programación | Equipos con fuerte background dev | Código TypeScript/Python, `pulumi up` |
 | [Ansible](https://www.ansible.com/) | Configuración de servidores (CM) | Agentless, playbooks legibles | Configurar VMs, on-prem | YAML playbooks, SSH, idempotente |
@@ -54,7 +54,7 @@
 **Why:** "Funciona en mi máquina" → "Funciona en producción", escalabilidad.
 
 | Tecnología | Qué | Por qué | Cuándo | Cómo |
-|:-----------|:-----|:----|:-----|:----|
+| :----------- | :----- | :---- | :----- | :---- |
 | [Docker](https://www.docker.com/) | Crear y ejecutar contenedores | Portabilidad, aislamiento | Toda app moderna | `Dockerfile` → `docker build` → `docker run` |
 | [Kubernetes](https://kubernetes.io/) | Orquestar contenedores a escala | Auto-healing, scaling, rolling updates | Producción con >3 servicios | Deployments, Services, Ingress, HPA |
 | [Helm](https://helm.sh/) | Gestión de paquetes para K8s | Reutilizar manifests, versionado | Apps K8s complejas | Charts (templates YAML), `helm install` |
@@ -67,7 +67,7 @@
 **What:** Estrategias para liberar código minimizando riesgo.
 
 | Patrón | Qué | Por qué | Cuándo | Cómo |
-|:-------|:-----|:----|:-----|:----|
+| :------- | :----- | :---- | :----- | :---- |
 | **Rolling** | Actualizar pods/instancias progresivamente | Alta disponibilidad, rollback fácil | Siempre | K8s actualiza 1 pod, espera health check, sigue |
 | **Blue-Green** | Dos entornos: blue (actual), green (nuevo) | Zero downtime, rollback instantáneo | Apps críticas | Cambiar tráfico de blue a green tras validación |
 | **Canary** | Liberar a % pequeño de usuarios | Detectar problemas antes de 100% | Features arriesgadas | 5% tráfico → monitor → 25% → 50% → 100% |
@@ -96,7 +96,7 @@
 ## 🛡️ Seguridad en CI/CD
 
 | Práctica | Qué | Por qué | Cómo | Herramientas |
-|:---------|:-----|:----|:----|:-------------|
+| :--------- | :----- | :---- | :---- | :------------- |
 | **SAST** | Static Application Security Testing | Detecta vulnerabilidades en código | Escanear código en CI | [SonarQube](https://www.sonarsource.com/products/sonarqube/), [Checkmarx](https://checkmarx.com/) |
 | **DAST** | Dynamic Application Security Testing | Detecta vulnerabilidades en runtime | Probar app desplegada | [OWASP ZAP](https://www.zaproxy.org/), [Burp Suite](https://portswigger.net/burp) |
 | **Dependency Scan** | Escanear librerías por CVEs | Actualizar dependencias vulnerables | Analizar `package.json`, `pom.xml` | [Snyk](https://snyk.io/), [Dependabot](https://github.com/dependabot) |
@@ -108,7 +108,7 @@
 ## 📊 Métricas DORA (DevOps Research and Assessment)
 
 | Métrica | Qué | Elite | High | Medium | Low |
-|:--------|:-----|:------|:-----|:-------|:----|
+| :-------- | :----- | :------ | :----- | :------- | :---- |
 | **Deployment Frequency** | Con qué frecuencia se deploya a prod | On-demand (múltiples por día) | Entre 1 día y 1 semana | Entre 1 semana y 1 mes | < 1 vez al mes |
 | **Lead Time for Changes** | Tiempo desde commit hasta producción | < 1 hora | < 1 día | < 1 semana | > 1 semana |
 | **MTTR** (Mean Time To Recover) | Tiempo para restaurar servicio tras fallo | < 1 hora | < 1 día | < 1 semana | > 1 semana |
@@ -150,7 +150,7 @@
 ## 🚫 Anti-patrones
 
 | Anti-patrón | Problema | Solución |
-|:------------|:---------|:---------|
+| :------------ | :--------- | :--------- |
 | **Snowflake Servers** | Servidores únicos configurados manualmente | IaC + contenedores inmutables |
 | **Config Drift** | Entornos staging ≠ producción | GitOps, IaC, identical configs |
 | **Manual Deploys** | Error humano, no reproducible | CI/CD full automation |

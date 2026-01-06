@@ -41,7 +41,7 @@
 ### Tipos de Fallos
 
 | Tipo | Descripción | Herramienta |
-|:-----|:------------|:------------|
+| :----- | :------------ | :------------ |
 | **Network latency** | Agregar delay a requests | Toxiproxy, Chaos Mesh |
 | **Service failure** | Matar pods/servicios | Chaos Monkey, Chaos Mesh |
 | **Resource exhaustion** | CPU/memory/disk al 100% | Gremlin, Chaos Toolkit |
@@ -344,7 +344,7 @@ kubectl delete pod -n staging -l app=payment-service --force
 **Metrics:**
 
 | Metric | Before | During | After |
-|:-------|:-------|:-------|:------|
+| :------- | :------- | :------- | :------ |
 | Latency p99 | 150ms | 180ms | 155ms |
 | Error rate | 0.05% | 0.08% | 0.05% |
 

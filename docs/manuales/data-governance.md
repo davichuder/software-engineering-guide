@@ -21,7 +21,7 @@
 ## 📊 Pilares de Data Governance
 
 | Pilar | Qué | Cómo implementar |
-|:------|:-----|:-----------------|
+| :------ | :----- | :----------------- |
 | **Data Quality** | Datos precisos, completos, consistentes | Validaciones, monitoreo, data contracts |
 | **Data Security** | Proteger de accesos no autorizados | Encryption, access control, auditoría |
 | **Data Privacy** | Cumplir regulaciones (GDPR, CCPA) | Minimización, consentimiento, right to delete |
@@ -35,7 +35,7 @@
 ### Dimensiones de Calidad
 
 | Dimensión | Qué | Validación |
-|:----------|:-----|:-----------|
+| :---------- | :----- | :----------- |
 | **Accuracy** | Datos reflejan realidad | Comparar con fuentes autoritativas |
 | **Completeness** | Sin valores faltantes críticos | % campos poblados |
 | **Consistency** | Misma info en múltiples lugares coincide | Cross-system checks |
@@ -168,7 +168,7 @@ graph TD
 **Metadata incluida:**
 
 | Tipo | Ejemplos |
-|:-----|:---------|
+| :----- | :--------- |
 | **Technical** | Schema, size, format, location |
 | **Business** | Descripción, owner, use cases |
 | **Operational** | Freshness, update frequency, SLA |
@@ -200,7 +200,7 @@ Related: customer_profiles, product_catalog
 ### Access Control
 
 | Nivel | Qué | Implementación |
-|:------|:-----|:---------------|
+| :------ | :----- | :--------------- |
 | **Row-level** | Filtrar filas según usuario | `WHERE user_region = current_user_region` |
 | **Column-level** | Ocultar columnas sensibles | Views sin PII, field-level encryption |
 | **Dataset-level** | Acceso por roles | RBAC, grupos IAM |
@@ -222,7 +222,7 @@ Related: customer_profiles, product_catalog
 **Tipos:**
 
 | Tipo | Ejemplos | Protección |
-|:-----|:---------|:-----------|
+| :----- | :--------- | :----------- |
 | **Direct PII** | Email, teléfono, SSN | Hash, encrypt, access control |
 | **Indirect PII** | IP, device ID, location | Aggregate, anonymize |
 | **Sensitive PII** | Salud, religión, etnia | Extra protección, explicit consent |
@@ -230,7 +230,7 @@ Related: customer_profiles, product_catalog
 **Techniques:**
 
 | Técnica | Qué | Cuándo |
-|:--------|:-----|:-------|
+| :-------- | :----- | :------- |
 | **Hashing** | One-way transformation | Passwords, identificadores |
 | **Tokenization** | Reemplazar con token | Credit cards, referencias |
 | **Masking** | Ocultar parcialmente | Logs, UIs (`***-**-1234`) |
@@ -282,7 +282,7 @@ Golden Record:
 **Métricas:**
 
 | Métrica | Qué | Alert |
-|:--------|:-----|:------|
+| :-------- | :----- | :------ |
 | **Freshness** | Última actualización | >2h sin actualizar |
 | **Volume** | Cantidad de registros | Spike o drop >20% |
 | **Schema Changes** | Cambios no esperados | Columna nueva/borrada |
@@ -312,7 +312,7 @@ anomalies = daily_counts[daily_counts > threshold]
 ## 🔄 Data Lifecycle Management
 
 | Fase | Qué | Políticas |
-|:-----|:-----|:----------|
+| :----- | :----- | :---------- |
 | **Creation** | Ingesta inicial | Validación, classification |
 | **Storage** | Almacenamiento | Encryption, backup |
 | **Usage** | Consumo | Access control, auditoría |
@@ -334,7 +334,7 @@ Transaction Records:
 ## 📋 Data Governance Roles
 
 | Rol | Responsabilidad |
-|:----|:----------------|
+| :---- | :---------------- |
 | **Chief Data Officer** | Estrategia, budget, accountability |
 | **Data Steward** | Calidad, metadata, access control |
 | **Data Owner** | Responsable final de dataset |
@@ -346,7 +346,7 @@ Transaction Records:
 ## 🚫 Anti-patrones
 
 | Anti-patrón | Problema | Solución |
-|:------------|:---------|:---------|
+| :------------ | :--------- | :--------- |
 | **Data swamp** | Data lake sin governance | Cataloging, quality checks |
 | **Siloed data** | Equipos con copias propias | MDM, centralized catalog |
 | **No documentation** | Nadie sabe qué es cada campo | Data dictionary obligatorio |

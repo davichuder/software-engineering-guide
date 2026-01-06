@@ -43,7 +43,7 @@
 **Por qué:** "Garbage in, garbage out" - datos sucios = análisis inválido.
 
 | Problema | Qué | Solución | Herramientas |
-|:---------|:-----|:---------|:-------------|
+| :--------- | :----- | :--------- | :------------- |
 | **Valores faltantes** | NaN, NULL, vacíos | Imputar (media, mediana), eliminar, flag | [pandas](https://pandas.pydata.org/) `fillna()`, `dropna()` |
 | **Duplicados** | Registros repetidos | Eliminar con lógica | `drop_duplicates()` |
 | **Outliers** | Valores extremos | Investigar, eliminar o transformar | IQR, Z-score, visualización |
@@ -64,14 +64,14 @@
 ### Análisis Univariado
 
 | Tipo Variable | Métricas | Visualización |
-|:--------------|:---------|:--------------|
+| :-------------- | :--------- | :-------------- |
 | **Numérica** | Mean, median, std, min, max, percentiles | Histogram, boxplot, density plot |
 | **Categórica** | Frecuencias, moda | Bar chart, pie chart |
 
 ### Análisis Bivariado
 
 | Combinación | Análisis | Visualización |
-|:------------|:---------|:--------------|
+| :------------ | :--------- | :-------------- |
 | **Num vs Num** | Correlación (Pearson, Spearman) | Scatter plot, heatmap |
 | **Cat vs Num** | Comparar distribuciones | Boxplot, violin plot |
 | **Cat vs Cat** | Tablas de contingencia, chi-squared | Heatmap, stacked bars |
@@ -79,7 +79,7 @@
 ### Análisis Multivariado
 
 | Técnica | Qué | Herramienta |
-|:--------|:-----|:------------|
+| :-------- | :----- | :------------ |
 | **PCA** | Reducción dimensionalidad | scikit-learn |
 | **t-SNE** | Visualizar high-dim data | scikit-learn |
 | **Correlation Matrix** | Relaciones entre variables | seaborn heatmap |
@@ -93,7 +93,7 @@
 **Por qué:** "Un gráfico vale más que mil tablas".
 
 | Tipo | Cuándo | Herramienta |
-|:-----|:-----|:------------|
+| :----- | :----- | :------------ |
 | **Estática** | Reportes, papers | [Matplotlib](https://matplotlib.org/), [Seaborn](https://seaborn.pydata.org/) |
 | **Interactiva** | Dashboards, exploración | [Plotly](https://plotly.com/python/), [Altair](https://altair-viz.github.io/) |
 | **Dashboards** | Apps analíticas | [Dash](https://plotly.com/dash/), [Streamlit](https://streamlit.io/) |
@@ -102,7 +102,7 @@
 ### Tipos de Gráficos
 
 | Gráfico | Cuándo | Ejemplo |
-|:--------|:-----|:--------|
+| :-------- | :----- | :-------- |
 | **Line** | Series temporales | Ventas por mes |
 | **Bar** | Comparar categorías | Ventas por región |
 | **Scatter** | Relación 2 variables | Precio vs tamaño |
@@ -118,7 +118,7 @@
 ### Descriptiva
 
 | Métrica | Qué | Cuándo |
-|:--------|:-----|:-------|
+| :-------- | :----- | :------- |
 | **Media** | Promedio | Distribución normal |
 | **Mediana** | Valor medio | Outliers presentes |
 | **Moda** | Más frecuente | Variables categóricas |
@@ -128,7 +128,7 @@
 ### Inferencial
 
 | Concepto | Qué | Herramienta |
-|:---------|:-----|:------------|
+| :--------- | :----- | :------------ |
 | **Hypothesis Testing** | Validar suposiciones | t-test, chi-squared |
 | **p-value** | Probabilidad resultado por azar | <0.05 = significativo |
 | **Confidence Intervals** | Rango valores probables | Bootstrap, t-distribution |
@@ -143,7 +143,7 @@
 **Por qué:** Ciencia requiere verificabilidad.
 
 | Aspecto | Cómo | Herramientas |
-|:--------|:----|:-------------|
+| :-------- | :---- | :------------- |
 | **Versionado datos** | Trackear cambios en datasets | [DVC](https://dvc.org/), [Git LFS](https://git-lfs.github.com/) |
 | **Versionado código** | Git para notebooks y scripts | Git, GitHub |
 | **Environments** | Aislar dependencias | [conda](https://docs.conda.io/), [venv](https://docs.python.org/3/library/venv.html), [Docker](https://www.docker.com/) |
@@ -156,7 +156,7 @@
 ## 🧮 Herramientas Core
 
 | Herramienta | Qué | Cuándo |
-|:------------|:-----|:-----|
+| :------------ | :----- | :----- |
 | [pandas](https://pandas.pydata.org/) | Manipulación tabular | Default para análisis |
 | [NumPy](https://numpy.org/) | Cálculo numérico | Operaciones matriciales |
 | [Polars](https://pola.rs/) | Pandas más rápido | Datasets grandes (>1GB) |
@@ -169,7 +169,7 @@
 ## 📊 Tipos de Análisis
 
 | Tipo | Qué | Pregunta | Técnica |
-|:-----|:-----|:---------|:--------|
+| :----- | :----- | :--------- | :-------- |
 | **Descriptivo** | ¿Qué pasó? | Métricas históricas | Aggregations, visualización |
 | **Diagnóstico** | ¿Por qué pasó? | Causas | Correlaciones, comparaciones |
 | **Predictivo** | ¿Qué pasará? | Forecast | Machine Learning, time series |
@@ -180,7 +180,7 @@
 ## 🔄 Data Quality
 
 | Dimensión | Qué | Cómo validar |
-|:----------|:-----|:-------------|
+| :---------- | :----- | :------------- |
 | **Completitud (Completeness)** | Sin valores faltantes | `df.isnull().sum()` |
 | **Unicidad (Uniqueness)** | Sin duplicados | `df.duplicated().sum()` |
 | **Consistencia (Consistency)** | Valores válidos | Regex, value ranges |
@@ -194,7 +194,7 @@
 ## 🎯 Métricas de Negocio
 
 | Métrica | Qué | Fórmula |
-|:--------|:-----|:--------|
+| :-------- | :----- | :-------- |
 | **Churn Rate** | % clientes que abandonan | Churned / Total × 100 |
 | **CAC** | Customer Acquisition Cost | Marketing Spend / New Customers |
 | **LTV** | Lifetime Value | Avg Revenue per User × Avg Lifetime |
@@ -206,7 +206,7 @@
 ## 🚫 Errores Comunes
 
 | Error | Problema | Solución |
-|:------|:---------|:---------|
+| :------ | :--------- | :--------- |
 | **Correlation = Causation** | Confundir relación con causa | Experimentos, domain knowledge |
 | **P-hacking** | Buscar hasta encontrar p<0.05 | Hipótesis a priori, correction |
 | **Confirmation Bias** | Buscar solo evidencia que confirme | Buscar evidencia contradictoria |

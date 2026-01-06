@@ -23,14 +23,14 @@ Agregar la posibilidad de exportar los reportes de transacciones filtrados en la
 
 - **Incluye:**
 
-  - Botón “Exportar a Excel” en la vista de reportes.
-  - Generación de archivo `.xlsx` con las columnas visibles en la tabla.
-  - Descarga directa en el navegador.
+    - Botón “Exportar a Excel” en la vista de reportes.
+    - Generación de archivo `.xlsx` con las columnas visibles en la tabla.
+    - Descarga directa en el navegador.
 
 - **No incluye:**
-  - Exportación a otros formatos (CSV, JSON).
-  - Personalización avanzada de columnas.
-  - Programación de exportaciones automáticas.
+    - Exportación a otros formatos (CSV, JSON).
+    - Personalización avanzada de columnas.
+    - Programación de exportaciones automáticas.
 
 ---
 

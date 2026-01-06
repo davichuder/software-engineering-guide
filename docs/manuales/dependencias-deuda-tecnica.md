@@ -11,7 +11,7 @@
 **Formato:** `MAJOR.MINOR.PATCH` (ej: `2.5.3`)
 
 | Cambio | Incrementar | Ejemplo |
-|:-------|:------------|:--------|
+| :------- | :------------ | :-------- |
 | **Breaking change** | MAJOR | `2.5.3` → `3.0.0` |
 | **Nueva feature (backward compatible)** | MINOR | `2.5.3` → `2.6.0` |
 | **Bug fix (backward compatible)** | PATCH | `2.5.3` → `2.5.4` |
@@ -21,7 +21,7 @@
 ### Cuándo Upgradear
 
 | Tipo de Update | Urgencia | Criterio |
-|:---------------|:---------|:---------|
+| :--------------- | :--------- | :--------- |
 | **Security patch** | 🔴 Inmediato | CVE crítico, exploit público |
 | **Major version** | 🟠 Planificado | Breaking changes, requiere testing extensivo |
 | **Minor version** | 🟡 Mensual | Nuevas features, bajo riesgo |
@@ -34,7 +34,7 @@
 **Propósito:** Garantizar builds reproducibles.
 
 | Lenguaje | Lock File | Package Manager |
-|:---------|:----------|:----------------|
+| :--------- | :---------- | :---------------- |
 | **JavaScript** | `package-lock.json` / `yarn.lock` / `pnpm-lock.yaml` | npm / yarn / pnpm |
 | **Python** | `poetry.lock` / `Pipfile.lock` | poetry / pipenv |
 | **Java** | `gradle.lockfile` | Gradle |
@@ -85,7 +85,7 @@ def old_function():
 **Tipos:**
 
 | Tipo | Descripción | Ejemplo |
-|:-----|:------------|:--------|
+| :----- | :------------ | :-------- |
 | **Deliberate** | Consciente, para time-to-market | "Hardcodeamos esto para lanzar rápido" |
 | **Accidental** | Inconsciente, por falta de conocimiento | "No sabíamos que existía este pattern" |
 | **Bit rot** | Código que era bueno pero quedó obsoleto | "Usamos jQuery, ahora hay React" |
@@ -95,7 +95,7 @@ def old_function():
 ### Cómo Identificar
 
 | Señal | Descripción |
-|:------|:------------|
+| :------ | :------------ |
 | **Código duplicado** | Mismo código en múltiples lugares |
 | **Funciones largas** | >50 líneas, múltiples responsabilidades |
 | **Tests frágiles** | Tests que fallan sin razón aparente |
@@ -126,7 +126,7 @@ Technical Debt = (Tiempo para implementar feature con deuda) - (Tiempo si no hub
 **Matriz de Priorización:**
 
 | Impacto \ Esfuerzo | Bajo Esfuerzo | Alto Esfuerzo |
-|:-------------------|:--------------|:--------------|
+| :------------------- | :-------------- | :-------------- |
 | **Alto Impacto** | 🔴 **P0: Hacer YA** | 🟠 **P1: Planificar** |
 | **Bajo Impacto** | 🟡 **P2: Backlog** | 🟢 **P3: No hacer** |
 
@@ -240,7 +240,7 @@ gateway.process_payment(100)
 **Tipos:**
 
 | Tipo | Duración | Uso |
-|:-----|:---------|:----|
+| :----- | :--------- | :---- |
 | **Release toggle** | Corto plazo | Deploy features incompletas, activar cuando estén listas |
 | **Experiment toggle** | Medio plazo | A/B testing |
 | **Ops toggle** | Largo plazo | Circuit breakers, kill switches |
@@ -368,7 +368,7 @@ gateway.process_payment(100)
 # Technical Debt Register
 
 | ID | Área | Descripción | Impacto | Esfuerzo | Prioridad | Owner | Status |
-|:---|:-----|:------------|:--------|:---------|:----------|:------|:-------|
+| :--- | :----- | :------------ | :-------- | :--------- | :---------- | :------ | :------- |
 | TD-001 | Payments | Código duplicado en validación | Alto | Bajo | P0 | @alice | In Progress |
 | TD-002 | Auth | Tests frágiles | Medio | Medio | P1 | @bob | Backlog |
 | TD-003 | UI | jQuery → React | Alto | Alto | P1 | @charlie | Planned |

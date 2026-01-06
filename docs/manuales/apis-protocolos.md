@@ -23,7 +23,7 @@
 **Por qué:** Estándar universal, cacheable, stateless.
 
 | Aspecto | Qué | Cómo |
-|:--------|:-----|:----|
+| :-------- | :----- | :---- |
 | **Recursos** | Sustantivos (entidades) | `/users`, `/orders`, `/products` |
 | **Verbos HTTP** | Acciones sobre recursos | GET (leer), POST (crear), PUT (actualizar), DELETE (borrar) |
 | **Códigos Status** | Resultado de operación | 200 OK, 201 Created, 400 Bad Request, 404 Not Found, 500 Server Error |
@@ -72,7 +72,7 @@ Response 200:
 **Por qué:** Cliente pide exactamente lo que necesita, no más ni menos.
 
 | Concepto | Qué | Ejemplo |
-|:---------|:-----|:--------|
+| :--------- | :----- | :-------- |
 | **Schema** | Tipos y relaciones | `type User { id: ID! name: String! posts: [Post] }` |
 | **Query** | Leer datos | `{ user(id: "123") { name email } }` |
 | **Mutation** | Modificar datos | `mutation { createUser(input: {...}) { id } }` |
@@ -105,7 +105,7 @@ Response 200:
 **Por qué:** Performance, tipado fuerte, streaming nativo.
 
 | Aspecto | Qué | Ventaja |
-|:--------|:-----|:--------|
+| :-------- | :----- | :-------- |
 | **Protocol Buffers** | Serialización binaria | Más pequeño y rápido que JSON |
 | **HTTP/2** | Multiplexing, server push | Menos conexiones |
 | **Streaming** | Bidireccional | Server/Client/Bidirectional streams |
@@ -154,7 +154,7 @@ message User {
 **Por qué:** Real-time, baja latencia, push de servidor.
 
 | Aspecto | Qué | Cuándo |
-|:--------|:-----|:-------|
+| :-------- | :----- | :------- |
 | **Full-duplex** | Cliente y servidor envían simultáneamente | Chat, gaming |
 | **Persistent** | Conexión abierta continuamente | Notificaciones en tiempo real |
 | **Binary/Text** | Soporta ambos formatos | Flexible |
@@ -232,7 +232,7 @@ eventSource.addEventListener('update', (event) => {
 **Cuándo usar:** Workflows complejos, alto throughput, logs.
 
 | Broker | Qué | Cuándo |
-|:-------|:-----|:-----|
+| :------- | :----- | :----- |
 | [RabbitMQ](https://www.rabbitmq.com/) | Message queue con routing | Workflows complejos |
 | [Apache Kafka](https://kafka.apache.org/) | Event streaming distribuido | Alto throughput, logs |
 | [AWS SQS](https://aws.amazon.com/sqs/) | Queue serverless | Desacople simple en AWS |
@@ -308,7 +308,7 @@ X-Signature: sha256=...
 ## 📄 Documentación
 
 | Protocolo | Herramienta | Ejemplo |
-|:----------|:------------|:--------|
+| :---------- | :------------ | :-------- |
 | **REST** | [OpenAPI](https://www.openapis.org/) / [Swagger](https://swagger.io/) | Spec YAML → Swagger UI |
 | **GraphQL** | Schema introspection | [GraphQL Playground](https://github.com/graphql/graphql-playground) |
 | **gRPC** | [Protocol Buffers](https://protobuf.dev/) | `.proto` files → docs |
@@ -343,7 +343,7 @@ paths:
 ## 🔐 Autenticación
 
 | Método | Qué | Cuándo | Header |
-|:-------|:-----|:-----|:-------|
+| :------- | :----- | :----- | :------- |
 | **API Key** | String estático | Integraciones internas | `X-API-Key: abc123` |
 | **Bearer Token** | JWT en header | SPAs, mobile apps | `Authorization: Bearer <jwt>` |
 | **OAuth 2.0** | Delegación con tokens | Third-party integrations | `Authorization: Bearer <access_token>` |
@@ -355,7 +355,7 @@ paths:
 ## 🎨 Diseño de APIs
 
 | Principio | Qué | Ejemplo |
-|:----------|:-----|:--------|
+| :---------- | :----- | :-------- |
 | **Versionado** | Mantener compatibilidad | `/api/v1/`, `/api/v2/` o header |
 | **Paginación** | Evitar payloads gigantes | `?limit=20&offset=40` o cursor |
 | **Filtrado** | Permitir búsquedas | `?status=active&role=admin` |
@@ -367,7 +367,7 @@ paths:
 ## 📊 Comparación
 
 | Característica | REST | GraphQL | gRPC | WebSocket | Webhook |
-|:---------------|:-----|:--------|:-----|:----------|:--------|
+| :--------------- | :----- | :-------- | :----- | :---------- | :-------- |
 | **Protocol** | HTTP | HTTP | HTTP/2 | TCP | HTTP |
 | **Payload** | JSON | JSON | Protobuf | Binary/Text | JSON |
 | **Typing** | No | Sí (schema) | Sí (protobuf) | No | No |
@@ -381,7 +381,7 @@ paths:
 ## 🚫 Anti-patrones
 
 | Anti-patrón | Problema | Solución |
-|:------------|:---------|:---------|
+| :------------ | :--------- | :--------- |
 | **Verbos en URLs** | `/getUser`, `/createOrder` | Usar HTTP verbs: GET, POST |
 | **Sin versionado** | Breaking changes rompen clientes | `/v1/`, deprecation notices |
 | **Respuestas inconsistentes** | Diferentes estructuras por endpoint | Estandarizar formato |

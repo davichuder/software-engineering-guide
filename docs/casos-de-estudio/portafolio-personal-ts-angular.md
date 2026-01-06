@@ -54,7 +54,7 @@ Este caso de estudio documenta el desarrollo de un portafolio personal profesion
 ### 1.2 Requisitos Funcionales
 
 | ID | Requisito | Prioridad |
-|:---|:----------|:----------|
+| :--- | :---------- | :---------- |
 | RF-01 | Mostrar información personal (Sobre Mí) | 🔴 Alta |
 | RF-02 | Listar proyectos con filtros por tecnología | 🔴 Alta |
 | RF-03 | Mostrar experiencia laboral cronológica | 🔴 Alta |
@@ -68,7 +68,7 @@ Este caso de estudio documenta el desarrollo de un portafolio personal profesion
 ### 1.3 Requisitos No Funcionales
 
 | ID | Requisito | Métrica |
-|:---|:----------|:--------|
+| :--- | :---------- | :-------- |
 | RNF-01 | **Performance**: Carga inicial < 3s | Lighthouse Performance > 90 |
 | RNF-02 | **Accesibilidad**: WCAG 2.1 AA | Lighthouse Accessibility > 90 |
 | RNF-03 | **SEO**: Optimizado para buscadores | Lighthouse SEO > 90 |
@@ -91,7 +91,7 @@ Este caso de estudio documenta el desarrollo de un portafolio personal profesion
 **Justificación**:
 
 | Criterio | JavaScript | TypeScript | Ganador |
-|:---------|:-----------|:-----------|:--------|
+| :--------- | :----------- | :----------- | :-------- |
 | **Type Safety** | ❌ No | ✅ Sí | TypeScript |
 | **Refactoring** | ⚠️ Difícil | ✅ Fácil | TypeScript |
 | **Tooling (IDE)** | ⚠️ Básico | ✅ Excelente | TypeScript |
@@ -121,7 +121,7 @@ Este caso de estudio documenta el desarrollo de un portafolio personal profesion
 **Justificación**:
 
 | Criterio | React | Vue | Angular | Ganador |
-|:---------|:------|:----|:--------|:--------|
+| :--------- | :------ | :---- | :-------- | :-------- |
 | **TypeScript nativo** | ⚠️ Requiere config | ⚠️ Requiere config | ✅ Nativo | Angular |
 | **Estructura opinada** | ❌ No | ⚠️ Parcial | ✅ Sí | Angular |
 | **i18n integrado** | ❌ Librerías externas | ❌ Librerías externas | ✅ @angular/localize | Angular |
@@ -160,7 +160,7 @@ Este caso de estudio documenta el desarrollo de un portafolio personal profesion
 **Justificación**:
 
 | Criterio | PostgreSQL | MongoDB | SQLite | JSON Files | Ganador |
-|:---------|:-----------|:--------|:-------|:-----------|:--------|
+| :--------- | :----------- | :-------- | :------- | :----------- | :-------- |
 | **Simplicidad** | ❌ Requiere servidor | ❌ Requiere servidor | ✅ Archivo local | ✅ Archivo local | SQLite/JSON |
 | **Consultas relacionales** | ✅ Excelente | ⚠️ Limitado | ✅ Bueno | ❌ Manual | PostgreSQL |
 | **Escalabilidad** | ✅ Alta | ✅ Alta | ⚠️ Limitada | ❌ Muy limitada | PostgreSQL/MongoDB |
@@ -467,7 +467,7 @@ portfolio/
 **Justificación de la Estructura**:
 
 | Decisión | Razón |
-|:---------|:------|
+| :--------- | :------ |
 | **Separación por dominio** (`proyectos/`, `experiencia/`) | Screaming Architecture: la estructura refleja el negocio |
 | **`domain/` independiente** | No depende de Angular, fácil de testear |
 | **`infrastructure/` con adaptadores** | Fácil cambiar SQLite por PostgreSQL |
@@ -595,7 +595,7 @@ portfolio/
 **Justificación**:
 
 | Patrón | Ventaja | Desventaja |
-|:-------|:--------|:-----------|
+| :------- | :-------- | :----------- |
 | **Scroll vertical** | Patrón conocido, natural en web | Usuarios pueden perderse |
 | **Botones flotantes** (Siguiente/Anterior) | Guía al usuario, storytelling | Puede ser intrusivo |
 
@@ -1048,7 +1048,7 @@ Implementar ambos: scroll libre + botones flotantes opcionales
 ### 8.1 Performance (Lighthouse)
 
 | Métrica | Objetivo | Resultado | Estado |
-|:--------|:---------|:----------|:-------|
+| :-------- | :--------- | :---------- | :------- |
 | **Performance** | > 90 | 94 | ✅ |
 | **Accessibility** | > 90 | 96 | ✅ |
 | **Best Practices** | > 90 | 92 | ✅ |
@@ -1057,7 +1057,7 @@ Implementar ambos: scroll libre + botones flotantes opcionales
 ### 8.2 Cobertura de Tests
 
 | Tipo | Cobertura | Objetivo | Estado |
-|:-----|:----------|:---------|:-------|
+| :----- | :---------- | :--------- | :------- |
 | **Unit Tests** | 87% | > 80% | ✅ |
 | **Integration Tests** | 65% | > 60% | ✅ |
 | **E2E Tests** | 45% | > 40% | ✅ |
@@ -1065,7 +1065,7 @@ Implementar ambos: scroll libre + botones flotantes opcionales
 ### 8.3 Métricas de Negocio
 
 | Métrica | Resultado |
-|:--------|:----------|
+| :-------- | :---------- |
 | **Tiempo de desarrollo** | 4 semanas |
 | **Costo** | $0 (hosting gratuito en Vercel) |
 | **Visitas en el primer mes** | 1,200 |

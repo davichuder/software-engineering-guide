@@ -174,7 +174,7 @@ Impacto:
 ### Estructura de Narrativa Técnica
 
 | Elemento | Descripción | Ejemplo |
-|:---------|:------------|:--------|
+| :--------- | :------------ | :-------- |
 | **Hook** | Captar atención con problema relevante | "Nuestro sistema de pagos falló 3 veces en 2 semanas, perdiendo $50K en revenue" |
 | **Context** | Explicar situación y constraints | "Arquitectura monolítica, 10 años de legacy, 100K usuarios activos" |
 | **Challenge** | Describir el problema específico | "Deployments riesgosos (all-or-nothing), debugging difícil, escalado limitado" |
@@ -233,7 +233,7 @@ Con 5x tráfico, DB no pudo manejar la carga.
 ### De RFC a Múltiples Formatos
 
 | Formato Original | Formatos Derivados | Audiencia |
-|:-----------------|:-------------------|:----------|
+| :----------------- | :------------------- | :---------- |
 | **RFC** (5 páginas) | → Blog post (800 palabras); → LinkedIn post (300 palabras); → Twitter thread (10 tweets); → Conference talk (30 min) | Engineers → General tech audience → Broader audience → Conference attendees |
 
 ---
@@ -480,7 +480,7 @@ Keywords: migrar monolito microservicios, spring boot microservices, microservic
 ### Content Repurposing Matrix
 
 | Formato Original | Blog Post | LinkedIn | Twitter | Talk | Video |
-|:-----------------|:----------|:---------|:--------|:-----|:------|
+| :----------------- | :---------- | :--------- | :-------- | :----- | :------ |
 | **RFC** | ✅ Simplificar, agregar ejemplos | ✅ Extracto con hook | ✅ Thread con lecciones | ✅ Deep dive técnico | ✅ Walkthrough |
 | **Post-Mortem** | ✅ Storytelling, lecciones | ✅ Resultado + lecciones | ✅ Thread con timeline | ✅ Case study | ✅ Incident replay |
 | **Tutorial** | ✅ Paso a paso detallado | ✅ Resultado + CTA | ✅ Tips rápidos | ✅ Live coding | ✅ Screencast |

@@ -22,7 +22,7 @@ RICE Score = (Reach × Impact × Confidence) / Effort
 **Ejemplo:**
 
 | Feature | Reach | Impact | Confidence | Effort | RICE Score |
-|:--------|:------|:-------|:-----------|:-------|:-----------|
+| :-------- | :------ | :------- | :----------- | :------- | :----------- |
 | Checkout 1-click | 10000/mes | 3 (masivo) | 80% | 2 months | **12000** |
 | Dark mode | 5000/mes | 0.5 (bajo) | 100% | 1 month | **2500** |
 | Notificaciones push | 8000/mes | 1 (medio) | 50% | 3 months | **1333** |
@@ -43,7 +43,7 @@ RICE Score = (Reach × Impact × Confidence) / Effort
 **Ejemplo:**
 
 | Feature | Categoría | Razón |
-|:--------|:----------|:------|
+| :-------- | :---------- | :------ |
 | Login con email/password | **Must** | Sin esto no hay producto |
 | Login con Google | **Should** | Mejora UX pero no crítico |
 | Login con biometría | **Could** | Nice to have |
@@ -56,7 +56,7 @@ RICE Score = (Reach × Impact × Confidence) / Effort
 **Tipos de features:**
 
 | Tipo | Descripción | Ejemplo |
-|:-----|:------------|:--------|
+| :----- | :------------ | :-------- |
 | **Basic** | Esperadas, su ausencia causa insatisfacción | Login, búsqueda |
 | **Performance** | Más es mejor, satisfacción lineal | Velocidad, precio |
 | **Excitement** | Inesperadas, causan deleite | Recomendaciones personalizadas |
@@ -88,7 +88,7 @@ Bajo Valor
 **Ejemplo:**
 
 | Feature | Valor | Esfuerzo | Cuadrante |
-|:--------|:------|:---------|:----------|
+| :-------- | :------ | :--------- | :---------- |
 | Fix bug crítico | Alto | Bajo | **Quick Win** |
 | Migración a microservicios | Alto | Alto | **Major Project** |
 | Cambiar color de botón | Bajo | Bajo | **Fill-in** |
@@ -125,7 +125,7 @@ Bajo Valor
 **Ejemplo:**
 
 | Q1 2024 | Q2 2024 | Q3 2024 |
-|:--------|:--------|:--------|
+| :-------- | :-------- | :-------- |
 | **Performance**; - Optimizar DB; - CDN | **UX**; - Redesign checkout; - Mobile app | **Security**; - 2FA; - Audit logs |
 
 ---
@@ -140,9 +140,9 @@ Bajo Valor
 **Ejemplo:**
 
 | Outcome | Métrica | Initiatives |
-|:--------|:--------|:------------|
+| :-------- | :-------- | :------------ |
 | Aumentar conversión | +15% conversion rate | Checkout 1-click, A/B testing, Optimizar performance |
-| Reducir churn | -20% churn | Onboarding mejorado, Notificaciones, Customer success |
+| Reducir churn | - 20% churn | Onboarding mejorado, Notificaciones, Customer success |
 
 ---
 

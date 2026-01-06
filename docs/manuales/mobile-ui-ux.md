@@ -17,7 +17,7 @@
 ### Enfoques de Desarrollo
 
 | Enfoque | Qué | Por qué | Cuándo | Trade-offs |
-|:--------|:-----|:----|:-----|:-----------|
+| :-------- | :----- | :---- | :----- | :----------- |
 | **Nativo** | Lenguaje específico por plataforma | Máxima performance, acceso completo a APIs | Apps complejas, alta calidad | ✅ Performance, UX nativa; ❌ 2 codebases, costoso |
 | **Multiplataforma** | Un código para iOS + Android | Ahorro tiempo/costo, consistencia | Mayoría de apps comerciales | ✅ Velocidad desarrollo; ❌ Limitaciones platform-specific |
 | **Híbrido** | Web app en webview nativo | Reutilizar web skills | MVPs, apps simples | ✅ Rapidez; ❌ Performance inferior |
@@ -28,7 +28,7 @@
 ### Tecnologías
 
 | Stack | Qué | Cuándo | Features |
-|:------|:-----|:-----|:---------|
+| :------ | :----- | :----- | :--------- |
 | **iOS Nativo** | [SwiftUI](https://developer.apple.com/xcode/swiftui/) + Swift | Apps solo iOS, máxima calidad | Declarative UI, Combine, async/await |
 | **Android Nativo** | [Jetpack Compose](https://developer.android.com/jetpack/compose) + Kotlin | Apps solo Android | Declarative UI, Kotlin coroutines |
 | **React Native** | [React Native](https://reactnative.dev/) | Reutilizar skills React | Hot reload, large ecosystem |
@@ -41,7 +41,7 @@
 ### Patrones Mobile
 
 | Patrón | Qué | Por qué | Cómo |
-|:-------|:-----|:----|:----|
+| :------- | :----- | :---- | :---- |
 | **Offline-First** | App funciona sin internet | UX resiliente | SQLite, sync cuando online |
 | **Deep Linking** | Links abren secciones específicas | Navigation desde web/notifs | URL schemes, Universal Links |
 | **Push Notifications** | Notificaciones remotas | Re-engagement | FCM (Firebase), APNs |
@@ -72,7 +72,7 @@
  **Principio:** Separar UI (render) de Lógica de Negocio (state).
 
  | Patrón | Framework | Descripción |
- |:-------|:----------|:------------|
+ | :------- | :---------- | :------------ |
  | **BLoC (Business Logic Component)** | Flutter | Streams de inputs (eventos) y outputs (estados). UI reactiva pura. |
  | **Redux / Toolkit** | React Native | Store global inmutable, actions, reducers. Time-travel debugging. |
  | **MVVM** | Nativo (Android/iOS) | Model-View-ViewModel. ViewModel expone datos observables a la View. |
@@ -97,7 +97,7 @@
 ### Principios de Diseño
 
 | Principio | Qué | Cómo |
-|:----------|:-----|:----|
+| :---------- | :----- | :---- |
 | **Consistencia** | Patrones repetibles | Mismo estilo para acciones similares |
 | **Jerarquía Visual** | Guiar la atención | Tamaños, colores, contraste |
 | **Feedback** | Confirmar acciones | Loaders, toasts, animaciones |
@@ -109,7 +109,7 @@
 ### Design Systems
 
 | Sistema | Qué | Cuándo |
-|:--------|:-----|:-----|
+| :-------- | :----- | :----- |
 | [Material Design](https://m3.material.io/) | Sistema de Google | Apps Android, web moderna |
 | [Human Interface Guidelines](https://developer.apple.com/design/human-interface-guidelines/) | Guidelines de Apple | Apps iOS |
 | [Fluent Design](https://www.microsoft.com/design/fluent/) | Sistema de Microsoft | Windows apps |
@@ -121,7 +121,7 @@
 ### Componentización
 
 | Aspecto | Qué | Ejemplo |
-|:--------|:-----|:--------|
+| :-------- | :----- | :-------- |
 | **Atomic Design** | Átomos → Moléculas → Organismos | Button → SearchBar → Header |
 | **Props/State** | Configuración vs estado interno | `<Button variant="primary" />` |
 | **Composition** | Componentes dentro de componentes | `<Card><Header/><Body/></Card>` |
@@ -132,7 +132,7 @@
 ### Responsividad
 
 | Técnica | Qué | Cuándo |
-|:--------|:-----|:-----|
+| :-------- | :----- | :----- |
 | **Media Queries** | CSS condicional por pantalla | Layouts diferentes mobile/desktop |
 | **Fluid Typography** | Tamaños escalables | `clamp(1rem, 2.5vw, 2rem)` |
 | **Container Queries** | Condicional por contenedor | Componentes adaptativos |
@@ -151,7 +151,7 @@
 ### Principios UX
 
 | Principio | Qué | Cómo |
-|:----------|:-----|:----|
+| :---------- | :----- | :---- |
 | **Don't Make Me Think** | Interfaz intuitiva | Patrones conocidos, etiquetas claras |
 | **Prevención de Errores** | Evitar errores del usuario | Validaciones, deshabilitación, confirmaciones |
 | **Feedback Inmediato** | Respuesta rápida | Spinners, progress bars, optimistic UI |
@@ -163,7 +163,7 @@
 ### Research & Testing
 
 | Método | Qué | Cuándo | Output |
-|:-------|:-----|:-----|:-------|
+| :------- | :----- | :----- | :------- |
 | **User Interviews** | Entrevistas 1:1 | Discovery, validación | Insights, pain points |
 | **Usability Testing** | Observar usuarios usando prototipo | Pre-lanzamiento | Fricciones, confusiones |
 | **A/B Testing** | Comparar variantes | Post-lanzamiento | Conversión, engagement |
@@ -179,7 +179,7 @@
 **Por qué:** Ético, legal (WCAG), amplía audiencia.
 
 | Aspecto | Qué | Cómo | Herramientas |
-|:--------|:-----|:----|:-------------|
+| :-------- | :----- | :---- | :------------- |
 | **Contraste** | Texto legible | Min 4.5:1 (AA), 7:1 (AAA) | [WebAIM Contrast Checker](https://webaim.org/resources/contrastchecker/) |
 | **Keyboard Nav** | Navegable sin mouse | Tab order, Enter/Space | Test manual |
 | **Screen Readers** | Lectura de contenido | Roles ARIA, alt text | [NVDA](https://www.nvaccess.org/), [VoiceOver](https://www.apple.com/accessibility/voiceover/) |
@@ -192,7 +192,7 @@
 ### Performance UX
 
 | Métrica | Qué | Target | Impacto |
-|:--------|:-----|:-------|:--------|
+| :-------- | :----- | :------- | :-------- |
 | **FCP** | First Contentful Paint | < 1.8s | Primera impresión |
 | **LCP** | Largest Contentful Paint | < 2.5s | Contenido principal visible |
 | **FID** | First Input Delay | < 100ms | Interactividad |
@@ -204,7 +204,7 @@
 ### Animaciones
 
 | Uso | Qué | Cuándo | Duración |
-|:----|:-----|:-----|:---------|
+| :---- | :----- | :----- | :--------- |
 | **Micro-interactions** | Feedback sutil | Hover, click | 1200ms |
 | **Transiciones** | Cambios suaves | Cambios de estado | 2400ms |
 | **Loading** | Indicar progreso | Operaciones async | Mientras dure |
@@ -217,7 +217,7 @@
 ### Patterns UX
 
 | Pattern | Qué | Cuándo |
-|:--------|:-----|:-----|
+| :-------- | :----- | :----- |
 | **Progressive Disclosure** | Mostrar gradualmente | Wizards, formularios largos |
 | **Skeleton Screens** | Placeholder mientras carga | Listas, cards |
 | **Infinite Scroll** | Cargar más al scrollear | Feeds sociales |
@@ -230,7 +230,7 @@
 ## 🚫 Anti-patrones
 
 | Anti-patrón | Problema | Solución |
-|:------------|:---------|:---------|
+| :------------ | :--------- | :--------- |
 | **Dark Patterns** | Manipular para decisiones no deseadas | Diseño ético, transparente |
 | **Carousels** | Baja conversión, accesibilidad | Evitar o hacer pausable |
 | **Pop-ups agresivos** | Frustración, abandono | Timing apropiado, fácil cerrar |

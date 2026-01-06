@@ -16,7 +16,7 @@ Abordar el riesgo y la seguridad de la proliferación de herramientas *Low-Code/
 ## ⚠️ Riesgos Clave de LCNC
 
 | Riesgo | Problema | Impacto |
-|:-------|:---------|:--------|
+| :------- | :--------- | :-------- |
 | **Shadow IT** | Apps sin supervisión TI | Falta de seguridad y observabilidad |
 | **Configuración insegura** | Endpoints expuestos, defaults inseguros | Vulnerabilidades críticas |
 | **Data Leakage/Integridad** | Manejo incorrecto de PII o datos maestros | Filtración, duplicados, pérdida de unicidad |
@@ -29,7 +29,7 @@ Abordar el riesgo y la seguridad de la proliferación de herramientas *Low-Code/
 ## 🔒 Políticas de Seguridad y Acceso
 
 | Principio | Aplicación en LCNC | Referencia |
-|:----------|:-------------------|:-----------|
+| :---------- | :------------------- | :----------- |
 | **Least Privilege** | Acceso mínimo a DB/APIs, granular por filas/columnas | Seguridad de acceso |
 | **Zero Trust** | Autenticación/autorización explícita en cada conexión | Zero Trust |
 | **Secrets Management** | Claves gestionadas en Vault/Secrets Manager, nunca hardcodeadas | Gestión de secretos |
@@ -41,7 +41,7 @@ Abordar el riesgo y la seguridad de la proliferación de herramientas *Low-Code/
 ## 📊 Data Governance para LCNC
 
 | Práctica | Qué | Cómo |
-|:---------|:----|:-----|
+| :--------- | :---- | :----- |
 | **Data Lineage** | Mapear origen/consumo de datos | Catalogar campos creados/modificados |
 | **Data Contracts** | Cumplir schema y calidad | Rechazo o DLQ si falla |
 | **Data Quality Monitoring** | Monitorear freshness, volumen, null rate, duplicados | Alertas y dashboards |
@@ -62,7 +62,7 @@ Abordar el riesgo y la seguridad de la proliferación de herramientas *Low-Code/
 ## 👥 Roles y Accountability
 
 | Rol | Responsabilidad |
-|:----|:----------------|
+| :---- | :---------------- |
 | **Platform Owner** | Mantener infraestructura LCNC, definir plantillas seguras |
 | **Citizen Developer** | Crear apps cumpliendo reglas de negocio y convenciones |
 | **Data Steward** | Responsable final del dato, valida calidad y privacidad |
@@ -74,7 +74,7 @@ Abordar el riesgo y la seguridad de la proliferación de herramientas *Low-Code/
 ## 🚫 Anti-patrones
 
 | Anti-patrón | Problema | Solución |
-|:------------|:---------|:---------|
+| :------------ | :--------- | :--------- |
 | **Hardcoded Secrets** | Credenciales en app/config | Secrets Manager + rotación |
 | **Access Wildcard** | Permisos totales (“SELECT *”) | RBAC granular |
 | **No Testing** | Asumir que builder = producción | Staging + smoke tests |

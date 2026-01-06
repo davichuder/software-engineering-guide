@@ -19,7 +19,7 @@
 ## 📊 Tipos de Aprendizaje
 
 | Tipo | Qué | Cuándo | Algoritmos |
-|:-----|:-----|:-----|:-----------|
+| :----- | :----- | :----- | :----------- |
 | **Supervisado** | Aprender de datos etiquetados | Clasificación, regresión | Linear Regression, Random Forest, XGBoost, SVM |
 | **No Supervisado** | Encontrar patrones sin etiquetas | Clustering, reducción dimensionalidad | K-Means, DBSCAN, PCA, t-SNE |
 | **Semi-Supervisado** | Pocos labels + muchos unlabeled | Etiquetado costoso | Self-training, co-training |
@@ -30,7 +30,7 @@
 ## 🧠 Algoritmos Clásicos (ML)
 
 | Algoritmo | Qué | Cuándo | Pros/Contras |
-|:----------|:-----|:-----|:----------|
+| :---------- | :----- | :----- | :---------- |
 | **Linear Regression** | Predecir valor continuo | Relación lineal | ✅ Simple, interpretable; ❌ Solo lineal |
 | **Logistic Regression** | Clasificación binaria | Baseline classification | ✅ Rápido, probabilístico; ❌ Solo linealmente separable |
 | **Decision Trees** | Árbol de decisiones | Interpretabilidad | ✅ Fácil explicar; ❌ Overfitting |
@@ -51,7 +51,7 @@
 **Por qué:** Aprende representaciones complejas, SOTA en visión, NLP, audio.
 
 | Arquitectura | Qué | Cuándo | Casos de Uso |
-|:-------------|:-----|:-----|:----------|
+| :------------- | :----- | :----- | :---------- |
 | **CNN** (Convolutional) | Redes para datos espaciales | Imágenes, video | Clasificación imágenes, detección objetos |
 | **RNN** (Recurrent) | Redes para secuencias | Series temporales, texto | Predicción series, sentiment analysis |
 | **LSTM** (Long Short-Term Memory) | RNN con memoria long-term | Secuencias largas | Traducción, generación texto |
@@ -67,7 +67,7 @@
 ## 🗣️ NLP (Natural Language Processing)
 
 | Tarea | Qué | Modelos |
-|:------|:-----|:--------|
+| :------ | :----- | :-------- |
 | **Clasificación texto** | Categorizar documentos | BERT, RoBERTa, DistilBERT |
 | **NER** (Named Entity Recognition) | Extraer entidades | spaCy, Flair |
 | **Sentiment Analysis** | Detectar sentimiento | Fine-tuned BERT |
@@ -83,7 +83,7 @@
 ## 👁️ Computer Vision
 
 | Tarea | Qué | Modelos |
-|:------|:-----|:--------|
+| :------ | :----- | :-------- |
 | **Clasificación** | Etiquetar imagen | ResNet, EfficientNet, Vision Transformer |
 | **Detección objetos** | Ubicar objetos en imagen | YOLO, Faster R-CNN |
 | **Segmentación** | Clasificar cada pixel | U-Net, Mask R-CNN |
@@ -102,7 +102,7 @@
 **Por qué:** Reproducibilidad, deployment continuo, monitoreo modelos.
 
 | Fase | Qué | Herramientas |
-|:-----|:-----|:-------------|
+| :----- | :----- | :------------- |
 | **Experiment Tracking** | Registrar entrenamientos | [MLflow](https://mlflow.org/), [Weights & Biases](https://wandb.ai/) |
 | **Feature Store** | Centralizar features | [Feast](https://feast.dev/), [Tecton](https://www.tecton.ai/) |
 | **Model Registry** | Versionar modelos | MLflow, [DVC](https://dvc.org/) |
@@ -141,7 +141,7 @@
 ### Clasificación
 
 | Métrica | Qué | Cuándo |
-|:--------|:-----|:-----|
+| :-------- | :----- | :----- |
 | **Accuracy** | % correctos | Clases balanceadas |
 | **Precision** | % de positivos correctos | Minimizar falsos positivos |
 | **Recall** | % de positivos encontrados | Minimizar falsos negativos |
@@ -152,7 +152,7 @@
 ### Regresión
 
 | Métrica | Qué | Cuándo |
-|:--------|:-----|:-----|
+| :-------- | :----- | :----- |
 | **MAE** | Mean Absolute Error | Interpretar error promedio |
 | **MSE** | Mean Squared Error | Penalizar errores grandes |
 | **RMSE** | Root MSE | Misma escala que target |
@@ -163,7 +163,7 @@
 ## 🔧 Feature Engineering
 
 | Técnica | Qué | Ejemplo |
-|:--------|:-----|:--------|
+| :-------- | :----- | :-------- |
 | **Encoding** | Convertir categóricas | One-hot, label encoding |
 | **Scaling** | Normalizar rangos | StandardScaler, MinMaxScaler |
 | **Binning** | Discretizar continuas | Edad → grupos etarios |
@@ -176,7 +176,7 @@
 ## ⚙️ Optimización Hiperparámetros
 
 | Método | Qué | Cuándo |
-|:-------|:-----|:-----|
+| :------- | :----- | :----- |
 | **Grid Search** | Probar todas combinaciones | Pocos hiperparámetros |
 | **Random Search** | Sampling aleatorio | Más hiperparámetros |
 | **Bayesian Optimization** | Optimización inteligente | Entrenamientos costosos |
@@ -189,7 +189,7 @@
 ## 🧪 Validación
 
 | Técnica | Qué | Cuándo |
-|:--------|:-----|:-----|
+| :-------- | :----- | :----- |
 | **Train/Test Split** | 20 o 30 | Dataset suficientemente grande |
 | **K-Fold CV** | K subsets, entrenar K veces | Datasets pequeños |
 | **Stratified K-Fold** | Mantener proporción clases | Clases desbalanceadas |
@@ -200,7 +200,7 @@
 ## 🚫 Problemas Comunes
 
 | Problema | Causa | Solución |
-|:---------|:------|:---------|
+| :--------- | :------ | :--------- |
 | **Overfitting** | Modelo memoriza training | Regularization, más datos, dropout |
 | **Underfitting** | Modelo muy simple | Más features, modelo más complejo |
 | **Fuga de Datos (Data Leakage)** | Info de test en training | Validar splits, feature engineering post-split |
@@ -212,7 +212,7 @@
 ## 🔐 Ética y Fairness
 
 | Aspecto | Qué | Cómo mitigar |
-|:--------|:-----|:-------------|
+| :-------- | :----- | :------------- |
 | **Bias** | Modelo discrimina grupos | Auditar datasets, fairness metrics |
 | **Privacy** | Datos sensibles | Differential privacy, federated learning |
 | **Explainability** | Black-box decisions | SHAP, LIME, feature importance |

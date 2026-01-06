@@ -58,7 +58,7 @@
 
 ## Criterios de Decisión
 | Criterio | Peso | Opción 1 | Opción 2 | Opción 3 |
-|:---------|:----:|:--------:|:--------:|:--------:|
+| :--------- | :----: | :--------: | :--------: | :--------: |
 | Performance | 30% | 8/10 | 6/10 | 9/10 |
 | Costo | 25% | 6/10 | 9/10 | 4/10 |
 | Mantenibilidad | 25% | 7/10 | 8/10 | 5/10 |
@@ -214,7 +214,7 @@ Necesitamos elegir DB para nuevo sistema de pagos. Requisitos:
 ## Plan de Mitigación Priorizado
 
 | Escenario | Probabilidad | Impacto | Prioridad | Acción | Responsable |
-|:----------|:-------------|:--------|:----------|:-------|:------------|
+| :---------- | :------------- | :-------- | :---------- | :------- | :------------ |
 | [Escenario 1] | Alta | Alto | 🔴 P0 | [Acción] | [Persona] |
 | [Escenario 2] | Media | Alto | 🟠 P1 | [Acción] | [Persona] |
 | [Escenario 3] | Alta | Medio | 🟠 P1 | [Acción] | [Persona] |
@@ -325,7 +325,7 @@ comando --flag valor
 ## Severidad
 
 | Nivel | Descripción | Ejemplo | Response Time |
-|:------|:------------|:--------|:--------------|
+| :------ | :------------ | :-------- | :-------------- |
 | **SEV1** | Outage completo | Sistema down | <15 min |
 | **SEV2** | Degradación severa | Latency 10x | <30 min |
 | **SEV3** | Degradación menor | Feature no crítica down | <2 hours |
@@ -333,7 +333,7 @@ comando --flag valor
 ## Roles
 
 | Rol | Responsabilidad | Persona |
-|:----|:----------------|:--------|
+| :---- | :---------------- | :-------- |
 | **Incident Commander** | Coordinar respuesta | On-call SRE |
 | **Tech Lead** | Debugging técnico | On-call Engineer |
 | **Comms Lead** | Comunicación stakeholders | PM/EM |

@@ -15,7 +15,7 @@
 **Costo:** Decisión temprana de alto impacto. Cambiar arquitectura en sistema maduro = 6-18 meses.
 
 | Arquitectura | Qué | Por qué | Cuándo | Dónde | Cómo | Trade-offs |
-|:-------------|:-----|:----|:-----|:------|:----|:-----------|
+| :------------- | :----- | :---- | :----- | :------ | :---- | :----------- |
 | **Monolítica** | Aplicación única con todos los módulos integrados | Simplicidad, deployment único, debugging fácil | MVPs, equipos pequeños, dominios simples | Startups, sistemas internos | Todo en un proceso, shared DB, deployment único | ✅ Simple, rápido desarrollo inicial; ✅ Si esta bien estructurado puede escalar horizontalmente duplicando el proceso; ❌ Escalado vertical; ❌ Acoplamiento y la dificultad de escalar componentes específicos de manera independiente |
 | **MVC** | Model-View-Controller: separar datos, UI y control | Claridad en responsabilidades | Apps web tradicionales, dashboards | Backend + templates | Modelos (datos), Vistas (UI), Controladores (lógica coordinación) | ✅ Patrón conocido; ❌ Controllers crecen (fat controllers) |
 | **Microservicios** | Sistema distribuido con servicios independientes | Escalado independiente, equipos autónomos | Sistemas complejos, múltiples equipos | Netflix, Uber, Amazon | Servicios pequeños, comunicación API/eventos, DB por servicio | ✅ Escalabilidad, fault isolation; ❌ Complejidad operacional, latencia |
@@ -39,7 +39,7 @@
 ### Las Tres Propiedades
 
 | Propiedad | Qué significa | Ejemplo |
-|:----------|:--------------|:--------|
+| :---------- | :-------------- | :-------- |
 | **Consistency (C)** | Todos los nodos ven los mismos datos al mismo tiempo. Lectura siempre retorna el valor más reciente | Sistemas bancarios: saldo debe ser exacto en todas las consultas |
 | **Availability (A)** | Toda solicitud recibe una respuesta (éxito o fallo), sin garantía de que contenga el dato más reciente | Redes sociales: mejor mostrar timeline ligeramente desactualizado que error |
 | **Partition Tolerance (P)** | El sistema continúa operando a pesar de pérdida de mensajes entre nodos (particiones de red) | Inevitable en sistemas distribuidos (red puede fallar) |
@@ -65,7 +65,7 @@ graph TD
 ### Decisiones Prácticas
 
 | Escenario | Elección | Justificación | Tecnología |
-|:----------|:---------|:--------------|:-----------|
+| :---------- | :--------- | :-------------- | :----------- |
 | **Sistema bancario** | **CP** | Consistencia es crítica, mejor rechazar operación que mostrar saldo incorrecto | PostgreSQL (strong consistency), Spanner |
 | **Red social** | **AP** | Disponibilidad es clave, eventual consistency es aceptable | Cassandra, DynamoDB |
 | **E-commerce (carrito)** | **AP** | Mejor permitir agregar al carrito aunque inventario esté levemente desactualizado | DynamoDB, Riak |
@@ -99,7 +99,7 @@ graph TD
 ### Comparación
 
 | Aspecto | Escalabilidad Vertical (Scale Up) | Escalabilidad Horizontal (Scale Out) |
-|:--------|:----------------------------------|:-------------------------------------|
+| :-------- | :---------------------------------- | :------------------------------------- |
 | **Qué es** | Aumentar recursos de un solo servidor (más CPU, RAM, disco) | Añadir más servidores/instancias |
 | **Límite** | Físico (máximo hardware disponible) | Prácticamente ilimitado |
 | **Costo** | Exponencial (hardware high-end es desproporcionadamente caro) | Lineal (agregar commodity hardware) |
@@ -111,7 +111,7 @@ graph TD
 ### Cuándo Usar Cada Una
 
 | Escenario | Recomendación | Razón |
-|:----------|:--------------|:------|
+| :---------- | :-------------- | :------ |
 | **MVP, startup temprana** | **Vertical** | Simplicidad, menor overhead operacional |
 | **Base de datos SQL (PostgreSQL, MySQL)** | **Vertical primero**, luego read replicas (horizontal) | SQL escala mejor verticalmente, sharding es complejo |
 | **Aplicación stateless (API REST)** | **Horizontal** | Fácil replicar, load balancer distribuye |
@@ -142,7 +142,7 @@ graph LR
 ### Relación con Arquitecturas
 
 | Arquitectura | Escalabilidad Natural | Por qué |
-|:-------------|:---------------------|:--------|
+| :------------- | :--------------------- | :-------- |
 | **Monolito** | **Vertical** | Todo en un proceso, difícil distribuir. Puede escalar horizontalmente si es stateless y usa DB externa |
 | **Microservicios** | **Horizontal** | Servicios independientes, fácil replicar cada uno según necesidad |
 | **Serverless** | **Horizontal automático** | Provider escala funciones automáticamente |
@@ -266,7 +266,7 @@ graph TD
 ```
 
 | Capa | Responsabilidad | Ejemplos | Depende de |
-|:-----|:----------------|:---------|:-----------|
+| :----- | :---------------- | :--------- | :----------- |
 | **1. Domain Model (Core)** | Entidades, Value Objects, reglas de negocio puras | `User`, `Order`, `Money` | Nada (independiente) |
 | **2. Domain Services** | Lógica de dominio que no pertenece a una entidad | `PricingService`, `InventoryValidator` | Domain Model |
 | **3. Application Services** | Casos de uso, orquestación de flujos | `CreateOrderUseCase`, `ProcessPayment` | Domain Services + Domain Model |
@@ -284,15 +284,15 @@ graph TD
 ### Comparación con Hexagonal
 
 | Aspecto | Hexagonal | Onion |
-|:--------|:----------|:------|
+| :-------- | :---------- | :------ |
 | **Concepto clave** | Puertos y Adaptadores | Capas concéntricas |
 | **Dependencias** | Hacia el Core | Hacia el centro |
 | **Organización** | Horizontal (Ports/Adapters) | Vertical (Capas) |
-| **Similitud** | Ambas aíslan el dominio de la infraestructura |
+| **Similitud** | Ambas aíslan el dominio de la infraestructura | Ambas aíslan el dominio de la infraestructura |
 
 ### Ejemplo de Código
 
-**Capa 1: Domain Model**
+#### Capa 1: Domain Model
 
 ```typescript
 // domain/entities/Order.ts
@@ -313,7 +313,7 @@ export class Order {
 }
 ```
 
-**Capa 3: Application Service**
+#### Capa 3: Application Service
 
 ```typescript
 // application/use-cases/CreateOrder.ts
@@ -332,7 +332,7 @@ export class CreateOrderUseCase {
 }
 ```
 
-**Capa 4: Infrastructure**
+#### Capa 4: Infrastructure
 
 ```typescript
 // infrastructure/repositories/PostgresOrderRepository.ts
@@ -398,7 +398,7 @@ graph TD
 ```
 
 | Círculo | Nombre | Responsabilidad | Ejemplos |
-|:--------|:-------|:----------------|:---------|
+| :-------- | :------- | :---------------- | :--------- |
 | **1 (Centro)** | **Enterprise Business Rules** | Entidades de negocio, reglas críticas | `User`, `Order`, `Invoice` |
 | **2** | **Application Business Rules** | Casos de uso específicos de la aplicación | `CreateUser`, `PlaceOrder`, `GenerateReport` |
 | **3** | **Interface Adapters** | Convertir datos entre casos de uso y frameworks | `UserController`, `OrderPresenter`, `DatabaseGateway` |
@@ -466,15 +466,15 @@ export class PostgresUserRepository implements IUserRepository {
 ### Comparación: Clean vs Hexagonal vs Onion
 
 | Aspecto | Clean Architecture | Hexagonal | Onion |
-|:--------|:-------------------|:----------|:------|
+| :-------- | :------------------- | :---------- | :------ |
 | **Autor** | Robert C. Martin | Alistair Cockburn | Jeffrey Palermo |
 | **Concepto clave** | 4 círculos concéntricos | Puertos y Adaptadores | Capas concéntricas |
 | **Foco principal** | Independencia total del dominio | Testability y flexibilidad | Separación por capas |
-| **Similitud** | **Todas aíslan el dominio de la infraestructura y aplican Dependency Inversion** |
+| **Similitud** | Todas aíslan el dominio de la infraestructura y aplican Dependency Inversion | Todas aíslan el dominio de la infraestructura y aplican Dependency Inversion | Todas aíslan el dominio de la infraestructura y aplican Dependency Inversion |
 
 ### Ejemplo Completo: Sistema de Pedidos
 
-**Circle 1: Entity**
+#### Circle 1: Entity
 
 ```typescript
 // entities/Order.ts
@@ -492,7 +492,7 @@ export class Order {
 }
 ```
 
-**Circle 2: Use Case + Interface**
+#### Circle 2: Use Case + Interface
 
 ```typescript
 // use-cases/CreateOrder.ts
@@ -519,7 +519,7 @@ export class CreateOrderUseCase {
 }
 ```
 
-**Circle 3: Controller (Adapter)**
+#### Circle 3: Controller (Adapter)
 
 ```typescript
 // adapters/controllers/OrderController.ts
@@ -534,7 +534,7 @@ export class OrderController {
 }
 ```
 
-**Circle 4: Infrastructure**
+#### Circle 4: Infrastructure
 
 ```typescript
 // infrastructure/PostgresOrderRepository.ts
@@ -556,7 +556,7 @@ export class SendGridEmailService implements IEmailService {
 ### Beneficios de Clean Architecture
 
 | Beneficio | Explicación |
-|:----------|:------------|
+| :---------- | :------------ |
 | **Independencia de Frameworks** | Cambiar de Express a Fastify no afecta Use Cases |
 | **Testability** | Testear Use Cases sin DB/UI (mocks de interfaces) |
 | **Independencia de UI** | Misma lógica para Web, Mobile, CLI |
@@ -603,7 +603,7 @@ export class SendGridEmailService implements IEmailService {
 
 **Por qué:** Evita que un modelo único intente representar todo (God Model). Permite que equipos trabajen independientemente.
 
-**Ejemplo: E-commerce**
+#### Ejemplo: E-commerce
 
 ```mermaid
 graph LR
@@ -636,7 +636,7 @@ graph LR
 **Patrones de integración:**
 
 | Patrón | Qué | Cuándo |
-|:-------|:----|:-------|
+| :------- | :---- | :------- |
 | **Shared Kernel** | Contextos comparten un subconjunto del modelo | Equipos muy coordinados, bajo acoplamiento aceptable |
 | **Customer/Supplier** | Un contexto (Supplier) provee datos al otro (Customer) | Relación upstream/downstream clara |
 | **Conformist** | Customer acepta modelo del Supplier sin traducción | Supplier no puede cambiar (legacy, third-party) |
@@ -701,7 +701,7 @@ export class Money {
 
 **Por qué:** Garantiza consistencia, simplifica transacciones.
 
-**Ejemplo: Order Aggregate**
+#### Ejemplo: Order Aggregate
 
 ```typescript
 export class Order { // Aggregate Root
@@ -859,7 +859,7 @@ export class SendOrderConfirmationHandler {
 **DDD** (qué modelar) se combina perfectamente con **Clean Architecture** (cómo estructurar):
 
 | DDD | Clean Architecture |
-|:----|:-------------------|
+| :---- | :------------------- |
 | Entities, Value Objects, Aggregates | Circle 1: Enterprise Business Rules |
 | Domain Services | Circle 2: Application Business Rules |
 | Repositories (interfaces) | Circle 2: Use Cases definen puertos |
@@ -955,7 +955,7 @@ export class SendOrderConfirmationHandler {
 ### Beneficios
 
 | Beneficio | Explicación |
-|:----------|:------------|
+| :---------- | :------------ |
 | **Claridad de dominio** | Nuevos devs entienden el negocio mirando carpetas |
 | **Independencia de framework** | Cambiar de Express a Fastify no afecta estructura core |
 | **Testability** | Casos de uso son testables sin framework |
@@ -983,7 +983,7 @@ export class SendOrderConfirmationHandler {
 ### Patrones Creacionales
 
 | Patrón | Qué | Por qué | Cuándo | Cómo |
-|:-------|:-----|:----|:-----|:----|
+| :------- | :----- | :---- | :----- | :---- |
 | **Factory Method** | Crea objetos sin especificar clase exacta | Delegar creación a subclases | Crear objetos de familias similares | Interface `create()`, subclases deciden tipo concreto |
 | **Abstract Factory** | Crea familias de objetos relacionados | Consistencia entre productos | UI con temas (Dark/Light) | Factory retorna conjunto de objetos relacionados |
 | **Builder** | Construye objetos complejos paso a paso | Muchas opciones de configuración | DTOs complejos, requests HTTP | `builder.setName().setAge().build()` |
@@ -993,7 +993,7 @@ export class SendOrderConfirmationHandler {
 ### Patrones Estructurales
 
 | Patrón | Qué | Por qué | Cuándo | Cómo |
-|:-------|:-----|:----|:-----|:----|
+| :------- | :----- | :---- | :----- | :---- |
 | **Adapter** | Convierte interfaz incompatible | Integrar código legacy/third-party | Librerías externas con APIs distintas | Wrapper que traduce llamadas |
 | **Bridge** | Separa abstracción de implementación | Variar ambas independientemente | UI multiplataforma (misma lógica, distinto render) | Abstracción tiene referencia a implementación |
 | **Composite** | Composición jerárquica (árbol) | Tratar individual y compuesto igual | Menús, file systems, org charts | Interface común, contenedor tiene lista de hijos |
@@ -1005,7 +1005,7 @@ export class SendOrderConfirmationHandler {
 ### Patrones Comportamiento
 
 | Patrón | Qué | Por qué | Cuándo | Cómo |
-|:-------|:-----|:----|:-----|:----|
+| :------- | :----- | :---- | :----- | :---- |
 | **Strategy** | Familia de algoritmos intercambiables | Cambiar comportamiento en runtime | Ordenamiento (bubble, quick, merge) | Interface `execute()`, contexto recibe estrategia |
 | **Observer** | Notifica cambios a múltiples objetos | Reacción automática ante eventos | UI reactiva (state → re-render) | Sujeto tiene lista de observadores, `notify()` |
 | **Command** | Encapsula solicitud como objeto | Parametrizar, deshacer, encolar | Undo/Redo, job queues | Interface `execute()`, receiver realiza acción |
@@ -1022,7 +1022,7 @@ export class SendOrderConfirmationHandler {
 ## 🏗️ Patrones Arquitectónicos Avanzados
 
 | Patrón | Qué | Por qué | Cuándo | Dónde | Cómo | Herramientas |
-|:-------|:-----|:----|:-----|:------|:----|:-------------|
+| :------- | :----- | :---- | :----- | :------ | :---- | :------------- |
 | **Event Sourcing** | Persistir cambios como secuencia de eventos inmutables | Auditoría completa, time travel, proyecciones | Sistemas financieros, compliance | Event Store | Cada cambio → evento (`OrderPlaced`), reconstruir estado reproduciendo | [EventStore](https://www.eventstore.com/), [Kafka](https://kafka.apache.org/) |
 | **CQRS** | Separar modelos de lectura (Query) y escritura (Command) | Optimizar cada uno independientemente | Escrituras complejas + lecturas frecuentes | APIs de alta carga | Commands modifican, Queries leen vistas desnormalizadas | [MediatR](https://github.com/jbogard/MediatR), [Axon](https://axoniq.io/) |
 | **Saga Pattern** | Transacciones distribuidas con compensación | Consistencia eventual entre microservicios | Workflows multi-servicio (order→payment→shipping) | Microservicios | Orquestada (coordinador) o Coreografiada (eventos) | [Temporal](https://temporal.io/), [Camunda](https://camunda.com/) |
@@ -1042,7 +1042,7 @@ export class SendOrderConfirmationHandler {
 **Cuándo:** Workflows complejos (pedidos, aprobaciones, onboarding), procesos con múltiples actores.
 
 | Concepto | Qué | Ejemplo |
-|:---------|:-----|:--------|
+| :--------- | :----- | :-------- |
 | **Estados** | Conjunto finito de condiciones | `Pending`, `Paid`, `Shipped`, `Delivered`, `Cancelled` |
 | **Transiciones** | Cambios entre estados con condiciones | `Pending → Paid` (al recibir pago) |
 | **Eventos** | Triggers que activan transiciones | `PaymentReceived`, `ShipmentDispatched` |
@@ -1087,7 +1087,7 @@ const orderMachine = createMachine({
 > **Nota:** Estos principios se aplican a nivel arquitectónico. Para ver su definición fundamental y aplicación a nivel de código, consultar [Reglas Generales de Código](./fundamentos.md#reglas-generales-de-codigo).
 
 | Principio | Qué | Por qué |
-|:----------|:-----|:----|
+| :---------- | :----- | :---- |
 | **Separation of Concerns** | Separar responsabilidades en módulos/capas | Mantenimiento, testing, escalabilidad |
 | **Single Responsibility** | Cada módulo/clase tiene una razón para cambiar | Cohesión alta, bajo acoplamiento |
 | **Dependency Inversion** | Depender de abstracciones, no concreciones | Testability, flexibilidad |
@@ -1099,7 +1099,7 @@ const orderMachine = createMachine({
 ## 🗂️ Distribución de Carpetas
 
 | Enfoque | Qué | Cuándo | Ejemplo |
-|:--------|:-----|:-----|:--------|
+| :-------- | :----- | :----- | :-------- |
 | **Por tipo** | Separar por categoría técnica | Proyectos pequeños | `/controllers`, `/services`, `/models` |
 | **Por feature** | Agrupar por funcionalidad | Proyectos medianos/grandes | `/auth`, `/dashboard`, `/billing` |
 | **Por dominio** | Agrupar por contexto de negocio | DDD | `/sales`, `/inventory`, `/shipping` |
@@ -1110,7 +1110,7 @@ const orderMachine = createMachine({
 ## 🚫 Anti-patrones Arquitectónicos
 
 | Anti-patrón | Problema | Solución |
-|:------------|:---------|:---------|
+| :------------ | :--------- | :--------- |
 | **Big Ball of Mud** | Sin estructura clara, todo acoplado | Refactorizar incremental, definir módulos |
 | **God Object** | Una clase hace todo | Aplicar SRP, extraer responsabilidades |
 | **Spaghetti Code** | Flujo imposible de seguir | Linealizar, extraer funciones, FSM |

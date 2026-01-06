@@ -77,7 +77,7 @@ Se aumentó temporalmente el límite de conexiones de la DB y del pool de la apl
 ## ✅ Action Items
 
 | Tarea | Tipo | Dueño | Prioridad | Ticket |
-|:------|:-----|:------|:----------|:-------|
+| :------ | :----- | :------ | :---------- | :------- |
 | Fix connection leak en LegacyCheckout | Reparación | @backend | Crítica | JIRA-501 |
 | Incluir flujos legacy en Load Tests | Preventivo | @qa | Alta | JIRA-502 |
 | Implementar PgBouncer para pooling | Arquitectura | @sre | Media | JIRA-503 |

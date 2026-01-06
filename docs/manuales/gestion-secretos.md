@@ -9,7 +9,7 @@
 ### Comparación
 
 | Tool | Pros | Cons | Cuándo Usar |
-|:-----|:-----|:-----|:------------|
+| :----- | :----- | :----- | :------------ |
 | **HashiCorp Vault** | Flexible, audit logs, dynamic secrets | Complejidad operacional | Empresas, multi-cloud |
 | **AWS Secrets Manager** | Integración nativa AWS, rotation automática | Lock-in AWS | Workloads en AWS |
 | **Azure Key Vault** | Integración nativa Azure, HSM | Lock-in Azure | Workloads en Azure |
@@ -58,7 +58,7 @@ vault token create -policy=app-policy
 ### Por Qué Rotar Secretos
 
 | Razón | Frecuencia Recomendada |
-|:------|:-----------------------|
+| :------ | :----------------------- |
 | **Compliance** (SOC2, PCI-DSS) | 90 días |
 | **Secreto comprometido** | Inmediato |
 | **Empleado deja la empresa** | Inmediato |

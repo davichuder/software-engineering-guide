@@ -208,7 +208,7 @@
 ### Recursos Internos
 
 | Tipo | Contenido | Cuándo |
-|:-----|:----------|:-------|
+| :----- | :---------- | :------- |
 | **Video walkthroughs** | Tour de codebase, demos | Semana 1 |
 | **Tech talks grabados** | Decisiones arquitecturales, postmortems | Asíncrono |
 | **Wiki interno** | Runbooks, FAQs, How-tos | Referencia continua |
@@ -280,7 +280,7 @@ git log -L :functionName:archivo.py
 ## 📊 Metrics de Onboarding
 
 | Métrica | Target | Cómo medir |
-|:--------|:-------|:-----------|
+| :-------- | :------- | :----------- |
 | **Time to first commit** | < 3 días | Git history |
 | **Time to first merged PR** | < 1 semana | GitHub/GitLab |
 | **Time to independence** | < 4 semanas | Manager assessment |
@@ -316,7 +316,7 @@ git log -L :functionName:archivo.py
 ## 🎉 Celebrar Hitos
 
 | Hito | Celebración |
-|:-----|:------------|
+| :----- | :------------ |
 | **Primera PR merged** | Shoutout en Slack, emoji reaction 🎉 |
 | **Primera feature deployed** | Demo en team meeting |
 | **Fin de onboarding (4-6 semanas)** | Team lunch, pequeño regalo (swag) |
@@ -328,7 +328,7 @@ git log -L :functionName:archivo.py
 ## 🚫 Anti-patrones
 
 | Anti-patrón | Problema | Solución |
-|:------------|:---------|:---------|
+| :------------ | :--------- | :--------- |
 | **"Figure it out yourself"** | Frustración, lentitud | Buddy activo, docs claras |
 | **Setup toma 3 días** | Mal primera impresión | Scripts automáticos, Docker |
 | **Sin primera tarea clara** | No saber qué hacer | Backlog de "good first issues" |
@@ -402,7 +402,7 @@ Onboarding Feedback
 **Soluciones:**
 
 | Desafío | Solución |
-|:--------|:---------|
+| :-------- | :--------- |
 | **Aislamiento** | Daily video check-in, coffee chats virtuales |
 | **Setup** | Video call screen-share para troubleshoot |
 | **Cultura** | Enviar care package, virtual team building |

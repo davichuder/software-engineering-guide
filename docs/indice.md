@@ -183,7 +183,7 @@
 ### 📝 Reportes y Templates
 
 | Tipo de Reporte | Template | Ejemplo |
-|:----------------|:---------|:--------|
+| :---------------- | :--------- | :-------- |
 | **Bug Report** | [📄 Ver Template](./reportes/templates/bug-report-template.md) | [🐛 Ver Ejemplo](./reportes/examples/bug-report-example.md) |
 | **Feature Request** | [📄 Ver Template](./reportes/templates/feature-request-template.md) | [💡 Ver Ejemplo](./reportes/examples/feature-request-example.md) |
 | **Post-Mortem** | [📄 Ver Template](./reportes/templates/post-mortem-template.md) | [💀 Ver Ejemplo](./reportes/examples/post-mortem-example.md) |

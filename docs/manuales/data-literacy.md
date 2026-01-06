@@ -39,7 +39,7 @@
 #### Tipos de Métricas
 
 | Tipo | Descripción | Ejemplo |
-|:-----|:------------|:--------|
+| :----- | :------------ | :-------- |
 | **Counter** | Siempre incrementa | Total de ventas, usuarios registrados |
 | **Gauge** | Puede subir o bajar | Usuarios activos ahora, temperatura |
 | **Rate** | Cambio por unidad de tiempo | Ventas/día, requests/segundo |
@@ -52,7 +52,7 @@
 **Qué son:** Valor por debajo del cual cae un % de observaciones.
 
 | Percentil | Significado |
-|:----------|:------------|
+| :---------- | :------------ |
 | **p50 (mediana)** | 50% de valores están por debajo |
 | **p95** | 95% de valores están por debajo (detecta outliers) |
 | **p99** | 99% de valores están por debajo (tail latency) |
@@ -83,7 +83,7 @@ p99: 500ms
 ### Herramientas
 
 | Tool | Pros | Cons | Cuándo Usar |
-|:-----|:-----|:-----|:------------|
+| :----- | :----- | :----- | :------------ |
 | **Looker** | Modeling layer (LookML), embeddable | Curva de aprendizaje | Empresas, data teams |
 | **Tableau** | Visualizaciones poderosas, drag-and-drop | Costo alto | Business analysts |
 | **Metabase** | Open-source, fácil de usar | Menos features | Startups, equipos pequeños |
@@ -123,7 +123,7 @@ WHERE event_type = 'login'
 **Quién puede acceder a qué:**
 
 | Rol | Acceso | Ejemplo |
-|:----|:-------|:--------|
+| :---- | :------- | :-------- |
 | **Executives** | Dashboards agregados | Revenue, MAU, churn |
 | **Product Managers** | Métricas de producto | Feature adoption, NPS |
 | **Engineers** | Logs, traces, performance | Latency, error rate |
@@ -184,7 +184,7 @@ generaría $200K/mes adicionales. ROI en 2 meses.
 #### Elegir el Gráfico Correcto
 
 | Objetivo | Gráfico | Ejemplo |
-|:---------|:--------|:--------|
+| :--------- | :-------- | :-------- |
 | **Comparar valores** | Bar chart | Ventas por producto |
 | **Mostrar tendencia** | Line chart | Revenue over time |
 | **Mostrar proporción** | Pie chart / Donut | Market share |
@@ -196,7 +196,7 @@ generaría $200K/mes adicionales. ROI en 2 meses.
 #### Principios de Diseño
 
 | Principio | Descripción | Ejemplo |
-|:----------|:------------|:--------|
+| :---------- | :------------ | :-------- |
 | **Clarity** | Fácil de entender | Ejes etiquetados, leyenda clara |
 | **Actionability** | Insight → acción | "Conversion bajó 10% → investigar checkout" |
 | **Context** | Comparar con baseline | "Revenue: $100K (vs $90K last month)" |
@@ -209,7 +209,7 @@ generaría $200K/mes adicionales. ROI en 2 meses.
 ### Dimensiones de Calidad
 
 | Dimensión | Descripción | Ejemplo |
-|:----------|:------------|:--------|
+| :---------- | :------------ | :-------- |
 | **Completeness** | ¿Hay datos faltantes? | 95% de registros tienen email |
 | **Accuracy** | ¿Datos son correctos? | Fechas futuras son inválidas |
 | **Consistency** | ¿Datos son consistentes? | Mismo user_id en todas las tablas |

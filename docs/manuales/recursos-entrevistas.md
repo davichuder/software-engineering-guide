@@ -13,7 +13,7 @@
 ### General / Full‑Stack / Backend / Frontend
 
 | Sitio | Qué es | Por qué usarlo | Cómo |
-|:------|:------|:---------------|:-----|
+| :------ | :------ | :--------------- | :----- |
 | [Interviewing.io](https://interviewing.io) | Entrevistas anónimas con seniors | Simular presión real | Mock interviews en vivo |
 | [Pramp](https://www.pramp.com) | Entrevistas 1:1 gratuitas | Feedback inmediato | Pareo automático por tema |
 | [AlgoExpert](https://www.algoexpert.io) | Banco de preguntas + videos | Estructura y guía | Video + solución en código |
@@ -24,7 +24,7 @@
 ### Machine Learning / Data Science
 
 | Sitio | Qué es | Por qué usarlo | Cómo |
-|:------|:------|:---------------|:-----|
+| :------ | :------ | :--------------- | :----- |
 | [MLStack.cafe](https://www.mlstack.cafe) | Banco de preguntas ML | Cobertura moderna | Filtros por tema |
 | [StrataScratch](https://www.stratascratch.com) | SQL + DS con datasets reales | Entorno realista | Consultas sobre data pública |
 | [Interview Query](https://www.interviewquery.com) | Preguntas ML/estadística/DE | Preparación integral | Casos y soluciones |
@@ -34,7 +34,7 @@
 ### DevOps / Cloud / SRE
 
 | Sitio | Qué es | Por qué usarlo | Cómo |
-|:------|:------|:---------------|:-----|
+| :------ | :------ | :--------------- | :----- |
 | [Killercoda](https://killercoda.com) | Labs interactivos | Práctica práctica | Escenarios guiados |
 | [KodeKloud Engineer](https://kodekloud.com/engineer) | Desafíos estilo trabajo | Contexto real | Tareas con revisión |
 | [Whizlabs](https://www.whizlabs.com) | Bancos de preguntas cloud | Preparación de certs | Exámenes simulados |
@@ -51,7 +51,7 @@
 ### Algoritmos y estructuras de datos
 
 | Sitio | Qué es | Por qué usarlo | Cómo |
-|:------|:------|:---------------|:-----|
+| :------ | :------ | :--------------- | :----- |
 | [LeetCode](https://leetcode.com/problemset/algorithms) | Problemas de entrevistas | Estándar del mercado | Lista de problemas + discusión |
 | [HackerRank](https://www.hackerrank.com) | Plataforma de retos | Cobertura amplia | Tracks por dominio |
 | [CodeSignal](https://codesignal.com) | Tests tipo empresa | Simula screening | Arcade + Company bots |
@@ -66,7 +66,7 @@
 ### Full‑stack / Web / Proyectos
 
 | Sitio | Qué es | Por qué usarlo | Cómo |
-|:------|:------|:---------------|:-----|
+| :------ | :------ | :--------------- | :----- |
 | [Frontend Mentor](https://www.frontendmentor.io) | Desafíos de UI | Portafolio realista | Briefs + assets |
 | [The Odin Project](https://www.theodinproject.com) | Currículo full‑stack | Proyecto‑centrado | Rutas y proyectos |
 | [Scrimba](https://scrimba.com) | Cursos interactivos | Práctica inmediata | Editor embebido |
@@ -75,7 +75,7 @@
 ### DevOps / Cloud / Infra
 
 | Sitio | Qué es | Por qué usarlo | Cómo |
-|:------|:------|:---------------|:-----|
+| :------ | :------ | :--------------- | :----- |
 | [Katacoda](https://www.katacoda.com) | Labs interactivos | Aprendizaje guiado | Escenarios paso a paso |
 | [Play with Docker](https://labs.play-with-docker.com) | Docker en navegador | Cero setup | Terminal online |
 | [Play with Kubernetes](https://labs.play-with-k8s.com) | K8s en navegador | Cero setup | Clusters efímeros |
@@ -87,7 +87,7 @@
 ### Linux / Bash / Sysadmin
 
 | Sitio | Qué es | Por qué usarlo | Cómo |
-|:------|:------|:---------------|:-----|
+| :------ | :------ | :--------------- | :----- |
 | [OverTheWire (Bandit)](https://overthewire.org/wargames/bandit) | Retos de Linux | Fundamentos sólidos | Niveles progresivos |
 | [Linux Survival](https://linuxsurvival.com) | Curso interactivo | Aprendizaje rápido | Lecciones y tests |
 | [ShellHero](https://shellhero.app) | Práctica de Bash | Comandos esenciales | Retos guiados |
@@ -101,7 +101,7 @@
 **¿Cuándo?** Preparación de entrevistas y práctica continua.
 
 | Sitio | Qué es | Por qué usarlo | Cómo |
-|:------|:------|:---------------|:-----|
+| :------ | :------ | :--------------- | :----- |
 | [AcademyBugs](https://academybugs.com) | App con bugs | Testing exploratorio | Encontrar y reportar |
 | [Black Box Puzzles](https://blackboxpuzzles.com) | Retos de caja negra | Pensamiento analítico | Resolver enigmas funcionales |
 | [Evil Tester Apps](https://eviltester.com/page/testingapps) | Apps con fallos | Automatización y funcional | Scripts sobre UI |
@@ -114,7 +114,7 @@
 ## 📚 Recursos teóricos para entrevistas de qa
 
 | Recurso | Qué es | Por qué usarlo | Cómo |
-|:--------|:------|:---------------|:-----|
+| :-------- | :------ | :--------------- | :----- |
 | [Test Automation University](https://testautomationu.applitools.com) | Cursos de automation | Base sólida | Selenium, Cypress, Playwright |
 | [QA Interview Questions](https://www.interviewbit.com/qa-interview-questions) | Banco de preguntas | Preparación directa | Q&A por tema |
 | [Software Testing Help](https://www.softwaretestinghelp.com) | Tutoriales de QA | Cobertura general | Guias y ejemplos |
@@ -126,7 +126,7 @@
 ## 🧠 Extras globales para entrevistas
 
 | Recurso | Qué es | Por qué usarlo | Cómo |
-|:--------|:------|:---------------|:-----|
+| :-------- | :------ | :--------------- | :----- |
 | [Big‑O Cheat Sheet](https://www.bigocheatsheet.com) | Referencia de complejidad | Decidir estructuras/algoritmos | Consulta rápida |
 | [System Design Primer](https://github.com/donnemartin/system-design-primer) | Guía de diseño | Base de arquitectura | Estudiar patrones y trade‑offs |
 | [System Design Resources](https://github.com/InterviewReady/system-design-resources) | Colección de ejercicios | Practicar entrevistas senior | Casos y soluciones |

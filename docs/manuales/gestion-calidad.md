@@ -21,7 +21,7 @@
 **Qué:** Porcentaje de código ejecutado por tests.
 
 | Métrica | Qué | Target | Herramienta |
-|:--------|:-----|:-------|:------------|
+| :-------- | :----- | :------- | :------------ |
 | **Line Coverage** | % líneas ejecutadas | ≥80% lógica crítica | [JaCoCo](https://www.eclemma.org/jacoco/), [Coverage.py](https://coverage.readthedocs.io/) |
 | **Branch Coverage** | % ramas if/else ejecutadas | ≥70% | [Istanbul](https://istanbul.js.org/) |
 | **Function Coverage** | % funciones llamadas | 100% funciones públicas | Coverage tools |
@@ -38,7 +38,7 @@
 **Por qué:** Detectar bugs, vulnerabilidades, code smells tempranamente.
 
 | Herramienta | Qué | Cuándo |
-|:------------|:-----|:-----|
+| :------------ | :----- | :----- |
 | [SonarQube](https://www.sonarsource.com/products/sonarqube/) | Plataforma calidad multi-lenguaje | CI/CD, pre-merge |
 | [ESLint](https://eslint.org/) | Linter JavaScript/TypeScript | Pre-commit, IDE |
 | [Pylint](https://pylint.pycqa.org/) | Linter Python | Pre-commit, CI |
@@ -55,7 +55,7 @@
 **Por qué:** Elimina debates de estilo, diffs limpios, legibilidad.
 
 | Lenguaje | Herramienta | Config |
-|:---------|:------------|:-------|
+| :--------- | :------------ | :------- |
 | **JavaScript/TS** | [Prettier](https://prettier.io/) | `.prettierrc` |
 | **Python** | [Black](https://black.readthedocs.io/), [Ruff](https://docs.astral.sh/ruff/) | `pyproject.toml` |
 | **Java** | [google-java-format](https://github.com/google/google-java-format) | Maven/Gradle plugin |
@@ -69,7 +69,7 @@
 ## 🔐 Security Scanning
 
 | Tipo | Qué | Herramienta |
-|:-----|:-----|:------------|
+| :----- | :----- | :------------ |
 | **SAST** | Static Application Security Testing | [SonarQube](https://www.sonarsource.com/), [Checkmarx](https://checkmarx.com/) |
 | **Dependency Scan** | Vulnerabilidades en librerías | [Snyk](https://snyk.io/), [Dependabot](https://github.com/dependabot) |
 | **Secret Detection** | Credenciales en código | [GitGuardian](https://www.gitguardian.com/), [TruffleHog](https://github.com/trufflesecurity/trufflehog) |
@@ -99,7 +99,7 @@
 ### Best Practices
 
 | Práctica | Por qué |
-|:---------|:----|
+| :--------- | :---- |
 | **PRs pequeños** | < 400 líneas, fácil revisar |
 | **Descripción clara** | Qué, por qué, cómo testear |
 | **Automatizar lo automatizable** | Linters, tests, no manual |
@@ -134,7 +134,7 @@
 ## 📏 Complexity Metrics
 
 | Métrica | Qué | Target | Herramienta |
-|:--------|:-----|:-------|:------------|
+| :-------- | :----- | :------- | :------------ |
 | **Cyclomatic Complexity** | Número de caminos independientes | < 10 por función | SonarQube, ESLint |
 | **Cognitive Complexity** | Dificultad para entender | < 15 | SonarQube |
 | **LOC** | Lines of Code | < 200 por función como umbral máximo | Linters |
@@ -145,7 +145,7 @@
 ## 🎨 Design Quality
 
 | Aspecto | Qué | Cómo medir |
-|:--------|:-----|:-----------|
+| :-------- | :----- | :----------- |
 | **Cohesión** | Qué tan relacionados están elementos | Alta cohesión = bueno |
 | **Acoplamiento** | Dependencias entre módulos | Bajo acoplamiento = bueno |
 | **Code Smells** | Indicadores de mal diseño | SonarQube, manual |
@@ -156,7 +156,7 @@
 ## 📊 Métricas de Calidad
 
 | Métrica | Fórmula | Target |
-|:--------|:--------|:-------|
+| :-------- | :-------- | :------- |
 | **Defect Density** | Bugs / KLOC | < 1 |
 | **Test Success Rate** | Tests passing / Total tests | 100% |
 | **Code Coverage** | Lines covered / Total lines | ≥80% |
@@ -167,7 +167,7 @@
 ## 🚫 Anti-patrones
 
 | Anti-patrón | Problema | Solución |
-|:------------|:---------|:---------|
+| :------------ | :--------- | :--------- |
 | **Ignorar warnings** | Acumulación de problemas | Tratar warnings como errores |
 | **Tests sin asserts** | Falsa sensación de seguridad | Validar comportamiento real |
 | **Coverage por coverage** | Tests inútiles | Tests significativos |
