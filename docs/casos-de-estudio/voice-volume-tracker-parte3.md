@@ -212,7 +212,7 @@ public class VoiceMonitorService : ServiceBase
 }
 ```
 
-**Referencia**: [09 - Seguridad](../09-seguridad.md)
+**Referencia**: [09 - Seguridad](../manuales/seguridad.md)
 
 ---
 
@@ -641,13 +641,13 @@ Si el año que viene decides construirlo, este es el orden "Senior" para no fall
 
 ### Capítulos de la Guía Aplicados
 
-- [03 - Disciplinas de Desarrollo](../03-disciplinas-desarrollo.md)
-- [04 - Testing](../04-testing.md)
-- [06 - Arquitectura y Patrones](../06-arquitectura-patrones.md)
-- [09 - Seguridad](../09-seguridad.md)
-- [13 - Optimización de Performance](../13-performance.md)
-- [20 - Machine Learning](../20-machine-learning.md)
-- [34 - Plantillas y Artefactos](../34-plantillas-artefactos.md)
+- [03 - Disciplinas de Desarrollo](../manuales/disciplinas-desarrollo.md)
+- [04 - Testing](../manuales/testing.md)
+- [06 - Arquitectura y Patrones](../manuales/arquitectura-patrones.md)
+- [09 - Seguridad](../manuales/seguridad.md)
+- [13 - Optimización de Performance](../manuales/performance.md)
+- [20 - Machine Learning](../manuales/machine-learning.md)
+- [34 - Plantillas y Artefactos](../manuales/plantillas-artefactos.md)
 
 ### Herramientas y Librerías
 
@@ -666,9 +666,9 @@ Si el año que viene decides construirlo, este es el orden "Senior" para no fall
 ---
 
 **Autor**: David Rolón  
-**Fecha**: 2025-12-18  
+**Fecha**: 2018  
 **Versión**: 1.0
 
 ---
 
-[⬆️ Volver arriba](#voice-volume-tracker-parte-3-seguridad-anti-patrones-y-conclusiones) | [⬅️ Parte 2](./voice-volume-tracker-parte2.md) | [🏠 Casos de Estudio](../97-casos-estudio.md)
+[⬆️ Volver arriba](#voice-volume-tracker-parte-3-seguridad-anti-patrones-y-conclusiones) | [⬅️ Parte 2](./voice-volume-tracker-parte2.md) | [🏠 Casos de Estudio](./README.md)

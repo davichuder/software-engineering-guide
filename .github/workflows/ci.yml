@@ -39,5 +39,5 @@ jobs:
       - name: Update global last commit date
         run: |
           DATE=$(git log -1 --date=short --pretty=format:"%cd")
-          sed -i "s/Última actualización: .*/Última actualización: \`$DATE\`/" docs/00-indice.md
+          sed -i "s/Última actualización: .*/Última actualización: \`$DATE\`/" docs/indice.md
       - run: mkdocs gh-deploy --force

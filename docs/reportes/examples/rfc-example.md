@@ -6,7 +6,7 @@
 - **Título:** Redis Session Caching
 - **Autor:** David Developer
 - **Estado:** Review
-- **Fecha:** 2025-11-28
+- **Fecha:** 2028
 
 ---
 

@@ -8,7 +8,7 @@ Más que un simple manual de reglas, esta guía busca ser un compendio de **sabi
 
 ### 🚀 ¿Qué encontrarás aquí?
 
-Esta documentación abarca todo el ciclo de vida del desarrollo de software, desde los **fundamentos del código limpio** hasta estrategias avanzadas de **arquitectura**, **DevOps**, **seguridad** y **gestión de producto**.
+Esta documentación abarca todo el ciclo de vida del desarrollo de software, desde los **fundamentos del código limpio** hasta estrategias avanzadas de **arquitectura**, **DevOps**, **seguridad**, **gestión de producto**, **IA**, **observabilidad** y **datos**.
 
 Está estructurada para ser útil tanto para:
 
@@ -18,7 +18,7 @@ Está estructurada para ser útil tanto para:
 
 ### 🧭 Navegación
 
-Para facilitar el acceso a la información, hemos implementado un **Índice Rápido** al comienzo de cada sección, permitiéndote saltar directamente al contenido que necesitas. Además, cada página cuenta con enlaces de navegación para volver al índice principal o explorar temas relacionados.
+Para facilitar el acceso a la información, hemos implementado un **Índice Rápido** al lateral derecho de cada sección, permitiéndote saltar directamente al contenido que necesitas.
 
 ### 🤝 Cultura de Colaboración
 
@@ -28,4 +28,4 @@ Este no es un documento estático. La tecnología evoluciona, y nosotros tambié
 
 > *"La excelencia no es un acto, sino un hábito."* - Aristóteles
 
-[📖 Ir al Índice General](./00-indice.md)
+[📖 Ir al Índice General](./indice.md)

@@ -72,7 +72,7 @@ torch.onnx.export(
 ```text
 1. Usuario abre wizard de enrollment
    ↓
-2. Lee 5 frases diferentes (10-15 segundos cada una)
+2. Lee 5 frases diferentes (15 segundos cada una)
    ↓
 3. Sistema extrae embedding de cada frase
    ↓
@@ -287,7 +287,7 @@ public class OptimizedSpeakerVerifier : ISpeakerVerifier
 }
 ```
 
-**Referencia**: [20 - Machine Learning](../20-machine-learning.md)
+**Referencia**: [20 - Machine Learning](../manuales/machine-learning.md)
 
 ---
 
@@ -675,8 +675,8 @@ public class AudioProcessingBenchmarks
 | ExtractEmbedding   | 45.3 ms   | 2.4 KB    |
 ```
 
-**Referencia**: [04 - Testing](../04-testing.md)
+**Referencia**: [04 - Testing](../manuales/testing.md)
 
 ---
 
-[⬆️ Volver arriba](#voice-volume-tracker-parte-2-ml-alertas-y-testing) | [⬅️ Parte 1](./voice-volume-tracker-windows.md) | [➡️ Parte 3](./voice-volume-tracker-parte3.md) | [🏠 Casos de Estudio](../97-casos-estudio.md)
+[⬆️ Volver arriba](#voice-volume-tracker-parte-2-ml-alertas-y-testing) | [⬅️ Parte 1](./voice-volume-tracker-windows.md) | [➡️ Parte 3](./voice-volume-tracker-parte3.md) | [🏠 Casos de Estudio](./README.md)

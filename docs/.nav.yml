@@ -1,0 +1,140 @@
+nav:
+  - Índice: indice.md
+  - Fundamentos: manuales/fundamentos.md
+  - Onboarding: manuales/onboarding.md
+  - Disciplinas de Desarrollo: manuales/disciplinas-desarrollo.md
+  - Testing: manuales/testing.md
+  - Gestión de Calidad: manuales/gestion-calidad.md
+  - Arquitectura y Patrones: manuales/arquitectura-patrones.md
+  - Sesgos y Falacias: manuales/sesgos-falacias.md
+  - DevOps: manuales/devops.md
+  - Seguridad: manuales/seguridad.md
+  - Observabilidad: manuales/observabilidad.md
+  - Herramientas y Problemas: manuales/herramientas-problemas.md
+  - Mejora Continua: manuales/mejora-continua.md
+  - Performance: manuales/performance.md
+  - Checklist Producción: manuales/checklist-produccion.md
+  - Bases de Datos: manuales/bases-datos.md
+  - APIs y Protocolos: manuales/apis-protocolos.md
+  - Mobile / UI / UX: manuales/mobile-ui-ux.md
+  - Infraestructura Cloud: manuales/infraestructura-cloud.md
+  - Cost Optimization: manuales/cost-optimization.md
+  - Machine Learning: manuales/machine-learning.md
+  - Ciencia de Datos: manuales/ciencia-datos.md
+  - Data Governance: manuales/data-governance.md
+  - Análisis Estratégico: manuales/analisis-estrategico.md
+  - Product Management: manuales/product-management.md
+  - Métricas y KPIs: manuales/metricas-kpis.md
+  - Roles y Responsabilidades: manuales/roles-responsabilidades.md
+  - Colaboración y Cultura: manuales/colaboracion-cultura.md
+  - Documentación y Diagramas: manuales/documentacion-diagramas.md
+  - Convenciones: manuales/convenciones.md
+  - Estrategia IA y Automatización: manuales/estrategia-ia-automatizacion.md
+  - Ética y Gobernanza IA: manuales/etica-gobernanza-ia.md
+  - Comunicación y Contenido: manuales/comunicacion-contenido.md
+  - Plantillas y Artefactos: manuales/plantillas-artefactos.md
+  - Dependencias y Deuda Técnica: manuales/dependencias-deuda-tecnica.md
+  - Priorización y Roadmapping: manuales/priorizacion-roadmapping.md
+  - Gestión de Secretos: manuales/gestion-secretos.md
+  - Chaos Engineering: manuales/chaos-engineering.md
+  - Data Literacy: manuales/data-literacy.md
+  - LowCode / NoCode: manuales/lowcode-nocode.md
+  - Casos de Estudio: casos-de-estudio/README.md
+  - Recursos y Entrevistas: manuales/recursos-entrevistas.md
+  - Glosario: glosario.md
+
+  - Agentes:
+      - agentes/README.md
+      - The Gentleman: agentes/the-gentleman.md
+      - Architecture & DevOps:
+          - API Design Expert: agentes/architecture-devops/api-design-expert.md
+          - CICD Expert: agentes/architecture-devops/cicd-expert.md
+          - Event Driven Expert: agentes/architecture-devops/event-driven-expert.md
+          - IaC Expert: agentes/architecture-devops/iac-expert.md
+          - Kubernetes Expert: agentes/architecture-devops/kubernetes-expert.md
+          - Microservices Expert: agentes/architecture-devops/microservices-expert.md
+          - Observability Expert: agentes/architecture-devops/observability-expert.md
+          - Security Expert: agentes/architecture-devops/security-expert.md
+          - Software Architecture Expert: agentes/architecture-devops/software-architecture-expert.md
+      - Backend:
+          - Django Expert: agentes/backend/django-expert.md
+          - Express Expert: agentes/backend/express-expert.md
+          - FastAPI Expert: agentes/backend/fastapi-expert.md
+          - Java Expert: agentes/backend/java-expert.md
+          - NestJS Expert: agentes/backend/nestjs-expert.md
+          - NodeJS Expert: agentes/backend/nodejs-expert.md
+          - Python Expert: agentes/backend/python-expert.md
+          - Spring Expert: agentes/backend/spring-expert.md
+      - Business Roles:
+          - DevRel / Developer Advocate: agentes/business-roles/devrel-developer-advocate.md
+          - PM / PO Advisor: agentes/business-roles/pm-po-advisor.md
+          - Scrum Master / Agile Coach: agentes/business-roles/scrum-master-agile-coach.md
+          - SRE Advisor: agentes/business-roles/sre-advisor.md
+          - Tech Lead / EM Advisor: agentes/business-roles/tech-lead-em-advisor.md
+          - UX Research Expert: agentes/business-roles/ux-research-expert.md
+          - UX/UI Designer: agentes/business-roles/ux-ui-designer.md
+      - Compliance:
+          - Accessibility Expert: agentes/compliance/accessibility-expert.md
+          - Compliance & Governance Expert: agentes/compliance/compliance-governance-expert.md
+      - Data / ML / Finance:
+          - Computer Vision Expert: agentes/data-ml-finance/computer-vision-expert.md
+          - Data Science Expert: agentes/data-ml-finance/data-science-expert.md
+          - Data Visualization Expert: agentes/data-ml-finance/data-visualization-expert.md
+          - ML/DL Expert: agentes/data-ml-finance/ml-dl-expert.md
+          - NLP Expert: agentes/data-ml-finance/nlp-expert.md
+          - Quant Finance Expert: agentes/data-ml-finance/quant-finance-expert.md
+          - RL Expert: agentes/data-ml-finance/rl-expert.md
+          - Trading Systems Expert: agentes/data-ml-finance/trading-systems-expert.md
+      - Databases:
+          - MongoDB Expert: agentes/databases/mongodb-expert.md
+          - MSSQL Expert: agentes/databases/mssql-expert.md
+          - PostgreSQL Expert: agentes/databases/postgresql-expert.md
+          - Redis Expert: agentes/databases/redis-expert.md
+          - SQLite Expert: agentes/databases/sqlite-expert.md
+      - Debugging:
+          - Code Review Expert: agentes/debugging/code-review-expert.md
+          - Debugging Root Cause Expert: agentes/debugging/debugging-root-cause-expert.md
+          - Migration Specialist: agentes/debugging/migration-specialist.md
+      - Documentation:
+          - API Documentation Expert: agentes/documentation/api-documentation-expert.md
+          - Content Creator Expert: agentes/documentation/content-creator-expert.md
+          - Diagram Expert: agentes/documentation/diagram-expert.md
+          - Technical Writer Expert: agentes/documentation/technical-writer-expert.md
+      - Frontend:
+          - Angular Expert: agentes/frontend/angular-expert.md
+          - CSS Styling Expert: agentes/frontend/css-styling-expert.md
+          - NextJS Expert: agentes/frontend/nextjs-expert.md
+          - React Expert: agentes/frontend/react-expert.md
+          - TypeScript Expert: agentes/frontend/typescript-expert.md
+          - Vue Expert: agentes/frontend/vue-expert.md
+      - Testing:
+          - BDD Expert: agentes/testing/bdd-expert.md
+          - E2E Testing Expert: agentes/testing/e2e-testing-expert.md
+          - Performance Testing Expert: agentes/testing/performance-testing-expert.md
+          - QA Automation Expert: agentes/testing/qa-automation-expert.md
+          - TDD Expert: agentes/testing/tdd-expert.md
+
+  - Casos de Estudio:
+      - casos-de-estudio/README.md
+      - Portafolio Personal TS Angular: casos-de-estudio/portafolio-personal-ts-angular.md
+      - Diario de Emociones: casos-de-estudio/diario-emociones-mood-tracker.md
+      - Geofencing Alarm Mobile: casos-de-estudio/geofencing-alarm-mobile.md
+      - Voice Volume Tracker Windows: casos-de-estudio/voice-volume-tracker-windows.md
+      - Voice Volume Tracker Parte 2: casos-de-estudio/voice-volume-tracker-parte2.md
+      - Voice Volume Tracker Parte 3: casos-de-estudio/voice-volume-tracker-parte3.md
+      - Gestión de Gastos Compartidos: casos-de-estudio/gestion-gastos-compartidos.md
+      - Gestión de Gastos Compartidos (Implementación): casos-de-estudio/gestion-gastos-compartidos-implementacion.md
+
+  - Reportes:
+      - Ejemplos:
+          - Bug Report Example: reportes/examples/bug-report-example.md
+          - Feature Request Example: reportes/examples/feature-request-example.md
+          - New Feature Example: reportes/examples/new-feature-example.md
+          - Post Mortem Example: reportes/examples/post-mortem-example.md
+          - RFC Example: reportes/examples/rfc-example.md
+      - Plantillas:
+          - Bug Report Template: reportes/templates/bug-report-template.md
+          - Feature Request Template: reportes/templates/feature-request-template.md
+          - New Feature Template: reportes/templates/new-feature-template.md
+          - Post Mortem Template: reportes/templates/post-mortem-template.md
+          - RFC Template: reportes/templates/rfc-template.md

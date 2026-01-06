@@ -3,7 +3,7 @@
 ## ℹ️ Meta Información
 
 - **Incidente:** Caída de Checkout en Black Friday
-- **Fecha:** 2025-11-24
+- **Fecha:** 2024
 - **Estado:** Final
 - **Autores:** Juan Perez, Maria Garcia
 - **Severidad:** SEV-1

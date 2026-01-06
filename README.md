@@ -132,9 +132,9 @@ Visita <http://127.0.0.1:8000> en tu navegador.
 mkdocs/
 ├── docs/                           # Documentación en Markdown
 │   ├── index.md                   # Página principal
-│   ├── 00-indice.md              # Índice general
-│   ├── 01-fundamentos.md         # Fundamentos
-│   ├── ...                       # Más secciones (02-28)
+│   ├── indice.md              # Índice general
+│   ├── fundamentos.md         # Fundamentos
+│   ├── ...                       # Más secciones (28)
 │   └── reportes/                  # Templates y ejemplos
 │       ├── templates/            # Plantillas de reportes
 │       └── examples/             # Ejemplos de reportes

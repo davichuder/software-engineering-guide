@@ -83,7 +83,7 @@ Esta fue la decisión técnica más importante del proyecto. Analizamos 3 opcion
 | Criterio | PWA | React Native / Flutter (Puro) | Híbrido Optimizado (Flutter UI + Core Nativo) |
 | :--- | :--- | :--- | :--- |
 | **Desarrollo UI** | ✅ Muy Rápido | ✅ Muy Rápido | ✅ Muy Rápido |
-| **Performance UI** | ⚠️ DOM lento | 🟢 60fps | 🟢 **60-120fps (Skia/Impeller)** |
+| **Performance UI** | ⚠️ DOM lento | 🟢 60fps | 🟢 **120fps (Skia/Impeller)** |
 | **Background Execution** | 🔴 No soportado (iOS) | ⚠️ Limitado / Inestable | 🟢 **Nativo (Foreground Service / BG Tasks)** |
 | **Acceso a Hardware** | ⚠️ API Web limitada | 🟠 Plugins de terceros | 🟢 **API Directa (Kotlin/Swift)** |
 | **Riesgo de "Kill" por OS** | 🔴 Muy Alto | 🟠 Medio | 🟢 **Bajo (Prioridad Alta)** |
@@ -163,7 +163,7 @@ Usamos **Muestreo Adaptativo** (Adaptive Polling).
 
 - **Lejos (> 10km)**: Usar Geofencing del OS (despierta la app solo al entrar en la región grande). Consumo casi nulo.
 - **Cerca (< 5km)**: Muestreo GPS cada 2-5 minutos.
-- **Muy Cerca (< 1km)**: Muestreo GPS cada 10-30 segundos (Alta precisión).
+- **Muy Cerca (< 1km)**: Muestreo GPS cada 30 segundos (Alta precisión).
 
 ### 4.2 Fallback Circuit Breaker
 
@@ -238,4 +238,4 @@ Debido a la naturaleza híbrida y de background, el testing fue complejo.
 
 ---
 
-[⬆️ Volver arriba](#caso-de-estudio-alarma-por-ubicacion-geofencing-alarm) | [🏠 Volver a Casos de Estudio](../97-casos-estudio.md)
+[⬆️ Volver arriba](#caso-de-estudio-alarma-por-ubicacion-geofencing-alarm) | [🏠 Volver a Casos de Estudio](./README.md)

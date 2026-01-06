@@ -364,7 +364,7 @@ public class VoiceTrackerFSM
 }
 ```
 
-**Referencia**: [06 - Arquitectura y Patrones](../06-arquitectura-patrones.md)
+**Referencia**: [Arquitectura y Patrones](../manuales/arquitectura-patrones.md)
 
 ---
 
@@ -404,7 +404,7 @@ public class AudioCapture : IAudioCapture
     private void OnDataAvailable(object sender, WaveInEventArgs e)
     {
         // Convertir bytes a floats
-        var samples = new float[e.BytesRecorded / 2]; // 16-bit = 2 bytes
+        var samples = new float[e.BytesRecorded / 2]; // bit = 2 bytes
         for (int i = 0; i < samples.Length; i++)
         {
             short sample = BitConverter.ToInt16(e.Buffer, i * 2);
@@ -550,8 +550,8 @@ public class VoiceActivityDetector
 
 ---
 
-**Referencia**: [13 - Optimización de Performance](../13-performance.md)
+**Referencia**: [Optimización de Performance](../manuales/performance.md)
 
 ---
 
-[⬆️ Volver arriba](#caso-de-estudio-voice-volume-tracker-para-windows) | [➡️ Parte 2](./voice-volume-tracker-parte2.md) | [🏠 Volver a Casos de Estudio](../97-casos-estudio.md)
+[⬆️ Volver arriba](#caso-de-estudio-voice-volume-tracker-para-windows) | [➡️ Parte 2](./voice-volume-tracker-parte2.md) | [🏠 Volver a Casos de Estudio](./README.md)

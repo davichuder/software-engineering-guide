@@ -106,8 +106,6 @@ Este caso de estudio documenta el desarrollo de un portafolio personal profesion
 - ✅ **Pro**: Menos bugs en producción, mejor autocompletado, refactoring seguro
 - ❌ **Contra**: Tiempo de compilación adicional, curva de aprendizaje inicial
 
-<!-- **ADR**: [ADR-001: Uso de TypeScript](./adr/001-typescript.md) -->
-
 ---
 
 ### 2.2 ¿Por qué Angular sobre React/Vue?
@@ -145,8 +143,6 @@ Este caso de estudio documenta el desarrollo de un portafolio personal profesion
 
 - ✅ **Pro**: Estructura clara, todo incluido (batteries included), excelente para proyectos medianos/grandes
 - ❌ **Contra**: Bundle size mayor, curva de aprendizaje más pronunciada
-
-<!-- **ADR**: [ADR-002: Elección de Angular](./adr/002-angular-framework.md) -->
 
 ---
 
@@ -203,8 +199,6 @@ class SQLiteProjectRepository implements IProjectRepository { }
 // Implementación PostgreSQL (futura)
 class PostgreSQLProjectRepository implements IProjectRepository { }
 ```
-
-<!-- **ADR**: [ADR-003: SQLite como base de datos](./adr/003-sqlite-database.md) -->
 
 ---
 
@@ -324,7 +318,7 @@ export class ProjectsComponent implements OnInit {
 - ✅ Los tests del dominio no necesitan base de datos real
 - ✅ La lógica de negocio es independiente de Angular
 
-**Referencia**: [06 - Arquitectura y Patrones](../06-arquitectura-patrones.md)
+**Referencia**: [06 - Arquitectura y Patrones](../manuales/arquitectura-patrones.md)
 
 ---
 
@@ -359,7 +353,7 @@ src/
 
 **Beneficio**: Al ver la estructura, se entiende que es un portafolio
 
-**Referencia**: [06 - Arquitectura y Patrones](../06-arquitectura-patrones.md)
+**Referencia**: [06 - Arquitectura y Patrones](../manuales/arquitectura-patrones.md)
 
 ---
 
@@ -480,8 +474,6 @@ portfolio/
 | **`presentation/` con Angular** | UI separada de la lógica de negocio |
 | **`assets/i18n/` centralizado** | Todas las traducciones en un solo lugar |
 
-<!-- **ADR**: [ADR-004: Estructura de carpetas](./adr/004-folder-structure.md) -->
-
 ---
 
 ## 🎨 4. Decisiones de Diseño (UX/UI)
@@ -530,7 +522,7 @@ portfolio/
 
 **Convención**: Usar claves descriptivas en SCREAMING_SNAKE_CASE
 
-**Referencia**: [29 - Convenciones](../29-convenciones.md)
+**Referencia**: [29 - Convenciones](../manuales/convenciones.md)
 
 ---
 
@@ -592,7 +584,7 @@ portfolio/
 - ✅ Fácil cambiar tema (solo cambiar `data-theme`)
 - ✅ Cumple con WCAG 2.1 AA (contraste adecuado)
 
-**Referencia**: [17 - Mobile, UI y UX](../17-mobile-ui-ux.md)
+**Referencia**: [17 - Mobile, UI y UX](../manuales/mobile-ui-ux.md)
 
 ---
 
@@ -663,9 +655,7 @@ export class NavigationButtonsComponent {
 }
 ```
 
-<!-- **ADR**: [ADR-005: Patrón de navegación](./adr/005-navigation-pattern.md) -->
-
-**Referencia**: [17 - Mobile, UI y UX](../17-mobile-ui-ux.md)
+**Referencia**: [17 - Mobile, UI y UX](../manuales/mobile-ui-ux.md)
 
 ---
 
@@ -786,7 +776,7 @@ export class ContactComponent {
 2. **Entidad (Domain)**: Validación de negocio, sanitización
 3. **Backend (futuro)**: Validación adicional antes de enviar email
 
-**Referencia**: [09 - Seguridad](../09-seguridad.md)
+**Referencia**: [09 - Seguridad](../manuales/seguridad.md)
 
 ---
 
@@ -864,7 +854,7 @@ describe('ContactMessage Entity', () => {
 2. 🟢 **Green**: Implementar código mínimo para pasar el test
 3. 🔵 **Refactor**: Mejorar el código sin romper tests
 
-**Referencia**: [03 - Disciplinas de Desarrollo](../03-disciplinas-desarrollo.md)
+**Referencia**: [03 - Disciplinas de Desarrollo](../manuales/disciplinas-desarrollo.md)
 
 ---
 
@@ -881,7 +871,7 @@ describe('ContactMessage Entity', () => {
 - [ ] ✅ **Tests pasando**: `npm test` sin errores
 - [ ] ✅ **Linter pasando**: `npm run lint` sin warnings
 
-**Referencia**: [01 - Fundamentos](../01-fundamentos.md#reglas-generales-de-codigo)
+**Referencia**: [01 - Fundamentos](../manuales/fundamentos.md#reglas-generales-de-codigo)
 
 ---
 
@@ -1088,13 +1078,13 @@ Implementar ambos: scroll libre + botones flotantes opcionales
 
 ### Capítulos de la Guía Aplicados
 
-- [01 - Fundamentos](../01-fundamentos.md)
-- [03 - Disciplinas de Desarrollo](../03-disciplinas-desarrollo.md)
-- [06 - Arquitectura y Patrones](../06-arquitectura-patrones.md)
-- [09 - Seguridad](../09-seguridad.md)
-- [17 - Mobile, UI y UX](../17-mobile-ui-ux.md)
-- [29 - Convenciones](../29-convenciones.md)
-- [34 - Plantillas y Artefactos](../34-plantillas-artefactos.md)
+- [01 - Fundamentos](../manuales/fundamentos.md)
+- [03 - Disciplinas de Desarrollo](../manuales/disciplinas-desarrollo.md)
+- [06 - Arquitectura y Patrones](../manuales/arquitectura-patrones.md)
+- [09 - Seguridad](../manuales/seguridad.md)
+- [17 - Mobile, UI y UX](../manuales/mobile-ui-ux.md)
+- [29 - Convenciones](../manuales/convenciones.md)
+- [34 - Plantillas y Artefactos](../manuales/plantillas-artefactos.md)
 
 ### Herramientas Utilizadas
 
@@ -1109,10 +1099,10 @@ Implementar ambos: scroll libre + botones flotantes opcionales
 
 **Autor**: David Rolón
 
-**Fecha**: 2025-12-17
+**Fecha**: 2017
 
 **Versión**: 1.0
 
 ---
 
-[⬆️ Volver arriba](#caso-de-estudio-portafolio-personal-con-typescript-angular-y-sqlite) | [⬅️ Volver a Casos de Estudio](../97-casos-estudio.md)
+[⬆️ Volver arriba](#caso-de-estudio-portafolio-personal-con-typescript-angular-y-sqlite) | [⬅️ Volver a Casos de Estudio](./README.md)

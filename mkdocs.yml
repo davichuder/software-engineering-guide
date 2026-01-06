@@ -1,6 +1,12 @@
 site_name: Guía Integral de Ingeniería de Software
 theme:
   name: material
+  features:
+    - content.code.copy
+    - navigation.footer
+    - navigation.top
+    - search.highlight
+    - navigation.indexes
   palette:
     # Palette toggle for dark mode
     - media: "(prefers-color-scheme: dark)"
@@ -8,14 +14,15 @@ theme:
       toggle:
         icon: material/brightness-4
         name: Switch to light mode
-
     # Palette toggle for light mode
     - media: "(prefers-color-scheme: light)"
       scheme: slate
       toggle:
-        icon: material/brightness-7 
+        icon: material/brightness-7
         name: Switch to dark mode
 markdown_extensions:
+  - def_list
+  - attr_list
   - pymdownx.superfences:
       custom_fences:
         - name: mermaid
@@ -23,6 +30,8 @@ markdown_extensions:
           format: !!python/name:pymdownx.superfences.fence_code_format
 plugins:
   - search
+  - awesome-nav
+  - section-index
   - plantuml:
       puml_url: https://www.plantuml.com/plantuml/
   - git-revision-date-localized:
@@ -30,3 +39,9 @@ plugins:
       enable_creation_date: false
       type: date
       locale: es
+  - enumerate-headings:
+      strict: true
+      toc_depth: 5
+      increment_across_pages: false
+not_in_nav: |
+  index.md

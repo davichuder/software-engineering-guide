@@ -11,7 +11,7 @@ Login – NullPointerException al autenticar en staging
 - **Producto/servicio:** AuthService
 - **Versión/commit:** v2.3.1 – commit 8f3a9c2
 - **Entorno:** staging, JVM 17, Docker image `auth:2.3.1`
-- **Cambios recientes:** despliegue de nueva librería JWT el 2025-09-28
+- **Cambios recientes:** despliegue de nueva librería JWT el 2028
 
 ---
 
@@ -34,8 +34,8 @@ Login – NullPointerException al autenticar en staging
 
 ## 📂 Evidencia
 
-- Log: `2025-09-29T14:32:11Z ERROR ... NullPointerException at JwtTokenProvider.createToken`
-- Correlation ID: `auth-req-20250929-143211-xyz`
+- Log: `2029-09-29T14:32:11Z ERROR ... NullPointerException at JwtTokenProvider.createToken`
+- Correlation ID: `auth-req-2025091432xyz`
 - CPU estable, GC normal
 - Payload de request (anonimizado): `{ "username": "adminX", "password": "***" }`
 

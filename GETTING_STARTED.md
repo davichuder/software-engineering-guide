@@ -146,9 +146,9 @@ mkdocs build --clean
 ```
 docs/
 ├── index.md              # Página principal
-├── 00-indice.md         # Índice general
-├── 01-fundamentos.md    # Sección 1
-├── 02-*.md              # Más secciones
+├── indice.md         # Índice general
+├── fundamentos.md    # Sección 1
+├── *.md              # Más secciones
 └── reportes/             # Templates y ejemplos
     ├── templates/
     └── examples/
@@ -160,7 +160,7 @@ docs/
 
 ```bash
 # Crear nuevo archivo
-touch docs/29-nueva-seccion.md
+touch docs/nueva-seccion.md
 ```
 
 2. **Agregar contenido** siguiendo el formato existente:
@@ -172,12 +172,6 @@ touch docs/29-nueva-seccion.md
 
 ---
 
-## 📋 Índice Rápido
-
-- [Tema 1](#tema-1)
-- [Tema 2](#tema-2)
-
----
 
 ## Tema 1
 
@@ -185,14 +179,14 @@ Contenido aquí...
 
 ---
 
-[⬅️ Volver al Índice](./00-indice.md)
+[⬅️ Volver al Índice](./indice.md)
 ```
 
-3. **Actualizar el índice** en `docs/00-indice.md`:
+3. **Actualizar el índice** en `docs/indice.md`:
 
 ```markdown
 ### 🆕 Nueva Categoría
-- [29 - Nueva Sección](./29-nueva-seccion.md)
+- [29 - Nueva Sección](./nueva-seccion.md)
   - Descripción de contenidos
 ```
 

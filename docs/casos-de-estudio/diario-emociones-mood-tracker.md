@@ -774,7 +774,7 @@ class RegisterEmotionRequest(BaseModel):
         return v
 ```
 
-**Referencia**: [09 - Seguridad](../09-seguridad.md)
+**Referencia**: [09 - Seguridad](../manuales/seguridad.md)
 
 ---
 
@@ -918,7 +918,7 @@ class PatternAnalyzerService:
 }
 ```
 
-**Referencia**: [20 - Machine Learning](../20-machine-learning.md)
+**Referencia**: [20 - Machine Learning](../manuales/machine-learning.md)
 
 ---
 
@@ -1133,7 +1133,7 @@ class TestDetectPatterns:
         assert len(patterns) == 0 or all(p.confidence < 0.5 for p in patterns)
 ```
 
-**Referencia**: [03 - Disciplinas de Desarrollo](../03-disciplinas-desarrollo.md)
+**Referencia**: [03 - Disciplinas de Desarrollo](../manuales/disciplinas-desarrollo.md)
 
 ---
 
@@ -1360,17 +1360,17 @@ Usar K-Means Clustering (No Supervisado)
 
 ### Capítulos de la Guía Aplicados
 
-- [03 - Disciplinas de Desarrollo](../03-disciplinas-desarrollo.md)
-- [06 - Arquitectura y Patrones](../06-arquitectura-patrones.md)
-- [09 - Seguridad](../09-seguridad.md)
-- [16 - APIs y Protocolos](../16-apis-protocolos.md)
-- [17 - Mobile, UI y UX](../17-mobile-ui-ux.md)
-- [20 - Machine Learning](../20-machine-learning.md)
-- [21 - Ciencia de Datos](../21-ciencia-datos.md)
-- [24 - Product Management](../24-product-management.md)
-- [25 - Métricas y KPIs](../25-metricas-kpis.md)
-- [29 - Convenciones](../29-convenciones.md)
-- [34 - Plantillas y Artefactos](../34-plantillas-artefactos.md)
+- [03 - Disciplinas de Desarrollo](../manuales/disciplinas-desarrollo.md)
+- [06 - Arquitectura y Patrones](../manuales/arquitectura-patrones.md)
+- [09 - Seguridad](../manuales/seguridad.md)
+- [16 - APIs y Protocolos](../manuales/apis-protocolos.md)
+- [17 - Mobile, UI y UX](../manuales/mobile-ui-ux.md)
+- [20 - Machine Learning](../manuales/machine-learning.md)
+- [21 - Ciencia de Datos](../manuales/ciencia-datos.md)
+- [24 - Product Management](../manuales/product-management.md)
+- [25 - Métricas y KPIs](../manuales/metricas-kpis.md)
+- [29 - Convenciones](../manuales/convenciones.md)
+- [34 - Plantillas y Artefactos](../manuales/plantillas-artefactos.md)
 
 ### Herramientas Utilizadas
 
@@ -1393,10 +1393,10 @@ Usar K-Means Clustering (No Supervisado)
 
 **Autor**: David Rolón
 
-**Fecha**: 2025-12-18
+**Fecha**: 2018
 
 **Versión**: 1.0
 
 ---
 
-[⬆️ Volver arriba](#caso-de-estudio-diario-digital-de-emociones-mood-tracker) | [⬅️ Volver a Casos de Estudio](../97-casos-estudio.md)
+[⬆️ Volver arriba](#caso-de-estudio-diario-digital-de-emociones-mood-tracker) | [⬅️ Volver a Casos de Estudio](./README.md)
