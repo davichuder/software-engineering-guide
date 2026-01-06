@@ -195,8 +195,8 @@ graph LR
  
      subgraph Core[Capa de Dominio & Aplicación]
          UseCase[Use Case Interactor]
-         PortIn[Input Port <br> (Interface)]
-         PortOut[Output Port <br> (Interface)]
+         PortIn["Input Port <br> (Interface)"]
+         PortOut["Output Port <br> (Interface)"]
          Entity[Domain Entity]
      end
  
