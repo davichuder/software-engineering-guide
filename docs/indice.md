@@ -36,6 +36,11 @@
     - Arquitecturas de software
     - Teorema CAP (Consistency, Availability, Partition Tolerance)
     - Escalabilidad: Vertical vs Horizontal
+    - Arquitectura Hexagonal (Ports & Adapters)
+    - Onion Architecture (Arquitectura de Cebolla)
+    - Clean Architecture
+    - Domain-Driven Design (DDD)
+    - Screaming Architecture
     - Patrones de diseño
     - Patrones arquitectónicos avanzados
     - FSM (Finite State Machines)

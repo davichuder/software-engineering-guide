@@ -217,6 +217,671 @@ graph LR
 
  La **Screaming Architecture** (ver abajo) es la forma ideal de organizar las carpetas para implementar Arquitectura Hexagonal, agrupando por contexto y segregando la infraestructura.
 
+---
+
+## 🧅 Onion Architecture (Arquitectura de Cebolla)
+
+**Qué:** Arquitectura en capas concéntricas donde las dependencias apuntan hacia el centro. El núcleo contiene el dominio, y las capas externas contienen la infraestructura.
+
+**Por qué:** Garantiza que la lógica de negocio no dependa de detalles técnicos (frameworks, DB, UI). Facilita testing y cambios tecnológicos.
+
+**Quién:** Propuesta por Jeffrey Palermo (2008).
+
+**Cuándo:** Aplicaciones empresariales complejas, sistemas de larga vida, cuando la lógica de negocio es crítica.
+
+### Capas de la Cebolla (de adentro hacia afuera)
+
+```mermaid
+graph TD
+    subgraph Layer4[Capa 4: Infrastructure]
+        UI[UI/Controllers]
+        DB[Database]
+        External[External Services]
+    end
+    
+    subgraph Layer3[Capa 3: Application Services]
+        UseCase[Use Cases/Application Logic]
+    end
+    
+    subgraph Layer2[Capa 2: Domain Services]
+        DomainService[Domain Services]
+    end
+    
+    subgraph Layer1[Capa 1: Domain Model - CORE]
+        Entity[Entities]
+        ValueObj[Value Objects]
+        Aggregates[Aggregates]
+    end
+    
+    UI --> UseCase
+    DB --> UseCase
+    External --> UseCase
+    UseCase --> DomainService
+    DomainService --> Entity
+    
+    style Layer1 fill:#ffcccc
+    style Layer2 fill:#ffddaa
+    style Layer3 fill:#ffffcc
+    style Layer4 fill:#ccffcc
+```
+
+| Capa | Responsabilidad | Ejemplos | Depende de |
+|:-----|:----------------|:---------|:-----------|
+| **1. Domain Model (Core)** | Entidades, Value Objects, reglas de negocio puras | `User`, `Order`, `Money` | Nada (independiente) |
+| **2. Domain Services** | Lógica de dominio que no pertenece a una entidad | `PricingService`, `InventoryValidator` | Domain Model |
+| **3. Application Services** | Casos de uso, orquestación de flujos | `CreateOrderUseCase`, `ProcessPayment` | Domain Services + Domain Model |
+| **4. Infrastructure** | Implementaciones técnicas (DB, UI, APIs) | `PostgresOrderRepository`, `ExpressController` | Application Services |
+
+### Regla de Oro: Dependency Rule
+
+> **Las dependencias solo pueden apuntar hacia adentro. Las capas internas NO conocen las externas.**
+
+**Ejemplo:**
+
+- ✅ `Infrastructure` → `Application Services` → `Domain Model`
+- ❌ `Domain Model` NO puede depender de `Infrastructure`
+
+### Comparación con Hexagonal
+
+| Aspecto | Hexagonal | Onion |
+|:--------|:----------|:------|
+| **Concepto clave** | Puertos y Adaptadores | Capas concéntricas |
+| **Dependencias** | Hacia el Core | Hacia el centro |
+| **Organización** | Horizontal (Ports/Adapters) | Vertical (Capas) |
+| **Similitud** | Ambas aíslan el dominio de la infraestructura |
+
+### Ejemplo de Código
+
+**Capa 1: Domain Model**
+
+```typescript
+// domain/entities/Order.ts
+export class Order {
+  constructor(
+    public readonly id: string,
+    public readonly items: OrderItem[],
+    public status: OrderStatus
+  ) {}
+
+  calculateTotal(): Money {
+    return this.items.reduce((sum, item) => sum.add(item.price), Money.zero());
+  }
+
+  canBeCancelled(): boolean {
+    return this.status === OrderStatus.Pending;
+  }
+}
+```
+
+**Capa 3: Application Service**
+
+```typescript
+// application/use-cases/CreateOrder.ts
+export class CreateOrderUseCase {
+  constructor(
+    private orderRepository: IOrderRepository, // Puerto (interface)
+    private pricingService: PricingService
+  ) {}
+
+  async execute(request: CreateOrderRequest): Promise<Order> {
+    const order = new Order(uuid(), request.items, OrderStatus.Pending);
+    const total = this.pricingService.calculateWithTax(order);
+    await this.orderRepository.save(order);
+    return order;
+  }
+}
+```
+
+**Capa 4: Infrastructure**
+
+```typescript
+// infrastructure/repositories/PostgresOrderRepository.ts
+export class PostgresOrderRepository implements IOrderRepository {
+  async save(order: Order): Promise<void> {
+    await db.query('INSERT INTO orders ...', order);
+  }
+}
+```
+
+### Cuándo Usar Onion Architecture
+
+- ✅ **Lógica de negocio compleja**: Fintech, healthcare, e-commerce
+- ✅ **Sistemas de larga vida**: Proyectos que evolucionarán años
+- ✅ **Testing crítico**: Necesitas testear dominio sin infraestructura
+- ⚠️ **MVPs simples**: Puede ser over-engineering
+- ❌ **CRUD básicos**: Capas tradicionales pueden ser suficientes
+
+---
+
+## 🏛️ Clean Architecture
+
+**Qué:** Arquitectura propuesta por Robert C. Martin (Uncle Bob) que combina principios de Hexagonal, Onion y otras arquitecturas para crear sistemas independientes de frameworks, UI, DB y agentes externos.
+
+**Por qué:** Maximiza la independencia del dominio, facilita testing, permite cambiar tecnologías sin afectar la lógica de negocio.
+
+**Cuándo:** Sistemas empresariales complejos, aplicaciones de larga vida, cuando la lógica de negocio es el activo más valioso.
+
+### Los 4 Círculos de Clean Architecture
+
+```mermaid
+graph TD
+    subgraph Circle4[Círculo 4: Frameworks & Drivers - Azul]
+        Web[Web/UI]
+        DBImpl[Database Implementation]
+        Devices[Devices/External APIs]
+    end
+    
+    subgraph Circle3[Círculo 3: Interface Adapters - Verde]
+        Controllers[Controllers]
+        Presenters[Presenters]
+        Gateways[Gateways]
+    end
+    
+    subgraph Circle2[Círculo 2: Application Business Rules - Amarillo]
+        UseCases[Use Cases/Interactors]
+    end
+    
+    subgraph Circle1[Círculo 1: Enterprise Business Rules - Rojo]
+        Entities[Entities]
+    end
+    
+    Web --> Controllers
+    DBImpl --> Gateways
+    Controllers --> UseCases
+    Gateways --> UseCases
+    UseCases --> Entities
+    
+    style Circle1 fill:#ffcccc
+    style Circle2 fill:#ffffcc
+    style Circle3 fill:#ccffcc
+    style Circle4 fill:#ccccff
+```
+
+| Círculo | Nombre | Responsabilidad | Ejemplos |
+|:--------|:-------|:----------------|:---------|
+| **1 (Centro)** | **Enterprise Business Rules** | Entidades de negocio, reglas críticas | `User`, `Order`, `Invoice` |
+| **2** | **Application Business Rules** | Casos de uso específicos de la aplicación | `CreateUser`, `PlaceOrder`, `GenerateReport` |
+| **3** | **Interface Adapters** | Convertir datos entre casos de uso y frameworks | `UserController`, `OrderPresenter`, `DatabaseGateway` |
+| **4 (Exterior)** | **Frameworks & Drivers** | Frameworks, DB, UI, dispositivos | Express, React, PostgreSQL, AWS SDK |
+
+### The Dependency Rule (Regla de Dependencia)
+
+> **El código fuente solo puede apuntar hacia adentro. Nada en un círculo interno puede saber sobre algo en un círculo externo.**
+
+**Implicaciones:**
+
+- ✅ Entities no conocen Use Cases
+- ✅ Use Cases no conocen Controllers
+- ✅ Use Cases definen **interfaces** (puertos), Infrastructure las implementa
+- ❌ Entities NO pueden importar frameworks
+- ❌ Use Cases NO pueden importar Express/React
+
+### Flujo de Control vs Flujo de Dependencias
+
+**Problema:** El Controller (externo) necesita llamar al Use Case (interno), pero el Use Case no puede depender del Controller.
+
+**Solución:** Dependency Inversion Principle (DIP)
+
+```mermaid
+sequenceDiagram
+    participant Controller
+    participant UseCase
+    participant IRepository
+    participant PostgresRepo
+    
+    Controller->>UseCase: execute(request)
+    UseCase->>IRepository: save(entity)
+    Note over IRepository: Interface definida en Use Case
+    PostgresRepo->>IRepository: implements
+    PostgresRepo-->>UseCase: entity saved
+    UseCase-->>Controller: response
+```
+
+**Código:**
+
+```typescript
+// Circle 2: Use Case define la interface (Puerto)
+export interface IUserRepository {
+  save(user: User): Promise<void>;
+}
+
+export class CreateUserUseCase {
+  constructor(private userRepo: IUserRepository) {} // Depende de abstracción
+  
+  async execute(request: CreateUserRequest): Promise<User> {
+    const user = new User(request.name, request.email);
+    await this.userRepo.save(user);
+    return user;
+  }
+}
+
+// Circle 4: Infrastructure implementa la interface
+export class PostgresUserRepository implements IUserRepository {
+  async save(user: User): Promise<void> {
+    await db.query('INSERT INTO users ...', user);
+  }
+}
+```
+
+### Comparación: Clean vs Hexagonal vs Onion
+
+| Aspecto | Clean Architecture | Hexagonal | Onion |
+|:--------|:-------------------|:----------|:------|
+| **Autor** | Robert C. Martin | Alistair Cockburn | Jeffrey Palermo |
+| **Concepto clave** | 4 círculos concéntricos | Puertos y Adaptadores | Capas concéntricas |
+| **Foco principal** | Independencia total del dominio | Testability y flexibilidad | Separación por capas |
+| **Similitud** | **Todas aíslan el dominio de la infraestructura y aplican Dependency Inversion** |
+
+### Ejemplo Completo: Sistema de Pedidos
+
+**Circle 1: Entity**
+
+```typescript
+// entities/Order.ts
+export class Order {
+  constructor(
+    public id: string,
+    public customerId: string,
+    public items: OrderItem[],
+    public status: OrderStatus
+  ) {}
+
+  calculateTotal(): number {
+    return this.items.reduce((sum, item) => sum + item.price * item.quantity, 0);
+  }
+}
+```
+
+**Circle 2: Use Case + Interface**
+
+```typescript
+// use-cases/CreateOrder.ts
+export interface IOrderRepository {
+  save(order: Order): Promise<void>;
+}
+
+export interface IEmailService {
+  sendOrderConfirmation(order: Order): Promise<void>;
+}
+
+export class CreateOrderUseCase {
+  constructor(
+    private orderRepo: IOrderRepository,
+    private emailService: IEmailService
+  ) {}
+
+  async execute(request: CreateOrderRequest): Promise<Order> {
+    const order = new Order(uuid(), request.customerId, request.items, OrderStatus.Pending);
+    await this.orderRepo.save(order);
+    await this.emailService.sendOrderConfirmation(order);
+    return order;
+  }
+}
+```
+
+**Circle 3: Controller (Adapter)**
+
+```typescript
+// adapters/controllers/OrderController.ts
+export class OrderController {
+  constructor(private createOrderUseCase: CreateOrderUseCase) {}
+
+  async create(req: Request, res: Response) {
+    const request = new CreateOrderRequest(req.body.customerId, req.body.items);
+    const order = await this.createOrderUseCase.execute(request);
+    res.json({ orderId: order.id });
+  }
+}
+```
+
+**Circle 4: Infrastructure**
+
+```typescript
+// infrastructure/PostgresOrderRepository.ts
+export class PostgresOrderRepository implements IOrderRepository {
+  async save(order: Order): Promise<void> {
+    await db.query('INSERT INTO orders (id, customer_id, status) VALUES ($1, $2, $3)', 
+      [order.id, order.customerId, order.status]);
+  }
+}
+
+// infrastructure/SendGridEmailService.ts
+export class SendGridEmailService implements IEmailService {
+  async sendOrderConfirmation(order: Order): Promise<void> {
+    await sendgrid.send({ to: order.customerId, template: 'order-confirmation' });
+  }
+}
+```
+
+### Beneficios de Clean Architecture
+
+| Beneficio | Explicación |
+|:----------|:------------|
+| **Independencia de Frameworks** | Cambiar de Express a Fastify no afecta Use Cases |
+| **Testability** | Testear Use Cases sin DB/UI (mocks de interfaces) |
+| **Independencia de UI** | Misma lógica para Web, Mobile, CLI |
+| **Independencia de DB** | Cambiar de PostgreSQL a MongoDB sin tocar dominio |
+| **Independencia de Agentes Externos** | APIs de terceros son detalles reemplazables |
+
+### Cuándo Usar Clean Architecture
+
+- ✅ **Sistemas críticos de negocio**: Fintech, healthcare, legal
+- ✅ **Proyectos de larga vida**: 5+ años de evolución
+- ✅ **Equipos grandes**: Múltiples devs trabajando en paralelo
+- ✅ **Alta cobertura de tests**: Testing es prioritario
+- ⚠️ **MVPs rápidos**: Puede ralentizar desarrollo inicial
+- ❌ **Prototipos desechables**: Over-engineering
+
+---
+
+## 🎯 Domain-Driven Design (DDD)
+
+**Qué:** Enfoque de diseño de software que pone el **dominio del negocio** en el centro del desarrollo, usando un lenguaje ubicuo (Ubiquitous Language) compartido entre técnicos y expertos del dominio.
+
+**Por qué:** Sistemas complejos requieren que el código refleje fielmente el negocio. DDD provee patrones tácticos y estratégicos para modelar dominios complejos.
+
+**Quién:** Propuesto por Eric Evans en su libro "Domain-Driven Design" (2003).
+
+**Cuándo:** Dominios complejos (fintech, healthcare, logística), sistemas empresariales de larga vida.
+
+### Conceptos Estratégicos (Strategic Design)
+
+#### 1. Ubiquitous Language (Lenguaje Ubicuo)
+
+**Qué:** Vocabulario compartido entre desarrolladores y expertos del dominio, usado en código, documentación y conversaciones.
+
+**Por qué:** Elimina ambigüedades, el código se vuelve auto-documentado.
+
+**Ejemplo:**
+
+- ❌ **Mal:** `processData()`, `handleRequest()`, `doStuff()`
+- ✅ **Bien:** `approveInsuranceClaim()`, `calculatePremium()`, `issuePolicy()`
+
+#### 2. Bounded Context (Contexto Delimitado)
+
+**Qué:** Límite explícito dentro del cual un modelo de dominio es válido. Diferentes contextos pueden tener modelos diferentes para el mismo concepto.
+
+**Por qué:** Evita que un modelo único intente representar todo (God Model). Permite que equipos trabajen independientemente.
+
+**Ejemplo: E-commerce**
+
+```mermaid
+graph LR
+    subgraph Sales[Sales Context]
+        SalesCustomer[Customer: name, email, cart]
+    end
+    
+    subgraph Shipping[Shipping Context]
+        ShippingCustomer[Customer: address, phone, delivery_preferences]
+    end
+    
+    subgraph Billing[Billing Context]
+        BillingCustomer[Customer: payment_method, billing_address, credit_limit]
+    end
+    
+    Sales -.->|Context Map| Shipping
+    Sales -.->|Context Map| Billing
+    
+    style Sales fill:#ffe6e6
+    style Shipping fill:#e6f3ff
+    style Billing fill:#e6ffe6
+```
+
+**Nota:** `Customer` significa cosas diferentes en cada contexto. No intentar unificar en un solo modelo.
+
+#### 3. Context Map (Mapa de Contextos)
+
+**Qué:** Diagrama que muestra cómo se relacionan los Bounded Contexts.
+
+**Patrones de integración:**
+
+| Patrón | Qué | Cuándo |
+|:-------|:----|:-------|
+| **Shared Kernel** | Contextos comparten un subconjunto del modelo | Equipos muy coordinados, bajo acoplamiento aceptable |
+| **Customer/Supplier** | Un contexto (Supplier) provee datos al otro (Customer) | Relación upstream/downstream clara |
+| **Conformist** | Customer acepta modelo del Supplier sin traducción | Supplier no puede cambiar (legacy, third-party) |
+| **Anti-Corruption Layer (ACL)** | Traducir modelo externo al propio | Proteger dominio de modelos legacy/externos |
+| **Published Language** | Formato estándar de intercambio (JSON, XML) | Integración entre contextos independientes |
+
+### Conceptos Tácticos (Tactical Design)
+
+#### 1. Entity (Entidad)
+
+**Qué:** Objeto con identidad única que persiste en el tiempo, aunque sus atributos cambien.
+
+**Ejemplo:**
+
+```typescript
+export class User {
+  constructor(
+    public readonly id: UserId, // Identidad única
+    public name: string,
+    public email: Email
+  ) {}
+
+  changeName(newName: string): void {
+    this.name = newName; // Atributos cambian, identidad no
+  }
+}
+```
+
+#### 2. Value Object
+
+**Qué:** Objeto inmutable sin identidad, definido solo por sus atributos. Dos Value Objects con mismos valores son iguales.
+
+**Ejemplo:**
+
+```typescript
+export class Money {
+  constructor(
+    public readonly amount: number,
+    public readonly currency: string
+  ) {}
+
+  add(other: Money): Money {
+    if (this.currency !== other.currency) throw new Error('Currency mismatch');
+    return new Money(this.amount + other.amount, this.currency);
+  }
+
+  equals(other: Money): boolean {
+    return this.amount === other.amount && this.currency === other.currency;
+  }
+}
+```
+
+**Características:**
+
+- ✅ Inmutable
+- ✅ Sin identidad (comparación por valor)
+- ✅ Encapsula validación (`Email`, `PhoneNumber`, `Money`)
+
+#### 3. Aggregate (Agregado)
+
+**Qué:** Cluster de Entities y Value Objects tratados como una unidad. Tiene un **Aggregate Root** (entidad raíz) que es el único punto de acceso.
+
+**Por qué:** Garantiza consistencia, simplifica transacciones.
+
+**Ejemplo: Order Aggregate**
+
+```typescript
+export class Order { // Aggregate Root
+  constructor(
+    public readonly id: OrderId,
+    private items: OrderItem[], // Entities internas
+    public status: OrderStatus
+  ) {}
+
+  addItem(product: Product, quantity: number): void {
+    // Lógica de negocio: validar stock, calcular precio
+    this.items.push(new OrderItem(product, quantity));
+  }
+
+  // Solo Order puede modificar OrderItems
+  removeItem(itemId: string): void {
+    this.items = this.items.filter(item => item.id !== itemId);
+  }
+
+  calculateTotal(): Money {
+    return this.items.reduce((sum, item) => sum.add(item.price), Money.zero());
+  }
+}
+
+// OrderItem NO se expone directamente, solo a través de Order
+class OrderItem {
+  constructor(
+    public readonly id: string,
+    public product: Product,
+    public quantity: number
+  ) {}
+}
+```
+
+**Reglas:**
+
+- ✅ Modificaciones solo a través del Aggregate Root
+- ✅ Transacciones no cruzan límites de Aggregates
+- ✅ Referencias externas solo al Root (por ID)
+
+#### 4. Repository
+
+**Qué:** Abstracción para acceder a Aggregates, simula una colección en memoria.
+
+**Por qué:** Desacopla dominio de la persistencia.
+
+**Ejemplo:**
+
+```typescript
+export interface IOrderRepository {
+  findById(id: OrderId): Promise<Order | null>;
+  save(order: Order): Promise<void>;
+  delete(order: Order): Promise<void>;
+}
+
+// Uso en Use Case
+export class PlaceOrderUseCase {
+  constructor(private orderRepo: IOrderRepository) {}
+
+  async execute(request: PlaceOrderRequest): Promise<void> {
+    const order = new Order(uuid(), request.items, OrderStatus.Pending);
+    await this.orderRepo.save(order); // Abstracción, no SQL directo
+  }
+}
+```
+
+#### 5. Domain Service
+
+**Qué:** Lógica de dominio que no pertenece a una Entity o Value Object específico.
+
+**Cuándo:** Operaciones que involucran múltiples Aggregates o cálculos complejos.
+
+**Ejemplo:**
+
+```typescript
+export class PricingService {
+  calculateWithTax(order: Order, customer: Customer): Money {
+    const subtotal = order.calculateTotal();
+    const taxRate = customer.country === 'AR' ? 0.21 : 0.15;
+    return subtotal.multiply(1 + taxRate);
+  }
+}
+```
+
+#### 6. Domain Event
+
+**Qué:** Evento que representa algo significativo que ocurrió en el dominio.
+
+**Por qué:** Desacopla reacciones (enviar email, actualizar inventario) de la acción principal.
+
+**Ejemplo:**
+
+```typescript
+export class OrderPlacedEvent {
+  constructor(
+    public readonly orderId: string,
+    public readonly customerId: string,
+    public readonly total: Money,
+    public readonly occurredAt: Date
+  ) {}
+}
+
+// En el Aggregate
+export class Order {
+  place(): void {
+    this.status = OrderStatus.Placed;
+    this.events.push(new OrderPlacedEvent(this.id, this.customerId, this.calculateTotal(), new Date()));
+  }
+}
+
+// Event Handler
+export class SendOrderConfirmationHandler {
+  handle(event: OrderPlacedEvent): void {
+    emailService.send(event.customerId, 'Order Confirmation', event.orderId);
+  }
+}
+```
+
+### Estructura de Carpetas DDD
+
+```text
+/src
+  /sales (Bounded Context)
+    /domain
+      /entities
+        - Order.ts
+        - Customer.ts
+      /value-objects
+        - Money.ts
+        - Email.ts
+      /aggregates
+        - OrderAggregate.ts
+      /repositories (interfaces)
+        - IOrderRepository.ts
+      /services
+        - PricingService.ts
+      /events
+        - OrderPlacedEvent.ts
+    /application
+      /use-cases
+        - PlaceOrder.ts
+        - CancelOrder.ts
+    /infrastructure
+      /repositories
+        - PostgresOrderRepository.ts
+      /controllers
+        - OrderController.ts
+  /shipping (Bounded Context)
+    /domain
+      ...
+```
+
+### DDD + Clean Architecture
+
+**DDD** (qué modelar) se combina perfectamente con **Clean Architecture** (cómo estructurar):
+
+| DDD | Clean Architecture |
+|:----|:-------------------|
+| Entities, Value Objects, Aggregates | Circle 1: Enterprise Business Rules |
+| Domain Services | Circle 2: Application Business Rules |
+| Repositories (interfaces) | Circle 2: Use Cases definen puertos |
+| Repositories (implementaciones) | Circle 4: Infrastructure |
+
+### Cuándo Usar DDD
+
+- ✅ **Dominio complejo**: Fintech, healthcare, seguros, logística
+- ✅ **Larga vida del proyecto**: 5+ años
+- ✅ **Expertos del dominio disponibles**: Para definir Ubiquitous Language
+- ✅ **Múltiples Bounded Contexts**: E-commerce (sales, shipping, billing)
+- ⚠️ **CRUD simples**: Over-engineering
+- ❌ **Prototipos rápidos**: Demasiada ceremonia inicial
+
+### Recursos DDD
+
+- [Domain-Driven Design - Eric Evans](https://www.amazon.com/Domain-Driven-Design-Tackling-Complexity-Software/dp/0321125215)
+- [Implementing Domain-Driven Design - Vaughn Vernon](https://www.amazon.com/Implementing-Domain-Driven-Design-Vaughn-Vernon/dp/0321834577)
+- [DDD Reference - Eric Evans (PDF gratuito)](https://www.domainlanguage.com/ddd/reference/)
+
+---
+
 ## 📢 Screaming Architecture
 
 **Qué:** Arquitectura que hace obvio el dominio/propósito de la aplicación desde la estructura de carpetas y nombres, no el framework usado.

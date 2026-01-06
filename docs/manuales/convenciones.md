@@ -184,6 +184,150 @@ src/
     └── integration/       # Infrastructure
 ```
 
+### Backend - Por Onion Architecture
+
+**Qué:** Arquitectura en capas concéntricas donde las dependencias apuntan hacia el centro (Domain Model).
+
+**Cuándo:** Aplicaciones empresariales complejas, lógica de negocio crítica, testing intensivo.
+
+**Pros:** ✅ Dominio completamente aislado, ✅ Testeable sin infraestructura, ✅ Cambios tecnológicos no afectan core  
+**Cons:** ❌ Más archivos y carpetas, ❌ Curva de aprendizaje alta
+
+```text
+src/
+├── domain/                      # Capa 1: Domain Model (Core)
+│   ├── entities/               # Entidades de negocio
+│   │   ├── User.ts
+│   │   ├── Order.ts
+│   │   └── Product.ts
+│   ├── value-objects/          # Objetos inmutables
+│   │   ├── Email.ts
+│   │   ├── Money.ts
+│   │   └── Address.ts
+│   ├── aggregates/             # Raíces de agregados
+│   │   └── OrderAggregate.ts
+│   └── exceptions/             # Excepciones de dominio
+│       └── InvalidEmailException.ts
+├── domain-services/             # Capa 2: Domain Services
+│   ├── PricingService.ts       # Lógica que no pertenece a una entidad
+│   ├── InventoryValidator.ts
+│   └── ShippingCalculator.ts
+├── application/                 # Capa 3: Application Services
+│   ├── use-cases/              # Casos de uso
+│   │   ├── CreateOrderUseCase.ts
+│   │   ├── ProcessPaymentUseCase.ts
+│   │   └── UpdateUserProfileUseCase.ts
+│   ├── interfaces/             # Puertos (interfaces)
+│   │   ├── IOrderRepository.ts
+│   │   ├── IEmailService.ts
+│   │   └── IPaymentGateway.ts
+│   └── dto/                    # Data Transfer Objects
+│       ├── CreateOrderRequest.ts
+│       └── OrderResponse.ts
+└── infrastructure/              # Capa 4: Infrastructure
+    ├── repositories/           # Implementaciones de repositorios
+    │   ├── PostgresOrderRepository.ts
+    │   └── MongoUserRepository.ts
+    ├── services/               # Implementaciones de servicios
+    │   ├── SendGridEmailService.ts
+    │   └── StripePaymentGateway.ts
+    ├── http/                   # Adaptadores HTTP
+    │   ├── controllers/
+    │   │   ├── OrderController.ts
+    │   │   └── UserController.ts
+    │   ├── routes/
+    │   │   └── api.routes.ts
+    │   └── middleware/
+    │       ├── auth.middleware.ts
+    │       └── error.middleware.ts
+    ├── persistence/            # Migraciones, seeds
+    │   ├── migrations/
+    │   └── seeds/
+    └── config/                 # Configuración
+        ├── database.config.ts
+        └── app.config.ts
+```
+
+### Backend - Por Clean Architecture
+
+**Qué:** Arquitectura de 4 círculos concéntricos (Entities, Use Cases, Interface Adapters, Frameworks) con dependencias apuntando hacia adentro.
+
+**Cuándo:** Sistemas empresariales críticos, independencia total de frameworks, proyectos de larga vida (5+ años).
+
+**Pros:** ✅ Máxima independencia del dominio, ✅ Testability extrema, ✅ Cambiar frameworks sin tocar lógica  
+**Cons:** ❌ Más complejo inicialmente, ❌ Puede ser over-engineering para MVPs
+
+```text
+src/
+├── entities/                        # Círculo 1: Enterprise Business Rules
+│   ├── User.ts                     # Entidades de negocio puras
+│   ├── Order.ts
+│   ├── Product.ts
+│   └── value-objects/              # Value Objects
+│       ├── Email.ts
+│       ├── Money.ts
+│       └── OrderStatus.ts
+├── use-cases/                       # Círculo 2: Application Business Rules
+│   ├── user/
+│   │   ├── CreateUser.ts           # Casos de uso específicos
+│   │   ├── UpdateUserProfile.ts
+│   │   └── DeleteUser.ts
+│   ├── order/
+│   │   ├── PlaceOrder.ts
+│   │   ├── CancelOrder.ts
+│   │   └── GetOrderHistory.ts
+│   ├── interfaces/                 # Puertos (definidos por Use Cases)
+│   │   ├── repositories/
+│   │   │   ├── IUserRepository.ts
+│   │   │   └── IOrderRepository.ts
+│   │   └── services/
+│   │       ├── IEmailService.ts
+│   │       └── IPaymentGateway.ts
+│   └── dto/                        # Request/Response DTOs
+│       ├── CreateUserRequest.ts
+│       └── OrderResponse.ts
+├── adapters/                        # Círculo 3: Interface Adapters
+│   ├── controllers/                # Convertir HTTP → Use Cases
+│   │   ├── UserController.ts
+│   │   └── OrderController.ts
+│   ├── presenters/                 # Formatear respuestas
+│   │   ├── UserPresenter.ts
+│   │   └── OrderPresenter.ts
+│   ├── gateways/                   # Implementar interfaces de Use Cases
+│   │   ├── PostgresUserRepository.ts
+│   │   ├── MongoOrderRepository.ts
+│   │   └── SendGridEmailGateway.ts
+│   └── view-models/                # Modelos para UI
+│       └── OrderViewModel.ts
+└── frameworks/                      # Círculo 4: Frameworks & Drivers
+    ├── web/                        # Framework web (Express, Fastify)
+    │   ├── server.ts
+    │   ├── routes/
+    │   │   ├── user.routes.ts
+    │   │   └── order.routes.ts
+    │   └── middleware/
+    │       ├── auth.middleware.ts
+    │       └── error.middleware.ts
+    ├── database/                   # ORM/Database setup
+    │   ├── typeorm/
+    │   │   ├── config.ts
+    │   │   └── migrations/
+    │   └── seeds/
+    ├── external-services/          # APIs de terceros
+    │   ├── stripe/
+    │   └── sendgrid/
+    └── config/                     # Configuración de frameworks
+        ├── env.ts
+        └── logger.ts
+```
+
+**Nota clave de Clean Architecture:**
+
+> **Dependency Rule:** El código fuente solo puede apuntar hacia adentro. Las capas internas NO conocen las externas.
+>
+> - ✅ `Frameworks` → `Adapters` → `Use Cases` → `Entities`
+> - ❌ `Entities` NO pueden importar `Use Cases` o `Frameworks`
+
 ### Backend - Por DDD (Domain-Driven Design)
 
 **Qué:** Organizar por bounded contexts y agregados del dominio.
@@ -417,6 +561,8 @@ monorepo/
 | **Por Tipo** | Pequeño, 1 equipo | Baja ⭐ | Baja ⭐⭐ | Baja ⭐ |
 | **Por Funcionalidad** | Mediano-grande, múltiples features | Media ⭐⭐ | Alta ⭐⭐⭐⭐ | Media ⭐⭐ |
 | **Hexagonal** | Testability crítica, cambios frecuentes de infra | Alta ⭐⭐⭐ | Alta ⭐⭐⭐⭐ | Alta ⭐⭐⭐⭐ |
+| **Onion** | Lógica de negocio compleja, testing intensivo | Alta ⭐⭐⭐ | Alta ⭐⭐⭐⭐ | Alta ⭐⭐⭐⭐ |
+| **Clean Architecture** | Independencia total de frameworks, proyectos 5+ años | Muy Alta ⭐⭐⭐⭐ | Muy Alta ⭐⭐⭐⭐⭐ | Muy Alta ⭐⭐⭐⭐⭐ |
 | **DDD** | Dominio muy complejo, enterprise | Muy Alta ⭐⭐⭐⭐ | Muy Alta ⭐⭐⭐⭐⭐ | Muy Alta ⭐⭐⭐⭐⭐ |
 | **Atomic Design** | Design system, componentes reutilizables | Media ⭐⭐⭐ | Media ⭐⭐⭐ | Media ⭐⭐⭐ |
 | **Monorepo** | Múltiples apps relacionadas | Alta ⭐⭐⭐⭐ | Muy Alta ⭐⭐⭐⭐⭐ | Alta ⭐⭐⭐⭐ |
@@ -425,7 +571,8 @@ monorepo/
 
 - **Startup/MVP:** Por Tipo (simple y rápido)
 - **Producto creciendo:** Por Funcionalidad (escala mejor)
-- **Enterprise:** DDD o Hexagonal (testability, complejidad)
+- **Testability crítica:** Hexagonal o Onion (aislamiento del dominio)
+- **Enterprise/Crítico:** Clean Architecture o DDD (máxima independencia)
 - **Design System:** Atomic Design
 - **Múltiples apps:** Monorepo
 
