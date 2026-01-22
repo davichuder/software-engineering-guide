@@ -1,0 +1,2907 @@
+
+<!DOCTYPE html>
+
+<html class="no-js" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="../gestion-secretos/" rel="prev"/>
+<link href="../data-literacy/" rel="next"/>
+<link href="../../assets/images/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.6.1, mkdocs-material-9.7.1" name="generator"/>
+<title>Chaos Engineering - Guía Integral de Ingeniería de Software</title>
+<link href="../../assets/stylesheets/main.484c7ddc.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/palette.ab4e12ef.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
+<style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+<link href="../../assets/mkdocs_puml/puml.css" rel="stylesheet"/>
+<link href="../../assets/mkdocs_puml/interaction.css" rel="stylesheet"/>
+<script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+</head>
+<body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#chaos-engineering-y-resiliencia">1. 
+          Skip to content
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+<header class="md-header md-header--shadow" data-md-component="header">
+<nav aria-label="Header" class="md-header__inner md-grid">
+<a aria-label="Guía Integral de Ingeniería de Software" class="md-header__button md-logo" data-md-component="logo" href="../.." title="Guía Integral de Ingeniería de Software">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            Guía Integral de Ingeniería de Software
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+            
+              Chaos Engineering
+            
+          </span>
+</div>
+</div>
+</div>
+<form class="md-header__option" data-md-component="palette">
+<input aria-label="Switch to light mode" class="md-option" data-md-color-accent="indigo" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-primary="indigo" data-md-color-scheme="default" id="__palette_0" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_1" hidden="" title="Switch to light mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
+</label>
+<input aria-label="Switch to dark mode" class="md-option" data-md-color-accent="indigo" data-md-color-media="(prefers-color-scheme: light)" data-md-color-primary="indigo" data-md-color-scheme="slate" id="__palette_1" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_0" hidden="" title="Switch to dark mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
+</label>
+</form>
+<script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+<label class="md-header__button md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+</label>
+<div class="md-search" data-md-component="search" role="dialog">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="Search" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="Search" required="" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+</label>
+<nav aria-label="Search" class="md-search__options">
+<button aria-label="Clear" class="md-search__icon md-icon" tabindex="-1" title="Clear" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+</button>
+</nav>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="" tabindex="0">
+<div class="md-search-result" data-md-component="search-result">
+<div class="md-search-result__meta">
+            Initializing search
+          </div>
+<ol class="md-search-result__list" role="presentation"></ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Navigation" class="md-nav md-nav--primary" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="Guía Integral de Ingeniería de Software" class="md-nav__button md-logo" data-md-component="logo" href="../.." title="Guía Integral de Ingeniería de Software">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+</a>
+    Guía Integral de Ingeniería de Software
+  </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../indice/">
+<span class="md-ellipsis">
+    
+  
+    Índice
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../fundamentos/">
+<span class="md-ellipsis">
+    
+  
+    Fundamentos
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../onboarding/">
+<span class="md-ellipsis">
+    
+  
+    Onboarding
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../disciplinas-desarrollo/">
+<span class="md-ellipsis">
+    
+  
+    Disciplinas de Desarrollo
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../testing/">
+<span class="md-ellipsis">
+    
+  
+    Testing
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../gestion-calidad/">
+<span class="md-ellipsis">
+    
+  
+    Gestión de Calidad
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../arquitectura-patrones/">
+<span class="md-ellipsis">
+    
+  
+    Arquitectura y Patrones
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../sesgos-falacias/">
+<span class="md-ellipsis">
+    
+  
+    Sesgos y Falacias
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../devops/">
+<span class="md-ellipsis">
+    
+  
+    DevOps
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../seguridad/">
+<span class="md-ellipsis">
+    
+  
+    Seguridad
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../observabilidad/">
+<span class="md-ellipsis">
+    
+  
+    Observabilidad
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../herramientas-problemas/">
+<span class="md-ellipsis">
+    
+  
+    Herramientas y Problemas
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../mejora-continua/">
+<span class="md-ellipsis">
+    
+  
+    Mejora Continua
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../performance/">
+<span class="md-ellipsis">
+    
+  
+    Performance
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../checklist-produccion/">
+<span class="md-ellipsis">
+    
+  
+    Checklist Producción
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../bases-datos/">
+<span class="md-ellipsis">
+    
+  
+    Bases de Datos
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../apis-protocolos/">
+<span class="md-ellipsis">
+    
+  
+    APIs y Protocolos
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../mobile-ui-ux/">
+<span class="md-ellipsis">
+    
+  
+    Mobile / UI / UX
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../infraestructura-cloud/">
+<span class="md-ellipsis">
+    
+  
+    Infraestructura Cloud
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../cost-optimization/">
+<span class="md-ellipsis">
+    
+  
+    Cost Optimization
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../machine-learning/">
+<span class="md-ellipsis">
+    
+  
+    Machine Learning
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../ciencia-datos/">
+<span class="md-ellipsis">
+    
+  
+    Ciencia de Datos
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../data-governance/">
+<span class="md-ellipsis">
+    
+  
+    Data Governance
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../analisis-estrategico/">
+<span class="md-ellipsis">
+    
+  
+    Análisis Estratégico
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../product-management/">
+<span class="md-ellipsis">
+    
+  
+    Product Management
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../metricas-kpis/">
+<span class="md-ellipsis">
+    
+  
+    Métricas y KPIs
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../roles-responsabilidades/">
+<span class="md-ellipsis">
+    
+  
+    Roles y Responsabilidades
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../colaboracion-cultura/">
+<span class="md-ellipsis">
+    
+  
+    Colaboración y Cultura
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../documentacion-diagramas/">
+<span class="md-ellipsis">
+    
+  
+    Documentación y Diagramas
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../convenciones/">
+<span class="md-ellipsis">
+    
+  
+    Convenciones
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../estrategia-ia-automatizacion/">
+<span class="md-ellipsis">
+    
+  
+    Estrategia IA y Automatización
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../etica-gobernanza-ia/">
+<span class="md-ellipsis">
+    
+  
+    Ética y Gobernanza IA
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../comunicacion-contenido/">
+<span class="md-ellipsis">
+    
+  
+    Comunicación y Contenido
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../plantillas-artefactos/">
+<span class="md-ellipsis">
+    
+  
+    Plantillas y Artefactos
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../dependencias-deuda-tecnica/">
+<span class="md-ellipsis">
+    
+  
+    Dependencias y Deuda Técnica
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../priorizacion-roadmapping/">
+<span class="md-ellipsis">
+    
+  
+    Priorización y Roadmapping
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../gestion-secretos/">
+<span class="md-ellipsis">
+    
+  
+    Gestión de Secretos
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+<span class="md-ellipsis">
+    
+  
+    Chaos Engineering
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
+<span class="md-ellipsis">
+    
+  
+    Chaos Engineering
+  
+
+    
+  </span>
+</a>
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#principios-de-chaos-engineering">1.1 
+<span class="md-ellipsis">
+      
+        💥 Principios de Chaos Engineering
+      
+    </span>
+</a>
+<nav aria-label="💥 Principios de Chaos Engineering" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#que-es-chaos-engineering">1.1.1 
+<span class="md-ellipsis">
+      
+        Qué es Chaos Engineering
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#proceso">1.1.2 
+<span class="md-ellipsis">
+      
+        Proceso
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#inyeccion-de-fallos">1.2 
+<span class="md-ellipsis">
+      
+        🔧 Inyección de Fallos
+      
+    </span>
+</a>
+<nav aria-label="🔧 Inyección de Fallos" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#tipos-de-fallos">1.2.1 
+<span class="md-ellipsis">
+      
+        Tipos de Fallos
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ejemplo-network-latency-con-toxiproxy">1.2.2 
+<span class="md-ellipsis">
+      
+        Ejemplo: Network Latency con Toxiproxy
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ejemplo-chaos-mesh-kubernetes">1.2.3 
+<span class="md-ellipsis">
+      
+        Ejemplo: Chaos Mesh (Kubernetes)
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#game-days">1.3 
+<span class="md-ellipsis">
+      
+        🎮 Game Days
+      
+    </span>
+</a>
+<nav aria-label="🎮 Game Days" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#que-es-un-game-day">1.3.1 
+<span class="md-ellipsis">
+      
+        Qué es un Game Day
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#planificacion">1.3.2 
+<span class="md-ellipsis">
+      
+        Planificación
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#patrones-de-resiliencia">1.4 
+<span class="md-ellipsis">
+      
+        🛡️ Patrones de Resiliencia
+      
+    </span>
+</a>
+<nav aria-label="🛡️ Patrones de Resiliencia" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#circuit-breaker">1.4.1 
+<span class="md-ellipsis">
+      
+        Circuit Breaker
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#retry-with-backoff">1.4.2 
+<span class="md-ellipsis">
+      
+        Retry with Backoff
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#bulkhead">1.4.3 
+<span class="md-ellipsis">
+      
+        Bulkhead
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#timeout">1.4.4 
+<span class="md-ellipsis">
+      
+        Timeout
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#artefactos">1.5 
+<span class="md-ellipsis">
+      
+        📋 Artefactos
+      
+    </span>
+</a>
+<nav aria-label="📋 Artefactos" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#chaos-experiment-template">1.5.1 
+<span class="md-ellipsis">
+      
+        Chaos Experiment Template
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#game-day-runbook">1.5.2 
+<span class="md-ellipsis">
+      
+        Game Day Runbook
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#resiliencia-checklist">1.5.3 
+<span class="md-ellipsis">
+      
+        Resiliencia Checklist
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#recursos">1.6 
+<span class="md-ellipsis">
+      
+        📚 Recursos
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../data-literacy/">
+<span class="md-ellipsis">
+    
+  
+    Data Literacy
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../lowcode-nocode/">
+<span class="md-ellipsis">
+    
+  
+    LowCode / NoCode
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../casos-de-estudio/">
+<span class="md-ellipsis">
+    
+  
+    Casos de Estudio
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_42" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../agentes/">
+<span class="md-ellipsis">
+    
+  
+    Agentes
+  
+
+    
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_42" id="__nav_42_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_42_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_42">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Agentes
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/the-gentleman/">
+<span class="md-ellipsis">
+    
+  
+    The Gentleman
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_42_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_42_2" id="__nav_42_2_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Architecture &amp; DevOps
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_42_2_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_42_2">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Architecture &amp; DevOps
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/architecture-devops/api-design-expert/">
+<span class="md-ellipsis">
+    
+  
+    API Design Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/architecture-devops/cicd-expert/">
+<span class="md-ellipsis">
+    
+  
+    CICD Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/architecture-devops/event-driven-expert/">
+<span class="md-ellipsis">
+    
+  
+    Event Driven Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/architecture-devops/iac-expert/">
+<span class="md-ellipsis">
+    
+  
+    IaC Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/architecture-devops/kubernetes-expert/">
+<span class="md-ellipsis">
+    
+  
+    Kubernetes Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/architecture-devops/microservices-expert/">
+<span class="md-ellipsis">
+    
+  
+    Microservices Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/architecture-devops/observability-expert/">
+<span class="md-ellipsis">
+    
+  
+    Observability Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/architecture-devops/security-expert/">
+<span class="md-ellipsis">
+    
+  
+    Security Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/architecture-devops/software-architecture-expert/">
+<span class="md-ellipsis">
+    
+  
+    Software Architecture Expert
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_42_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_42_3" id="__nav_42_3_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Backend
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_42_3_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_42_3">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Backend
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/backend/django-expert/">
+<span class="md-ellipsis">
+    
+  
+    Django Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/backend/express-expert/">
+<span class="md-ellipsis">
+    
+  
+    Express Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/backend/fastapi-expert/">
+<span class="md-ellipsis">
+    
+  
+    FastAPI Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/backend/java-expert/">
+<span class="md-ellipsis">
+    
+  
+    Java Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/backend/nestjs-expert/">
+<span class="md-ellipsis">
+    
+  
+    NestJS Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/backend/nodejs-expert/">
+<span class="md-ellipsis">
+    
+  
+    NodeJS Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/backend/python-expert/">
+<span class="md-ellipsis">
+    
+  
+    Python Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/backend/spring-expert/">
+<span class="md-ellipsis">
+    
+  
+    Spring Expert
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_42_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_42_4" id="__nav_42_4_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Business Roles
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_42_4_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_42_4">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Business Roles
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/business-roles/devrel-developer-advocate/">
+<span class="md-ellipsis">
+    
+  
+    DevRel / Developer Advocate
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/business-roles/pm-po-advisor/">
+<span class="md-ellipsis">
+    
+  
+    PM / PO Advisor
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/business-roles/scrum-master-agile-coach/">
+<span class="md-ellipsis">
+    
+  
+    Scrum Master / Agile Coach
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/business-roles/sre-advisor/">
+<span class="md-ellipsis">
+    
+  
+    SRE Advisor
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/business-roles/tech-lead-em-advisor/">
+<span class="md-ellipsis">
+    
+  
+    Tech Lead / EM Advisor
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/business-roles/ux-research-expert/">
+<span class="md-ellipsis">
+    
+  
+    UX Research Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/business-roles/ux-ui-designer/">
+<span class="md-ellipsis">
+    
+  
+    UX/UI Designer
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_42_5" type="checkbox"/>
+<label class="md-nav__link" for="__nav_42_5" id="__nav_42_5_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Compliance
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_42_5_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_42_5">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Compliance
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/compliance/accessibility-expert/">
+<span class="md-ellipsis">
+    
+  
+    Accessibility Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/compliance/compliance-governance-expert/">
+<span class="md-ellipsis">
+    
+  
+    Compliance &amp; Governance Expert
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_42_6" type="checkbox"/>
+<label class="md-nav__link" for="__nav_42_6" id="__nav_42_6_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Data / ML / Finance
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_42_6_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_42_6">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Data / ML / Finance
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/data-ml-finance/computer-vision-expert/">
+<span class="md-ellipsis">
+    
+  
+    Computer Vision Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/data-ml-finance/data-science-expert/">
+<span class="md-ellipsis">
+    
+  
+    Data Science Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/data-ml-finance/data-visualization-expert/">
+<span class="md-ellipsis">
+    
+  
+    Data Visualization Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/data-ml-finance/ml-dl-expert/">
+<span class="md-ellipsis">
+    
+  
+    ML/DL Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/data-ml-finance/nlp-expert/">
+<span class="md-ellipsis">
+    
+  
+    NLP Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/data-ml-finance/quant-finance-expert/">
+<span class="md-ellipsis">
+    
+  
+    Quant Finance Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/data-ml-finance/rl-expert/">
+<span class="md-ellipsis">
+    
+  
+    RL Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/data-ml-finance/trading-systems-expert/">
+<span class="md-ellipsis">
+    
+  
+    Trading Systems Expert
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_42_7" type="checkbox"/>
+<label class="md-nav__link" for="__nav_42_7" id="__nav_42_7_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Databases
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_42_7_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_42_7">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Databases
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/databases/mongodb-expert/">
+<span class="md-ellipsis">
+    
+  
+    MongoDB Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/databases/mssql-expert/">
+<span class="md-ellipsis">
+    
+  
+    MSSQL Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/databases/postgresql-expert/">
+<span class="md-ellipsis">
+    
+  
+    PostgreSQL Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/databases/redis-expert/">
+<span class="md-ellipsis">
+    
+  
+    Redis Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/databases/sqlite-expert/">
+<span class="md-ellipsis">
+    
+  
+    SQLite Expert
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_42_8" type="checkbox"/>
+<label class="md-nav__link" for="__nav_42_8" id="__nav_42_8_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Debugging
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_42_8_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_42_8">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Debugging
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/debugging/code-review-expert/">
+<span class="md-ellipsis">
+    
+  
+    Code Review Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/debugging/debugging-root-cause-expert/">
+<span class="md-ellipsis">
+    
+  
+    Debugging Root Cause Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/debugging/migration-specialist/">
+<span class="md-ellipsis">
+    
+  
+    Migration Specialist
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_42_9" type="checkbox"/>
+<label class="md-nav__link" for="__nav_42_9" id="__nav_42_9_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Documentation
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_42_9_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_42_9">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Documentation
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/documentation/api-documentation-expert/">
+<span class="md-ellipsis">
+    
+  
+    API Documentation Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/documentation/content-creator-expert/">
+<span class="md-ellipsis">
+    
+  
+    Content Creator Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/documentation/diagram-expert/">
+<span class="md-ellipsis">
+    
+  
+    Diagram Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/documentation/technical-writer-expert/">
+<span class="md-ellipsis">
+    
+  
+    Technical Writer Expert
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_42_10" type="checkbox"/>
+<label class="md-nav__link" for="__nav_42_10" id="__nav_42_10_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Frontend
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_42_10_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_42_10">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Frontend
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/frontend/angular-expert/">
+<span class="md-ellipsis">
+    
+  
+    Angular Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/frontend/css-styling-expert/">
+<span class="md-ellipsis">
+    
+  
+    CSS Styling Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/frontend/nextjs-expert/">
+<span class="md-ellipsis">
+    
+  
+    NextJS Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/frontend/react-expert/">
+<span class="md-ellipsis">
+    
+  
+    React Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/frontend/typescript-expert/">
+<span class="md-ellipsis">
+    
+  
+    TypeScript Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/frontend/vue-expert/">
+<span class="md-ellipsis">
+    
+  
+    Vue Expert
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_42_11" type="checkbox"/>
+<label class="md-nav__link" for="__nav_42_11" id="__nav_42_11_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Testing
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_42_11_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_42_11">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Testing
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/testing/bdd-expert/">
+<span class="md-ellipsis">
+    
+  
+    BDD Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/testing/e2e-testing-expert/">
+<span class="md-ellipsis">
+    
+  
+    E2E Testing Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/testing/performance-testing-expert/">
+<span class="md-ellipsis">
+    
+  
+    Performance Testing Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/testing/qa-automation-expert/">
+<span class="md-ellipsis">
+    
+  
+    QA Automation Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/testing/tdd-expert/">
+<span class="md-ellipsis">
+    
+  
+    TDD Expert
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_43" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../casos-de-estudio/">
+<span class="md-ellipsis">
+    
+  
+    Casos de Estudio
+  
+
+    
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_43" id="__nav_43_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_43_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_43">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Casos de Estudio
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../casos-de-estudio/portafolio-personal-ts-angular/">
+<span class="md-ellipsis">
+    
+  
+    Portafolio Personal TS Angular
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../casos-de-estudio/diario-emociones-mood-tracker/">
+<span class="md-ellipsis">
+    
+  
+    Diario de Emociones
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../casos-de-estudio/geofencing-alarm-mobile/">
+<span class="md-ellipsis">
+    
+  
+    Geofencing Alarm Mobile
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../casos-de-estudio/voice-volume-tracker-windows/">
+<span class="md-ellipsis">
+    
+  
+    Voice Volume Tracker Windows
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../casos-de-estudio/voice-volume-tracker-parte2/">
+<span class="md-ellipsis">
+    
+  
+    Voice Volume Tracker Parte 2
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../casos-de-estudio/voice-volume-tracker-parte3/">
+<span class="md-ellipsis">
+    
+  
+    Voice Volume Tracker Parte 3
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../casos-de-estudio/gestion-gastos-compartidos/">
+<span class="md-ellipsis">
+    
+  
+    Gestión de Gastos Compartidos
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../casos-de-estudio/gestion-gastos-compartidos-implementacion/">
+<span class="md-ellipsis">
+    
+  
+    Gestión de Gastos Compartidos (Implementación)
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_44" type="checkbox"/>
+<label class="md-nav__link" for="__nav_44" id="__nav_44_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Reportes
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_44_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_44">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Reportes
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_44_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_44_1" id="__nav_44_1_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Ejemplos
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_44_1_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_44_1">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Ejemplos
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../reportes/examples/bug-report-example/">
+<span class="md-ellipsis">
+    
+  
+    Bug Report Example
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../reportes/examples/feature-request-example/">
+<span class="md-ellipsis">
+    
+  
+    Feature Request Example
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../reportes/examples/new-feature-example/">
+<span class="md-ellipsis">
+    
+  
+    New Feature Example
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../reportes/examples/post-mortem-example/">
+<span class="md-ellipsis">
+    
+  
+    Post Mortem Example
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../reportes/examples/rfc-example/">
+<span class="md-ellipsis">
+    
+  
+    RFC Example
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_44_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_44_2" id="__nav_44_2_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Plantillas
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_44_2_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_44_2">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Plantillas
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../reportes/templates/bug-report-template/">
+<span class="md-ellipsis">
+    
+  
+    Bug Report Template
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../reportes/templates/feature-request-template/">
+<span class="md-ellipsis">
+    
+  
+    Feature Request Template
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../reportes/templates/new-feature-template/">
+<span class="md-ellipsis">
+    
+  
+    New Feature Template
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../reportes/templates/post-mortem-template/">
+<span class="md-ellipsis">
+    
+  
+    Post Mortem Template
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../reportes/templates/rfc-template/">
+<span class="md-ellipsis">
+    
+  
+    RFC Template
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../recursos-entrevistas/">
+<span class="md-ellipsis">
+    
+  
+    Recursos y Entrevistas
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agradecimientos/">
+<span class="md-ellipsis">
+    
+  
+    Agradecimientos
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../glosario/">
+<span class="md-ellipsis">
+    
+  
+    Glosario
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#principios-de-chaos-engineering">1.1 
+<span class="md-ellipsis">
+      
+        💥 Principios de Chaos Engineering
+      
+    </span>
+</a>
+<nav aria-label="💥 Principios de Chaos Engineering" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#que-es-chaos-engineering">1.1.1 
+<span class="md-ellipsis">
+      
+        Qué es Chaos Engineering
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#proceso">1.1.2 
+<span class="md-ellipsis">
+      
+        Proceso
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#inyeccion-de-fallos">1.2 
+<span class="md-ellipsis">
+      
+        🔧 Inyección de Fallos
+      
+    </span>
+</a>
+<nav aria-label="🔧 Inyección de Fallos" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#tipos-de-fallos">1.2.1 
+<span class="md-ellipsis">
+      
+        Tipos de Fallos
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ejemplo-network-latency-con-toxiproxy">1.2.2 
+<span class="md-ellipsis">
+      
+        Ejemplo: Network Latency con Toxiproxy
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ejemplo-chaos-mesh-kubernetes">1.2.3 
+<span class="md-ellipsis">
+      
+        Ejemplo: Chaos Mesh (Kubernetes)
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#game-days">1.3 
+<span class="md-ellipsis">
+      
+        🎮 Game Days
+      
+    </span>
+</a>
+<nav aria-label="🎮 Game Days" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#que-es-un-game-day">1.3.1 
+<span class="md-ellipsis">
+      
+        Qué es un Game Day
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#planificacion">1.3.2 
+<span class="md-ellipsis">
+      
+        Planificación
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#patrones-de-resiliencia">1.4 
+<span class="md-ellipsis">
+      
+        🛡️ Patrones de Resiliencia
+      
+    </span>
+</a>
+<nav aria-label="🛡️ Patrones de Resiliencia" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#circuit-breaker">1.4.1 
+<span class="md-ellipsis">
+      
+        Circuit Breaker
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#retry-with-backoff">1.4.2 
+<span class="md-ellipsis">
+      
+        Retry with Backoff
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#bulkhead">1.4.3 
+<span class="md-ellipsis">
+      
+        Bulkhead
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#timeout">1.4.4 
+<span class="md-ellipsis">
+      
+        Timeout
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#artefactos">1.5 
+<span class="md-ellipsis">
+      
+        📋 Artefactos
+      
+    </span>
+</a>
+<nav aria-label="📋 Artefactos" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#chaos-experiment-template">1.5.1 
+<span class="md-ellipsis">
+      
+        Chaos Experiment Template
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#game-day-runbook">1.5.2 
+<span class="md-ellipsis">
+      
+        Game Day Runbook
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#resiliencia-checklist">1.5.3 
+<span class="md-ellipsis">
+      
+        Resiliencia Checklist
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#recursos">1.6 
+<span class="md-ellipsis">
+      
+        📚 Recursos
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<h1 id="chaos-engineering-y-resiliencia"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.</span> Chaos Engineering y Resiliencia</h1>
+<blockquote>
+<p>Principios y prácticas de Chaos Engineering para construir sistemas resilientes.</p>
+</blockquote>
+<hr/>
+<h2 id="principios-de-chaos-engineering"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.1</span> 💥 Principios de Chaos Engineering</h2>
+<h3 id="que-es-chaos-engineering"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.1.1</span> Qué es Chaos Engineering</h3>
+<p><strong>Definición:</strong> Disciplina de experimentar en sistemas distribuidos para construir confianza en su capacidad de resistir condiciones turbulentas.</p>
+<p><strong>Principios:</strong></p>
+<ol>
+<li><strong>Hipótesis sobre steady state</strong>: Definir qué es "normal"</li>
+<li><strong>Variar eventos del mundo real</strong>: Simular fallos realistas</li>
+<li><strong>Ejecutar experimentos en producción</strong>: Donde importa</li>
+<li><strong>Automatizar experimentos</strong>: Ejecutar continuamente</li>
+<li><strong>Minimizar blast radius</strong>: Empezar pequeño, escalar gradualmente</li>
+</ol>
+<hr/>
+<h3 id="proceso"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.1.2</span> Proceso</h3>
+<div class="highlight"><pre><span></span><code>1. Define Steady State
+   ↓
+2. Hypothesize
+   ↓
+3. Run Experiment
+   ↓
+4. Verify Hypothesis
+   ↓
+5. Learn &amp; Improve
+</code></pre></div>
+<hr/>
+<h2 id="inyeccion-de-fallos"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.2</span> 🔧 Inyección de Fallos</h2>
+<h3 id="tipos-de-fallos"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.2.1</span> Tipos de Fallos</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Tipo</th>
+<th style="text-align: left;">Descripción</th>
+<th style="text-align: left;">Herramienta</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Network latency</strong></td>
+<td style="text-align: left;">Agregar delay a requests</td>
+<td style="text-align: left;">Toxiproxy, Chaos Mesh</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Service failure</strong></td>
+<td style="text-align: left;">Matar pods/servicios</td>
+<td style="text-align: left;">Chaos Monkey, Chaos Mesh</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Resource exhaustion</strong></td>
+<td style="text-align: left;">CPU/memory/disk al 100%</td>
+<td style="text-align: left;">Gremlin, Chaos Toolkit</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>DNS failure</strong></td>
+<td style="text-align: left;">Resolver DNS falla</td>
+<td style="text-align: left;">Chaos Mesh</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Clock skew</strong></td>
+<td style="text-align: left;">Desincronizar relojes</td>
+<td style="text-align: left;">Chaos Mesh</td>
+</tr>
+</tbody>
+</table>
+<hr/>
+<h3 id="ejemplo-network-latency-con-toxiproxy"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.2.2</span> Ejemplo: Network Latency con Toxiproxy</h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Instalar Toxiproxy</span>
+docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span>-p<span class="w"> </span><span class="m">8474</span>:8474<span class="w"> </span>-p<span class="w"> </span><span class="m">808010</span>:808010<span class="w"> </span>shopify/toxiproxy
+
+<span class="c1"># Crear proxy para DB</span>
+toxiproxy-cli<span class="w"> </span>create<span class="w"> </span>database<span class="w"> </span>-l<span class="w"> </span>localhost:8001<span class="w"> </span>-u<span class="w"> </span>postgres:5432
+
+<span class="c1"># Agregar latency de 1000ms</span>
+toxiproxy-cli<span class="w"> </span>toxic<span class="w"> </span>add<span class="w"> </span>database<span class="w"> </span>-t<span class="w"> </span>latency<span class="w"> </span>-a<span class="w"> </span><span class="nv">latency</span><span class="o">=</span><span class="m">1000</span>
+
+<span class="c1"># Remover latency</span>
+toxiproxy-cli<span class="w"> </span>toxic<span class="w"> </span>remove<span class="w"> </span>database<span class="w"> </span>-n<span class="w"> </span>latency_downstream
+</code></pre></div>
+<hr/>
+<h3 id="ejemplo-chaos-mesh-kubernetes"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.2.3</span> Ejemplo: Chaos Mesh (Kubernetes)</h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Matar pods aleatoriamente</span>
+<span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">chaos-mesh.org/v1alpha1</span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PodChaos</span>
+<span class="nt">metadata</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pod-kill-example</span>
+<span class="nt">spec</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">action</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pod-kill</span>
+<span class="w">  </span><span class="nt">mode</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">one</span>
+<span class="w">  </span><span class="nt">selector</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">namespaces</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">production</span>
+<span class="w">    </span><span class="nt">labelSelectors</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">app</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">payment-service</span>
+<span class="w">  </span><span class="nt">scheduler</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">cron</span><span class="p">:</span><span class="w"> </span><span class="s">"@every</span><span class="nv"> </span><span class="s">10m"</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><span class="c1"># Network delay</span>
+<span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">chaos-mesh.org/v1alpha1</span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">NetworkChaos</span>
+<span class="nt">metadata</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">network-delay</span>
+<span class="nt">spec</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">action</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">delay</span>
+<span class="w">  </span><span class="nt">mode</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">all</span>
+<span class="w">  </span><span class="nt">selector</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">namespaces</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">production</span>
+<span class="w">    </span><span class="nt">labelSelectors</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">app</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">api-gateway</span>
+<span class="w">  </span><span class="nt">delay</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">latency</span><span class="p">:</span><span class="w"> </span><span class="s">"500ms"</span>
+<span class="w">    </span><span class="nt">correlation</span><span class="p">:</span><span class="w"> </span><span class="s">"50"</span>
+<span class="w">    </span><span class="nt">jitter</span><span class="p">:</span><span class="w"> </span><span class="s">"100ms"</span>
+<span class="w">  </span><span class="nt">duration</span><span class="p">:</span><span class="w"> </span><span class="s">"5m"</span>
+</code></pre></div>
+<hr/>
+<h2 id="game-days"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.3</span> 🎮 Game Days</h2>
+<h3 id="que-es-un-game-day"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.3.1</span> Qué es un Game Day</h3>
+<p><strong>Definición:</strong> Simulación de incidente para entrenar equipos en respuesta.</p>
+<p><strong>Objetivos:</strong></p>
+<ul>
+<li>Validar runbooks</li>
+<li>Entrenar on-call</li>
+<li>Identificar gaps en monitoring/alerting</li>
+<li>Mejorar comunicación</li>
+</ul>
+<hr/>
+<h3 id="planificacion"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.3.2</span> Planificación</h3>
+<div class="highlight"><pre><span></span><code><span class="gh"># Game Day Plan: Database Outage</span>
+
+<span class="gs">**Date:**</span> YYYY-MM-DD
+<span class="gs">**Duration:**</span> 2 hours
+<span class="gs">**Participants:**</span> On-call SRE, Tech Lead, PM
+
+<span class="gu">## Scenario</span>
+Simular outage de base de datos principal.
+
+<span class="gu">## Hypothesis</span>
+<span class="k">-</span><span class="w"> </span>Equipo detecta outage en &lt;5 min
+<span class="k">-</span><span class="w"> </span>Failover a replica en &lt;15 min
+<span class="k">-</span><span class="w"> </span>Sistema recuperado en &lt;30 min
+
+<span class="gu">## Execution</span>
+<span class="k">1.</span> <span class="gs">**T+0**</span>: Inyectar fallo (matar DB pod)
+<span class="k">2.</span> <span class="gs">**T+0-5**</span>: Equipo detecta via alertas
+<span class="k">3.</span> <span class="gs">**T+5-15**</span>: Equipo ejecuta runbook de failover
+<span class="k">4.</span> <span class="gs">**T+30**</span>: Verificar que sistema está estable
+
+<span class="gu">## Success Criteria</span>
+<span class="k">- [ ]</span> Alerta recibida en &lt;5 min
+<span class="k">- [ ]</span> Failover ejecutado en &lt;15 min
+<span class="k">- [ ]</span> 0 data loss
+<span class="k">- [ ]</span> Runbook seguido correctamente
+
+<span class="gu">## Rollback Plan</span>
+Si experimento causa impacto real:
+<span class="k">1.</span> Detener inyección de fallo
+<span class="k">2.</span> Restaurar DB desde backup
+<span class="k">3.</span> Comunicar a stakeholders
+</code></pre></div>
+<hr/>
+<h2 id="patrones-de-resiliencia"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.4</span> 🛡️ Patrones de Resiliencia</h2>
+<h3 id="circuit-breaker"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.4.1</span> Circuit Breaker</h3>
+<p><strong>Qué hace:</strong> Detecta cuando servicio está fallando y deja de llamarlo temporalmente.</p>
+<p><strong>Estados:</strong></p>
+<ul>
+<li><strong>Closed</strong>: Normal, requests pasan</li>
+<li><strong>Open</strong>: Servicio fallando, requests fallan inmediatamente</li>
+<li><strong>Half-Open</strong>: Probar si servicio se recuperó</li>
+</ul>
+<p><strong>Ejemplo (Python):</strong></p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">pybreaker</span><span class="w"> </span><span class="kn">import</span> <span class="n">CircuitBreaker</span>
+
+<span class="c1"># Configurar circuit breaker</span>
+<span class="n">breaker</span> <span class="o">=</span> <span class="n">CircuitBreaker</span><span class="p">(</span>
+    <span class="n">fail_max</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>  <span class="c1"># Abrir después de 5 fallos</span>
+    <span class="n">timeout_duration</span><span class="o">=</span><span class="mi">60</span>  <span class="c1"># Intentar cerrar después de 60s</span>
+<span class="p">)</span>
+
+<span class="nd">@breaker</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">call_payment_service</span><span class="p">(</span><span class="n">amount</span><span class="p">):</span>
+    <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="s1">'https://payment-api.com/charge'</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="p">{</span><span class="s1">'amount'</span><span class="p">:</span> <span class="n">amount</span><span class="p">})</span>
+    <span class="n">response</span><span class="o">.</span><span class="n">raise_for_status</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+
+<span class="c1"># Usar</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">call_payment_service</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+<span class="k">except</span> <span class="n">CircuitBreakerError</span><span class="p">:</span>
+    <span class="c1"># Circuit está abierto, servicio está down</span>
+    <span class="k">return</span> <span class="p">{</span><span class="s2">"error"</span><span class="p">:</span> <span class="s2">"Payment service unavailable"</span><span class="p">}</span>
+</code></pre></div>
+<hr/>
+<h3 id="retry-with-backoff"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.4.2</span> Retry with Backoff</h3>
+<p><strong>Qué hace:</strong> Reintentar requests fallidos con delay exponencial.</p>
+<p><strong>Ejemplo:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">functools</span><span class="w"> </span><span class="kn">import</span> <span class="n">wraps</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">retry_with_backoff</span><span class="p">(</span><span class="n">max_retries</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">base_delay</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">decorator</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
+        <span class="nd">@wraps</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
+        <span class="k">def</span><span class="w"> </span><span class="nf">wrapper</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+            <span class="k">for</span> <span class="n">attempt</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">max_retries</span><span class="p">):</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="k">return</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+                <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="n">attempt</span> <span class="o">==</span> <span class="n">max_retries</span> <span class="o">-</span> <span class="mi">1</span><span class="p">:</span>
+                        <span class="k">raise</span>
+                    <span class="n">delay</span> <span class="o">=</span> <span class="n">base_delay</span> <span class="o">*</span> <span class="p">(</span><span class="mi">2</span> <span class="o">**</span> <span class="n">attempt</span><span class="p">)</span>  <span class="c1"># Exponential backoff</span>
+                    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="n">delay</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">wrapper</span>
+    <span class="k">return</span> <span class="n">decorator</span>
+
+<span class="nd">@retry_with_backoff</span><span class="p">(</span><span class="n">max_retries</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">base_delay</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">call_api</span><span class="p">():</span>
+    <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'https://api.example.com/data'</span><span class="p">)</span>
+    <span class="n">response</span><span class="o">.</span><span class="n">raise_for_status</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+</code></pre></div>
+<hr/>
+<h3 id="bulkhead"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.4.3</span> Bulkhead</h3>
+<p><strong>Qué hace:</strong> Aislar recursos para que fallo en un área no afecte otras.</p>
+<p><strong>Ejemplo (Thread Pools):</strong></p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">concurrent.futures</span><span class="w"> </span><span class="kn">import</span> <span class="n">ThreadPoolExecutor</span>
+
+<span class="c1"># Pool separado para cada servicio</span>
+<span class="n">payment_pool</span> <span class="o">=</span> <span class="n">ThreadPoolExecutor</span><span class="p">(</span><span class="n">max_workers</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">notification_pool</span> <span class="o">=</span> <span class="n">ThreadPoolExecutor</span><span class="p">(</span><span class="n">max_workers</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+
+<span class="c1"># Si payment service se satura, notification sigue funcionando</span>
+<span class="n">payment_pool</span><span class="o">.</span><span class="n">submit</span><span class="p">(</span><span class="n">process_payment</span><span class="p">,</span> <span class="n">order_id</span><span class="p">)</span>
+<span class="n">notification_pool</span><span class="o">.</span><span class="n">submit</span><span class="p">(</span><span class="n">send_email</span><span class="p">,</span> <span class="n">user_id</span><span class="p">)</span>
+</code></pre></div>
+<hr/>
+<h3 id="timeout"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.4.4</span> Timeout</h3>
+<p><strong>Qué hace:</strong> Limitar tiempo de espera para evitar bloqueos indefinidos.</p>
+<p><strong>Ejemplo:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
+
+<span class="c1"># ❌ MAL: Sin timeout (puede bloquearse indefinidamente)</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'https://slow-api.com/data'</span><span class="p">)</span>
+
+<span class="c1"># ✅ BIEN: Con timeout</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'https://slow-api.com/data'</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="k">except</span> <span class="n">requests</span><span class="o">.</span><span class="n">Timeout</span><span class="p">:</span>
+    <span class="k">return</span> <span class="p">{</span><span class="s2">"error"</span><span class="p">:</span> <span class="s2">"Request timed out"</span><span class="p">}</span>
+</code></pre></div>
+<hr/>
+<h2 id="artefactos"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.5</span> 📋 Artefactos</h2>
+<h3 id="chaos-experiment-template"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.5.1</span> Chaos Experiment Template</h3>
+<div class="highlight"><pre><span></span><code><span class="gh"># Chaos Experiment: [Título]</span>
+
+<span class="gs">**Date:**</span> YYYY-MM-DD
+<span class="gs">**Owner:**</span> [Name]
+<span class="gs">**Status:**</span> [Planned / Running / Completed]
+
+<span class="gu">## Hypothesis</span>
+[Qué esperamos que pase]
+
+Ejemplo: "Si matamos un pod de payment-service, Kubernetes lo recreará en &lt;30s y no habrá downtime perceptible"
+
+<span class="gu">## Steady State</span>
+[Cómo se ve el sistema "normal"]
+
+Metrics:
+<span class="k">-</span><span class="w"> </span>Latency p99: &lt;200ms
+<span class="k">-</span><span class="w"> </span>Error rate: &lt;0.1%
+<span class="k">-</span><span class="w"> </span>Throughput: 100 RPS
+
+<span class="gu">## Blast Radius</span>
+[Qué tan grande es el impacto]
+
+<span class="k">-</span><span class="w"> </span><span class="gs">**Scope**</span>: Solo payment-service en staging
+<span class="k">-</span><span class="w"> </span><span class="gs">**Duration**</span>: 5 minutos
+<span class="k">-</span><span class="w"> </span><span class="gs">**Affected users**</span>: 0 (staging)
+
+<span class="gu">## Experiment Steps</span>
+
+<span class="gu">### 1. Verify Steady State</span>
+<span class="k">- [ ]</span> Check metrics (latency, error rate, throughput)
+<span class="k">- [ ]</span> Verify all pods are healthy
+
+<span class="gu">### 2. Inject Failure</span>
+<span class="sb">```bash</span>
+kubectl<span class="w"> </span>delete<span class="w"> </span>pod<span class="w"> </span>-n<span class="w"> </span>staging<span class="w"> </span>-l<span class="w"> </span><span class="nv">app</span><span class="o">=</span>payment-service<span class="w"> </span>--force
+<span class="sb">```</span>
+
+<span class="gu">### 3. Observe</span>
+
+<span class="k">- [ ]</span> Monitor metrics
+<span class="k">- [ ]</span> Check logs
+<span class="k">- [ ]</span> Verify alerts fired
+
+<span class="gu">### 4. Verify Recovery</span>
+
+<span class="k">- [ ]</span> New pod created
+<span class="k">- [ ]</span> Metrics back to steady state
+<span class="k">- [ ]</span> No errors in logs
+
+<span class="gu">## Results</span>
+
+<span class="gs">**Hypothesis:**</span> [Confirmed / Rejected]
+
+<span class="gs">**Observations:**</span>
+
+<span class="k">-</span><span class="w"> </span>[Observation 1]
+<span class="k">-</span><span class="w"> </span>[Observation 2]
+
+<span class="gs">**Metrics:**</span>
+
+| Metric | Before | During | After |
+| :------- | :------- | :------- | :------ |
+| Latency p99 | 150ms | 180ms | 155ms |
+| Error rate | 0.05% | 0.08% | 0.05% |
+
+<span class="gu">## Action Items</span>
+
+<span class="k">- [ ]</span> [Action 1]
+<span class="k">- [ ]</span> [Action 2]
+</code></pre></div>
+<hr/>
+<h3 id="game-day-runbook"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.5.2</span> Game Day Runbook</h3>
+<div class="highlight"><pre><span></span><code><span class="gh"># Game Day Runbook: [Scenario]</span>
+
+<span class="gs">**Scenario:**</span> [Descripción del incidente simulado]
+<span class="gs">**Duration:**</span> [Tiempo estimado]
+<span class="gs">**Participants:**</span> [Roles necesarios]
+
+<span class="gu">## Pre-Game Day</span>
+
+<span class="gu">### 1 Week Before</span>
+<span class="k">- [ ]</span> Comunicar a equipo (fecha, hora, escenario)
+<span class="k">- [ ]</span> Preparar scripts de inyección de fallo
+<span class="k">- [ ]</span> Verificar que rollback funciona
+
+<span class="gu">### 1 Day Before</span>
+<span class="k">- [ ]</span> Reminder a participantes
+<span class="k">- [ ]</span> Verificar que monitoring está funcionando
+<span class="k">- [ ]</span> Preparar war room (Zoom/Slack channel)
+
+<span class="gu">## During Game Day</span>
+
+<span class="gu">### T-15 min: Setup</span>
+<span class="k">- [ ]</span> Todos en war room
+<span class="k">- [ ]</span> Verificar steady state
+<span class="k">- [ ]</span> Explicar escenario
+
+<span class="gu">### T+0: Inject Failure</span>
+<span class="sb">```bash</span>
+<span class="o">[</span>Comando<span class="w"> </span>para<span class="w"> </span>inyectar<span class="w"> </span>fallo<span class="o">]</span>
+<span class="sb">```</span>
+
+<span class="gu">### T+0-30: Observe</span>
+
+<span class="k">- [ ]</span> Equipo detecta incidente
+<span class="k">- [ ]</span> Incident Commander asignado
+<span class="k">- [ ]</span> Runbook ejecutado
+<span class="k">- [ ]</span> Sistema recuperado
+
+<span class="gu">### T+30: Debrief</span>
+
+<span class="k">- [ ]</span> ¿Qué salió bien?
+<span class="k">- [ ]</span> ¿Qué salió mal?
+<span class="k">- [ ]</span> Action items
+
+<span class="gu">## Post-Game Day</span>
+
+<span class="gu">### Same Day</span>
+
+<span class="k">- [ ]</span> Escribir summary
+<span class="k">- [ ]</span> Crear tickets para action items
+<span class="k">- [ ]</span> Comunicar resultados a stakeholders
+
+<span class="gu">### 1 Week After</span>
+
+<span class="k">- [ ]</span> Verificar que action items están en progreso
+<span class="k">- [ ]</span> Planear próximo Game Day
+</code></pre></div>
+<hr/>
+<h3 id="resiliencia-checklist"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.5.3</span> Resiliencia Checklist</h3>
+<div class="highlight"><pre><span></span><code><span class="gh"># Resiliencia Checklist</span>
+
+<span class="gu">## Patterns Implementados</span>
+
+<span class="gu">### Circuit Breaker</span>
+<span class="k">- [ ]</span> Implementado para llamadas a servicios externos
+<span class="k">- [ ]</span> Thresholds configurados (fail_max, timeout)
+<span class="k">- [ ]</span> Fallback behavior definido
+<span class="k">- [ ]</span> Metrics expuestas (circuit state, failures)
+
+<span class="gu">### Retry with Backoff</span>
+<span class="k">- [ ]</span> Implementado para requests transitorios
+<span class="k">- [ ]</span> Exponential backoff configurado
+<span class="k">- [ ]</span> Max retries definido
+<span class="k">- [ ]</span> Idempotencia garantizada
+
+<span class="gu">### Bulkhead</span>
+<span class="k">- [ ]</span> Thread pools separados por servicio
+<span class="k">- [ ]</span> Resource limits configurados (CPU, memory)
+<span class="k">- [ ]</span> Isolation verificada (fallo en A no afecta B)
+
+<span class="gu">### Timeout</span>
+<span class="k">- [ ]</span> Timeouts configurados en todas las llamadas externas
+<span class="k">- [ ]</span> Valores razonables (no muy cortos ni muy largos)
+<span class="k">- [ ]</span> Timeout handling implementado
+
+<span class="gu">## Testing</span>
+
+<span class="gu">### Chaos Experiments</span>
+<span class="k">- [ ]</span> Experimentos definidos
+<span class="k">- [ ]</span> Ejecutados en staging
+<span class="k">- [ ]</span> Resultados documentados
+<span class="k">- [ ]</span> Action items completados
+
+<span class="gu">### Game Days</span>
+<span class="k">- [ ]</span> Game Days planificados (al menos 1/quarter)
+<span class="k">- [ ]</span> Runbooks testeados
+<span class="k">- [ ]</span> Equipo entrenado
+
+<span class="gu">## Monitoring</span>
+
+<span class="gu">### Metrics</span>
+<span class="k">- [ ]</span> Latency (p50, p95, p99)
+<span class="k">- [ ]</span> Error rate
+<span class="k">- [ ]</span> Throughput
+<span class="k">- [ ]</span> Circuit breaker state
+
+<span class="gu">### Alerts</span>
+<span class="k">- [ ]</span> Alertas configuradas para degradación
+<span class="k">- [ ]</span> On-call definido
+<span class="k">- [ ]</span> Runbooks vinculados a alertas
+</code></pre></div>
+<hr/>
+<h2 id="recursos"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.6</span> 📚 Recursos</h2>
+<ul>
+<li><a href="https://principlesofchaos.org/">Principles of Chaos Engineering</a></li>
+<li><a href="https://chaos-mesh.org/">Chaos Mesh</a></li>
+<li><a href="https://www.gremlin.com/">Gremlin</a></li>
+<li><a href="https://pragprog.com/titles/mnee2/release-it-second-edition/">Release It! - Michael Nygard</a></li>
+</ul>
+<aside class="md-source-file">
+<span class="md-source-file__fact">
+<span class="md-icon" title="Last update">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"></path></svg>
+</span>
+<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="22 de enero de 2026 23:13:04 UTC">22 de enero de 2026</span>
+</span>
+</aside>
+</article>
+</div>
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+</div>
+<button class="md-top md-icon" data-md-component="top" hidden="" type="button">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"></path></svg>
+  Back to top
+</button>
+</main>
+<footer class="md-footer">
+<nav aria-label="Footer" class="md-footer__inner md-grid">
+<a aria-label="Previous: Gestión de Secretos" class="md-footer__link md-footer__link--prev" href="../gestion-secretos/">
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+</div>
+<div class="md-footer__title">
+<span class="md-footer__direction">
+                Previous
+              </span>
+<div class="md-ellipsis">
+                Gestión de Secretos
+              </div>
+</div>
+</a>
+<a aria-label="Next: Data Literacy" class="md-footer__link md-footer__link--next" href="../data-literacy/">
+<div class="md-footer__title">
+<span class="md-footer__direction">
+                Next
+              </span>
+<div class="md-ellipsis">
+                Data Literacy
+              </div>
+</div>
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"></path></svg>
+</div>
+</a>
+</nav>
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
+      Material for MkDocs
+    </a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["content.code.copy", "navigation.footer", "navigation.top", "search.highlight", "navigation.indexes"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+<script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+<script src="../../assets/mkdocs_puml/puml.js"></script>
+<script src="https://unpkg.com/@panzoom/panzoom@4.5.1/dist/panzoom.min.js"></script>
+<script src="../../assets/mkdocs_puml/interaction.js"></script>
+</body>
+</html>

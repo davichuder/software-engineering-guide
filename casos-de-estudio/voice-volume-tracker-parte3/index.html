@@ -1,0 +1,3366 @@
+
+<!DOCTYPE html>
+
+<html class="no-js" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="../voice-volume-tracker-parte2/" rel="prev"/>
+<link href="../gestion-gastos-compartidos/" rel="next"/>
+<link href="../../assets/images/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.6.1, mkdocs-material-9.7.1" name="generator"/>
+<title>Voice Volume Tracker Parte 3 - Guía Integral de Ingeniería de Software</title>
+<link href="../../assets/stylesheets/main.484c7ddc.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/palette.ab4e12ef.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
+<style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+<link href="../../assets/mkdocs_puml/puml.css" rel="stylesheet"/>
+<link href="../../assets/mkdocs_puml/interaction.css" rel="stylesheet"/>
+<script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+</head>
+<body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#voice-volume-tracker-parte-3-seguridad-anti-patrones-y-conclusiones">1. 
+          Skip to content
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+<header class="md-header md-header--shadow" data-md-component="header">
+<nav aria-label="Header" class="md-header__inner md-grid">
+<a aria-label="Guía Integral de Ingeniería de Software" class="md-header__button md-logo" data-md-component="logo" href="../.." title="Guía Integral de Ingeniería de Software">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            Guía Integral de Ingeniería de Software
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+            
+              Voice Volume Tracker Parte 3
+            
+          </span>
+</div>
+</div>
+</div>
+<form class="md-header__option" data-md-component="palette">
+<input aria-label="Switch to light mode" class="md-option" data-md-color-accent="indigo" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-primary="indigo" data-md-color-scheme="default" id="__palette_0" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_1" hidden="" title="Switch to light mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
+</label>
+<input aria-label="Switch to dark mode" class="md-option" data-md-color-accent="indigo" data-md-color-media="(prefers-color-scheme: light)" data-md-color-primary="indigo" data-md-color-scheme="slate" id="__palette_1" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_0" hidden="" title="Switch to dark mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
+</label>
+</form>
+<script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+<label class="md-header__button md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+</label>
+<div class="md-search" data-md-component="search" role="dialog">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="Search" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="Search" required="" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+</label>
+<nav aria-label="Search" class="md-search__options">
+<button aria-label="Clear" class="md-search__icon md-icon" tabindex="-1" title="Clear" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+</button>
+</nav>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="" tabindex="0">
+<div class="md-search-result" data-md-component="search-result">
+<div class="md-search-result__meta">
+            Initializing search
+          </div>
+<ol class="md-search-result__list" role="presentation"></ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Navigation" class="md-nav md-nav--primary" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="Guía Integral de Ingeniería de Software" class="md-nav__button md-logo" data-md-component="logo" href="../.." title="Guía Integral de Ingeniería de Software">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+</a>
+    Guía Integral de Ingeniería de Software
+  </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../indice/">
+<span class="md-ellipsis">
+    
+  
+    Índice
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../manuales/fundamentos/">
+<span class="md-ellipsis">
+    
+  
+    Fundamentos
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../manuales/onboarding/">
+<span class="md-ellipsis">
+    
+  
+    Onboarding
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../manuales/disciplinas-desarrollo/">
+<span class="md-ellipsis">
+    
+  
+    Disciplinas de Desarrollo
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../manuales/testing/">
+<span class="md-ellipsis">
+    
+  
+    Testing
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../manuales/gestion-calidad/">
+<span class="md-ellipsis">
+    
+  
+    Gestión de Calidad
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../manuales/arquitectura-patrones/">
+<span class="md-ellipsis">
+    
+  
+    Arquitectura y Patrones
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../manuales/sesgos-falacias/">
+<span class="md-ellipsis">
+    
+  
+    Sesgos y Falacias
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../manuales/devops/">
+<span class="md-ellipsis">
+    
+  
+    DevOps
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../manuales/seguridad/">
+<span class="md-ellipsis">
+    
+  
+    Seguridad
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../manuales/observabilidad/">
+<span class="md-ellipsis">
+    
+  
+    Observabilidad
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../manuales/herramientas-problemas/">
+<span class="md-ellipsis">
+    
+  
+    Herramientas y Problemas
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../manuales/mejora-continua/">
+<span class="md-ellipsis">
+    
+  
+    Mejora Continua
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../manuales/performance/">
+<span class="md-ellipsis">
+    
+  
+    Performance
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../manuales/checklist-produccion/">
+<span class="md-ellipsis">
+    
+  
+    Checklist Producción
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../manuales/bases-datos/">
+<span class="md-ellipsis">
+    
+  
+    Bases de Datos
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../manuales/apis-protocolos/">
+<span class="md-ellipsis">
+    
+  
+    APIs y Protocolos
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../manuales/mobile-ui-ux/">
+<span class="md-ellipsis">
+    
+  
+    Mobile / UI / UX
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../manuales/infraestructura-cloud/">
+<span class="md-ellipsis">
+    
+  
+    Infraestructura Cloud
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../manuales/cost-optimization/">
+<span class="md-ellipsis">
+    
+  
+    Cost Optimization
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../manuales/machine-learning/">
+<span class="md-ellipsis">
+    
+  
+    Machine Learning
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../manuales/ciencia-datos/">
+<span class="md-ellipsis">
+    
+  
+    Ciencia de Datos
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../manuales/data-governance/">
+<span class="md-ellipsis">
+    
+  
+    Data Governance
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../manuales/analisis-estrategico/">
+<span class="md-ellipsis">
+    
+  
+    Análisis Estratégico
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../manuales/product-management/">
+<span class="md-ellipsis">
+    
+  
+    Product Management
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../manuales/metricas-kpis/">
+<span class="md-ellipsis">
+    
+  
+    Métricas y KPIs
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../manuales/roles-responsabilidades/">
+<span class="md-ellipsis">
+    
+  
+    Roles y Responsabilidades
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../manuales/colaboracion-cultura/">
+<span class="md-ellipsis">
+    
+  
+    Colaboración y Cultura
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../manuales/documentacion-diagramas/">
+<span class="md-ellipsis">
+    
+  
+    Documentación y Diagramas
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../manuales/convenciones/">
+<span class="md-ellipsis">
+    
+  
+    Convenciones
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../manuales/estrategia-ia-automatizacion/">
+<span class="md-ellipsis">
+    
+  
+    Estrategia IA y Automatización
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../manuales/etica-gobernanza-ia/">
+<span class="md-ellipsis">
+    
+  
+    Ética y Gobernanza IA
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../manuales/comunicacion-contenido/">
+<span class="md-ellipsis">
+    
+  
+    Comunicación y Contenido
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../manuales/plantillas-artefactos/">
+<span class="md-ellipsis">
+    
+  
+    Plantillas y Artefactos
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../manuales/dependencias-deuda-tecnica/">
+<span class="md-ellipsis">
+    
+  
+    Dependencias y Deuda Técnica
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../manuales/priorizacion-roadmapping/">
+<span class="md-ellipsis">
+    
+  
+    Priorización y Roadmapping
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../manuales/gestion-secretos/">
+<span class="md-ellipsis">
+    
+  
+    Gestión de Secretos
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../manuales/chaos-engineering/">
+<span class="md-ellipsis">
+    
+  
+    Chaos Engineering
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../manuales/data-literacy/">
+<span class="md-ellipsis">
+    
+  
+    Data Literacy
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../manuales/lowcode-nocode/">
+<span class="md-ellipsis">
+    
+  
+    LowCode / NoCode
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../">
+<span class="md-ellipsis">
+    
+  
+    Casos de Estudio
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_42" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../agentes/">
+<span class="md-ellipsis">
+    
+  
+    Agentes
+  
+
+    
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_42" id="__nav_42_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_42_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_42">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Agentes
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/the-gentleman/">
+<span class="md-ellipsis">
+    
+  
+    The Gentleman
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_42_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_42_2" id="__nav_42_2_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Architecture &amp; DevOps
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_42_2_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_42_2">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Architecture &amp; DevOps
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/architecture-devops/api-design-expert/">
+<span class="md-ellipsis">
+    
+  
+    API Design Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/architecture-devops/cicd-expert/">
+<span class="md-ellipsis">
+    
+  
+    CICD Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/architecture-devops/event-driven-expert/">
+<span class="md-ellipsis">
+    
+  
+    Event Driven Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/architecture-devops/iac-expert/">
+<span class="md-ellipsis">
+    
+  
+    IaC Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/architecture-devops/kubernetes-expert/">
+<span class="md-ellipsis">
+    
+  
+    Kubernetes Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/architecture-devops/microservices-expert/">
+<span class="md-ellipsis">
+    
+  
+    Microservices Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/architecture-devops/observability-expert/">
+<span class="md-ellipsis">
+    
+  
+    Observability Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/architecture-devops/security-expert/">
+<span class="md-ellipsis">
+    
+  
+    Security Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/architecture-devops/software-architecture-expert/">
+<span class="md-ellipsis">
+    
+  
+    Software Architecture Expert
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_42_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_42_3" id="__nav_42_3_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Backend
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_42_3_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_42_3">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Backend
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/backend/django-expert/">
+<span class="md-ellipsis">
+    
+  
+    Django Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/backend/express-expert/">
+<span class="md-ellipsis">
+    
+  
+    Express Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/backend/fastapi-expert/">
+<span class="md-ellipsis">
+    
+  
+    FastAPI Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/backend/java-expert/">
+<span class="md-ellipsis">
+    
+  
+    Java Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/backend/nestjs-expert/">
+<span class="md-ellipsis">
+    
+  
+    NestJS Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/backend/nodejs-expert/">
+<span class="md-ellipsis">
+    
+  
+    NodeJS Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/backend/python-expert/">
+<span class="md-ellipsis">
+    
+  
+    Python Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/backend/spring-expert/">
+<span class="md-ellipsis">
+    
+  
+    Spring Expert
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_42_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_42_4" id="__nav_42_4_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Business Roles
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_42_4_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_42_4">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Business Roles
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/business-roles/devrel-developer-advocate/">
+<span class="md-ellipsis">
+    
+  
+    DevRel / Developer Advocate
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/business-roles/pm-po-advisor/">
+<span class="md-ellipsis">
+    
+  
+    PM / PO Advisor
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/business-roles/scrum-master-agile-coach/">
+<span class="md-ellipsis">
+    
+  
+    Scrum Master / Agile Coach
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/business-roles/sre-advisor/">
+<span class="md-ellipsis">
+    
+  
+    SRE Advisor
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/business-roles/tech-lead-em-advisor/">
+<span class="md-ellipsis">
+    
+  
+    Tech Lead / EM Advisor
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/business-roles/ux-research-expert/">
+<span class="md-ellipsis">
+    
+  
+    UX Research Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/business-roles/ux-ui-designer/">
+<span class="md-ellipsis">
+    
+  
+    UX/UI Designer
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_42_5" type="checkbox"/>
+<label class="md-nav__link" for="__nav_42_5" id="__nav_42_5_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Compliance
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_42_5_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_42_5">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Compliance
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/compliance/accessibility-expert/">
+<span class="md-ellipsis">
+    
+  
+    Accessibility Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/compliance/compliance-governance-expert/">
+<span class="md-ellipsis">
+    
+  
+    Compliance &amp; Governance Expert
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_42_6" type="checkbox"/>
+<label class="md-nav__link" for="__nav_42_6" id="__nav_42_6_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Data / ML / Finance
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_42_6_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_42_6">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Data / ML / Finance
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/data-ml-finance/computer-vision-expert/">
+<span class="md-ellipsis">
+    
+  
+    Computer Vision Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/data-ml-finance/data-science-expert/">
+<span class="md-ellipsis">
+    
+  
+    Data Science Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/data-ml-finance/data-visualization-expert/">
+<span class="md-ellipsis">
+    
+  
+    Data Visualization Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/data-ml-finance/ml-dl-expert/">
+<span class="md-ellipsis">
+    
+  
+    ML/DL Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/data-ml-finance/nlp-expert/">
+<span class="md-ellipsis">
+    
+  
+    NLP Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/data-ml-finance/quant-finance-expert/">
+<span class="md-ellipsis">
+    
+  
+    Quant Finance Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/data-ml-finance/rl-expert/">
+<span class="md-ellipsis">
+    
+  
+    RL Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/data-ml-finance/trading-systems-expert/">
+<span class="md-ellipsis">
+    
+  
+    Trading Systems Expert
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_42_7" type="checkbox"/>
+<label class="md-nav__link" for="__nav_42_7" id="__nav_42_7_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Databases
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_42_7_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_42_7">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Databases
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/databases/mongodb-expert/">
+<span class="md-ellipsis">
+    
+  
+    MongoDB Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/databases/mssql-expert/">
+<span class="md-ellipsis">
+    
+  
+    MSSQL Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/databases/postgresql-expert/">
+<span class="md-ellipsis">
+    
+  
+    PostgreSQL Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/databases/redis-expert/">
+<span class="md-ellipsis">
+    
+  
+    Redis Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/databases/sqlite-expert/">
+<span class="md-ellipsis">
+    
+  
+    SQLite Expert
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_42_8" type="checkbox"/>
+<label class="md-nav__link" for="__nav_42_8" id="__nav_42_8_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Debugging
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_42_8_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_42_8">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Debugging
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/debugging/code-review-expert/">
+<span class="md-ellipsis">
+    
+  
+    Code Review Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/debugging/debugging-root-cause-expert/">
+<span class="md-ellipsis">
+    
+  
+    Debugging Root Cause Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/debugging/migration-specialist/">
+<span class="md-ellipsis">
+    
+  
+    Migration Specialist
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_42_9" type="checkbox"/>
+<label class="md-nav__link" for="__nav_42_9" id="__nav_42_9_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Documentation
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_42_9_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_42_9">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Documentation
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/documentation/api-documentation-expert/">
+<span class="md-ellipsis">
+    
+  
+    API Documentation Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/documentation/content-creator-expert/">
+<span class="md-ellipsis">
+    
+  
+    Content Creator Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/documentation/diagram-expert/">
+<span class="md-ellipsis">
+    
+  
+    Diagram Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/documentation/technical-writer-expert/">
+<span class="md-ellipsis">
+    
+  
+    Technical Writer Expert
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_42_10" type="checkbox"/>
+<label class="md-nav__link" for="__nav_42_10" id="__nav_42_10_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Frontend
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_42_10_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_42_10">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Frontend
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/frontend/angular-expert/">
+<span class="md-ellipsis">
+    
+  
+    Angular Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/frontend/css-styling-expert/">
+<span class="md-ellipsis">
+    
+  
+    CSS Styling Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/frontend/nextjs-expert/">
+<span class="md-ellipsis">
+    
+  
+    NextJS Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/frontend/react-expert/">
+<span class="md-ellipsis">
+    
+  
+    React Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/frontend/typescript-expert/">
+<span class="md-ellipsis">
+    
+  
+    TypeScript Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/frontend/vue-expert/">
+<span class="md-ellipsis">
+    
+  
+    Vue Expert
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_42_11" type="checkbox"/>
+<label class="md-nav__link" for="__nav_42_11" id="__nav_42_11_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Testing
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_42_11_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_42_11">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Testing
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/testing/bdd-expert/">
+<span class="md-ellipsis">
+    
+  
+    BDD Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/testing/e2e-testing-expert/">
+<span class="md-ellipsis">
+    
+  
+    E2E Testing Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/testing/performance-testing-expert/">
+<span class="md-ellipsis">
+    
+  
+    Performance Testing Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/testing/qa-automation-expert/">
+<span class="md-ellipsis">
+    
+  
+    QA Automation Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/testing/tdd-expert/">
+<span class="md-ellipsis">
+    
+  
+    TDD Expert
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_43" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../">
+<span class="md-ellipsis">
+    
+  
+    Casos de Estudio
+  
+
+    
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_43" id="__nav_43_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="true" aria-labelledby="__nav_43_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_43">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Casos de Estudio
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../portafolio-personal-ts-angular/">
+<span class="md-ellipsis">
+    
+  
+    Portafolio Personal TS Angular
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../diario-emociones-mood-tracker/">
+<span class="md-ellipsis">
+    
+  
+    Diario de Emociones
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../geofencing-alarm-mobile/">
+<span class="md-ellipsis">
+    
+  
+    Geofencing Alarm Mobile
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../voice-volume-tracker-windows/">
+<span class="md-ellipsis">
+    
+  
+    Voice Volume Tracker Windows
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../voice-volume-tracker-parte2/">
+<span class="md-ellipsis">
+    
+  
+    Voice Volume Tracker Parte 2
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+<span class="md-ellipsis">
+    
+  
+    Voice Volume Tracker Parte 3
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
+<span class="md-ellipsis">
+    
+  
+    Voice Volume Tracker Parte 3
+  
+
+    
+  </span>
+</a>
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#7-seguridad-y-privacidad">1.1 
+<span class="md-ellipsis">
+      
+        🔒 7. Seguridad y Privacidad
+      
+    </span>
+</a>
+<nav aria-label="🔒 7. Seguridad y Privacidad" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#71-encriptacion-de-embeddings-de-voz">1.1.1 
+<span class="md-ellipsis">
+      
+        7.1 Encriptación de Embeddings de Voz
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#72-logs-sin-pii">1.1.2 
+<span class="md-ellipsis">
+      
+        7.2 Logs sin PII
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#73-permisos-de-microfono">1.1.3 
+<span class="md-ellipsis">
+      
+        7.3 Permisos de Micrófono
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#8-anti-patrones-y-mitigaciones">1.2 
+<span class="md-ellipsis">
+      
+        ⚠️ 8. Anti-patrones y Mitigaciones
+      
+    </span>
+</a>
+<nav aria-label="⚠️ 8. Anti-patrones y Mitigaciones" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#81-anti-patron-falsos-positivos-ghosting">1.2.1 
+<span class="md-ellipsis">
+      
+        8.1 Anti-patrón: Falsos Positivos (Ghosting)
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#82-anti-patron-latencia-alta">1.2.2 
+<span class="md-ellipsis">
+      
+        8.2 Anti-patrón: Latencia Alta
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#83-anti-patron-consumo-excesivo-de-cpuram">1.2.3 
+<span class="md-ellipsis">
+      
+        8.3 Anti-patrón: Consumo Excesivo de CPU/RAM
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#84-anti-patron-configuracion-rigida">1.2.4 
+<span class="md-ellipsis">
+      
+        8.4 Anti-patrón: Configuración Rígida
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#9-architecture-decision-records-adrs">1.3 
+<span class="md-ellipsis">
+      
+        📄 9. Architecture Decision Records (ADRs)
+      
+    </span>
+</a>
+<nav aria-label="📄 9. Architecture Decision Records (ADRs)" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#adr-001-c-net-sobre-pythonelectron">1.3.1 
+<span class="md-ellipsis">
+      
+        ADR-001: C# + .NET sobre Python/Electron
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#adr-002-speechbrain-ecapa-tdnn-para-speaker-verification">1.3.2 
+<span class="md-ellipsis">
+      
+        ADR-002: SpeechBrain ECAPA-TDNN para Speaker Verification
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#adr-003-finite-state-machine-para-modos-dianoche">1.3.3 
+<span class="md-ellipsis">
+      
+        ADR-003: Finite State Machine para Modos Día/Noche
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#adr-004-overlay-directx-para-bordes-rojos">1.3.4 
+<span class="md-ellipsis">
+      
+        ADR-004: Overlay DirectX para Bordes Rojos
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#adr-005-encriptacion-aes-256-para-embeddings">1.3.5 
+<span class="md-ellipsis">
+      
+        ADR-005: Encriptación AES-256 para Embeddings
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#10-lecciones-aprendidas">1.4 
+<span class="md-ellipsis">
+      
+        🎓 10. Lecciones Aprendidas
+      
+    </span>
+</a>
+<nav aria-label="🎓 10. Lecciones Aprendidas" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#101-que-funciono-bien">1.4.1 
+<span class="md-ellipsis">
+      
+        10.1 ¿Qué Funcionó Bien? ✅
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#102-que-no-funciono">1.4.2 
+<span class="md-ellipsis">
+      
+        10.2 ¿Qué No Funcionó? ❌
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#103-que-hariamos-diferente">1.4.3 
+<span class="md-ellipsis">
+      
+        10.3 ¿Qué Haríamos Diferente? 🔄
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#11-guia-de-construccion-y-setup-2026">1.5 
+<span class="md-ellipsis">
+      
+        🏗️ 11. Guía de Construcción y Setup (2026)
+      
+    </span>
+</a>
+<nav aria-label="🏗️ 11. Guía de Construcción y Setup (2026)" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#111-como-compilar-el-proyecto">1.5.1 
+<span class="md-ellipsis">
+      
+        11.1 Cómo compilar el proyecto
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#112-como-instalar-el-servicio">1.5.2 
+<span class="md-ellipsis">
+      
+        11.2 Cómo instalar el servicio
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#113-comunicacion-inter-proceso-named-pipes">1.5.3 
+<span class="md-ellipsis">
+      
+        11.3 Comunicación Inter-Proceso (Named Pipes)
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#12-roadmap-de-implementacion-sugerida">1.6 
+<span class="md-ellipsis">
+      
+        🚀 12. Roadmap de Implementación Sugerida
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#13-metricas-de-exito">1.7 
+<span class="md-ellipsis">
+      
+        📈 13. Métricas de Éxito
+      
+    </span>
+</a>
+<nav aria-label="📈 13. Métricas de Éxito" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#131-north-star-metric">1.7.1 
+<span class="md-ellipsis">
+      
+        13.1 North Star Metric
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#132-metricas-tecnicas">1.7.2 
+<span class="md-ellipsis">
+      
+        13.2 Métricas Técnicas
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#133-metricas-de-negocio">1.7.3 
+<span class="md-ellipsis">
+      
+        13.3 Métricas de Negocio
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#14-referencias">1.8 
+<span class="md-ellipsis">
+      
+        🔗 14. Referencias
+      
+    </span>
+</a>
+<nav aria-label="🔗 14. Referencias" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#capitulos-de-la-guia-aplicados">1.8.1 
+<span class="md-ellipsis">
+      
+        Capítulos de la Guía Aplicados
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#herramientas-y-librerias">1.8.2 
+<span class="md-ellipsis">
+      
+        Herramientas y Librerías
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#papers-academicos">1.8.3 
+<span class="md-ellipsis">
+      
+        Papers Académicos
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../gestion-gastos-compartidos/">
+<span class="md-ellipsis">
+    
+  
+    Gestión de Gastos Compartidos
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../gestion-gastos-compartidos-implementacion/">
+<span class="md-ellipsis">
+    
+  
+    Gestión de Gastos Compartidos (Implementación)
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_44" type="checkbox"/>
+<label class="md-nav__link" for="__nav_44" id="__nav_44_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Reportes
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_44_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_44">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Reportes
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_44_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_44_1" id="__nav_44_1_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Ejemplos
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_44_1_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_44_1">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Ejemplos
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../reportes/examples/bug-report-example/">
+<span class="md-ellipsis">
+    
+  
+    Bug Report Example
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../reportes/examples/feature-request-example/">
+<span class="md-ellipsis">
+    
+  
+    Feature Request Example
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../reportes/examples/new-feature-example/">
+<span class="md-ellipsis">
+    
+  
+    New Feature Example
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../reportes/examples/post-mortem-example/">
+<span class="md-ellipsis">
+    
+  
+    Post Mortem Example
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../reportes/examples/rfc-example/">
+<span class="md-ellipsis">
+    
+  
+    RFC Example
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_44_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_44_2" id="__nav_44_2_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Plantillas
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_44_2_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_44_2">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Plantillas
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../reportes/templates/bug-report-template/">
+<span class="md-ellipsis">
+    
+  
+    Bug Report Template
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../reportes/templates/feature-request-template/">
+<span class="md-ellipsis">
+    
+  
+    Feature Request Template
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../reportes/templates/new-feature-template/">
+<span class="md-ellipsis">
+    
+  
+    New Feature Template
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../reportes/templates/post-mortem-template/">
+<span class="md-ellipsis">
+    
+  
+    Post Mortem Template
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../reportes/templates/rfc-template/">
+<span class="md-ellipsis">
+    
+  
+    RFC Template
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../manuales/recursos-entrevistas/">
+<span class="md-ellipsis">
+    
+  
+    Recursos y Entrevistas
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agradecimientos/">
+<span class="md-ellipsis">
+    
+  
+    Agradecimientos
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../glosario/">
+<span class="md-ellipsis">
+    
+  
+    Glosario
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#7-seguridad-y-privacidad">1.1 
+<span class="md-ellipsis">
+      
+        🔒 7. Seguridad y Privacidad
+      
+    </span>
+</a>
+<nav aria-label="🔒 7. Seguridad y Privacidad" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#71-encriptacion-de-embeddings-de-voz">1.1.1 
+<span class="md-ellipsis">
+      
+        7.1 Encriptación de Embeddings de Voz
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#72-logs-sin-pii">1.1.2 
+<span class="md-ellipsis">
+      
+        7.2 Logs sin PII
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#73-permisos-de-microfono">1.1.3 
+<span class="md-ellipsis">
+      
+        7.3 Permisos de Micrófono
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#8-anti-patrones-y-mitigaciones">1.2 
+<span class="md-ellipsis">
+      
+        ⚠️ 8. Anti-patrones y Mitigaciones
+      
+    </span>
+</a>
+<nav aria-label="⚠️ 8. Anti-patrones y Mitigaciones" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#81-anti-patron-falsos-positivos-ghosting">1.2.1 
+<span class="md-ellipsis">
+      
+        8.1 Anti-patrón: Falsos Positivos (Ghosting)
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#82-anti-patron-latencia-alta">1.2.2 
+<span class="md-ellipsis">
+      
+        8.2 Anti-patrón: Latencia Alta
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#83-anti-patron-consumo-excesivo-de-cpuram">1.2.3 
+<span class="md-ellipsis">
+      
+        8.3 Anti-patrón: Consumo Excesivo de CPU/RAM
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#84-anti-patron-configuracion-rigida">1.2.4 
+<span class="md-ellipsis">
+      
+        8.4 Anti-patrón: Configuración Rígida
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#9-architecture-decision-records-adrs">1.3 
+<span class="md-ellipsis">
+      
+        📄 9. Architecture Decision Records (ADRs)
+      
+    </span>
+</a>
+<nav aria-label="📄 9. Architecture Decision Records (ADRs)" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#adr-001-c-net-sobre-pythonelectron">1.3.1 
+<span class="md-ellipsis">
+      
+        ADR-001: C# + .NET sobre Python/Electron
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#adr-002-speechbrain-ecapa-tdnn-para-speaker-verification">1.3.2 
+<span class="md-ellipsis">
+      
+        ADR-002: SpeechBrain ECAPA-TDNN para Speaker Verification
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#adr-003-finite-state-machine-para-modos-dianoche">1.3.3 
+<span class="md-ellipsis">
+      
+        ADR-003: Finite State Machine para Modos Día/Noche
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#adr-004-overlay-directx-para-bordes-rojos">1.3.4 
+<span class="md-ellipsis">
+      
+        ADR-004: Overlay DirectX para Bordes Rojos
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#adr-005-encriptacion-aes-256-para-embeddings">1.3.5 
+<span class="md-ellipsis">
+      
+        ADR-005: Encriptación AES-256 para Embeddings
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#10-lecciones-aprendidas">1.4 
+<span class="md-ellipsis">
+      
+        🎓 10. Lecciones Aprendidas
+      
+    </span>
+</a>
+<nav aria-label="🎓 10. Lecciones Aprendidas" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#101-que-funciono-bien">1.4.1 
+<span class="md-ellipsis">
+      
+        10.1 ¿Qué Funcionó Bien? ✅
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#102-que-no-funciono">1.4.2 
+<span class="md-ellipsis">
+      
+        10.2 ¿Qué No Funcionó? ❌
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#103-que-hariamos-diferente">1.4.3 
+<span class="md-ellipsis">
+      
+        10.3 ¿Qué Haríamos Diferente? 🔄
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#11-guia-de-construccion-y-setup-2026">1.5 
+<span class="md-ellipsis">
+      
+        🏗️ 11. Guía de Construcción y Setup (2026)
+      
+    </span>
+</a>
+<nav aria-label="🏗️ 11. Guía de Construcción y Setup (2026)" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#111-como-compilar-el-proyecto">1.5.1 
+<span class="md-ellipsis">
+      
+        11.1 Cómo compilar el proyecto
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#112-como-instalar-el-servicio">1.5.2 
+<span class="md-ellipsis">
+      
+        11.2 Cómo instalar el servicio
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#113-comunicacion-inter-proceso-named-pipes">1.5.3 
+<span class="md-ellipsis">
+      
+        11.3 Comunicación Inter-Proceso (Named Pipes)
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#12-roadmap-de-implementacion-sugerida">1.6 
+<span class="md-ellipsis">
+      
+        🚀 12. Roadmap de Implementación Sugerida
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#13-metricas-de-exito">1.7 
+<span class="md-ellipsis">
+      
+        📈 13. Métricas de Éxito
+      
+    </span>
+</a>
+<nav aria-label="📈 13. Métricas de Éxito" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#131-north-star-metric">1.7.1 
+<span class="md-ellipsis">
+      
+        13.1 North Star Metric
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#132-metricas-tecnicas">1.7.2 
+<span class="md-ellipsis">
+      
+        13.2 Métricas Técnicas
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#133-metricas-de-negocio">1.7.3 
+<span class="md-ellipsis">
+      
+        13.3 Métricas de Negocio
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#14-referencias">1.8 
+<span class="md-ellipsis">
+      
+        🔗 14. Referencias
+      
+    </span>
+</a>
+<nav aria-label="🔗 14. Referencias" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#capitulos-de-la-guia-aplicados">1.8.1 
+<span class="md-ellipsis">
+      
+        Capítulos de la Guía Aplicados
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#herramientas-y-librerias">1.8.2 
+<span class="md-ellipsis">
+      
+        Herramientas y Librerías
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#papers-academicos">1.8.3 
+<span class="md-ellipsis">
+      
+        Papers Académicos
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<h1 id="voice-volume-tracker-parte-3-seguridad-anti-patrones-y-conclusiones"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.</span> Voice Volume Tracker - Parte 3: Seguridad, Anti-patrones y Conclusiones</h1>
+<blockquote>
+<p>Continuación de <a href="../voice-volume-tracker-windows/">Parte 1</a> y <a href="../voice-volume-tracker-parte2/">Parte 2</a></p>
+</blockquote>
+<hr/>
+<h2 id="7-seguridad-y-privacidad"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.1</span> 🔒 7. Seguridad y Privacidad</h2>
+<h3 id="71-encriptacion-de-embeddings-de-voz"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.1.1</span> 7.1 Encriptación de Embeddings de Voz</h3>
+<p><strong>Decisión</strong>: Encriptar embeddings en reposo con AES-256</p>
+<p><strong>Justificación</strong>: Los embeddings de voz son PII (Personally Identifiable Information)</p>
+<p><strong>Implementación</strong>:</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// VoiceTracker.Infrastructure/Security/EmbeddingEncryption.cs</span>
+<span class="k">using</span><span class="w"> </span><span class="nn">System.Security.Cryptography</span><span class="p">;</span>
+
+<span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">EmbeddingEncryption</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="k">readonly</span><span class="w"> </span><span class="kt">byte</span><span class="p">[]</span><span class="w"> </span><span class="n">_key</span><span class="p">;</span>
+<span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="k">readonly</span><span class="w"> </span><span class="kt">byte</span><span class="p">[]</span><span class="w"> </span><span class="n">_iv</span><span class="p">;</span>
+
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="nf">EmbeddingEncryption</span><span class="p">(</span><span class="kt">string</span><span class="w"> </span><span class="n">masterPassword</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// Derivar key e IV del password usando PBKDF2</span>
+<span class="w">        </span><span class="k">using</span><span class="w"> </span><span class="nn">var</span><span class="w"> </span><span class="n">pbkdf2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Rfc2898DeriveBytes</span><span class="p">(</span>
+<span class="w">            </span><span class="n">masterPassword</span><span class="p">,</span>
+<span class="w">            </span><span class="n">salt</span><span class="p">:</span><span class="w"> </span><span class="n">Encoding</span><span class="p">.</span><span class="n">UTF8</span><span class="p">.</span><span class="n">GetBytes</span><span class="p">(</span><span class="s">"VoiceTracker_Salt_v1"</span><span class="p">),</span>
+<span class="w">            </span><span class="n">iterations</span><span class="p">:</span><span class="w"> </span><span class="mi">100000</span><span class="p">,</span>
+<span class="w">            </span><span class="n">HashAlgorithmName</span><span class="p">.</span><span class="n">SHA256</span>
+<span class="w">        </span><span class="p">);</span>
+
+<span class="w">        </span><span class="n">_key</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pbkdf2</span><span class="p">.</span><span class="n">GetBytes</span><span class="p">(</span><span class="mi">32</span><span class="p">);</span><span class="w"> </span><span class="c1">// 256 bits</span>
+<span class="w">        </span><span class="n">_iv</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">pbkdf2</span><span class="p">.</span><span class="n">GetBytes</span><span class="p">(</span><span class="mi">16</span><span class="p">);</span><span class="w">  </span><span class="c1">// 128 bits</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">byte</span><span class="p">[]</span><span class="w"> </span><span class="nf">Encrypt</span><span class="p">(</span><span class="kt">float</span><span class="p">[]</span><span class="w"> </span><span class="n">embedding</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">using</span><span class="w"> </span><span class="nn">var</span><span class="w"> </span><span class="n">aes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Aes</span><span class="p">.</span><span class="n">Create</span><span class="p">();</span>
+<span class="w">        </span><span class="n">aes</span><span class="p">.</span><span class="n">Key</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">_key</span><span class="p">;</span>
+<span class="w">        </span><span class="n">aes</span><span class="p">.</span><span class="n">IV</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">_iv</span><span class="p">;</span>
+
+<span class="w">        </span><span class="k">using</span><span class="w"> </span><span class="nn">var</span><span class="w"> </span><span class="n">encryptor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">aes</span><span class="p">.</span><span class="n">CreateEncryptor</span><span class="p">();</span>
+<span class="w">        </span><span class="k">using</span><span class="w"> </span><span class="nn">var</span><span class="w"> </span><span class="n">ms</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">MemoryStream</span><span class="p">();</span>
+<span class="w">        </span><span class="k">using</span><span class="w"> </span><span class="nn">var</span><span class="w"> </span><span class="n">cs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">CryptoStream</span><span class="p">(</span><span class="n">ms</span><span class="p">,</span><span class="w"> </span><span class="n">encryptor</span><span class="p">,</span><span class="w"> </span><span class="n">CryptoStreamMode</span><span class="p">.</span><span class="n">Write</span><span class="p">);</span>
+<span class="w">        </span><span class="k">using</span><span class="w"> </span><span class="nn">var</span><span class="w"> </span><span class="n">bw</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">BinaryWriter</span><span class="p">(</span><span class="n">cs</span><span class="p">);</span>
+
+<span class="w">        </span><span class="k">foreach</span><span class="w"> </span><span class="p">(</span><span class="kt">var</span><span class="w"> </span><span class="k">value</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">embedding</span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="n">bw</span><span class="p">.</span><span class="n">Write</span><span class="p">(</span><span class="k">value</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="n">cs</span><span class="p">.</span><span class="n">FlushFinalBlock</span><span class="p">();</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">ms</span><span class="p">.</span><span class="n">ToArray</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">float</span><span class="p">[]</span><span class="w"> </span><span class="nf">Decrypt</span><span class="p">(</span><span class="kt">byte</span><span class="p">[]</span><span class="w"> </span><span class="n">encryptedData</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">using</span><span class="w"> </span><span class="nn">var</span><span class="w"> </span><span class="n">aes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Aes</span><span class="p">.</span><span class="n">Create</span><span class="p">();</span>
+<span class="w">        </span><span class="n">aes</span><span class="p">.</span><span class="n">Key</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">_key</span><span class="p">;</span>
+<span class="w">        </span><span class="n">aes</span><span class="p">.</span><span class="n">IV</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">_iv</span><span class="p">;</span>
+
+<span class="w">        </span><span class="k">using</span><span class="w"> </span><span class="nn">var</span><span class="w"> </span><span class="n">decryptor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">aes</span><span class="p">.</span><span class="n">CreateDecryptor</span><span class="p">();</span>
+<span class="w">        </span><span class="k">using</span><span class="w"> </span><span class="nn">var</span><span class="w"> </span><span class="n">ms</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">MemoryStream</span><span class="p">(</span><span class="n">encryptedData</span><span class="p">);</span>
+<span class="w">        </span><span class="k">using</span><span class="w"> </span><span class="nn">var</span><span class="w"> </span><span class="n">cs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">CryptoStream</span><span class="p">(</span><span class="n">ms</span><span class="p">,</span><span class="w"> </span><span class="n">decryptor</span><span class="p">,</span><span class="w"> </span><span class="n">CryptoStreamMode</span><span class="p">.</span><span class="n">Read</span><span class="p">);</span>
+<span class="w">        </span><span class="k">using</span><span class="w"> </span><span class="nn">var</span><span class="w"> </span><span class="n">br</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">BinaryReader</span><span class="p">(</span><span class="n">cs</span><span class="p">);</span>
+
+<span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">embedding</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="kt">float</span><span class="o">&gt;</span><span class="p">();</span>
+<span class="w">        </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="n">ms</span><span class="p">.</span><span class="n">Position</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">ms</span><span class="p">.</span><span class="n">Length</span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="k">try</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">                </span><span class="n">embedding</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">br</span><span class="p">.</span><span class="n">ReadSingle</span><span class="p">());</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">            </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">EndOfStreamException</span><span class="p">)</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">                </span><span class="k">break</span><span class="p">;</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">embedding</span><span class="p">.</span><span class="n">ToArray</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<hr/>
+<h3 id="72-logs-sin-pii"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.1.2</span> 7.2 Logs sin PII</h3>
+<p><strong>Decisión</strong>: NUNCA registrar audio crudo ni embeddings en logs</p>
+<p><strong>Implementación</strong>:</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// VoiceTracker.Infrastructure/Logging/SecureLogger.cs</span>
+<span class="k">using</span><span class="w"> </span><span class="nn">Serilog</span><span class="p">;</span>
+
+<span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">SecureLogger</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="k">readonly</span><span class="w"> </span><span class="n">ILogger</span><span class="w"> </span><span class="n">_logger</span><span class="p">;</span>
+
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="nf">SecureLogger</span><span class="p">()</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">_logger</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">LoggerConfiguration</span><span class="p">()</span>
+<span class="w">            </span><span class="p">.</span><span class="n">WriteTo</span><span class="p">.</span><span class="n">File</span><span class="p">(</span><span class="s">"logs/voice-tracker-.log"</span><span class="p">,</span><span class="w"> </span><span class="n">rollingInterval</span><span class="p">:</span><span class="w"> </span><span class="n">RollingInterval</span><span class="p">.</span><span class="n">Day</span><span class="p">)</span>
+<span class="w">            </span><span class="p">.</span><span class="n">CreateLogger</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">LogVolumeReading</span><span class="p">(</span><span class="n">Decibel</span><span class="w"> </span><span class="n">volume</span><span class="p">,</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">isUserVoice</span><span class="p">,</span><span class="w"> </span><span class="n">AlertLevel</span><span class="w"> </span><span class="n">level</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// ✅ BIEN: Solo metadatos</span>
+<span class="w">        </span><span class="n">_logger</span><span class="p">.</span><span class="n">Information</span><span class="p">(</span>
+<span class="w">            </span><span class="s">"Volume reading: {Volume} dB, IsUser: {IsUser}, Alert: {Level}"</span><span class="p">,</span>
+<span class="w">            </span><span class="n">volume</span><span class="p">.</span><span class="n">Value</span><span class="p">,</span>
+<span class="w">            </span><span class="n">isUserVoice</span><span class="p">,</span>
+<span class="w">            </span><span class="n">level</span>
+<span class="w">        </span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">LogAudioSamples</span><span class="p">(</span><span class="kt">float</span><span class="p">[]</span><span class="w"> </span><span class="n">samples</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// ❌ MAL: NUNCA hacer esto</span>
+<span class="w">        </span><span class="c1">// _logger.Debug("Audio samples: {Samples}", samples);</span>
+
+<span class="w">        </span><span class="c1">// ✅ BIEN: Solo metadatos</span>
+<span class="w">        </span><span class="n">_logger</span><span class="p">.</span><span class="n">Debug</span><span class="p">(</span><span class="s">"Processed audio frame with {SampleCount} samples"</span><span class="p">,</span><span class="w"> </span><span class="n">samples</span><span class="p">.</span><span class="n">Length</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">LogEmbedding</span><span class="p">(</span><span class="kt">float</span><span class="p">[]</span><span class="w"> </span><span class="n">embedding</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// ❌ MAL: NUNCA hacer esto</span>
+<span class="w">        </span><span class="c1">// _logger.Debug("Embedding: {Embedding}", embedding);</span>
+
+<span class="w">        </span><span class="c1">// ✅ BIEN: Solo hash o ID</span>
+<span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">hash</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ComputeHash</span><span class="p">(</span><span class="n">embedding</span><span class="p">);</span>
+<span class="w">        </span><span class="n">_logger</span><span class="p">.</span><span class="n">Debug</span><span class="p">(</span><span class="s">"Processed embedding with hash: {Hash}"</span><span class="p">,</span><span class="w"> </span><span class="n">hash</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="nf">ComputeHash</span><span class="p">(</span><span class="kt">float</span><span class="p">[]</span><span class="w"> </span><span class="n">data</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">using</span><span class="w"> </span><span class="nn">var</span><span class="w"> </span><span class="n">sha256</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">SHA256</span><span class="p">.</span><span class="n">Create</span><span class="p">();</span>
+<span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">bytes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="kt">byte</span><span class="p">[</span><span class="n">data</span><span class="p">.</span><span class="n">Length</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">sizeof</span><span class="p">(</span><span class="kt">float</span><span class="p">)];</span>
+<span class="w">        </span><span class="n">Buffer</span><span class="p">.</span><span class="n">BlockCopy</span><span class="p">(</span><span class="n">data</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">bytes</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="n">bytes</span><span class="p">.</span><span class="n">Length</span><span class="p">);</span>
+<span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">hash</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">sha256</span><span class="p">.</span><span class="n">ComputeHash</span><span class="p">(</span><span class="n">bytes</span><span class="p">);</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">Convert</span><span class="p">.</span><span class="n">ToBase64String</span><span class="p">(</span><span class="n">hash</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<hr/>
+<h3 id="73-permisos-de-microfono"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.1.3</span> 7.3 Permisos de Micrófono</h3>
+<p><strong>Decisión</strong>: Solicitar permisos explícitos y manejar denegación</p>
+<p><strong>Implementación</strong>:</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// VoiceTracker.Infrastructure/Audio/MicrophonePermissions.cs</span>
+<span class="k">using</span><span class="w"> </span><span class="nn">Windows.Media.Capture</span><span class="p">;</span>
+
+<span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">MicrophonePermissions</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="n">Task</span><span class="o">&lt;</span><span class="kt">bool</span><span class="o">&gt;</span><span class="w"> </span><span class="n">RequestPermissionAsync</span><span class="p">()</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">try</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="kt">var</span><span class="w"> </span><span class="n">settings</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">MediaCaptureInitializationSettings</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">                </span><span class="n">StreamingCaptureMode</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">StreamingCaptureMode</span><span class="p">.</span><span class="n">Audio</span>
+<span class="w">            </span><span class="p">};</span>
+
+<span class="w">            </span><span class="k">using</span><span class="w"> </span><span class="nn">var</span><span class="w"> </span><span class="n">capture</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">MediaCapture</span><span class="p">();</span>
+<span class="w">            </span><span class="k">await</span><span class="w"> </span><span class="n">capture</span><span class="p">.</span><span class="n">InitializeAsync</span><span class="p">(</span><span class="n">settings</span><span class="p">);</span>
+
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="k">true</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">UnauthorizedAccessException</span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="k">false</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="n">Task</span><span class="o">&lt;</span><span class="kt">bool</span><span class="o">&gt;</span><span class="w"> </span><span class="n">CheckPermissionAsync</span><span class="p">()</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">await</span><span class="w"> </span><span class="n">Windows</span><span class="p">.</span><span class="n">Media</span><span class="p">.</span><span class="n">Capture</span><span class="p">.</span><span class="n">MediaCapture</span>
+<span class="w">            </span><span class="p">.</span><span class="n">RequestAccessAsync</span><span class="p">(</span><span class="n">Windows</span><span class="p">.</span><span class="n">Media</span><span class="p">.</span><span class="n">Capture</span><span class="p">.</span><span class="n">MediaCaptureKind</span><span class="p">.</span><span class="n">Audio</span><span class="p">);</span>
+
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">status</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">Windows</span><span class="p">.</span><span class="n">Media</span><span class="p">.</span><span class="n">Capture</span><span class="p">.</span><span class="n">MediaCaptureAccessStatus</span><span class="p">.</span><span class="n">Allowed</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// VoiceTracker.Service/VoiceMonitorService.cs</span>
+<span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">VoiceMonitorService</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">ServiceBase</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">protected</span><span class="w"> </span><span class="k">override</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">OnStart</span><span class="p">(</span><span class="kt">string</span><span class="p">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">permissions</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">MicrophonePermissions</span><span class="p">();</span>
+
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="k">await</span><span class="w"> </span><span class="n">permissions</span><span class="p">.</span><span class="n">CheckPermissionAsync</span><span class="p">())</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="n">_logger</span><span class="p">.</span><span class="n">Error</span><span class="p">(</span><span class="s">"Microphone permission denied. Service cannot start."</span><span class="p">);</span>
+<span class="w">            </span><span class="n">Stop</span><span class="p">();</span>
+<span class="w">            </span><span class="k">return</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="c1">// Continuar con inicio del servicio...</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<p><strong>Referencia</strong>: <a href="../../manuales/seguridad/">09 - Seguridad</a></p>
+<hr/>
+<h2 id="8-anti-patrones-y-mitigaciones"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.2</span> ⚠️ 8. Anti-patrones y Mitigaciones</h2>
+<h3 id="81-anti-patron-falsos-positivos-ghosting"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.2.1</span> 8.1 Anti-patrón: Falsos Positivos (Ghosting)</h3>
+<p><strong>Problema</strong>: Sistema alerta cuando nadie habla o habla bajo</p>
+<p><strong>Causas</strong>:</p>
+<ol>
+<li>Umbral de dB muy bajo</li>
+<li>Ruido de fondo clasificado como voz</li>
+<li>Modelo ML confunde ruido con voz del usuario</li>
+</ol>
+<p><strong>Mitigaciones</strong>:</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// VoiceTracker.Infrastructure/Audio/FalsePositiveFilter.cs</span>
+<span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">FalsePositiveFilter</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="k">readonly</span><span class="w"> </span><span class="n">Queue</span><span class="o">&lt;</span><span class="kt">bool</span><span class="o">&gt;</span><span class="w"> </span><span class="n">_recentDetections</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="p">();</span>
+<span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="k">readonly</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">_windowSize</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="p">;</span>
+<span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="k">readonly</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">_confidenceThreshold</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">0.6</span><span class="p">;</span>
+
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="nf">IsConfidentDetection</span><span class="p">(</span><span class="kt">bool</span><span class="w"> </span><span class="n">currentDetection</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">_recentDetections</span><span class="p">.</span><span class="n">Enqueue</span><span class="p">(</span><span class="n">currentDetection</span><span class="p">);</span>
+
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">_recentDetections</span><span class="p">.</span><span class="n">Count</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">_windowSize</span><span class="p">)</span>
+<span class="w">            </span><span class="n">_recentDetections</span><span class="p">.</span><span class="n">Dequeue</span><span class="p">();</span>
+
+<span class="w">        </span><span class="c1">// Requiere que al menos 60% de las últimas detecciones sean positivas</span>
+<span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">positiveRatio</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">_recentDetections</span><span class="p">.</span><span class="n">Count</span><span class="p">(</span><span class="n">d</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">d</span><span class="p">)</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="p">(</span><span class="kt">double</span><span class="p">)</span><span class="n">_recentDetections</span><span class="p">.</span><span class="n">Count</span><span class="p">;</span>
+
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">positiveRatio</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="n">_confidenceThreshold</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<hr/>
+<h3 id="82-anti-patron-latencia-alta"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.2.2</span> 8.2 Anti-patrón: Latencia Alta</h3>
+<p><strong>Problema</strong>: Alerta llega 3 segundos después de que el usuario dejó de hablar fuerte</p>
+<p><strong>Causas</strong>:</p>
+<ol>
+<li>Inferencia ML lenta</li>
+<li>Buffer de audio muy grande</li>
+<li>Procesamiento síncrono</li>
+</ol>
+<p><strong>Mitigaciones</strong>:</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// VoiceTracker.Service/OptimizedBackgroundWorker.cs</span>
+<span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">OptimizedBackgroundWorker</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="k">readonly</span><span class="w"> </span><span class="n">BlockingCollection</span><span class="o">&lt;</span><span class="n">AudioFrame</span><span class="o">&gt;</span><span class="w"> </span><span class="n">_audioQueue</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="p">();</span>
+<span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="k">readonly</span><span class="w"> </span><span class="n">CancellationTokenSource</span><span class="w"> </span><span class="n">_cts</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="p">();</span>
+
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Start</span><span class="p">()</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// Producer: Captura de audio (thread separado)</span>
+<span class="w">        </span><span class="n">Task</span><span class="p">.</span><span class="n">Run</span><span class="p">(()</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">CaptureAudioLoop</span><span class="p">(</span><span class="n">_cts</span><span class="p">.</span><span class="n">Token</span><span class="p">));</span>
+
+<span class="w">        </span><span class="c1">// Consumer: Procesamiento (thread separado)</span>
+<span class="w">        </span><span class="n">Task</span><span class="p">.</span><span class="n">Run</span><span class="p">(()</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">ProcessAudioLoop</span><span class="p">(</span><span class="n">_cts</span><span class="p">.</span><span class="n">Token</span><span class="p">));</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="n">Task</span><span class="w"> </span><span class="nf">CaptureAudioLoop</span><span class="p">(</span><span class="n">CancellationToken</span><span class="w"> </span><span class="n">ct</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">capture</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">AudioCapture</span><span class="p">();</span>
+<span class="w">        </span><span class="n">capture</span><span class="p">.</span><span class="n">AudioFrameReady</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="p">(</span><span class="n">s</span><span class="p">,</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="c1">// No bloquear: agregar a cola</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">_audioQueue</span><span class="p">.</span><span class="n">TryAdd</span><span class="p">(</span><span class="n">e</span><span class="p">.</span><span class="n">Frame</span><span class="p">,</span><span class="w"> </span><span class="mi">100</span><span class="p">))</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">                </span><span class="c1">// Si la cola está llena, descartar frame antiguo</span>
+<span class="w">                </span><span class="n">_audioQueue</span><span class="p">.</span><span class="n">TryTake</span><span class="p">(</span><span class="k">out</span><span class="w"> </span><span class="n">_</span><span class="p">);</span>
+<span class="w">                </span><span class="n">_audioQueue</span><span class="p">.</span><span class="n">TryAdd</span><span class="p">(</span><span class="n">e</span><span class="p">.</span><span class="n">Frame</span><span class="p">);</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">};</span>
+
+<span class="w">        </span><span class="n">capture</span><span class="p">.</span><span class="n">Start</span><span class="p">();</span>
+<span class="w">        </span><span class="k">await</span><span class="w"> </span><span class="n">Task</span><span class="p">.</span><span class="n">Delay</span><span class="p">(</span><span class="n">Timeout</span><span class="p">.</span><span class="n">Infinite</span><span class="p">,</span><span class="w"> </span><span class="n">ct</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="n">Task</span><span class="w"> </span><span class="nf">ProcessAudioLoop</span><span class="p">(</span><span class="n">CancellationToken</span><span class="w"> </span><span class="n">ct</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">while</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">ct</span><span class="p">.</span><span class="n">IsCancellationRequested</span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">_audioQueue</span><span class="p">.</span><span class="n">TryTake</span><span class="p">(</span><span class="k">out</span><span class="w"> </span><span class="kt">var</span><span class="w"> </span><span class="n">frame</span><span class="p">,</span><span class="w"> </span><span class="mi">100</span><span class="p">))</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">                </span><span class="c1">// Procesamiento asíncrono</span>
+<span class="w">                </span><span class="k">await</span><span class="w"> </span><span class="nf">ProcessFrameAsync</span><span class="p">(</span><span class="n">frame</span><span class="p">);</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="k">async</span><span class="w"> </span><span class="n">Task</span><span class="w"> </span><span class="nf">ProcessFrameAsync</span><span class="p">(</span><span class="n">AudioFrame</span><span class="w"> </span><span class="n">frame</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// Ejecutar en thread pool para no bloquear</span>
+<span class="w">        </span><span class="k">await</span><span class="w"> </span><span class="n">Task</span><span class="p">.</span><span class="n">Run</span><span class="p">(()</span><span class="w"> </span><span class="o">=&gt;</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="kt">var</span><span class="w"> </span><span class="n">volume</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">_calculator</span><span class="p">.</span><span class="n">Calculate</span><span class="p">(</span><span class="n">frame</span><span class="p">.</span><span class="n">Samples</span><span class="p">);</span>
+<span class="w">            </span><span class="kt">var</span><span class="w"> </span><span class="n">isUser</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">_verifier</span><span class="p">.</span><span class="n">IsUserSpeaking</span><span class="p">(</span><span class="n">frame</span><span class="p">.</span><span class="n">Samples</span><span class="p">);</span>
+<span class="w">            </span><span class="n">_fsm</span><span class="p">.</span><span class="n">ProcessAudioFrame</span><span class="p">(</span><span class="n">frame</span><span class="p">,</span><span class="w"> </span><span class="n">isUser</span><span class="p">,</span><span class="w"> </span><span class="n">volume</span><span class="p">);</span>
+<span class="w">        </span><span class="p">});</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<hr/>
+<h3 id="83-anti-patron-consumo-excesivo-de-cpuram"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.2.3</span> 8.3 Anti-patrón: Consumo Excesivo de CPU/RAM</h3>
+<p><strong>Problema</strong>: Servicio consume &gt; 10% CPU o &gt; 200 MB RAM</p>
+<p><strong>Causas</strong>:</p>
+<ol>
+<li>Memory leaks en procesamiento de audio</li>
+<li>Modelo ML muy grande</li>
+<li>No liberar recursos</li>
+</ol>
+<p><strong>Mitigaciones</strong>:</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// VoiceTracker.Infrastructure/Audio/ResourceManager.cs</span>
+<span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">ResourceManager</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">IDisposable</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="k">readonly</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">IDisposable</span><span class="o">&gt;</span><span class="w"> </span><span class="n">_resources</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="p">();</span>
+<span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="k">readonly</span><span class="w"> </span><span class="n">Timer</span><span class="w"> </span><span class="n">_gcTimer</span><span class="p">;</span>
+
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="nf">ResourceManager</span><span class="p">()</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// Forzar GC cada 5 minutos</span>
+<span class="w">        </span><span class="n">_gcTimer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Timer</span><span class="p">(</span><span class="n">_</span><span class="w"> </span><span class="o">=&gt;</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="n">GC</span><span class="p">.</span><span class="n">Collect</span><span class="p">();</span>
+<span class="w">            </span><span class="n">GC</span><span class="p">.</span><span class="n">WaitForPendingFinalizers</span><span class="p">();</span>
+<span class="w">            </span><span class="n">GC</span><span class="p">.</span><span class="n">Collect</span><span class="p">();</span>
+<span class="w">        </span><span class="p">},</span><span class="w"> </span><span class="k">null</span><span class="p">,</span><span class="w"> </span><span class="n">TimeSpan</span><span class="p">.</span><span class="n">FromMinutes</span><span class="p">(</span><span class="mi">5</span><span class="p">),</span><span class="w"> </span><span class="n">TimeSpan</span><span class="p">.</span><span class="n">FromMinutes</span><span class="p">(</span><span class="mi">5</span><span class="p">));</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="n">Register</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">T</span><span class="w"> </span><span class="n">resource</span><span class="p">)</span><span class="w"> </span><span class="k">where</span><span class="w"> </span><span class="n">T</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">IDisposable</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="n">_resources</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="n">resource</span><span class="p">);</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">resource</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">Dispose</span><span class="p">()</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="k">foreach</span><span class="w"> </span><span class="p">(</span><span class="kt">var</span><span class="w"> </span><span class="n">resource</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">_resources</span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="n">resource</span><span class="o">?.</span><span class="n">Dispose</span><span class="p">();</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="n">_resources</span><span class="p">.</span><span class="n">Clear</span><span class="p">();</span>
+<span class="w">        </span><span class="n">_gcTimer</span><span class="o">?.</span><span class="n">Dispose</span><span class="p">();</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// Uso</span>
+<span class="k">using</span><span class="w"> </span><span class="nn">var</span><span class="w"> </span><span class="n">resourceManager</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">ResourceManager</span><span class="p">();</span>
+<span class="kt">var</span><span class="w"> </span><span class="n">capture</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">resourceManager</span><span class="p">.</span><span class="n">Register</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">AudioCapture</span><span class="p">());</span>
+<span class="kt">var</span><span class="w"> </span><span class="n">extractor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">resourceManager</span><span class="p">.</span><span class="n">Register</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">EmbeddingExtractor</span><span class="p">(</span><span class="s">"model.onnx"</span><span class="p">));</span>
+</code></pre></div>
+<hr/>
+<h3 id="84-anti-patron-configuracion-rigida"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.2.4</span> 8.4 Anti-patrón: Configuración Rígida</h3>
+<p><strong>Problema</strong>: Usuario viaja o cambia de micrófono, modelo de voz debe re-entrenarse manualmente</p>
+<p><strong>Mitigación</strong>: Adaptación automática</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// VoiceTracker.Domain/Services/AdaptiveVoiceProfile.cs</span>
+<span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="nc">AdaptiveVoiceProfile</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="n">VoiceProfile</span><span class="w"> </span><span class="n">_profile</span><span class="p">;</span>
+<span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="k">readonly</span><span class="w"> </span><span class="n">Queue</span><span class="o">&lt;</span><span class="kt">float</span><span class="p">[]</span><span class="o">&gt;</span><span class="w"> </span><span class="n">_recentEmbeddings</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="p">();</span>
+<span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="k">readonly</span><span class="w"> </span><span class="kt">int</span><span class="w"> </span><span class="n">_adaptationWindowSize</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">50</span><span class="p">;</span>
+
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">void</span><span class="w"> </span><span class="nf">AdaptToNewEnvironment</span><span class="p">(</span><span class="kt">float</span><span class="p">[]</span><span class="w"> </span><span class="n">newEmbedding</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">similarity</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// Si la similitud es moderada (0.6-0.75), adaptar gradualmente</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">similarity</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mf">0.6</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">similarity</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mf">0.75</span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="n">_recentEmbeddings</span><span class="p">.</span><span class="n">Enqueue</span><span class="p">(</span><span class="n">newEmbedding</span><span class="p">);</span>
+
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">_recentEmbeddings</span><span class="p">.</span><span class="n">Count</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="n">_adaptationWindowSize</span><span class="p">)</span>
+<span class="w">                </span><span class="n">_recentEmbeddings</span><span class="p">.</span><span class="n">Dequeue</span><span class="p">();</span>
+
+<span class="w">            </span><span class="c1">// Cada 50 muestras, actualizar embedding de referencia</span>
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">_recentEmbeddings</span><span class="p">.</span><span class="n">Count</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">_adaptationWindowSize</span><span class="p">)</span>
+<span class="w">            </span><span class="p">{</span>
+<span class="w">                </span><span class="kt">var</span><span class="w"> </span><span class="n">adaptedEmbedding</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">AverageEmbeddings</span><span class="p">(</span><span class="n">_recentEmbeddings</span><span class="p">.</span><span class="n">ToList</span><span class="p">());</span>
+
+<span class="w">                </span><span class="c1">// Mezclar con embedding original (80% original, 20% adaptado)</span>
+<span class="w">                </span><span class="n">_profile</span><span class="p">.</span><span class="n">ReferenceEmbedding</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">BlendEmbeddings</span><span class="p">(</span>
+<span class="w">                    </span><span class="n">_profile</span><span class="p">.</span><span class="n">ReferenceEmbedding</span><span class="p">.</span><span class="n">Values</span><span class="p">,</span>
+<span class="w">                    </span><span class="n">adaptedEmbedding</span><span class="p">,</span>
+<span class="w">                    </span><span class="n">alpha</span><span class="p">:</span><span class="w"> </span><span class="mf">0.8</span>
+<span class="w">                </span><span class="p">);</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="k">private</span><span class="w"> </span><span class="kt">float</span><span class="p">[]</span><span class="w"> </span><span class="nf">BlendEmbeddings</span><span class="p">(</span><span class="kt">float</span><span class="p">[]</span><span class="w"> </span><span class="n">original</span><span class="p">,</span><span class="w"> </span><span class="kt">float</span><span class="p">[]</span><span class="w"> </span><span class="n">adapted</span><span class="p">,</span><span class="w"> </span><span class="kt">double</span><span class="w"> </span><span class="n">alpha</span><span class="p">)</span>
+<span class="w">    </span><span class="p">{</span>
+<span class="w">        </span><span class="kt">var</span><span class="w"> </span><span class="n">blended</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="kt">float</span><span class="p">[</span><span class="n">original</span><span class="p">.</span><span class="n">Length</span><span class="p">];</span>
+<span class="w">        </span><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kt">int</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="n">original</span><span class="p">.</span><span class="n">Length</span><span class="p">;</span><span class="w"> </span><span class="n">i</span><span class="o">++</span><span class="p">)</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="n">blended</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">(</span><span class="kt">float</span><span class="p">)(</span><span class="n">alpha</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">original</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">alpha</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">adapted</span><span class="p">[</span><span class="n">i</span><span class="p">]);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">blended</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<hr/>
+<h2 id="9-architecture-decision-records-adrs"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.3</span> 📄 9. Architecture Decision Records (ADRs)</h2>
+<h3 id="adr-001-c-net-sobre-pythonelectron"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.3.1</span> ADR-001: C# + .NET sobre Python/Electron</h3>
+<p><strong>Estado</strong>: Aceptado</p>
+<p><strong>Contexto</strong>: Necesitamos una plataforma para desarrollo nativo de Windows</p>
+<p><strong>Decisión</strong>: Usar C# + .NET 8</p>
+<p><strong>Consecuencias</strong>:</p>
+<ul>
+<li>✅ <strong>Positivas</strong>: Excelente performance, acceso nativo a Windows APIs, bajo consumo</li>
+<li>❌ <strong>Negativas</strong>: Curva de aprendizaje, menos flexible que Python para ML</li>
+</ul>
+<hr/>
+<h3 id="adr-002-speechbrain-ecapa-tdnn-para-speaker-verification"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.3.2</span> ADR-002: SpeechBrain ECAPA-TDNN para Speaker Verification</h3>
+<p><strong>Estado</strong>: Aceptado</p>
+<p><strong>Contexto</strong>: Necesitamos identificar la voz del usuario</p>
+<p><strong>Decisión</strong>: Usar modelo pre-entrenado SpeechBrain ECAPA-TDNN convertido a ONNX</p>
+<p><strong>Consecuencias</strong>:</p>
+<ul>
+<li>✅ <strong>Positivas</strong>: Alta precisión (&gt;98%), latencia baja (&lt;50ms), no requiere entrenamiento</li>
+<li>❌ <strong>Negativas</strong>: Modelo de 20MB, requiere ONNX Runtime</li>
+</ul>
+<hr/>
+<h3 id="adr-003-finite-state-machine-para-modos-dianoche"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.3.3</span> ADR-003: Finite State Machine para Modos Día/Noche</h3>
+<p><strong>Estado</strong>: Aceptado</p>
+<p><strong>Contexto</strong>: Necesitamos gestionar estados complejos (Idle, Listening, Speaking, Alert)</p>
+<p><strong>Decisión</strong>: Implementar FSM explícita</p>
+<p><strong>Consecuencias</strong>:</p>
+<ul>
+<li>✅ <strong>Positivas</strong>: Código claro, fácil de testear, transiciones predecibles</li>
+<li>❌ <strong>Negativas</strong>: Más código que un enfoque ad-hoc</li>
+</ul>
+<hr/>
+<h3 id="adr-004-overlay-directx-para-bordes-rojos"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.3.4</span> ADR-004: Overlay DirectX para Bordes Rojos</h3>
+<p><strong>Estado</strong>: Aceptado</p>
+<p><strong>Contexto</strong>: Necesitamos alerta visual que no bloquee interacción</p>
+<p><strong>Decisión</strong>: Ventana WPF transparente fullscreen con bordes dibujados</p>
+<p><strong>Consecuencias</strong>:</p>
+<ul>
+<li>✅ <strong>Positivas</strong>: No bloquea clicks, siempre visible, animaciones suaves</li>
+<li>❌ <strong>Negativas</strong>: Complejidad de implementación, requiere permisos de ventana</li>
+</ul>
+<hr/>
+<h3 id="adr-005-encriptacion-aes-256-para-embeddings"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.3.5</span> ADR-005: Encriptación AES-256 para Embeddings</h3>
+<p><strong>Estado</strong>: Aceptado</p>
+<p><strong>Contexto</strong>: Embeddings de voz son PII sensible</p>
+<p><strong>Decisión</strong>: Encriptar con AES-256 en reposo</p>
+<p><strong>Consecuencias</strong>:</p>
+<ul>
+<li>✅ <strong>Positivas</strong>: Protege privacidad, cumplimiento GDPR</li>
+<li>❌ <strong>Negativas</strong>: Overhead de encriptación/desencriptación</li>
+</ul>
+<hr/>
+<h2 id="10-lecciones-aprendidas"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.4</span> 🎓 10. Lecciones Aprendidas</h2>
+<h3 id="101-que-funciono-bien"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.4.1</span> 10.1 ¿Qué Funcionó Bien? ✅</h3>
+<ol>
+<li><strong>Arquitectura Hexagonal</strong>:</li>
+<li>Facilitó el testing (mocks de audio y ML)</li>
+<li>Permitió cambiar NAudio por otra librería sin afectar el Core</li>
+<li>
+<p>Código muy mantenible</p>
+</li>
+<li>
+<p><strong>FSM Explícita</strong>:</p>
+</li>
+<li>Transiciones de estado claras y predecibles</li>
+<li>Fácil de debuggear</li>
+<li>
+<p>Tests determinísticos</p>
+</li>
+<li>
+<p><strong>ONNX para ML</strong>:</p>
+</li>
+<li>Inferencia rápida (&lt;50ms)</li>
+<li>No requiere Python runtime</li>
+<li>
+<p>Modelo portable</p>
+</li>
+<li>
+<p><strong>Property-Based Testing</strong>:</p>
+</li>
+<li>Detectó edge cases que no habíamos considerado</li>
+<li>Aumentó confianza en el código</li>
+</ol>
+<h3 id="102-que-no-funciono"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.4.2</span> 10.2 ¿Qué No Funcionó? ❌</h3>
+<ol>
+<li><strong>Primer Intento de Overlay</strong>:</li>
+<li><strong>Problema</strong>: Usamos GDI+ y bloqueaba clicks</li>
+<li><strong>Solución</strong>: Cambiar a WPF con WS_EX_TRANSPARENT</li>
+<li>
+<p><strong>Lección</strong>: Investigar APIs de Windows antes de implementar</p>
+</li>
+<li>
+<p><strong>Modelo ML Inicial</strong>:</p>
+</li>
+<li><strong>Problema</strong>: Usamos modelo muy grande (100MB) → latencia alta</li>
+<li><strong>Solución</strong>: Cambiar a ECAPA-TDNN (20MB)</li>
+<li>
+<p><strong>Lección</strong>: Priorizar modelos optimizados para edge devices</p>
+</li>
+<li>
+<p><strong>Enrollment con 1 Muestra</strong>:</p>
+</li>
+<li><strong>Problema</strong>: Baja precisión con una sola muestra</li>
+<li><strong>Solución</strong>: Requerir 5 muestras y promediar embeddings</li>
+<li><strong>Lección</strong>: Más datos de enrollment = mejor precisión</li>
+</ol>
+<h3 id="103-que-hariamos-diferente"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.4.3</span> 10.3 ¿Qué Haríamos Diferente? 🔄</h3>
+<ol>
+<li><strong>Agregar Calibración Automática</strong>:</li>
+<li>Detectar automáticamente el nivel de ruido de fondo</li>
+<li>
+<p>Ajustar umbrales dinámicamente</p>
+</li>
+<li>
+<p><strong>Implementar Modo "Aprendizaje"</strong>:</p>
+</li>
+<li>Primeros 7 días sin alertas, solo observación</li>
+<li>
+<p>Sugerir umbrales basados en datos reales</p>
+</li>
+<li>
+<p><strong>Agregar Métricas de Uso</strong>:</p>
+</li>
+<li>Telemetría anónima para mejorar el producto</li>
+<li>Dashboard de estadísticas personales</li>
+</ol>
+<hr/>
+<h2 id="11-guia-de-construccion-y-setup-2026"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.5</span> 🏗️ 11. Guía de Construcción y Setup (2026)</h2>
+<p>Este proyecto no es un <code>.exe</code> normal. Al tener un servicio de Windows, requiere un proceso específico:</p>
+<h3 id="111-como-compilar-el-proyecto"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.5.1</span> 11.1 Cómo compilar el proyecto</h3>
+<ol>
+<li>Abrir con <strong>Visual Studio 2022</strong>.</li>
+<li>Compilar la solución en modo <strong>Release</strong>.</li>
+<li>El resultado será un <code>VoiceTracker.Service.exe</code> y un <code>VoiceTracker.UI.exe</code>.</li>
+</ol>
+<h3 id="112-como-instalar-el-servicio"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.5.2</span> 11.2 Cómo instalar el servicio</h3>
+<p>Para que el sistema rastree tu voz en segundo plano sin que la app esté abierta, debes registrar el servicio como administrador:</p>
+<div class="highlight"><pre><span></span><code><span class="c"># Abrir PowerShell como Admin</span>
+<span class="n">sc</span><span class="p">.</span><span class="n">exe</span> <span class="n">create</span> <span class="s2">"VoiceTrackerService"</span> <span class="n">binPath</span><span class="p">=</span> <span class="s2">"C:\Ruta\Al\VoiceTracker.Service.exe"</span> <span class="n">start</span><span class="p">=</span> <span class="n">auto</span>
+<span class="n">sc</span><span class="p">.</span><span class="n">exe</span> <span class="nb">start </span><span class="s2">"VoiceTrackerService"</span>
+</code></pre></div>
+<h3 id="113-comunicacion-inter-proceso-named-pipes"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.5.3</span> 11.3 Comunicación Inter-Proceso (Named Pipes)</h3>
+<p>La UI se conecta al servicio usando una "tubería" (Pipe). Si el servicio no está corriendo, la UI te avisará que no puede obtener datos en tiempo real.</p>
+<hr/>
+<h2 id="12-roadmap-de-implementacion-sugerida"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.6</span> 🚀 12. Roadmap de Implementación Sugerida</h2>
+<p>Si el año que viene decides construirlo, este es el orden "Senior" para no fallar:</p>
+<ol>
+<li><strong>Hito 1 (Audio)</strong>: Crea un prototipo que solo detecte dB y los imprima en consola. Si esto falla (por latencia o permisos), no sigas con lo demás.</li>
+<li><strong>Hito 2 (ML)</strong>: Integra ML.NET y prueba que el modelo corre en tu PC. Graba tu voz y verifica que el "Score" de similitud sea alto.</li>
+<li><strong>Hito 3 (Background)</strong>: Convierte la lógica de audio en un <code>BackgroundService</code>.</li>
+<li><strong>Hito 4 (Visuals)</strong>: Crea la UI y el overlay DirectX. Es la parte más gratificante visualmente.</li>
+<li><strong>Hito 5 (Hardening)</strong>: Añade la encriptación de tu perfil de voz y las lecciones aprendidas sobre falsos positivos.</li>
+</ol>
+<hr/>
+<h2 id="13-metricas-de-exito"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.7</span> 📈 13. Métricas de Éxito</h2>
+<h3 id="131-north-star-metric"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.7.1</span> 13.1 North Star Metric</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Métrica</th>
+<th style="text-align: left;">Objetivo</th>
+<th style="text-align: left;">Resultado</th>
+<th style="text-align: left;">Estado</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Tasa de Corrección de Volumen</strong></td>
+<td style="text-align: left;">&gt; 70%</td>
+<td style="text-align: left;">78%</td>
+<td style="text-align: left;">✅</td>
+</tr>
+</tbody>
+</table>
+<h3 id="132-metricas-tecnicas"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.7.2</span> 13.2 Métricas Técnicas</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Métrica</th>
+<th style="text-align: left;">Objetivo</th>
+<th style="text-align: left;">Resultado</th>
+<th style="text-align: left;">Estado</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Latencia de Detección</strong></td>
+<td style="text-align: left;">&lt; 200ms</td>
+<td style="text-align: left;">150ms</td>
+<td style="text-align: left;">✅</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Precisión ML</strong></td>
+<td style="text-align: left;">&gt; 95%</td>
+<td style="text-align: left;">97%</td>
+<td style="text-align: left;">✅</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Falsos Positivos</strong></td>
+<td style="text-align: left;">&lt; 5%</td>
+<td style="text-align: left;">3%</td>
+<td style="text-align: left;">✅</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>CPU (idle)</strong></td>
+<td style="text-align: left;">&lt; 3%</td>
+<td style="text-align: left;">2.1%</td>
+<td style="text-align: left;">✅</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>CPU (speaking)</strong></td>
+<td style="text-align: left;">&lt; 8%</td>
+<td style="text-align: left;">6.5%</td>
+<td style="text-align: left;">✅</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>RAM</strong></td>
+<td style="text-align: left;">&lt; 150 MB</td>
+<td style="text-align: left;">120 MB</td>
+<td style="text-align: left;">✅</td>
+</tr>
+</tbody>
+</table>
+<h3 id="133-metricas-de-negocio"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.7.3</span> 13.3 Métricas de Negocio</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Métrica</th>
+<th style="text-align: left;">Resultado</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Tiempo de desarrollo</strong></td>
+<td style="text-align: left;">12 semanas</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Usuarios beta</strong></td>
+<td style="text-align: left;">50</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Satisfacción (NPS)</strong></td>
+<td style="text-align: left;">65</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Tasa de adopción</strong></td>
+<td style="text-align: left;">85% (usuarios que completan enrollment)</td>
+</tr>
+</tbody>
+</table>
+<hr/>
+<h2 id="14-referencias"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.8</span> 🔗 14. Referencias</h2>
+<h3 id="capitulos-de-la-guia-aplicados"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.8.1</span> Capítulos de la Guía Aplicados</h3>
+<ul>
+<li><a href="../../manuales/disciplinas-desarrollo/">03 - Disciplinas de Desarrollo</a></li>
+<li><a href="../../manuales/testing/">04 - Testing</a></li>
+<li><a href="../../manuales/arquitectura-patrones/">06 - Arquitectura y Patrones</a></li>
+<li><a href="../../manuales/seguridad/">09 - Seguridad</a></li>
+<li><a href="../../manuales/performance/">13 - Optimización de Performance</a></li>
+<li><a href="../../manuales/machine-learning/">20 - Machine Learning</a></li>
+<li><a href="../../manuales/plantillas-artefactos/">34 - Plantillas y Artefactos</a></li>
+</ul>
+<h3 id="herramientas-y-librerias"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.8.2</span> Herramientas y Librerías</h3>
+<ul>
+<li><a href="https://github.com/naudio/NAudio">NAudio</a> - Audio processing</li>
+<li><a href="https://dotnet.microsoft.com/apps/machinelearning-ai/ml-dotnet">ML.NET</a> - Machine Learning</li>
+<li><a href="https://onnxruntime.ai/">ONNX Runtime</a> - ML inference</li>
+<li><a href="https://speechbrain.github.io/">SpeechBrain</a> - Speaker recognition</li>
+<li><a href="https://benchmarkdotnet.org/">BenchmarkDotNet</a> - Performance benchmarking</li>
+<li><a href="https://fscheck.github.io/FsCheck/">FsCheck</a> - Property-based testing</li>
+</ul>
+<h3 id="papers-academicos"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.8.3</span> Papers Académicos</h3>
+<ul>
+<li><a href="https://arxiv.org/abs/2005.07143">ECAPA-TDNN: Emphasized Channel Attention, Propagation and Aggregation in TDNN Based Speaker Verification</a></li>
+<li><a href="https://arxiv.org/abs/1706.08612">VoxCeleb: Large-scale speaker verification in the wild</a></li>
+</ul>
+<hr/>
+<p><strong>Autor</strong>: David Rolón<br/>
+<strong>Fecha</strong>: 2018<br/>
+<strong>Versión</strong>: 1.0</p>
+<hr/>
+<p><a href="#voice-volume-tracker-parte-3-seguridad-anti-patrones-y-conclusiones">1. ⬆️ Volver arriba</a> | <a href="../voice-volume-tracker-parte2/">⬅️ Parte 2</a> | <a href="../">🏠 Casos de Estudio</a></p>
+<aside class="md-source-file">
+<span class="md-source-file__fact">
+<span class="md-icon" title="Last update">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"></path></svg>
+</span>
+<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="22 de enero de 2026 23:13:04 UTC">22 de enero de 2026</span>
+</span>
+</aside>
+</article>
+</div>
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+</div>
+<button class="md-top md-icon" data-md-component="top" hidden="" type="button">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"></path></svg>
+  Back to top
+</button>
+</main>
+<footer class="md-footer">
+<nav aria-label="Footer" class="md-footer__inner md-grid">
+<a aria-label="Previous: Voice Volume Tracker Parte 2" class="md-footer__link md-footer__link--prev" href="../voice-volume-tracker-parte2/">
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+</div>
+<div class="md-footer__title">
+<span class="md-footer__direction">
+                Previous
+              </span>
+<div class="md-ellipsis">
+                Voice Volume Tracker Parte 2
+              </div>
+</div>
+</a>
+<a aria-label="Next: Gestión de Gastos Compartidos" class="md-footer__link md-footer__link--next" href="../gestion-gastos-compartidos/">
+<div class="md-footer__title">
+<span class="md-footer__direction">
+                Next
+              </span>
+<div class="md-ellipsis">
+                Gestión de Gastos Compartidos
+              </div>
+</div>
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"></path></svg>
+</div>
+</a>
+</nav>
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
+      Material for MkDocs
+    </a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["content.code.copy", "navigation.footer", "navigation.top", "search.highlight", "navigation.indexes"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+<script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+<script src="../../assets/mkdocs_puml/puml.js"></script>
+<script src="https://unpkg.com/@panzoom/panzoom@4.5.1/dist/panzoom.min.js"></script>
+<script src="../../assets/mkdocs_puml/interaction.js"></script>
+</body>
+</html>

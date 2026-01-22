@@ -1,0 +1,3121 @@
+
+<!DOCTYPE html>
+
+<html class="no-js" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="../product-management/" rel="prev"/>
+<link href="../roles-responsabilidades/" rel="next"/>
+<link href="../../assets/images/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.6.1, mkdocs-material-9.7.1" name="generator"/>
+<title>Métricas y KPIs - Guía Integral de Ingeniería de Software</title>
+<link href="../../assets/stylesheets/main.484c7ddc.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/palette.ab4e12ef.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
+<style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+<link href="../../assets/mkdocs_puml/puml.css" rel="stylesheet"/>
+<link href="../../assets/mkdocs_puml/interaction.css" rel="stylesheet"/>
+<script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+</head>
+<body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#metricas-y-kpis">1. 
+          Skip to content
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+<header class="md-header md-header--shadow" data-md-component="header">
+<nav aria-label="Header" class="md-header__inner md-grid">
+<a aria-label="Guía Integral de Ingeniería de Software" class="md-header__button md-logo" data-md-component="logo" href="../.." title="Guía Integral de Ingeniería de Software">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            Guía Integral de Ingeniería de Software
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+            
+              Métricas y KPIs
+            
+          </span>
+</div>
+</div>
+</div>
+<form class="md-header__option" data-md-component="palette">
+<input aria-label="Switch to light mode" class="md-option" data-md-color-accent="indigo" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-primary="indigo" data-md-color-scheme="default" id="__palette_0" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_1" hidden="" title="Switch to light mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
+</label>
+<input aria-label="Switch to dark mode" class="md-option" data-md-color-accent="indigo" data-md-color-media="(prefers-color-scheme: light)" data-md-color-primary="indigo" data-md-color-scheme="slate" id="__palette_1" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_0" hidden="" title="Switch to dark mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
+</label>
+</form>
+<script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+<label class="md-header__button md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+</label>
+<div class="md-search" data-md-component="search" role="dialog">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="Search" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="Search" required="" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+</label>
+<nav aria-label="Search" class="md-search__options">
+<button aria-label="Clear" class="md-search__icon md-icon" tabindex="-1" title="Clear" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+</button>
+</nav>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="" tabindex="0">
+<div class="md-search-result" data-md-component="search-result">
+<div class="md-search-result__meta">
+            Initializing search
+          </div>
+<ol class="md-search-result__list" role="presentation"></ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Navigation" class="md-nav md-nav--primary" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="Guía Integral de Ingeniería de Software" class="md-nav__button md-logo" data-md-component="logo" href="../.." title="Guía Integral de Ingeniería de Software">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+</a>
+    Guía Integral de Ingeniería de Software
+  </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../indice/">
+<span class="md-ellipsis">
+    
+  
+    Índice
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../fundamentos/">
+<span class="md-ellipsis">
+    
+  
+    Fundamentos
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../onboarding/">
+<span class="md-ellipsis">
+    
+  
+    Onboarding
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../disciplinas-desarrollo/">
+<span class="md-ellipsis">
+    
+  
+    Disciplinas de Desarrollo
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../testing/">
+<span class="md-ellipsis">
+    
+  
+    Testing
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../gestion-calidad/">
+<span class="md-ellipsis">
+    
+  
+    Gestión de Calidad
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../arquitectura-patrones/">
+<span class="md-ellipsis">
+    
+  
+    Arquitectura y Patrones
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../sesgos-falacias/">
+<span class="md-ellipsis">
+    
+  
+    Sesgos y Falacias
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../devops/">
+<span class="md-ellipsis">
+    
+  
+    DevOps
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../seguridad/">
+<span class="md-ellipsis">
+    
+  
+    Seguridad
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../observabilidad/">
+<span class="md-ellipsis">
+    
+  
+    Observabilidad
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../herramientas-problemas/">
+<span class="md-ellipsis">
+    
+  
+    Herramientas y Problemas
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../mejora-continua/">
+<span class="md-ellipsis">
+    
+  
+    Mejora Continua
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../performance/">
+<span class="md-ellipsis">
+    
+  
+    Performance
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../checklist-produccion/">
+<span class="md-ellipsis">
+    
+  
+    Checklist Producción
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../bases-datos/">
+<span class="md-ellipsis">
+    
+  
+    Bases de Datos
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../apis-protocolos/">
+<span class="md-ellipsis">
+    
+  
+    APIs y Protocolos
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../mobile-ui-ux/">
+<span class="md-ellipsis">
+    
+  
+    Mobile / UI / UX
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../infraestructura-cloud/">
+<span class="md-ellipsis">
+    
+  
+    Infraestructura Cloud
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../cost-optimization/">
+<span class="md-ellipsis">
+    
+  
+    Cost Optimization
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../machine-learning/">
+<span class="md-ellipsis">
+    
+  
+    Machine Learning
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../ciencia-datos/">
+<span class="md-ellipsis">
+    
+  
+    Ciencia de Datos
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../data-governance/">
+<span class="md-ellipsis">
+    
+  
+    Data Governance
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../analisis-estrategico/">
+<span class="md-ellipsis">
+    
+  
+    Análisis Estratégico
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../product-management/">
+<span class="md-ellipsis">
+    
+  
+    Product Management
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+<span class="md-ellipsis">
+    
+  
+    Métricas y KPIs
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
+<span class="md-ellipsis">
+    
+  
+    Métricas y KPIs
+  
+
+    
+  </span>
+</a>
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#metricas-vs-kpis">1.1 
+<span class="md-ellipsis">
+      
+        🎯 Métricas vs KPIs
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#heart-framework-google">1.2 
+<span class="md-ellipsis">
+      
+        ❤️ HEART Framework (Google)
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#aarrr-pirate-metrics">1.3 
+<span class="md-ellipsis">
+      
+        🏴‍☠️ AARRR (Pirate Metrics)
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#metricas-dora-devops">1.4 
+<span class="md-ellipsis">
+      
+        📊 Métricas DORA (DevOps)
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#nps-csat-ces">1.5 
+<span class="md-ellipsis">
+      
+        🎯 NPS, CSAT, CES
+      
+    </span>
+</a>
+<nav aria-label="🎯 NPS, CSAT, CES" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#nps-net-promoter-score">1.5.1 
+<span class="md-ellipsis">
+      
+        NPS (Net Promoter Score)
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#csat-customer-satisfaction">1.5.2 
+<span class="md-ellipsis">
+      
+        CSAT (Customer Satisfaction)
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ces-customer-effort-score">1.5.3 
+<span class="md-ellipsis">
+      
+        CES (Customer Effort Score)
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#metricas-de-negocio">1.6 
+<span class="md-ellipsis">
+      
+        💰 Métricas de Negocio
+      
+    </span>
+</a>
+<nav aria-label="💰 Métricas de Negocio" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#saas-metrics">1.6.1 
+<span class="md-ellipsis">
+      
+        SaaS Metrics
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#e-commerce">1.6.2 
+<span class="md-ellipsis">
+      
+        E-commerce
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#metricas-de-engagement">1.7 
+<span class="md-ellipsis">
+      
+        📈 Métricas de Engagement
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#retention-cohorts">1.8 
+<span class="md-ellipsis">
+      
+        🔄 Retention Cohorts
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#vanity-metrics-vs-actionable-metrics">1.9 
+<span class="md-ellipsis">
+      
+        ⚠️ Vanity Metrics vs Actionable Metrics
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#north-star-supporting-metrics">1.10 
+<span class="md-ellipsis">
+      
+        🎯 North Star + Supporting Metrics
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ab-testing-metrics">1.11 
+<span class="md-ellipsis">
+      
+        🔬 A/B Testing Metrics
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#dashboards">1.12 
+<span class="md-ellipsis">
+      
+        📊 Dashboards
+      
+    </span>
+</a>
+<nav aria-label="📊 Dashboards" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#dashboard-de-producto">1.12.1 
+<span class="md-ellipsis">
+      
+        Dashboard de Producto
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#seccion-1-health-overview">1.12.2 
+<span class="md-ellipsis">
+      
+        Sección 1: Health Overview
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#seccion-2-engagement">1.12.3 
+<span class="md-ellipsis">
+      
+        Sección 2: Engagement
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#seccion-3-growth">1.12.4 
+<span class="md-ellipsis">
+      
+        Sección 3: Growth
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#seccion-4-business">1.12.5 
+<span class="md-ellipsis">
+      
+        Sección 4: Business
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#errores-comunes">1.13 
+<span class="md-ellipsis">
+      
+        🚫 Errores Comunes
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#recursos">1.14 
+<span class="md-ellipsis">
+      
+        📚 Recursos
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../roles-responsabilidades/">
+<span class="md-ellipsis">
+    
+  
+    Roles y Responsabilidades
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../colaboracion-cultura/">
+<span class="md-ellipsis">
+    
+  
+    Colaboración y Cultura
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../documentacion-diagramas/">
+<span class="md-ellipsis">
+    
+  
+    Documentación y Diagramas
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../convenciones/">
+<span class="md-ellipsis">
+    
+  
+    Convenciones
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../estrategia-ia-automatizacion/">
+<span class="md-ellipsis">
+    
+  
+    Estrategia IA y Automatización
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../etica-gobernanza-ia/">
+<span class="md-ellipsis">
+    
+  
+    Ética y Gobernanza IA
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../comunicacion-contenido/">
+<span class="md-ellipsis">
+    
+  
+    Comunicación y Contenido
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../plantillas-artefactos/">
+<span class="md-ellipsis">
+    
+  
+    Plantillas y Artefactos
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../dependencias-deuda-tecnica/">
+<span class="md-ellipsis">
+    
+  
+    Dependencias y Deuda Técnica
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../priorizacion-roadmapping/">
+<span class="md-ellipsis">
+    
+  
+    Priorización y Roadmapping
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../gestion-secretos/">
+<span class="md-ellipsis">
+    
+  
+    Gestión de Secretos
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../chaos-engineering/">
+<span class="md-ellipsis">
+    
+  
+    Chaos Engineering
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../data-literacy/">
+<span class="md-ellipsis">
+    
+  
+    Data Literacy
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../lowcode-nocode/">
+<span class="md-ellipsis">
+    
+  
+    LowCode / NoCode
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../casos-de-estudio/">
+<span class="md-ellipsis">
+    
+  
+    Casos de Estudio
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_42" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../agentes/">
+<span class="md-ellipsis">
+    
+  
+    Agentes
+  
+
+    
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_42" id="__nav_42_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_42_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_42">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Agentes
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/the-gentleman/">
+<span class="md-ellipsis">
+    
+  
+    The Gentleman
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_42_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_42_2" id="__nav_42_2_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Architecture &amp; DevOps
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_42_2_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_42_2">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Architecture &amp; DevOps
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/architecture-devops/api-design-expert/">
+<span class="md-ellipsis">
+    
+  
+    API Design Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/architecture-devops/cicd-expert/">
+<span class="md-ellipsis">
+    
+  
+    CICD Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/architecture-devops/event-driven-expert/">
+<span class="md-ellipsis">
+    
+  
+    Event Driven Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/architecture-devops/iac-expert/">
+<span class="md-ellipsis">
+    
+  
+    IaC Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/architecture-devops/kubernetes-expert/">
+<span class="md-ellipsis">
+    
+  
+    Kubernetes Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/architecture-devops/microservices-expert/">
+<span class="md-ellipsis">
+    
+  
+    Microservices Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/architecture-devops/observability-expert/">
+<span class="md-ellipsis">
+    
+  
+    Observability Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/architecture-devops/security-expert/">
+<span class="md-ellipsis">
+    
+  
+    Security Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/architecture-devops/software-architecture-expert/">
+<span class="md-ellipsis">
+    
+  
+    Software Architecture Expert
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_42_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_42_3" id="__nav_42_3_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Backend
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_42_3_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_42_3">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Backend
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/backend/django-expert/">
+<span class="md-ellipsis">
+    
+  
+    Django Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/backend/express-expert/">
+<span class="md-ellipsis">
+    
+  
+    Express Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/backend/fastapi-expert/">
+<span class="md-ellipsis">
+    
+  
+    FastAPI Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/backend/java-expert/">
+<span class="md-ellipsis">
+    
+  
+    Java Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/backend/nestjs-expert/">
+<span class="md-ellipsis">
+    
+  
+    NestJS Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/backend/nodejs-expert/">
+<span class="md-ellipsis">
+    
+  
+    NodeJS Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/backend/python-expert/">
+<span class="md-ellipsis">
+    
+  
+    Python Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/backend/spring-expert/">
+<span class="md-ellipsis">
+    
+  
+    Spring Expert
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_42_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_42_4" id="__nav_42_4_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Business Roles
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_42_4_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_42_4">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Business Roles
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/business-roles/devrel-developer-advocate/">
+<span class="md-ellipsis">
+    
+  
+    DevRel / Developer Advocate
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/business-roles/pm-po-advisor/">
+<span class="md-ellipsis">
+    
+  
+    PM / PO Advisor
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/business-roles/scrum-master-agile-coach/">
+<span class="md-ellipsis">
+    
+  
+    Scrum Master / Agile Coach
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/business-roles/sre-advisor/">
+<span class="md-ellipsis">
+    
+  
+    SRE Advisor
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/business-roles/tech-lead-em-advisor/">
+<span class="md-ellipsis">
+    
+  
+    Tech Lead / EM Advisor
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/business-roles/ux-research-expert/">
+<span class="md-ellipsis">
+    
+  
+    UX Research Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/business-roles/ux-ui-designer/">
+<span class="md-ellipsis">
+    
+  
+    UX/UI Designer
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_42_5" type="checkbox"/>
+<label class="md-nav__link" for="__nav_42_5" id="__nav_42_5_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Compliance
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_42_5_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_42_5">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Compliance
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/compliance/accessibility-expert/">
+<span class="md-ellipsis">
+    
+  
+    Accessibility Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/compliance/compliance-governance-expert/">
+<span class="md-ellipsis">
+    
+  
+    Compliance &amp; Governance Expert
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_42_6" type="checkbox"/>
+<label class="md-nav__link" for="__nav_42_6" id="__nav_42_6_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Data / ML / Finance
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_42_6_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_42_6">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Data / ML / Finance
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/data-ml-finance/computer-vision-expert/">
+<span class="md-ellipsis">
+    
+  
+    Computer Vision Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/data-ml-finance/data-science-expert/">
+<span class="md-ellipsis">
+    
+  
+    Data Science Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/data-ml-finance/data-visualization-expert/">
+<span class="md-ellipsis">
+    
+  
+    Data Visualization Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/data-ml-finance/ml-dl-expert/">
+<span class="md-ellipsis">
+    
+  
+    ML/DL Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/data-ml-finance/nlp-expert/">
+<span class="md-ellipsis">
+    
+  
+    NLP Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/data-ml-finance/quant-finance-expert/">
+<span class="md-ellipsis">
+    
+  
+    Quant Finance Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/data-ml-finance/rl-expert/">
+<span class="md-ellipsis">
+    
+  
+    RL Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/data-ml-finance/trading-systems-expert/">
+<span class="md-ellipsis">
+    
+  
+    Trading Systems Expert
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_42_7" type="checkbox"/>
+<label class="md-nav__link" for="__nav_42_7" id="__nav_42_7_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Databases
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_42_7_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_42_7">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Databases
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/databases/mongodb-expert/">
+<span class="md-ellipsis">
+    
+  
+    MongoDB Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/databases/mssql-expert/">
+<span class="md-ellipsis">
+    
+  
+    MSSQL Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/databases/postgresql-expert/">
+<span class="md-ellipsis">
+    
+  
+    PostgreSQL Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/databases/redis-expert/">
+<span class="md-ellipsis">
+    
+  
+    Redis Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/databases/sqlite-expert/">
+<span class="md-ellipsis">
+    
+  
+    SQLite Expert
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_42_8" type="checkbox"/>
+<label class="md-nav__link" for="__nav_42_8" id="__nav_42_8_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Debugging
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_42_8_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_42_8">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Debugging
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/debugging/code-review-expert/">
+<span class="md-ellipsis">
+    
+  
+    Code Review Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/debugging/debugging-root-cause-expert/">
+<span class="md-ellipsis">
+    
+  
+    Debugging Root Cause Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/debugging/migration-specialist/">
+<span class="md-ellipsis">
+    
+  
+    Migration Specialist
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_42_9" type="checkbox"/>
+<label class="md-nav__link" for="__nav_42_9" id="__nav_42_9_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Documentation
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_42_9_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_42_9">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Documentation
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/documentation/api-documentation-expert/">
+<span class="md-ellipsis">
+    
+  
+    API Documentation Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/documentation/content-creator-expert/">
+<span class="md-ellipsis">
+    
+  
+    Content Creator Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/documentation/diagram-expert/">
+<span class="md-ellipsis">
+    
+  
+    Diagram Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/documentation/technical-writer-expert/">
+<span class="md-ellipsis">
+    
+  
+    Technical Writer Expert
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_42_10" type="checkbox"/>
+<label class="md-nav__link" for="__nav_42_10" id="__nav_42_10_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Frontend
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_42_10_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_42_10">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Frontend
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/frontend/angular-expert/">
+<span class="md-ellipsis">
+    
+  
+    Angular Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/frontend/css-styling-expert/">
+<span class="md-ellipsis">
+    
+  
+    CSS Styling Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/frontend/nextjs-expert/">
+<span class="md-ellipsis">
+    
+  
+    NextJS Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/frontend/react-expert/">
+<span class="md-ellipsis">
+    
+  
+    React Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/frontend/typescript-expert/">
+<span class="md-ellipsis">
+    
+  
+    TypeScript Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/frontend/vue-expert/">
+<span class="md-ellipsis">
+    
+  
+    Vue Expert
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_42_11" type="checkbox"/>
+<label class="md-nav__link" for="__nav_42_11" id="__nav_42_11_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Testing
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_42_11_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_42_11">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Testing
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/testing/bdd-expert/">
+<span class="md-ellipsis">
+    
+  
+    BDD Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/testing/e2e-testing-expert/">
+<span class="md-ellipsis">
+    
+  
+    E2E Testing Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/testing/performance-testing-expert/">
+<span class="md-ellipsis">
+    
+  
+    Performance Testing Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/testing/qa-automation-expert/">
+<span class="md-ellipsis">
+    
+  
+    QA Automation Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/testing/tdd-expert/">
+<span class="md-ellipsis">
+    
+  
+    TDD Expert
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_43" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../casos-de-estudio/">
+<span class="md-ellipsis">
+    
+  
+    Casos de Estudio
+  
+
+    
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_43" id="__nav_43_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_43_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_43">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Casos de Estudio
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../casos-de-estudio/portafolio-personal-ts-angular/">
+<span class="md-ellipsis">
+    
+  
+    Portafolio Personal TS Angular
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../casos-de-estudio/diario-emociones-mood-tracker/">
+<span class="md-ellipsis">
+    
+  
+    Diario de Emociones
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../casos-de-estudio/geofencing-alarm-mobile/">
+<span class="md-ellipsis">
+    
+  
+    Geofencing Alarm Mobile
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../casos-de-estudio/voice-volume-tracker-windows/">
+<span class="md-ellipsis">
+    
+  
+    Voice Volume Tracker Windows
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../casos-de-estudio/voice-volume-tracker-parte2/">
+<span class="md-ellipsis">
+    
+  
+    Voice Volume Tracker Parte 2
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../casos-de-estudio/voice-volume-tracker-parte3/">
+<span class="md-ellipsis">
+    
+  
+    Voice Volume Tracker Parte 3
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../casos-de-estudio/gestion-gastos-compartidos/">
+<span class="md-ellipsis">
+    
+  
+    Gestión de Gastos Compartidos
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../casos-de-estudio/gestion-gastos-compartidos-implementacion/">
+<span class="md-ellipsis">
+    
+  
+    Gestión de Gastos Compartidos (Implementación)
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_44" type="checkbox"/>
+<label class="md-nav__link" for="__nav_44" id="__nav_44_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Reportes
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_44_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_44">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Reportes
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_44_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_44_1" id="__nav_44_1_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Ejemplos
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_44_1_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_44_1">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Ejemplos
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../reportes/examples/bug-report-example/">
+<span class="md-ellipsis">
+    
+  
+    Bug Report Example
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../reportes/examples/feature-request-example/">
+<span class="md-ellipsis">
+    
+  
+    Feature Request Example
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../reportes/examples/new-feature-example/">
+<span class="md-ellipsis">
+    
+  
+    New Feature Example
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../reportes/examples/post-mortem-example/">
+<span class="md-ellipsis">
+    
+  
+    Post Mortem Example
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../reportes/examples/rfc-example/">
+<span class="md-ellipsis">
+    
+  
+    RFC Example
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_44_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_44_2" id="__nav_44_2_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Plantillas
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_44_2_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_44_2">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Plantillas
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../reportes/templates/bug-report-template/">
+<span class="md-ellipsis">
+    
+  
+    Bug Report Template
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../reportes/templates/feature-request-template/">
+<span class="md-ellipsis">
+    
+  
+    Feature Request Template
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../reportes/templates/new-feature-template/">
+<span class="md-ellipsis">
+    
+  
+    New Feature Template
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../reportes/templates/post-mortem-template/">
+<span class="md-ellipsis">
+    
+  
+    Post Mortem Template
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../reportes/templates/rfc-template/">
+<span class="md-ellipsis">
+    
+  
+    RFC Template
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../recursos-entrevistas/">
+<span class="md-ellipsis">
+    
+  
+    Recursos y Entrevistas
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agradecimientos/">
+<span class="md-ellipsis">
+    
+  
+    Agradecimientos
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../glosario/">
+<span class="md-ellipsis">
+    
+  
+    Glosario
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#metricas-vs-kpis">1.1 
+<span class="md-ellipsis">
+      
+        🎯 Métricas vs KPIs
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#heart-framework-google">1.2 
+<span class="md-ellipsis">
+      
+        ❤️ HEART Framework (Google)
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#aarrr-pirate-metrics">1.3 
+<span class="md-ellipsis">
+      
+        🏴‍☠️ AARRR (Pirate Metrics)
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#metricas-dora-devops">1.4 
+<span class="md-ellipsis">
+      
+        📊 Métricas DORA (DevOps)
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#nps-csat-ces">1.5 
+<span class="md-ellipsis">
+      
+        🎯 NPS, CSAT, CES
+      
+    </span>
+</a>
+<nav aria-label="🎯 NPS, CSAT, CES" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#nps-net-promoter-score">1.5.1 
+<span class="md-ellipsis">
+      
+        NPS (Net Promoter Score)
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#csat-customer-satisfaction">1.5.2 
+<span class="md-ellipsis">
+      
+        CSAT (Customer Satisfaction)
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ces-customer-effort-score">1.5.3 
+<span class="md-ellipsis">
+      
+        CES (Customer Effort Score)
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#metricas-de-negocio">1.6 
+<span class="md-ellipsis">
+      
+        💰 Métricas de Negocio
+      
+    </span>
+</a>
+<nav aria-label="💰 Métricas de Negocio" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#saas-metrics">1.6.1 
+<span class="md-ellipsis">
+      
+        SaaS Metrics
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#e-commerce">1.6.2 
+<span class="md-ellipsis">
+      
+        E-commerce
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#metricas-de-engagement">1.7 
+<span class="md-ellipsis">
+      
+        📈 Métricas de Engagement
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#retention-cohorts">1.8 
+<span class="md-ellipsis">
+      
+        🔄 Retention Cohorts
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#vanity-metrics-vs-actionable-metrics">1.9 
+<span class="md-ellipsis">
+      
+        ⚠️ Vanity Metrics vs Actionable Metrics
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#north-star-supporting-metrics">1.10 
+<span class="md-ellipsis">
+      
+        🎯 North Star + Supporting Metrics
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ab-testing-metrics">1.11 
+<span class="md-ellipsis">
+      
+        🔬 A/B Testing Metrics
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#dashboards">1.12 
+<span class="md-ellipsis">
+      
+        📊 Dashboards
+      
+    </span>
+</a>
+<nav aria-label="📊 Dashboards" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#dashboard-de-producto">1.12.1 
+<span class="md-ellipsis">
+      
+        Dashboard de Producto
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#seccion-1-health-overview">1.12.2 
+<span class="md-ellipsis">
+      
+        Sección 1: Health Overview
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#seccion-2-engagement">1.12.3 
+<span class="md-ellipsis">
+      
+        Sección 2: Engagement
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#seccion-3-growth">1.12.4 
+<span class="md-ellipsis">
+      
+        Sección 3: Growth
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#seccion-4-business">1.12.5 
+<span class="md-ellipsis">
+      
+        Sección 4: Business
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#errores-comunes">1.13 
+<span class="md-ellipsis">
+      
+        🚫 Errores Comunes
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#recursos">1.14 
+<span class="md-ellipsis">
+      
+        📚 Recursos
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<h1 id="metricas-y-kpis"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.</span> Métricas y KPIs</h1>
+<blockquote>
+<p>Indicadores clave para medir salud del producto, negocio y experiencia de usuario.</p>
+</blockquote>
+<hr/>
+<h2 id="metricas-vs-kpis"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.1</span> 🎯 Métricas vs KPIs</h2>
+<p><strong>Qué:</strong> Métricas = cualquier dato medible. KPIs = métricas críticas para objetivos estratégicos.</p>
+<p><strong>Por qué:</strong> Enfoque en lo que importa. "What gets measured gets managed."</p>
+<p><strong>Quién:</strong> PMs, founders, data analysts, leadership.</p>
+<p><strong>Cuándo:</strong> Definir al lanzar producto, revisar mensual/trimestral.</p>
+<p><strong>Esfuerzo:</strong> 5-7 KPIs máximo por producto. Menos es más.</p>
+<hr/>
+<h2 id="heart-framework-google"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.2</span> ❤️ HEART Framework (Google)</h2>
+<p><strong>Qué:</strong> Framework de Google para medir UX y engagement.</p>
+<p><strong>Por qué:</strong> Estructura completa para product health.</p>
+<p><strong>Cuándo:</strong> Definir métricas de producto, dashboards.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Dimensión</th>
+<th style="text-align: left;">Qué</th>
+<th style="text-align: left;">Métricas Ejemplo</th>
+<th style="text-align: left;">Cuándo usar</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Happiness</strong></td>
+<td style="text-align: left;">Satisfacción y actitud</td>
+<td style="text-align: left;">NPS, CSAT, app store rating</td>
+<td style="text-align: left;">Productos consumer, SaaS</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Engagement</strong></td>
+<td style="text-align: left;">Nivel de actividad</td>
+<td style="text-align: left;">DAU/MAU, sesiones/usuario, tiempo en app</td>
+<td style="text-align: left;">Apps sociales, contenido</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Adoption</strong></td>
+<td style="text-align: left;">Nuevos usuarios usando feature</td>
+<td style="text-align: left;">% usuarios activos usando feature X</td>
+<td style="text-align: left;">Lanzar features</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Retention</strong></td>
+<td style="text-align: left;">Usuarios que regresan</td>
+<td style="text-align: left;">D1/D7/D30 retention, churn rate</td>
+<td style="text-align: left;">Todo producto</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Task Success</strong></td>
+<td style="text-align: left;">Eficiencia completando tareas</td>
+<td style="text-align: left;">Tasa completación, tiempo por tarea, error rate</td>
+<td style="text-align: left;">Herramientas, utilities</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Ejemplo - App de Fitness:</strong></p>
+<ul>
+<li><strong>Happiness:</strong> App store rating 4.5★, NPS 45</li>
+<li><strong>Engagement:</strong> 3.5 workouts/semana, 25 min/sesión</li>
+<li><strong>Adoption:</strong> 60% usuarios probaron feature "Challenges"</li>
+<li><strong>Retention:</strong> 40% D30 retention</li>
+<li><strong>Task Success:</strong> 85% completan workout sin saltar</li>
+</ul>
+<hr/>
+<h2 id="aarrr-pirate-metrics"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.3</span> 🏴‍☠️ AARRR (Pirate Metrics)</h2>
+<p><strong>Qué:</strong> Framework de Dave McClure para medir funnel de producto.</p>
+<p><strong>Por qué:</strong> Optimizar cada etapa del customer journey.</p>
+<p><strong>Cuándo:</strong> Startups growth, optimización conversión.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Etapa</th>
+<th style="text-align: left;">Qué</th>
+<th style="text-align: left;">Métricas</th>
+<th style="text-align: left;">Optimizar</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Acquisition</strong></td>
+<td style="text-align: left;">Cómo llegan usuarios</td>
+<td style="text-align: left;">Tráfico, cost per acquisition (CPA), canales</td>
+<td style="text-align: left;">SEO, ads, referrals</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Activation</strong></td>
+<td style="text-align: left;">Primera experiencia positiva</td>
+<td style="text-align: left;">% completan onboarding, time to value</td>
+<td style="text-align: left;">Onboarding, aha moment</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Retention</strong></td>
+<td style="text-align: left;">Usuarios regresan</td>
+<td style="text-align: left;">D7/D30 retention, churn rate</td>
+<td style="text-align: left;">Engagement loops, notifs</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Revenue</strong></td>
+<td style="text-align: left;">Monetización</td>
+<td style="text-align: left;">MRR, ARPU, LTV</td>
+<td style="text-align: left;">Pricing, upsells</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Referral</strong></td>
+<td style="text-align: left;">Usuarios invitan otros</td>
+<td style="text-align: left;">Referral rate, K-factor, viral coefficient</td>
+<td style="text-align: left;">Sharing, incentivos</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Funnel típico:</strong></p>
+<div class="highlight"><pre><span></span><code>1000 visitantes
+  ↓ 20% signup
+200 usuarios
+  ↓ 50% activan
+100 activos
+  ↓ 40% retención D30
+40 retained
+  ↓ 25% convierten pago
+10 pagos
+  ↓ 20% refieren
+2 referrals
+</code></pre></div>
+<p><strong>Acción:</strong> Identificar mayor drop-off y optimizar ahí primero.</p>
+<hr/>
+<h2 id="metricas-dora-devops"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.4</span> 📊 Métricas DORA (DevOps)</h2>
+<p><strong>Qué:</strong> Métricas para evaluar performance de engineering teams.</p>
+<p><strong>Por qué:</strong> Correlación demostrada con business outcomes.</p>
+<p><strong>Cuándo:</strong> Evaluar madurez DevOps, benchmarking.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Métrica</th>
+<th style="text-align: left;">Qué</th>
+<th style="text-align: left;">Elite</th>
+<th style="text-align: left;">High</th>
+<th style="text-align: left;">Medium</th>
+<th style="text-align: left;">Low</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Deployment Frequency</strong></td>
+<td style="text-align: left;">Frecuencia de deploys a prod</td>
+<td style="text-align: left;">On-demand</td>
+<td style="text-align: left;">Semanal-mensual</td>
+<td style="text-align: left;">Mensual-semestral</td>
+<td style="text-align: left;">&lt; Semestral</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Lead Time for Changes</strong></td>
+<td style="text-align: left;">Commit → producción</td>
+<td style="text-align: left;">&lt; 1 hora</td>
+<td style="text-align: left;">&lt; 1 día</td>
+<td style="text-align: left;">&lt; 1 semana</td>
+<td style="text-align: left;">&gt; 1 semana</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Change Failure Rate</strong></td>
+<td style="text-align: left;">% deploys que fallan</td>
+<td style="text-align: left;">0-15%</td>
+<td style="text-align: left;">30%</td>
+<td style="text-align: left;">45%</td>
+<td style="text-align: left;">&gt; 45%</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>MTTR</strong></td>
+<td style="text-align: left;">Mean Time To Recover</td>
+<td style="text-align: left;">&lt; 1 hora</td>
+<td style="text-align: left;">&lt; 1 día</td>
+<td style="text-align: left;">&lt; 1 semana</td>
+<td style="text-align: left;">&gt; 1 semana</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Cómo mejorar:</strong></p>
+<ul>
+<li><strong>Deployment Frequency:</strong> CI/CD automático, feature flags</li>
+<li><strong>Lead Time:</strong> Trunk-based development, automatización</li>
+<li><strong>Change Failure Rate:</strong> Tests, code review, staging</li>
+<li><strong>MTTR:</strong> Monitoring, runbooks, rollback automático</li>
+</ul>
+<hr/>
+<h2 id="nps-csat-ces"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.5</span> 🎯 NPS, CSAT, CES</h2>
+<h3 id="nps-net-promoter-score"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.5.1</span> NPS (Net Promoter Score)</h3>
+<p><strong>Qué:</strong> "¿Qué tan probable recomendarías [producto] a un amigo?" (0-10)</p>
+<p><strong>Cálculo:</strong> % Promotores (9-10) - % Detractores (0-6)</p>
+<p><strong>Interpretación:</strong></p>
+<ul>
+<li><strong>&gt; 50:</strong> Excelente</li>
+<li><strong>50:</strong> Bueno</li>
+<li><strong>0-30:</strong> Mejorar</li>
+<li><strong>&lt; 0:</strong> Problema serio</li>
+</ul>
+<p><strong>Cuándo:</strong> Trimestral, post-interacción importante</p>
+<h3 id="csat-customer-satisfaction"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.5.2</span> CSAT (Customer Satisfaction)</h3>
+<p><strong>Qué:</strong> "¿Qué tan satisfecho estás con [experiencia]?" (1-5)</p>
+<p><strong>Cálculo:</strong> (Respuestas 4-5 / Total) × 100</p>
+<p><strong>Cuándo:</strong> Post-support ticket, post-compra</p>
+<h3 id="ces-customer-effort-score"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.5.3</span> CES (Customer Effort Score)</h3>
+<p><strong>Qué:</strong> "¿Qué tan fácil fue resolver tu problema?" (1-7)</p>
+<p><strong>Cálculo:</strong> Promedio de respuestas (menor = mejor)</p>
+<p><strong>Cuándo:</strong> Post-tarea compleja, onboarding</p>
+<p><strong>Comparación:</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Métrica</th>
+<th style="text-align: left;">Predice</th>
+<th style="text-align: left;">Cuándo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>NPS</strong></td>
+<td style="text-align: left;">Loyalty, growth</td>
+<td style="text-align: left;">Long-term health</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>CSAT</strong></td>
+<td style="text-align: left;">Satisfacción momento</td>
+<td style="text-align: left;">Experiencia específica</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>CES</strong></td>
+<td style="text-align: left;">Retention</td>
+<td style="text-align: left;">Esfuerzo usuario</td>
+</tr>
+</tbody>
+</table>
+<hr/>
+<h2 id="metricas-de-negocio"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.6</span> 💰 Métricas de Negocio</h2>
+<h3 id="saas-metrics"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.6.1</span> SaaS Metrics</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Métrica</th>
+<th style="text-align: left;">Qué</th>
+<th style="text-align: left;">Fórmula</th>
+<th style="text-align: left;">Target</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>MRR</strong></td>
+<td style="text-align: left;">Monthly Recurring Revenue</td>
+<td style="text-align: left;">Suma suscripciones mensuales</td>
+<td style="text-align: left;">Crecimiento 10%+ MoM</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>ARR</strong></td>
+<td style="text-align: left;">Annual Recurring Revenue</td>
+<td style="text-align: left;">MRR × 12</td>
+<td style="text-align: left;">-</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>ARPU</strong></td>
+<td style="text-align: left;">Average Revenue Per User</td>
+<td style="text-align: left;">MRR / Total usuarios</td>
+<td style="text-align: left;">↑ Over time</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>LTV</strong></td>
+<td style="text-align: left;">Lifetime Value</td>
+<td style="text-align: left;">ARPU × (1 / Churn rate)</td>
+<td style="text-align: left;">LTV &gt; 3× CAC</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>CAC</strong></td>
+<td style="text-align: left;">Customer Acquisition Cost</td>
+<td style="text-align: left;">Sales+Marketing / Nuevos clientes</td>
+<td style="text-align: left;">↓ Over time</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Churn Rate</strong></td>
+<td style="text-align: left;">% clientes que cancelan</td>
+<td style="text-align: left;">Cancelaciones / Total usuarios</td>
+<td style="text-align: left;">&lt; 5% mensual</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>CAC Payback</strong></td>
+<td style="text-align: left;">Meses para recuperar CAC</td>
+<td style="text-align: left;">CAC / (ARPU × Margen bruto)</td>
+<td style="text-align: left;">&lt; 12 meses</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Ejemplo:</strong></p>
+<ul>
+<li>MRR: $100k</li>
+<li>ARPU: $50/mes</li>
+<li>Churn: 5%/mes</li>
+<li>LTV: $50 / 0.05 = $1,000</li>
+<li>CAC: $300</li>
+<li><strong>LTV/CAC = 3.33</strong> ✅ (target: &gt;3)</li>
+</ul>
+<h3 id="e-commerce"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.6.2</span> E-commerce</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Métrica</th>
+<th style="text-align: left;">Qué</th>
+<th style="text-align: left;">Fórmula</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Conversion Rate</strong></td>
+<td style="text-align: left;">% visitantes que compran</td>
+<td style="text-align: left;">Compras / Visitantes × 100</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>AOV</strong></td>
+<td style="text-align: left;">Average Order Value</td>
+<td style="text-align: left;">Revenue / # Órdenes</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Cart Abandonment</strong></td>
+<td style="text-align: left;">% carritos no completados</td>
+<td style="text-align: left;">Carritos abandonados / Carritos iniciados</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>ROAS</strong></td>
+<td style="text-align: left;">Return on Ad Spend</td>
+<td style="text-align: left;">Revenue ads / Gasto ads</td>
+</tr>
+</tbody>
+</table>
+<hr/>
+<h2 id="metricas-de-engagement"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.7</span> 📈 Métricas de Engagement</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Métrica</th>
+<th style="text-align: left;">Qué</th>
+<th style="text-align: left;">Cálculo</th>
+<th style="text-align: left;">Interpretación</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>DAU/MAU</strong></td>
+<td style="text-align: left;">Daily/Monthly Active Users</td>
+<td style="text-align: left;">Ratio DAU/MAU</td>
+<td style="text-align: left;">&gt;20% = sticky product</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Sessions/User</strong></td>
+<td style="text-align: left;">Frecuencia de uso</td>
+<td style="text-align: left;">Sesiones totales / Usuarios</td>
+<td style="text-align: left;">Engagement alto</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Session Duration</strong></td>
+<td style="text-align: left;">Tiempo por visita</td>
+<td style="text-align: left;">Avg tiempo sesión</td>
+<td style="text-align: left;">Depende producto</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Feature Adoption</strong></td>
+<td style="text-align: left;">% usando feature</td>
+<td style="text-align: left;">Usuarios feature / Total activos</td>
+<td style="text-align: left;">&gt;70% = feature exitosa</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Stickiness</strong></td>
+<td style="text-align: left;">Hábito de uso</td>
+<td style="text-align: left;">DAU / MAU</td>
+<td style="text-align: left;">&gt;0.2 = sticky</td>
+</tr>
+</tbody>
+</table>
+<p><strong>DAU/MAU Benchmark:</strong></p>
+<ul>
+<li><strong>&gt;40%:</strong> Redes sociales top (Facebook, Instagram)</li>
+<li><strong>40%:</strong> Productos con buen engagement</li>
+<li><strong>&lt;20%:</strong> Engagement débil</li>
+</ul>
+<hr/>
+<h2 id="retention-cohorts"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.8</span> 🔄 Retention Cohorts</h2>
+<p><strong>Qué:</strong> Tabla que muestra % usuarios activos por cohorte en el tiempo.</p>
+<p><strong>Por qué:</strong> Identificar si retention mejora con cambios de producto.</p>
+<p><strong>Ejemplo:</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Cohort</th>
+<th style="text-align: left;">Week 0</th>
+<th style="text-align: left;">Week 1</th>
+<th style="text-align: left;">Week 2</th>
+<th style="text-align: left;">Week 3</th>
+<th style="text-align: left;">Week 4</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Jan W1</td>
+<td style="text-align: left;">100%</td>
+<td style="text-align: left;">40%</td>
+<td style="text-align: left;">30%</td>
+<td style="text-align: left;">25%</td>
+<td style="text-align: left;">23%</td>
+</tr>
+<tr>
+<td style="text-align: left;">Jan W2</td>
+<td style="text-align: left;">100%</td>
+<td style="text-align: left;">45%</td>
+<td style="text-align: left;">35%</td>
+<td style="text-align: left;">30%</td>
+<td style="text-align: left;">28%</td>
+</tr>
+<tr>
+<td style="text-align: left;">Jan W3</td>
+<td style="text-align: left;">100%</td>
+<td style="text-align: left;">50%</td>
+<td style="text-align: left;">40%</td>
+<td style="text-align: left;">35%</td>
+<td style="text-align: left;">33%</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Insight:</strong> Retention mejorando (cohorts nuevos retienen mejor). Cambios recientes funcionan.</p>
+<p><strong>Buena retention curve:</strong> Se aplana (no llega a 0%)</p>
+<hr/>
+<h2 id="vanity-metrics-vs-actionable-metrics"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.9</span> ⚠️ Vanity Metrics vs Actionable Metrics</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Vanity (Evitar)</th>
+<th style="text-align: left;">Por qué engañosa</th>
+<th style="text-align: left;">Actionable (Preferir)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Total usuarios registrados</td>
+<td style="text-align: left;">No dice cuántos activos</td>
+<td style="text-align: left;">MAU, DAU</td>
+</tr>
+<tr>
+<td style="text-align: left;">Page views</td>
+<td style="text-align: left;">No refleja engagement real</td>
+<td style="text-align: left;">Tiempo en página, conversión</td>
+</tr>
+<tr>
+<td style="text-align: left;">Followers sociales</td>
+<td style="text-align: left;">Pueden ser bots, inactivos</td>
+<td style="text-align: left;">Engagement rate, clicks</td>
+</tr>
+<tr>
+<td style="text-align: left;">Total downloads</td>
+<td style="text-align: left;">No dice cuántos usan</td>
+<td style="text-align: left;">D7/D30 retention</td>
+</tr>
+<tr>
+<td style="text-align: left;">Revenue absoluto</td>
+<td style="text-align: left;">Sin contexto de costo</td>
+<td style="text-align: left;">MRR growth rate, LTV/CAC</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Principio:</strong> Métrica accionable = si sube/baja, sabes qué hacer.</p>
+<hr/>
+<h2 id="north-star-supporting-metrics"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.10</span> 🎯 North Star + Supporting Metrics</h2>
+<p><strong>Estructura:</strong></p>
+<div class="highlight"><pre><span></span><code>        [North Star Metric]
+         /      |      \
+    Input 1  Input 2  Input 3
+     /  \      /  \      /  \
+   M1  M2    M3  M4    M5  M6
+</code></pre></div>
+<p><strong>Ejemplo - Spotify:</strong></p>
+<ul>
+<li><strong>North Star:</strong> Tiempo escuchando música</li>
+<li><strong>Input Metrics:</strong><ul>
+<li>Frecuencia uso (sesiones/semana)</li>
+<li>Engagement con playlists (saves, shares)</li>
+<li>Discovery (nuevas canciones/artistas)</li>
+</ul>
+</li>
+<li><strong>Supporting:</strong><ul>
+<li>% usuarios usando Discover Weekly</li>
+<li>Avg canciones por playlist</li>
+<li>% sesiones completas (no skip)</li>
+</ul>
+</li>
+</ul>
+<hr/>
+<h2 id="ab-testing-metrics"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.11</span> 🔬 A/B Testing Metrics</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Concepto</th>
+<th style="text-align: left;">Qué</th>
+<th style="text-align: left;">Ejemplo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Primary Metric</strong></td>
+<td style="text-align: left;">Métrica principal a mover</td>
+<td style="text-align: left;">Conversion rate</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Secondary Metrics</strong></td>
+<td style="text-align: left;">Otras métricas a monitorear</td>
+<td style="text-align: left;">AOV, retention</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Guardrail Metrics</strong></td>
+<td style="text-align: left;">No deben empeorar</td>
+<td style="text-align: left;">Load time, error rate</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Statistical Significance</strong></td>
+<td style="text-align: left;">p-value &lt; 0.05</td>
+<td style="text-align: left;">Confianza 95%</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Minimum Detectable Effect</strong></td>
+<td style="text-align: left;">Cambio mínimo a detectar</td>
+<td style="text-align: left;">+5% conversion</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Evitar:</strong> Múltiples comparaciones sin corrección (p-hacking).</p>
+<hr/>
+<h2 id="dashboards"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.12</span> 📊 Dashboards</h2>
+<h3 id="dashboard-de-producto"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.12.1</span> Dashboard de Producto</h3>
+<h3 id="seccion-1-health-overview"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.12.2</span> Sección 1: Health Overview</h3>
+<ul>
+<li>MAU, DAU, DAU/MAU</li>
+<li>Churn rate</li>
+<li>NPS</li>
+</ul>
+<h3 id="seccion-2-engagement"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.12.3</span> Sección 2: Engagement</h3>
+<ul>
+<li>Sesiones/usuario</li>
+<li>Session duration</li>
+<li>Feature adoption</li>
+</ul>
+<h3 id="seccion-3-growth"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.12.4</span> Sección 3: Growth</h3>
+<ul>
+<li>New users</li>
+<li>Activation rate</li>
+<li>Retention cohorts</li>
+</ul>
+<h3 id="seccion-4-business"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.12.5</span> Sección 4: Business</h3>
+<ul>
+<li>MRR, ARR</li>
+<li>LTV, CAC</li>
+<li>Conversion funnel</li>
+</ul>
+<p><strong>Herramientas:</strong> <a href="https://amplitude.com/">Amplitude</a>, <a href="https://mixpanel.com/">Mixpanel</a>, <a href="https://cloud.google.com/looker">Looker</a>, <a href="https://www.metabase.com/">Metabase</a></p>
+<hr/>
+<h2 id="errores-comunes"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.13</span> 🚫 Errores Comunes</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Error</th>
+<th style="text-align: left;">Problema</th>
+<th style="text-align: left;">Solución</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Demasiadas métricas</strong></td>
+<td style="text-align: left;">Parálisis, falta foco</td>
+<td style="text-align: left;">5-7 KPIs máximo</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Métricas sin ownership</strong></td>
+<td style="text-align: left;">Nadie responsable</td>
+<td style="text-align: left;">Asignar owner por métrica</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>No segmentar</strong></td>
+<td style="text-align: left;">Promedios esconden insights</td>
+<td style="text-align: left;">Segmentar por persona, feature, cohorte</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Optimizar métrica equivocada</strong></td>
+<td style="text-align: left;">Goodhart's Law</td>
+<td style="text-align: left;">Validar que métrica refleja valor real</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Ignorar leading indicators</strong></td>
+<td style="text-align: left;">Solo mirar lagging</td>
+<td style="text-align: left;">Balancear ambos</td>
+</tr>
+</tbody>
+</table>
+<hr/>
+<h2 id="recursos"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.14</span> 📚 Recursos</h2>
+<ul>
+<li><a href="https://leananalyticsbook.com/">Lean Analytics - Alistair Croll</a></li>
+<li><a href="https://www.interaction-design.org/literature/article/measuring-success-with-the-heart-framework">Measuring Success - Kerry Rodden (Google)</a></li>
+<li><a href="https://www.forentrepreneurs.com/saas-metrics-2/">SaaS Metrics 2.0 - David Skok</a></li>
+<li><a href="https://amplitude.com/blog">Amplitude Blog</a></li>
+</ul>
+<aside class="md-source-file">
+<span class="md-source-file__fact">
+<span class="md-icon" title="Last update">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"></path></svg>
+</span>
+<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="22 de enero de 2026 23:13:04 UTC">22 de enero de 2026</span>
+</span>
+</aside>
+</article>
+</div>
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+</div>
+<button class="md-top md-icon" data-md-component="top" hidden="" type="button">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"></path></svg>
+  Back to top
+</button>
+</main>
+<footer class="md-footer">
+<nav aria-label="Footer" class="md-footer__inner md-grid">
+<a aria-label="Previous: Product Management" class="md-footer__link md-footer__link--prev" href="../product-management/">
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+</div>
+<div class="md-footer__title">
+<span class="md-footer__direction">
+                Previous
+              </span>
+<div class="md-ellipsis">
+                Product Management
+              </div>
+</div>
+</a>
+<a aria-label="Next: Roles y Responsabilidades" class="md-footer__link md-footer__link--next" href="../roles-responsabilidades/">
+<div class="md-footer__title">
+<span class="md-footer__direction">
+                Next
+              </span>
+<div class="md-ellipsis">
+                Roles y Responsabilidades
+              </div>
+</div>
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"></path></svg>
+</div>
+</a>
+</nav>
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
+      Material for MkDocs
+    </a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["content.code.copy", "navigation.footer", "navigation.top", "search.highlight", "navigation.indexes"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+<script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+<script src="../../assets/mkdocs_puml/puml.js"></script>
+<script src="https://unpkg.com/@panzoom/panzoom@4.5.1/dist/panzoom.min.js"></script>
+<script src="../../assets/mkdocs_puml/interaction.js"></script>
+</body>
+</html>

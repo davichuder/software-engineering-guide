@@ -1,0 +1,2559 @@
+
+<!DOCTYPE html>
+
+<html class="no-js" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="../gestion-gastos-compartidos/" rel="prev"/>
+<link href="../../reportes/examples/bug-report-example/" rel="next"/>
+<link href="../../assets/images/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.6.1, mkdocs-material-9.7.1" name="generator"/>
+<title>Gestión de Gastos Compartidos (Implementación) - Guía Integral de Ingeniería de Software</title>
+<link href="../../assets/stylesheets/main.484c7ddc.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/palette.ab4e12ef.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
+<style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+<link href="../../assets/mkdocs_puml/puml.css" rel="stylesheet"/>
+<link href="../../assets/mkdocs_puml/interaction.css" rel="stylesheet"/>
+<script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+</head>
+<body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#guia-de-implementacion-tecnica-gestion-de-gastos-compartidos">1. 
+          Skip to content
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+<header class="md-header md-header--shadow" data-md-component="header">
+<nav aria-label="Header" class="md-header__inner md-grid">
+<a aria-label="Guía Integral de Ingeniería de Software" class="md-header__button md-logo" data-md-component="logo" href="../.." title="Guía Integral de Ingeniería de Software">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            Guía Integral de Ingeniería de Software
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+            
+              Gestión de Gastos Compartidos (Implementación)
+            
+          </span>
+</div>
+</div>
+</div>
+<form class="md-header__option" data-md-component="palette">
+<input aria-label="Switch to light mode" class="md-option" data-md-color-accent="indigo" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-primary="indigo" data-md-color-scheme="default" id="__palette_0" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_1" hidden="" title="Switch to light mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
+</label>
+<input aria-label="Switch to dark mode" class="md-option" data-md-color-accent="indigo" data-md-color-media="(prefers-color-scheme: light)" data-md-color-primary="indigo" data-md-color-scheme="slate" id="__palette_1" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_0" hidden="" title="Switch to dark mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
+</label>
+</form>
+<script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+<label class="md-header__button md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+</label>
+<div class="md-search" data-md-component="search" role="dialog">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="Search" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="Search" required="" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+</label>
+<nav aria-label="Search" class="md-search__options">
+<button aria-label="Clear" class="md-search__icon md-icon" tabindex="-1" title="Clear" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+</button>
+</nav>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="" tabindex="0">
+<div class="md-search-result" data-md-component="search-result">
+<div class="md-search-result__meta">
+            Initializing search
+          </div>
+<ol class="md-search-result__list" role="presentation"></ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Navigation" class="md-nav md-nav--primary" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="Guía Integral de Ingeniería de Software" class="md-nav__button md-logo" data-md-component="logo" href="../.." title="Guía Integral de Ingeniería de Software">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+</a>
+    Guía Integral de Ingeniería de Software
+  </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../indice/">
+<span class="md-ellipsis">
+    
+  
+    Índice
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../manuales/fundamentos/">
+<span class="md-ellipsis">
+    
+  
+    Fundamentos
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../manuales/onboarding/">
+<span class="md-ellipsis">
+    
+  
+    Onboarding
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../manuales/disciplinas-desarrollo/">
+<span class="md-ellipsis">
+    
+  
+    Disciplinas de Desarrollo
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../manuales/testing/">
+<span class="md-ellipsis">
+    
+  
+    Testing
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../manuales/gestion-calidad/">
+<span class="md-ellipsis">
+    
+  
+    Gestión de Calidad
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../manuales/arquitectura-patrones/">
+<span class="md-ellipsis">
+    
+  
+    Arquitectura y Patrones
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../manuales/sesgos-falacias/">
+<span class="md-ellipsis">
+    
+  
+    Sesgos y Falacias
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../manuales/devops/">
+<span class="md-ellipsis">
+    
+  
+    DevOps
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../manuales/seguridad/">
+<span class="md-ellipsis">
+    
+  
+    Seguridad
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../manuales/observabilidad/">
+<span class="md-ellipsis">
+    
+  
+    Observabilidad
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../manuales/herramientas-problemas/">
+<span class="md-ellipsis">
+    
+  
+    Herramientas y Problemas
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../manuales/mejora-continua/">
+<span class="md-ellipsis">
+    
+  
+    Mejora Continua
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../manuales/performance/">
+<span class="md-ellipsis">
+    
+  
+    Performance
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../manuales/checklist-produccion/">
+<span class="md-ellipsis">
+    
+  
+    Checklist Producción
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../manuales/bases-datos/">
+<span class="md-ellipsis">
+    
+  
+    Bases de Datos
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../manuales/apis-protocolos/">
+<span class="md-ellipsis">
+    
+  
+    APIs y Protocolos
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../manuales/mobile-ui-ux/">
+<span class="md-ellipsis">
+    
+  
+    Mobile / UI / UX
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../manuales/infraestructura-cloud/">
+<span class="md-ellipsis">
+    
+  
+    Infraestructura Cloud
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../manuales/cost-optimization/">
+<span class="md-ellipsis">
+    
+  
+    Cost Optimization
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../manuales/machine-learning/">
+<span class="md-ellipsis">
+    
+  
+    Machine Learning
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../manuales/ciencia-datos/">
+<span class="md-ellipsis">
+    
+  
+    Ciencia de Datos
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../manuales/data-governance/">
+<span class="md-ellipsis">
+    
+  
+    Data Governance
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../manuales/analisis-estrategico/">
+<span class="md-ellipsis">
+    
+  
+    Análisis Estratégico
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../manuales/product-management/">
+<span class="md-ellipsis">
+    
+  
+    Product Management
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../manuales/metricas-kpis/">
+<span class="md-ellipsis">
+    
+  
+    Métricas y KPIs
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../manuales/roles-responsabilidades/">
+<span class="md-ellipsis">
+    
+  
+    Roles y Responsabilidades
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../manuales/colaboracion-cultura/">
+<span class="md-ellipsis">
+    
+  
+    Colaboración y Cultura
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../manuales/documentacion-diagramas/">
+<span class="md-ellipsis">
+    
+  
+    Documentación y Diagramas
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../manuales/convenciones/">
+<span class="md-ellipsis">
+    
+  
+    Convenciones
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../manuales/estrategia-ia-automatizacion/">
+<span class="md-ellipsis">
+    
+  
+    Estrategia IA y Automatización
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../manuales/etica-gobernanza-ia/">
+<span class="md-ellipsis">
+    
+  
+    Ética y Gobernanza IA
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../manuales/comunicacion-contenido/">
+<span class="md-ellipsis">
+    
+  
+    Comunicación y Contenido
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../manuales/plantillas-artefactos/">
+<span class="md-ellipsis">
+    
+  
+    Plantillas y Artefactos
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../manuales/dependencias-deuda-tecnica/">
+<span class="md-ellipsis">
+    
+  
+    Dependencias y Deuda Técnica
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../manuales/priorizacion-roadmapping/">
+<span class="md-ellipsis">
+    
+  
+    Priorización y Roadmapping
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../manuales/gestion-secretos/">
+<span class="md-ellipsis">
+    
+  
+    Gestión de Secretos
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../manuales/chaos-engineering/">
+<span class="md-ellipsis">
+    
+  
+    Chaos Engineering
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../manuales/data-literacy/">
+<span class="md-ellipsis">
+    
+  
+    Data Literacy
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../manuales/lowcode-nocode/">
+<span class="md-ellipsis">
+    
+  
+    LowCode / NoCode
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../">
+<span class="md-ellipsis">
+    
+  
+    Casos de Estudio
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_42" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../agentes/">
+<span class="md-ellipsis">
+    
+  
+    Agentes
+  
+
+    
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_42" id="__nav_42_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_42_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_42">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Agentes
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/the-gentleman/">
+<span class="md-ellipsis">
+    
+  
+    The Gentleman
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_42_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_42_2" id="__nav_42_2_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Architecture &amp; DevOps
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_42_2_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_42_2">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Architecture &amp; DevOps
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/architecture-devops/api-design-expert/">
+<span class="md-ellipsis">
+    
+  
+    API Design Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/architecture-devops/cicd-expert/">
+<span class="md-ellipsis">
+    
+  
+    CICD Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/architecture-devops/event-driven-expert/">
+<span class="md-ellipsis">
+    
+  
+    Event Driven Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/architecture-devops/iac-expert/">
+<span class="md-ellipsis">
+    
+  
+    IaC Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/architecture-devops/kubernetes-expert/">
+<span class="md-ellipsis">
+    
+  
+    Kubernetes Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/architecture-devops/microservices-expert/">
+<span class="md-ellipsis">
+    
+  
+    Microservices Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/architecture-devops/observability-expert/">
+<span class="md-ellipsis">
+    
+  
+    Observability Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/architecture-devops/security-expert/">
+<span class="md-ellipsis">
+    
+  
+    Security Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/architecture-devops/software-architecture-expert/">
+<span class="md-ellipsis">
+    
+  
+    Software Architecture Expert
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_42_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_42_3" id="__nav_42_3_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Backend
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_42_3_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_42_3">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Backend
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/backend/django-expert/">
+<span class="md-ellipsis">
+    
+  
+    Django Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/backend/express-expert/">
+<span class="md-ellipsis">
+    
+  
+    Express Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/backend/fastapi-expert/">
+<span class="md-ellipsis">
+    
+  
+    FastAPI Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/backend/java-expert/">
+<span class="md-ellipsis">
+    
+  
+    Java Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/backend/nestjs-expert/">
+<span class="md-ellipsis">
+    
+  
+    NestJS Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/backend/nodejs-expert/">
+<span class="md-ellipsis">
+    
+  
+    NodeJS Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/backend/python-expert/">
+<span class="md-ellipsis">
+    
+  
+    Python Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/backend/spring-expert/">
+<span class="md-ellipsis">
+    
+  
+    Spring Expert
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_42_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_42_4" id="__nav_42_4_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Business Roles
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_42_4_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_42_4">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Business Roles
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/business-roles/devrel-developer-advocate/">
+<span class="md-ellipsis">
+    
+  
+    DevRel / Developer Advocate
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/business-roles/pm-po-advisor/">
+<span class="md-ellipsis">
+    
+  
+    PM / PO Advisor
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/business-roles/scrum-master-agile-coach/">
+<span class="md-ellipsis">
+    
+  
+    Scrum Master / Agile Coach
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/business-roles/sre-advisor/">
+<span class="md-ellipsis">
+    
+  
+    SRE Advisor
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/business-roles/tech-lead-em-advisor/">
+<span class="md-ellipsis">
+    
+  
+    Tech Lead / EM Advisor
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/business-roles/ux-research-expert/">
+<span class="md-ellipsis">
+    
+  
+    UX Research Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/business-roles/ux-ui-designer/">
+<span class="md-ellipsis">
+    
+  
+    UX/UI Designer
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_42_5" type="checkbox"/>
+<label class="md-nav__link" for="__nav_42_5" id="__nav_42_5_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Compliance
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_42_5_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_42_5">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Compliance
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/compliance/accessibility-expert/">
+<span class="md-ellipsis">
+    
+  
+    Accessibility Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/compliance/compliance-governance-expert/">
+<span class="md-ellipsis">
+    
+  
+    Compliance &amp; Governance Expert
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_42_6" type="checkbox"/>
+<label class="md-nav__link" for="__nav_42_6" id="__nav_42_6_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Data / ML / Finance
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_42_6_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_42_6">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Data / ML / Finance
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/data-ml-finance/computer-vision-expert/">
+<span class="md-ellipsis">
+    
+  
+    Computer Vision Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/data-ml-finance/data-science-expert/">
+<span class="md-ellipsis">
+    
+  
+    Data Science Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/data-ml-finance/data-visualization-expert/">
+<span class="md-ellipsis">
+    
+  
+    Data Visualization Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/data-ml-finance/ml-dl-expert/">
+<span class="md-ellipsis">
+    
+  
+    ML/DL Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/data-ml-finance/nlp-expert/">
+<span class="md-ellipsis">
+    
+  
+    NLP Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/data-ml-finance/quant-finance-expert/">
+<span class="md-ellipsis">
+    
+  
+    Quant Finance Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/data-ml-finance/rl-expert/">
+<span class="md-ellipsis">
+    
+  
+    RL Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/data-ml-finance/trading-systems-expert/">
+<span class="md-ellipsis">
+    
+  
+    Trading Systems Expert
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_42_7" type="checkbox"/>
+<label class="md-nav__link" for="__nav_42_7" id="__nav_42_7_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Databases
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_42_7_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_42_7">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Databases
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/databases/mongodb-expert/">
+<span class="md-ellipsis">
+    
+  
+    MongoDB Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/databases/mssql-expert/">
+<span class="md-ellipsis">
+    
+  
+    MSSQL Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/databases/postgresql-expert/">
+<span class="md-ellipsis">
+    
+  
+    PostgreSQL Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/databases/redis-expert/">
+<span class="md-ellipsis">
+    
+  
+    Redis Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/databases/sqlite-expert/">
+<span class="md-ellipsis">
+    
+  
+    SQLite Expert
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_42_8" type="checkbox"/>
+<label class="md-nav__link" for="__nav_42_8" id="__nav_42_8_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Debugging
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_42_8_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_42_8">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Debugging
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/debugging/code-review-expert/">
+<span class="md-ellipsis">
+    
+  
+    Code Review Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/debugging/debugging-root-cause-expert/">
+<span class="md-ellipsis">
+    
+  
+    Debugging Root Cause Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/debugging/migration-specialist/">
+<span class="md-ellipsis">
+    
+  
+    Migration Specialist
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_42_9" type="checkbox"/>
+<label class="md-nav__link" for="__nav_42_9" id="__nav_42_9_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Documentation
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_42_9_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_42_9">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Documentation
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/documentation/api-documentation-expert/">
+<span class="md-ellipsis">
+    
+  
+    API Documentation Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/documentation/content-creator-expert/">
+<span class="md-ellipsis">
+    
+  
+    Content Creator Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/documentation/diagram-expert/">
+<span class="md-ellipsis">
+    
+  
+    Diagram Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/documentation/technical-writer-expert/">
+<span class="md-ellipsis">
+    
+  
+    Technical Writer Expert
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_42_10" type="checkbox"/>
+<label class="md-nav__link" for="__nav_42_10" id="__nav_42_10_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Frontend
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_42_10_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_42_10">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Frontend
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/frontend/angular-expert/">
+<span class="md-ellipsis">
+    
+  
+    Angular Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/frontend/css-styling-expert/">
+<span class="md-ellipsis">
+    
+  
+    CSS Styling Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/frontend/nextjs-expert/">
+<span class="md-ellipsis">
+    
+  
+    NextJS Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/frontend/react-expert/">
+<span class="md-ellipsis">
+    
+  
+    React Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/frontend/typescript-expert/">
+<span class="md-ellipsis">
+    
+  
+    TypeScript Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/frontend/vue-expert/">
+<span class="md-ellipsis">
+    
+  
+    Vue Expert
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_42_11" type="checkbox"/>
+<label class="md-nav__link" for="__nav_42_11" id="__nav_42_11_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Testing
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_42_11_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_42_11">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Testing
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/testing/bdd-expert/">
+<span class="md-ellipsis">
+    
+  
+    BDD Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/testing/e2e-testing-expert/">
+<span class="md-ellipsis">
+    
+  
+    E2E Testing Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/testing/performance-testing-expert/">
+<span class="md-ellipsis">
+    
+  
+    Performance Testing Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/testing/qa-automation-expert/">
+<span class="md-ellipsis">
+    
+  
+    QA Automation Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/testing/tdd-expert/">
+<span class="md-ellipsis">
+    
+  
+    TDD Expert
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_43" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../">
+<span class="md-ellipsis">
+    
+  
+    Casos de Estudio
+  
+
+    
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_43" id="__nav_43_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="true" aria-labelledby="__nav_43_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_43">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Casos de Estudio
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../portafolio-personal-ts-angular/">
+<span class="md-ellipsis">
+    
+  
+    Portafolio Personal TS Angular
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../diario-emociones-mood-tracker/">
+<span class="md-ellipsis">
+    
+  
+    Diario de Emociones
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../geofencing-alarm-mobile/">
+<span class="md-ellipsis">
+    
+  
+    Geofencing Alarm Mobile
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../voice-volume-tracker-windows/">
+<span class="md-ellipsis">
+    
+  
+    Voice Volume Tracker Windows
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../voice-volume-tracker-parte2/">
+<span class="md-ellipsis">
+    
+  
+    Voice Volume Tracker Parte 2
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../voice-volume-tracker-parte3/">
+<span class="md-ellipsis">
+    
+  
+    Voice Volume Tracker Parte 3
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../gestion-gastos-compartidos/">
+<span class="md-ellipsis">
+    
+  
+    Gestión de Gastos Compartidos
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+<span class="md-ellipsis">
+    
+  
+    Gestión de Gastos Compartidos (Implementación)
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
+<span class="md-ellipsis">
+    
+  
+    Gestión de Gastos Compartidos (Implementación)
+  
+
+    
+  </span>
+</a>
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#1-estructura-de-proyectos-microservicios">1.1 
+<span class="md-ellipsis">
+      
+        1. Estructura de Proyectos (Microservicios)
+      
+    </span>
+</a>
+<nav aria-label="1. Estructura de Proyectos (Microservicios)" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#arbol-de-carpetas-ms-expenses">1.1.1 
+<span class="md-ellipsis">
+      
+        Árbol de Carpetas (ms-expenses)
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#2-definicion-de-contratos-parsing">1.2 
+<span class="md-ellipsis">
+      
+        2. Definición de Contratos (Parsing)
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#3-ejemplos-de-implementacion-backend">1.3 
+<span class="md-ellipsis">
+      
+        3. Ejemplos de Implementación Backend
+      
+    </span>
+</a>
+<nav aria-label="3. Ejemplos de Implementación Backend" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#31-entidad-rica-domain">1.3.1 
+<span class="md-ellipsis">
+      
+        3.1 Entidad Rica (Domain)
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#32-puerto-de-repositorio-port">1.3.2 
+<span class="md-ellipsis">
+      
+        3.2 Puerto de Repositorio (Port)
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#33-adaptador-jpa-adapter">1.3.3 
+<span class="md-ellipsis">
+      
+        3.3 Adaptador JPA (Adapter)
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#4-testing-piramide-de-pruebas">1.4 
+<span class="md-ellipsis">
+      
+        4. Testing (Pirámide de Pruebas)
+      
+    </span>
+</a>
+<nav aria-label="4. Testing (Pirámide de Pruebas)" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#41-test-unitario-dominio">1.4.1 
+<span class="md-ellipsis">
+      
+        4.1 Test Unitario (Dominio)
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#42-test-de-integracion-testcontainers">1.4.2 
+<span class="md-ellipsis">
+      
+        4.2 Test de Integración (Testcontainers)
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#5-frontend-angular-moderno">1.5 
+<span class="md-ellipsis">
+      
+        5. Frontend Angular (Moderno)
+      
+    </span>
+</a>
+<nav aria-label="5. Frontend Angular (Moderno)" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#51-service-con-signals">1.5.1 
+<span class="md-ellipsis">
+      
+        5.1 Service con Signals
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#6-configuracion-e-infra">1.6 
+<span class="md-ellipsis">
+      
+        6. Configuración e Infra
+      
+    </span>
+</a>
+<nav aria-label="6. Configuración e Infra" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#61-kafka-configuration-reliability">1.6.1 
+<span class="md-ellipsis">
+      
+        6.1 Kafka Configuration (Reliability)
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_44" type="checkbox"/>
+<label class="md-nav__link" for="__nav_44" id="__nav_44_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Reportes
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_44_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_44">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Reportes
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_44_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_44_1" id="__nav_44_1_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Ejemplos
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_44_1_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_44_1">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Ejemplos
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../reportes/examples/bug-report-example/">
+<span class="md-ellipsis">
+    
+  
+    Bug Report Example
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../reportes/examples/feature-request-example/">
+<span class="md-ellipsis">
+    
+  
+    Feature Request Example
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../reportes/examples/new-feature-example/">
+<span class="md-ellipsis">
+    
+  
+    New Feature Example
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../reportes/examples/post-mortem-example/">
+<span class="md-ellipsis">
+    
+  
+    Post Mortem Example
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../reportes/examples/rfc-example/">
+<span class="md-ellipsis">
+    
+  
+    RFC Example
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_44_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_44_2" id="__nav_44_2_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Plantillas
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_44_2_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_44_2">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Plantillas
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../reportes/templates/bug-report-template/">
+<span class="md-ellipsis">
+    
+  
+    Bug Report Template
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../reportes/templates/feature-request-template/">
+<span class="md-ellipsis">
+    
+  
+    Feature Request Template
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../reportes/templates/new-feature-template/">
+<span class="md-ellipsis">
+    
+  
+    New Feature Template
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../reportes/templates/post-mortem-template/">
+<span class="md-ellipsis">
+    
+  
+    Post Mortem Template
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../reportes/templates/rfc-template/">
+<span class="md-ellipsis">
+    
+  
+    RFC Template
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../manuales/recursos-entrevistas/">
+<span class="md-ellipsis">
+    
+  
+    Recursos y Entrevistas
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agradecimientos/">
+<span class="md-ellipsis">
+    
+  
+    Agradecimientos
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../glosario/">
+<span class="md-ellipsis">
+    
+  
+    Glosario
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#1-estructura-de-proyectos-microservicios">1.1 
+<span class="md-ellipsis">
+      
+        1. Estructura de Proyectos (Microservicios)
+      
+    </span>
+</a>
+<nav aria-label="1. Estructura de Proyectos (Microservicios)" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#arbol-de-carpetas-ms-expenses">1.1.1 
+<span class="md-ellipsis">
+      
+        Árbol de Carpetas (ms-expenses)
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#2-definicion-de-contratos-parsing">1.2 
+<span class="md-ellipsis">
+      
+        2. Definición de Contratos (Parsing)
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#3-ejemplos-de-implementacion-backend">1.3 
+<span class="md-ellipsis">
+      
+        3. Ejemplos de Implementación Backend
+      
+    </span>
+</a>
+<nav aria-label="3. Ejemplos de Implementación Backend" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#31-entidad-rica-domain">1.3.1 
+<span class="md-ellipsis">
+      
+        3.1 Entidad Rica (Domain)
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#32-puerto-de-repositorio-port">1.3.2 
+<span class="md-ellipsis">
+      
+        3.2 Puerto de Repositorio (Port)
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#33-adaptador-jpa-adapter">1.3.3 
+<span class="md-ellipsis">
+      
+        3.3 Adaptador JPA (Adapter)
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#4-testing-piramide-de-pruebas">1.4 
+<span class="md-ellipsis">
+      
+        4. Testing (Pirámide de Pruebas)
+      
+    </span>
+</a>
+<nav aria-label="4. Testing (Pirámide de Pruebas)" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#41-test-unitario-dominio">1.4.1 
+<span class="md-ellipsis">
+      
+        4.1 Test Unitario (Dominio)
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#42-test-de-integracion-testcontainers">1.4.2 
+<span class="md-ellipsis">
+      
+        4.2 Test de Integración (Testcontainers)
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#5-frontend-angular-moderno">1.5 
+<span class="md-ellipsis">
+      
+        5. Frontend Angular (Moderno)
+      
+    </span>
+</a>
+<nav aria-label="5. Frontend Angular (Moderno)" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#51-service-con-signals">1.5.1 
+<span class="md-ellipsis">
+      
+        5.1 Service con Signals
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#6-configuracion-e-infra">1.6 
+<span class="md-ellipsis">
+      
+        6. Configuración e Infra
+      
+    </span>
+</a>
+<nav aria-label="6. Configuración e Infra" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#61-kafka-configuration-reliability">1.6.1 
+<span class="md-ellipsis">
+      
+        6.1 Kafka Configuration (Reliability)
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<h1 id="guia-de-implementacion-tecnica-gestion-de-gastos-compartidos"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.</span> Guía de Implementación Técnica: Gestión de Gastos Compartidos</h1>
+<blockquote>
+<p><strong>Contexto</strong>: Documento técnico para desarrolladores. Acompaña al <a href="../gestion-gastos-compartidos/">Diseño Funcional</a>.</p>
+<p><strong>Stack</strong>: Java 21 (Spring Boot 3.2), Angular 17, PostgreSQL 16, Kafka, Docker.</p>
+</blockquote>
+<hr/>
+<h2 id="1-estructura-de-proyectos-microservicios"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.1</span> 1. Estructura de Proyectos (Microservicios)</h2>
+<p>Adoptamos <strong>Arquitectura Hexagonal (Ports &amp; Adapters)</strong> para desacoplar el dominio de la infraestructura.</p>
+<h3 id="arbol-de-carpetas-ms-expenses"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.1.1</span> Árbol de Carpetas (<code>ms-expenses</code>)</h3>
+<div class="highlight"><pre><span></span><code>ms-expenses/
+├── src/
+│   ├── main/
+│   │   ├── java/com/fintech/expenses/
+│   │   │   ├── domain/                         # -- CORE --
+│   │   │   │   ├── model/                      # Entidades anémicas NO, Ricas SI
+│   │   │   │   │   ├── Expense.java
+│   │   │   │   │   ├── Split.java
+│   │   │   │   │   └── Money.java (Value Obj)
+│   │   │   │   ├── port/                       # Interfaces (Puertos)
+│   │   │   │   │   ├── inbound/                # Casos de Uso (API del Core)
+│   │   │   │   │   │   └── ProcessReceiptUseCase.java
+│   │   │   │   │   └── outbound/               # Repositorios/Clientes
+│   │   │   │   │       ├── ExpenseRepository.java
+│   │   │   │   │       └── OcrClient.java
+│   │   │   │   ├── service/                    # Lógica de Negocio
+│   │   │   │   │   └── ExpenseService.java
+│   │   │   ├── application/                    # -- ORCHESTRATION --
+│   │   │   │   └── dto/
+│   │   │   ├── infrastructure/                 # -- ADAPTERS --
+│   │   │   │   ├── persistence/                # Database
+│   │   │   │   │   ├── entity/ (JPA Entities)
+│   │   │   │   │   └── JpaExpenseAdapter.java
+│   │   │   │   ├── messaging/                  # Kafka
+│   │   │   │   │   └── KafkaReceiptConsumer.java
+│   │   │   │   └── config/                     # Spring Configuration
+│   │   │   └── presentation/                   # -- API --
+│   │   │       ├── controller/
+│   │   │       └── GlobalExceptionHandler.java
+</code></pre></div>
+<hr/>
+<h2 id="2-definicion-de-contratos-parsing"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.2</span> 2. Definición de Contratos (Parsing)</h2>
+<p>Para manejar formatos heterogéneos (CSV, Excel), definimos una interfaz canónica interna.</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// Contrato interno unificado para cualquier importador</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">record</span> <span class="nc">BankTransactionDto</span><span class="p">(</span>
+<span class="w">    </span><span class="n">LocalDate</span><span class="w"> </span><span class="n">date</span><span class="p">,</span>
+<span class="w">    </span><span class="n">String</span><span class="w"> </span><span class="n">description</span><span class="p">,</span>
+<span class="w">    </span><span class="n">BigDecimal</span><span class="w"> </span><span class="n">amount</span><span class="p">,</span>
+<span class="w">    </span><span class="n">String</span><span class="w"> </span><span class="n">currency</span><span class="p">,</span>
+<span class="w">    </span><span class="n">String</span><span class="w"> </span><span class="n">referenceId</span><span class="p">,</span><span class="w"> </span><span class="c1">// ID único del banco para deduplicación</span>
+<span class="w">    </span><span class="n">String</span><span class="w"> </span><span class="n">rawCategory</span><span class="w">  </span><span class="c1">// Categoría original del banco (ej: "MCC 5411")</span>
+<span class="p">)</span><span class="w"> </span><span class="p">{}</span>
+
+<span class="c1">// Interface del Parser</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">interface</span> <span class="nc">BankStatementParser</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kt">boolean</span><span class="w"> </span><span class="nf">supports</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="n">mimeType</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="w"> </span><span class="n">fileName</span><span class="p">);</span>
+<span class="w">    </span><span class="n">List</span><span class="o">&lt;</span><span class="n">BankTransactionDto</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">parse</span><span class="p">(</span><span class="n">InputStream</span><span class="w"> </span><span class="n">content</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+<hr/>
+<h2 id="3-ejemplos-de-implementacion-backend"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.3</span> 3. Ejemplos de Implementación Backend</h2>
+<h3 id="31-entidad-rica-domain"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.3.1</span> 3.1 Entidad Rica (Domain)</h3>
+<p>Encapsula lógica de negocio y validaciones.</p>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">Expense</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">ExpenseId</span><span class="w"> </span><span class="n">id</span><span class="p">;</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">Money</span><span class="w"> </span><span class="n">amount</span><span class="p">;</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">Split</span><span class="o">&gt;</span><span class="w"> </span><span class="n">splits</span><span class="p">;</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="n">ExpenseStatus</span><span class="w"> </span><span class="n">status</span><span class="p">;</span>
+
+<span class="w">    </span><span class="c1">// Factory method</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="n">Expense</span><span class="w"> </span><span class="nf">createShared</span><span class="p">(</span><span class="n">Money</span><span class="w"> </span><span class="n">total</span><span class="p">,</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">Split</span><span class="o">&gt;</span><span class="w"> </span><span class="n">splits</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">validateTotalMatchesSplits</span><span class="p">(</span><span class="n">total</span><span class="p">,</span><span class="w"> </span><span class="n">splits</span><span class="p">);</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Expense</span><span class="p">(</span><span class="n">ExpenseId</span><span class="p">.</span><span class="na">newIdentity</span><span class="p">(),</span><span class="w"> </span><span class="n">total</span><span class="p">,</span><span class="w"> </span><span class="n">splits</span><span class="p">,</span><span class="w"> </span><span class="n">ExpenseStatus</span><span class="p">.</span><span class="na">PENDING</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">validateTotalMatchesSplits</span><span class="p">(</span><span class="n">Money</span><span class="w"> </span><span class="n">total</span><span class="p">,</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">Split</span><span class="o">&gt;</span><span class="w"> </span><span class="n">splits</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">Money</span><span class="w"> </span><span class="n">sum</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">splits</span><span class="p">.</span><span class="na">stream</span><span class="p">().</span><span class="na">map</span><span class="p">(</span><span class="n">Split</span><span class="p">::</span><span class="n">amount</span><span class="p">).</span><span class="na">reduce</span><span class="p">(</span><span class="n">Money</span><span class="p">.</span><span class="na">ZERO</span><span class="p">,</span><span class="w"> </span><span class="n">Money</span><span class="p">::</span><span class="n">add</span><span class="p">);</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="o">!</span><span class="n">total</span><span class="p">.</span><span class="na">equals</span><span class="p">(</span><span class="n">sum</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">DomainException</span><span class="p">(</span><span class="s">"La suma de los splits no coincide con el total. Diferencia: "</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="n">total</span><span class="p">.</span><span class="na">minus</span><span class="p">(</span><span class="n">sum</span><span class="p">));</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// Business Logic</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">approve</span><span class="p">(</span><span class="n">UserId</span><span class="w"> </span><span class="n">approverId</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="na">status</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="n">ExpenseStatus</span><span class="p">.</span><span class="na">PENDING</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">throw</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">DomainException</span><span class="p">(</span><span class="s">"Solo gastos pendientes pueden aprobarse"</span><span class="p">);</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="c1">// Logica adicional de permisos...</span>
+<span class="w">        </span><span class="k">this</span><span class="p">.</span><span class="na">status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ExpenseStatus</span><span class="p">.</span><span class="na">APPROVED</span><span class="p">;</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="32-puerto-de-repositorio-port"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.3.2</span> 3.2 Puerto de Repositorio (Port)</h3>
+<p>Interfaz definida en el dominio, implementada en infraestructura.</p>
+<div class="highlight"><pre><span></span><code><span class="kd">public</span><span class="w"> </span><span class="kd">interface</span> <span class="nc">ExpenseRepository</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">Expense</span><span class="w"> </span><span class="nf">save</span><span class="p">(</span><span class="n">Expense</span><span class="w"> </span><span class="n">expense</span><span class="p">);</span>
+<span class="w">    </span><span class="n">Optional</span><span class="o">&lt;</span><span class="n">Expense</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">findById</span><span class="p">(</span><span class="n">ExpenseId</span><span class="w"> </span><span class="n">id</span><span class="p">);</span>
+<span class="w">    </span><span class="n">List</span><span class="o">&lt;</span><span class="n">Expense</span><span class="o">&gt;</span><span class="w"> </span><span class="nf">findByGroup</span><span class="p">(</span><span class="n">GroupId</span><span class="w"> </span><span class="n">groupId</span><span class="p">,</span><span class="w"> </span><span class="n">DateRange</span><span class="w"> </span><span class="n">range</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="33-adaptador-jpa-adapter"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.3.3</span> 3.3 Adaptador JPA (Adapter)</h3>
+<p>Implementación concreta usando Spring Data JPA.</p>
+<div class="highlight"><pre><span></span><code><span class="nd">@Component</span>
+<span class="nd">@RequiredArgsConstructor</span>
+<span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">JpaExpenseAdapter</span><span class="w"> </span><span class="kd">implements</span><span class="w"> </span><span class="n">ExpenseRepository</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">SpringDataExpenseRepository</span><span class="w"> </span><span class="n">jpaRepo</span><span class="p">;</span><span class="w"> </span><span class="c1">// Interface interna de Hibernate</span>
+<span class="w">    </span><span class="kd">private</span><span class="w"> </span><span class="kd">final</span><span class="w"> </span><span class="n">ExpenseMapper</span><span class="w"> </span><span class="n">mapper</span><span class="p">;</span><span class="w"> </span><span class="c1">// MapStruct</span>
+
+<span class="w">    </span><span class="nd">@Override</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">Expense</span><span class="w"> </span><span class="nf">save</span><span class="p">(</span><span class="n">Expense</span><span class="w"> </span><span class="n">domainExpense</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">ExpenseEntity</span><span class="w"> </span><span class="n">entity</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">mapper</span><span class="p">.</span><span class="na">toEntity</span><span class="p">(</span><span class="n">domainExpense</span><span class="p">);</span>
+<span class="w">        </span><span class="n">ExpenseEntity</span><span class="w"> </span><span class="n">saved</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">jpaRepo</span><span class="p">.</span><span class="na">save</span><span class="p">(</span><span class="n">entity</span><span class="p">);</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="n">mapper</span><span class="p">.</span><span class="na">toDomain</span><span class="p">(</span><span class="n">saved</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<hr/>
+<h2 id="4-testing-piramide-de-pruebas"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.4</span> 4. Testing (Pirámide de Pruebas)</h2>
+<h3 id="41-test-unitario-dominio"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.4.1</span> 4.1 Test Unitario (Dominio)</h3>
+<p>Rápido, sin Spring, prueba lógica pura.</p>
+<div class="highlight"><pre><span></span><code><span class="kd">class</span> <span class="nc">ExpenseTest</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nd">@Test</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">should_throw_error_when_splits_dont_sum_up</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">Money</span><span class="w"> </span><span class="n">total</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Money</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="mi">100</span><span class="p">);</span>
+<span class="w">        </span><span class="n">Split</span><span class="w"> </span><span class="n">s1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Split</span><span class="p">(</span><span class="n">userA</span><span class="p">,</span><span class="w"> </span><span class="n">Money</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="mi">50</span><span class="p">));</span>
+<span class="w">        </span><span class="n">Split</span><span class="w"> </span><span class="n">s2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Split</span><span class="p">(</span><span class="n">userB</span><span class="p">,</span><span class="w"> </span><span class="n">Money</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="mf">49.99</span><span class="p">));</span><span class="w"> </span><span class="c1">// Faltan 0.01</span>
+
+<span class="w">        </span><span class="n">assertThrows</span><span class="p">(</span><span class="n">DomainException</span><span class="p">.</span><span class="na">class</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span>
+<span class="w">            </span><span class="n">Expense</span><span class="p">.</span><span class="na">createShared</span><span class="p">(</span><span class="n">total</span><span class="p">,</span><span class="w"> </span><span class="n">List</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="n">s1</span><span class="p">,</span><span class="w"> </span><span class="n">s2</span><span class="p">))</span>
+<span class="w">        </span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<h3 id="42-test-de-integracion-testcontainers"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.4.2</span> 4.2 Test de Integración (Testcontainers)</h3>
+<p>Prueba el adapter real contra una BD Postgres real efímera.</p>
+<div class="highlight"><pre><span></span><code><span class="nd">@SpringBootTest</span>
+<span class="nd">@Testcontainers</span>
+<span class="kd">class</span> <span class="nc">JpaExpenseAdapterIT</span><span class="w"> </span><span class="p">{</span>
+
+<span class="w">    </span><span class="nd">@Container</span>
+<span class="w">    </span><span class="kd">static</span><span class="w"> </span><span class="n">PostgreSQLContainer</span><span class="o">&lt;?&gt;</span><span class="w"> </span><span class="n">postgres</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">PostgreSQLContainer</span><span class="o">&lt;&gt;</span><span class="p">(</span><span class="s">"postgres:16"</span><span class="p">);</span>
+
+<span class="w">    </span><span class="nd">@Autowired</span><span class="w"> </span><span class="n">JpaExpenseAdapter</span><span class="w"> </span><span class="n">adapter</span><span class="p">;</span>
+
+<span class="w">    </span><span class="nd">@DynamicPropertySource</span>
+<span class="w">    </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">setProps</span><span class="p">(</span><span class="n">DynamicPropertyRegistry</span><span class="w"> </span><span class="n">registry</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">registry</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="s">"spring.datasource.url"</span><span class="p">,</span><span class="w"> </span><span class="n">postgres</span><span class="p">::</span><span class="n">getJdbcUrl</span><span class="p">);</span>
+<span class="w">        </span><span class="n">registry</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="s">"spring.datasource.username"</span><span class="p">,</span><span class="w"> </span><span class="n">postgres</span><span class="p">::</span><span class="n">getUsername</span><span class="p">);</span>
+<span class="w">        </span><span class="n">registry</span><span class="p">.</span><span class="na">add</span><span class="p">(</span><span class="s">"spring.datasource.password"</span><span class="p">,</span><span class="w"> </span><span class="n">postgres</span><span class="p">::</span><span class="n">getPassword</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nd">@Test</span>
+<span class="w">    </span><span class="kt">void</span><span class="w"> </span><span class="nf">should_persist_and_retrieve_expense</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">Expense</span><span class="w"> </span><span class="n">expense</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ExpenseMother</span><span class="p">.</span><span class="na">random</span><span class="p">();</span><span class="w"> </span><span class="c1">// Object Mother pattern</span>
+<span class="w">        </span><span class="n">adapter</span><span class="p">.</span><span class="na">save</span><span class="p">(</span><span class="n">expense</span><span class="p">);</span>
+
+<span class="w">        </span><span class="n">Optional</span><span class="o">&lt;</span><span class="n">Expense</span><span class="o">&gt;</span><span class="w"> </span><span class="n">found</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">adapter</span><span class="p">.</span><span class="na">findById</span><span class="p">(</span><span class="n">expense</span><span class="p">.</span><span class="na">getId</span><span class="p">());</span>
+<span class="w">        </span><span class="n">assertThat</span><span class="p">(</span><span class="n">found</span><span class="p">).</span><span class="na">isPresent</span><span class="p">();</span>
+<span class="w">        </span><span class="n">assertThat</span><span class="p">(</span><span class="n">found</span><span class="p">.</span><span class="na">get</span><span class="p">().</span><span class="na">getAmount</span><span class="p">()).</span><span class="na">isEqualTo</span><span class="p">(</span><span class="n">expense</span><span class="p">.</span><span class="na">getAmount</span><span class="p">());</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<hr/>
+<h2 id="5-frontend-angular-moderno"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.5</span> 5. Frontend Angular (Moderno)</h2>
+<h3 id="51-service-con-signals"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.5.1</span> 5.1 Service con Signals</h3>
+<p>Gestión de estado reactiva y granular.</p>
+<div class="highlight"><pre><span></span><code><span class="kd">@Injectable</span><span class="p">({</span><span class="w"> </span><span class="nx">providedIn</span><span class="o">:</span><span class="w"> </span><span class="s1">'root'</span><span class="w"> </span><span class="p">})</span>
+<span class="k">export</span><span class="w"> </span><span class="kd">class</span><span class="w"> </span><span class="nx">ExpenseService</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="k">private</span><span class="w"> </span><span class="nx">http</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">inject</span><span class="p">(</span><span class="nx">HttpClient</span><span class="p">);</span>
+
+<span class="w">  </span><span class="c1">// State: Signal writable</span>
+<span class="w">  </span><span class="k">private</span><span class="w"> </span><span class="nx">expensesSignal</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">signal</span><span class="o">&lt;</span><span class="nx">Expense</span><span class="p">[]</span><span class="o">&gt;</span><span class="p">([]);</span>
+
+<span class="w">  </span><span class="c1">// Selector: Signal computed (Derivado)</span>
+<span class="w">  </span><span class="k">public</span><span class="w"> </span><span class="nx">expenses</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">expensesSignal</span><span class="p">.</span><span class="nx">asReadonly</span><span class="p">();</span>
+<span class="w">  </span><span class="k">public</span><span class="w"> </span><span class="nx">totalAmount</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">computed</span><span class="p">(()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span>
+<span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="nx">expenses</span><span class="p">().</span><span class="nx">reduce</span><span class="p">((</span><span class="nx">acc</span><span class="p">,</span><span class="w"> </span><span class="nx">curr</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="nx">acc</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">curr</span><span class="p">.</span><span class="nx">amount</span><span class="p">,</span><span class="w"> </span><span class="mf">0</span><span class="p">)</span>
+<span class="w">  </span><span class="p">);</span>
+
+<span class="w">  </span><span class="nx">loadByGroup</span><span class="p">(</span><span class="nx">groupId</span><span class="o">:</span><span class="w"> </span><span class="kt">string</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="nx">http</span><span class="p">.</span><span class="nx">get</span><span class="o">&lt;</span><span class="nx">Expense</span><span class="p">[]</span><span class="o">&gt;</span><span class="p">(</span><span class="sb">`/api/groups/</span><span class="si">${</span><span class="nx">groupId</span><span class="si">}</span><span class="sb">/expenses`</span><span class="p">)</span>
+<span class="w">      </span><span class="p">.</span><span class="nx">subscribe</span><span class="p">(</span><span class="nx">data</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">expensesSignal</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="nx">data</span><span class="p">));</span>
+<span class="w">  </span><span class="p">}</span>
+
+<span class="w">  </span><span class="nx">processReceipt</span><span class="p">(</span><span class="nx">file</span><span class="o">:</span><span class="w"> </span><span class="kt">File</span><span class="p">)</span><span class="o">:</span><span class="w"> </span><span class="nx">Observable</span><span class="o">&lt;</span><span class="nx">ReceiptData</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">const</span><span class="w"> </span><span class="nx">formData</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">FormData</span><span class="p">();</span>
+<span class="w">    </span><span class="nx">formData</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="s1">'file'</span><span class="p">,</span><span class="w"> </span><span class="nx">file</span><span class="p">);</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="nx">http</span><span class="p">.</span><span class="nx">post</span><span class="o">&lt;</span><span class="nx">ReceiptData</span><span class="o">&gt;</span><span class="p">(</span><span class="s1">'/api/processor/upload'</span><span class="p">,</span><span class="w"> </span><span class="nx">formData</span><span class="p">);</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+<hr/>
+<h2 id="6-configuracion-e-infra"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.6</span> 6. Configuración e Infra</h2>
+<h3 id="61-kafka-configuration-reliability"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.6.1</span> 6.1 Kafka Configuration (Reliability)</h3>
+<div class="highlight"><pre><span></span><code><span class="nt">spring</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">kafka</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">consumer</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">group-id</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">expenses-processor</span>
+<span class="w">      </span><span class="nt">auto-offset-reset</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">earliest</span>
+<span class="w">      </span><span class="nt">enable-auto-commit</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span><span class="w"> </span><span class="c1"># Importante para 'At-least-once' processing</span>
+<span class="w">      </span><span class="nt">properties</span><span class="p">:</span>
+<span class="w">        </span><span class="nt">isolation.level</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">read_committed</span><span class="w"> </span><span class="c1"># Solo leer transacciones confirmadas</span>
+<span class="w">    </span><span class="nt">listener</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">ack-mode</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">MANUAL_IMMEDIATE</span>
+</code></pre></div>
+<aside class="md-source-file">
+<span class="md-source-file__fact">
+<span class="md-icon" title="Last update">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"></path></svg>
+</span>
+<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="22 de enero de 2026 23:13:04 UTC">22 de enero de 2026</span>
+</span>
+</aside>
+</article>
+</div>
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+</div>
+<button class="md-top md-icon" data-md-component="top" hidden="" type="button">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"></path></svg>
+  Back to top
+</button>
+</main>
+<footer class="md-footer">
+<nav aria-label="Footer" class="md-footer__inner md-grid">
+<a aria-label="Previous: Gestión de Gastos Compartidos" class="md-footer__link md-footer__link--prev" href="../gestion-gastos-compartidos/">
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+</div>
+<div class="md-footer__title">
+<span class="md-footer__direction">
+                Previous
+              </span>
+<div class="md-ellipsis">
+                Gestión de Gastos Compartidos
+              </div>
+</div>
+</a>
+<a aria-label="Next: Bug Report Example" class="md-footer__link md-footer__link--next" href="../../reportes/examples/bug-report-example/">
+<div class="md-footer__title">
+<span class="md-footer__direction">
+                Next
+              </span>
+<div class="md-ellipsis">
+                Bug Report Example
+              </div>
+</div>
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"></path></svg>
+</div>
+</a>
+</nav>
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
+      Material for MkDocs
+    </a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["content.code.copy", "navigation.footer", "navigation.top", "search.highlight", "navigation.indexes"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+<script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+<script src="../../assets/mkdocs_puml/puml.js"></script>
+<script src="https://unpkg.com/@panzoom/panzoom@4.5.1/dist/panzoom.min.js"></script>
+<script src="../../assets/mkdocs_puml/interaction.js"></script>
+</body>
+</html>

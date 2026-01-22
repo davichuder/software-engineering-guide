@@ -1,0 +1,2911 @@
+
+<!DOCTYPE html>
+
+<html class="no-js" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="../colaboracion-cultura/" rel="prev"/>
+<link href="../convenciones/" rel="next"/>
+<link href="../../assets/images/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.6.1, mkdocs-material-9.7.1" name="generator"/>
+<title>Documentación y Diagramas - Guía Integral de Ingeniería de Software</title>
+<link href="../../assets/stylesheets/main.484c7ddc.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/palette.ab4e12ef.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
+<style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+<link href="../../assets/mkdocs_puml/puml.css" rel="stylesheet"/>
+<link href="../../assets/mkdocs_puml/interaction.css" rel="stylesheet"/>
+<script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+</head>
+<body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#documentacion-y-diagramas">1. 
+          Skip to content
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+<header class="md-header md-header--shadow" data-md-component="header">
+<nav aria-label="Header" class="md-header__inner md-grid">
+<a aria-label="Guía Integral de Ingeniería de Software" class="md-header__button md-logo" data-md-component="logo" href="../.." title="Guía Integral de Ingeniería de Software">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            Guía Integral de Ingeniería de Software
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+            
+              Documentación y Diagramas
+            
+          </span>
+</div>
+</div>
+</div>
+<form class="md-header__option" data-md-component="palette">
+<input aria-label="Switch to light mode" class="md-option" data-md-color-accent="indigo" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-primary="indigo" data-md-color-scheme="default" id="__palette_0" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_1" hidden="" title="Switch to light mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
+</label>
+<input aria-label="Switch to dark mode" class="md-option" data-md-color-accent="indigo" data-md-color-media="(prefers-color-scheme: light)" data-md-color-primary="indigo" data-md-color-scheme="slate" id="__palette_1" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_0" hidden="" title="Switch to dark mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
+</label>
+</form>
+<script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+<label class="md-header__button md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+</label>
+<div class="md-search" data-md-component="search" role="dialog">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="Search" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="Search" required="" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+</label>
+<nav aria-label="Search" class="md-search__options">
+<button aria-label="Clear" class="md-search__icon md-icon" tabindex="-1" title="Clear" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+</button>
+</nav>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="" tabindex="0">
+<div class="md-search-result" data-md-component="search-result">
+<div class="md-search-result__meta">
+            Initializing search
+          </div>
+<ol class="md-search-result__list" role="presentation"></ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Navigation" class="md-nav md-nav--primary" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="Guía Integral de Ingeniería de Software" class="md-nav__button md-logo" data-md-component="logo" href="../.." title="Guía Integral de Ingeniería de Software">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+</a>
+    Guía Integral de Ingeniería de Software
+  </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../indice/">
+<span class="md-ellipsis">
+    
+  
+    Índice
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../fundamentos/">
+<span class="md-ellipsis">
+    
+  
+    Fundamentos
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../onboarding/">
+<span class="md-ellipsis">
+    
+  
+    Onboarding
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../disciplinas-desarrollo/">
+<span class="md-ellipsis">
+    
+  
+    Disciplinas de Desarrollo
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../testing/">
+<span class="md-ellipsis">
+    
+  
+    Testing
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../gestion-calidad/">
+<span class="md-ellipsis">
+    
+  
+    Gestión de Calidad
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../arquitectura-patrones/">
+<span class="md-ellipsis">
+    
+  
+    Arquitectura y Patrones
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../sesgos-falacias/">
+<span class="md-ellipsis">
+    
+  
+    Sesgos y Falacias
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../devops/">
+<span class="md-ellipsis">
+    
+  
+    DevOps
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../seguridad/">
+<span class="md-ellipsis">
+    
+  
+    Seguridad
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../observabilidad/">
+<span class="md-ellipsis">
+    
+  
+    Observabilidad
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../herramientas-problemas/">
+<span class="md-ellipsis">
+    
+  
+    Herramientas y Problemas
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../mejora-continua/">
+<span class="md-ellipsis">
+    
+  
+    Mejora Continua
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../performance/">
+<span class="md-ellipsis">
+    
+  
+    Performance
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../checklist-produccion/">
+<span class="md-ellipsis">
+    
+  
+    Checklist Producción
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../bases-datos/">
+<span class="md-ellipsis">
+    
+  
+    Bases de Datos
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../apis-protocolos/">
+<span class="md-ellipsis">
+    
+  
+    APIs y Protocolos
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../mobile-ui-ux/">
+<span class="md-ellipsis">
+    
+  
+    Mobile / UI / UX
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../infraestructura-cloud/">
+<span class="md-ellipsis">
+    
+  
+    Infraestructura Cloud
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../cost-optimization/">
+<span class="md-ellipsis">
+    
+  
+    Cost Optimization
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../machine-learning/">
+<span class="md-ellipsis">
+    
+  
+    Machine Learning
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../ciencia-datos/">
+<span class="md-ellipsis">
+    
+  
+    Ciencia de Datos
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../data-governance/">
+<span class="md-ellipsis">
+    
+  
+    Data Governance
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../analisis-estrategico/">
+<span class="md-ellipsis">
+    
+  
+    Análisis Estratégico
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../product-management/">
+<span class="md-ellipsis">
+    
+  
+    Product Management
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../metricas-kpis/">
+<span class="md-ellipsis">
+    
+  
+    Métricas y KPIs
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../roles-responsabilidades/">
+<span class="md-ellipsis">
+    
+  
+    Roles y Responsabilidades
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../colaboracion-cultura/">
+<span class="md-ellipsis">
+    
+  
+    Colaboración y Cultura
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+<span class="md-ellipsis">
+    
+  
+    Documentación y Diagramas
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
+<span class="md-ellipsis">
+    
+  
+    Documentación y Diagramas
+  
+
+    
+  </span>
+</a>
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#documentacion-de-software">1.1 
+<span class="md-ellipsis">
+      
+        📝 Documentación de Software
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#lenguajes-de-documentacion">1.2 
+<span class="md-ellipsis">
+      
+        📖 Lenguajes de Documentación
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#herramientas-de-diagramas">1.3 
+<span class="md-ellipsis">
+      
+        🎨 Herramientas de Diagramas
+      
+    </span>
+</a>
+<nav aria-label="🎨 Herramientas de Diagramas" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#diagramas-como-codigo">1.3.1 
+<span class="md-ellipsis">
+      
+        Diagramas como Código
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#herramientas-visuales">1.3.2 
+<span class="md-ellipsis">
+      
+        Herramientas Visuales
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#tipos-de-diagramas">1.4 
+<span class="md-ellipsis">
+      
+        📊 Tipos de Diagramas
+      
+    </span>
+</a>
+<nav aria-label="📊 Tipos de Diagramas" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#diagrama-de-flujo-flowchart">1.4.1 
+<span class="md-ellipsis">
+      
+        Diagrama de Flujo (Flowchart)
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#c4-model-context-containers-components-code">1.4.2 
+<span class="md-ellipsis">
+      
+        C4 Model (Context, Containers, Components, Code)
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#diagrama-entidad-relacion-er">1.4.3 
+<span class="md-ellipsis">
+      
+        Diagrama Entidad-Relación (ER)
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#diagrama-de-clases-uml">1.4.4 
+<span class="md-ellipsis">
+      
+        Diagrama de Clases (UML)
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#diagrama-de-secuencia">1.4.5 
+<span class="md-ellipsis">
+      
+        Diagrama de Secuencia
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#diagrama-de-componentes">1.4.6 
+<span class="md-ellipsis">
+      
+        Diagrama de Componentes
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#diagrama-de-estados-state-machine">1.4.7 
+<span class="md-ellipsis">
+      
+        Diagrama de Estados (State Machine)
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#diagrama-de-arquitectura-system-design">1.4.8 
+<span class="md-ellipsis">
+      
+        Diagrama de Arquitectura (System Design)
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#diagrama-de-despliegue">1.4.9 
+<span class="md-ellipsis">
+      
+        Diagrama de Despliegue
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#tipos-de-documentacion">1.5 
+<span class="md-ellipsis">
+      
+        📚 Tipos de Documentación
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#best-practices-documentacion">1.6 
+<span class="md-ellipsis">
+      
+        ✍️ Best Practices Documentación
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#anti-patrones">1.7 
+<span class="md-ellipsis">
+      
+        🚫 Anti-patrones
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#recursos">1.8 
+<span class="md-ellipsis">
+      
+        📚 Recursos
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../convenciones/">
+<span class="md-ellipsis">
+    
+  
+    Convenciones
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../estrategia-ia-automatizacion/">
+<span class="md-ellipsis">
+    
+  
+    Estrategia IA y Automatización
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../etica-gobernanza-ia/">
+<span class="md-ellipsis">
+    
+  
+    Ética y Gobernanza IA
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../comunicacion-contenido/">
+<span class="md-ellipsis">
+    
+  
+    Comunicación y Contenido
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../plantillas-artefactos/">
+<span class="md-ellipsis">
+    
+  
+    Plantillas y Artefactos
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../dependencias-deuda-tecnica/">
+<span class="md-ellipsis">
+    
+  
+    Dependencias y Deuda Técnica
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../priorizacion-roadmapping/">
+<span class="md-ellipsis">
+    
+  
+    Priorización y Roadmapping
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../gestion-secretos/">
+<span class="md-ellipsis">
+    
+  
+    Gestión de Secretos
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../chaos-engineering/">
+<span class="md-ellipsis">
+    
+  
+    Chaos Engineering
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../data-literacy/">
+<span class="md-ellipsis">
+    
+  
+    Data Literacy
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../lowcode-nocode/">
+<span class="md-ellipsis">
+    
+  
+    LowCode / NoCode
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../casos-de-estudio/">
+<span class="md-ellipsis">
+    
+  
+    Casos de Estudio
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_42" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../agentes/">
+<span class="md-ellipsis">
+    
+  
+    Agentes
+  
+
+    
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_42" id="__nav_42_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_42_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_42">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Agentes
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/the-gentleman/">
+<span class="md-ellipsis">
+    
+  
+    The Gentleman
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_42_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_42_2" id="__nav_42_2_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Architecture &amp; DevOps
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_42_2_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_42_2">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Architecture &amp; DevOps
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/architecture-devops/api-design-expert/">
+<span class="md-ellipsis">
+    
+  
+    API Design Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/architecture-devops/cicd-expert/">
+<span class="md-ellipsis">
+    
+  
+    CICD Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/architecture-devops/event-driven-expert/">
+<span class="md-ellipsis">
+    
+  
+    Event Driven Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/architecture-devops/iac-expert/">
+<span class="md-ellipsis">
+    
+  
+    IaC Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/architecture-devops/kubernetes-expert/">
+<span class="md-ellipsis">
+    
+  
+    Kubernetes Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/architecture-devops/microservices-expert/">
+<span class="md-ellipsis">
+    
+  
+    Microservices Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/architecture-devops/observability-expert/">
+<span class="md-ellipsis">
+    
+  
+    Observability Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/architecture-devops/security-expert/">
+<span class="md-ellipsis">
+    
+  
+    Security Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/architecture-devops/software-architecture-expert/">
+<span class="md-ellipsis">
+    
+  
+    Software Architecture Expert
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_42_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_42_3" id="__nav_42_3_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Backend
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_42_3_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_42_3">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Backend
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/backend/django-expert/">
+<span class="md-ellipsis">
+    
+  
+    Django Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/backend/express-expert/">
+<span class="md-ellipsis">
+    
+  
+    Express Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/backend/fastapi-expert/">
+<span class="md-ellipsis">
+    
+  
+    FastAPI Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/backend/java-expert/">
+<span class="md-ellipsis">
+    
+  
+    Java Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/backend/nestjs-expert/">
+<span class="md-ellipsis">
+    
+  
+    NestJS Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/backend/nodejs-expert/">
+<span class="md-ellipsis">
+    
+  
+    NodeJS Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/backend/python-expert/">
+<span class="md-ellipsis">
+    
+  
+    Python Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/backend/spring-expert/">
+<span class="md-ellipsis">
+    
+  
+    Spring Expert
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_42_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_42_4" id="__nav_42_4_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Business Roles
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_42_4_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_42_4">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Business Roles
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/business-roles/devrel-developer-advocate/">
+<span class="md-ellipsis">
+    
+  
+    DevRel / Developer Advocate
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/business-roles/pm-po-advisor/">
+<span class="md-ellipsis">
+    
+  
+    PM / PO Advisor
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/business-roles/scrum-master-agile-coach/">
+<span class="md-ellipsis">
+    
+  
+    Scrum Master / Agile Coach
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/business-roles/sre-advisor/">
+<span class="md-ellipsis">
+    
+  
+    SRE Advisor
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/business-roles/tech-lead-em-advisor/">
+<span class="md-ellipsis">
+    
+  
+    Tech Lead / EM Advisor
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/business-roles/ux-research-expert/">
+<span class="md-ellipsis">
+    
+  
+    UX Research Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/business-roles/ux-ui-designer/">
+<span class="md-ellipsis">
+    
+  
+    UX/UI Designer
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_42_5" type="checkbox"/>
+<label class="md-nav__link" for="__nav_42_5" id="__nav_42_5_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Compliance
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_42_5_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_42_5">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Compliance
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/compliance/accessibility-expert/">
+<span class="md-ellipsis">
+    
+  
+    Accessibility Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/compliance/compliance-governance-expert/">
+<span class="md-ellipsis">
+    
+  
+    Compliance &amp; Governance Expert
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_42_6" type="checkbox"/>
+<label class="md-nav__link" for="__nav_42_6" id="__nav_42_6_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Data / ML / Finance
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_42_6_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_42_6">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Data / ML / Finance
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/data-ml-finance/computer-vision-expert/">
+<span class="md-ellipsis">
+    
+  
+    Computer Vision Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/data-ml-finance/data-science-expert/">
+<span class="md-ellipsis">
+    
+  
+    Data Science Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/data-ml-finance/data-visualization-expert/">
+<span class="md-ellipsis">
+    
+  
+    Data Visualization Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/data-ml-finance/ml-dl-expert/">
+<span class="md-ellipsis">
+    
+  
+    ML/DL Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/data-ml-finance/nlp-expert/">
+<span class="md-ellipsis">
+    
+  
+    NLP Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/data-ml-finance/quant-finance-expert/">
+<span class="md-ellipsis">
+    
+  
+    Quant Finance Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/data-ml-finance/rl-expert/">
+<span class="md-ellipsis">
+    
+  
+    RL Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/data-ml-finance/trading-systems-expert/">
+<span class="md-ellipsis">
+    
+  
+    Trading Systems Expert
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_42_7" type="checkbox"/>
+<label class="md-nav__link" for="__nav_42_7" id="__nav_42_7_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Databases
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_42_7_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_42_7">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Databases
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/databases/mongodb-expert/">
+<span class="md-ellipsis">
+    
+  
+    MongoDB Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/databases/mssql-expert/">
+<span class="md-ellipsis">
+    
+  
+    MSSQL Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/databases/postgresql-expert/">
+<span class="md-ellipsis">
+    
+  
+    PostgreSQL Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/databases/redis-expert/">
+<span class="md-ellipsis">
+    
+  
+    Redis Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/databases/sqlite-expert/">
+<span class="md-ellipsis">
+    
+  
+    SQLite Expert
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_42_8" type="checkbox"/>
+<label class="md-nav__link" for="__nav_42_8" id="__nav_42_8_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Debugging
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_42_8_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_42_8">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Debugging
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/debugging/code-review-expert/">
+<span class="md-ellipsis">
+    
+  
+    Code Review Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/debugging/debugging-root-cause-expert/">
+<span class="md-ellipsis">
+    
+  
+    Debugging Root Cause Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/debugging/migration-specialist/">
+<span class="md-ellipsis">
+    
+  
+    Migration Specialist
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_42_9" type="checkbox"/>
+<label class="md-nav__link" for="__nav_42_9" id="__nav_42_9_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Documentation
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_42_9_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_42_9">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Documentation
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/documentation/api-documentation-expert/">
+<span class="md-ellipsis">
+    
+  
+    API Documentation Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/documentation/content-creator-expert/">
+<span class="md-ellipsis">
+    
+  
+    Content Creator Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/documentation/diagram-expert/">
+<span class="md-ellipsis">
+    
+  
+    Diagram Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/documentation/technical-writer-expert/">
+<span class="md-ellipsis">
+    
+  
+    Technical Writer Expert
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_42_10" type="checkbox"/>
+<label class="md-nav__link" for="__nav_42_10" id="__nav_42_10_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Frontend
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_42_10_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_42_10">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Frontend
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/frontend/angular-expert/">
+<span class="md-ellipsis">
+    
+  
+    Angular Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/frontend/css-styling-expert/">
+<span class="md-ellipsis">
+    
+  
+    CSS Styling Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/frontend/nextjs-expert/">
+<span class="md-ellipsis">
+    
+  
+    NextJS Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/frontend/react-expert/">
+<span class="md-ellipsis">
+    
+  
+    React Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/frontend/typescript-expert/">
+<span class="md-ellipsis">
+    
+  
+    TypeScript Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/frontend/vue-expert/">
+<span class="md-ellipsis">
+    
+  
+    Vue Expert
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_42_11" type="checkbox"/>
+<label class="md-nav__link" for="__nav_42_11" id="__nav_42_11_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Testing
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_42_11_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_42_11">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Testing
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/testing/bdd-expert/">
+<span class="md-ellipsis">
+    
+  
+    BDD Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/testing/e2e-testing-expert/">
+<span class="md-ellipsis">
+    
+  
+    E2E Testing Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/testing/performance-testing-expert/">
+<span class="md-ellipsis">
+    
+  
+    Performance Testing Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/testing/qa-automation-expert/">
+<span class="md-ellipsis">
+    
+  
+    QA Automation Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/testing/tdd-expert/">
+<span class="md-ellipsis">
+    
+  
+    TDD Expert
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_43" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../casos-de-estudio/">
+<span class="md-ellipsis">
+    
+  
+    Casos de Estudio
+  
+
+    
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_43" id="__nav_43_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_43_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_43">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Casos de Estudio
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../casos-de-estudio/portafolio-personal-ts-angular/">
+<span class="md-ellipsis">
+    
+  
+    Portafolio Personal TS Angular
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../casos-de-estudio/diario-emociones-mood-tracker/">
+<span class="md-ellipsis">
+    
+  
+    Diario de Emociones
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../casos-de-estudio/geofencing-alarm-mobile/">
+<span class="md-ellipsis">
+    
+  
+    Geofencing Alarm Mobile
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../casos-de-estudio/voice-volume-tracker-windows/">
+<span class="md-ellipsis">
+    
+  
+    Voice Volume Tracker Windows
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../casos-de-estudio/voice-volume-tracker-parte2/">
+<span class="md-ellipsis">
+    
+  
+    Voice Volume Tracker Parte 2
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../casos-de-estudio/voice-volume-tracker-parte3/">
+<span class="md-ellipsis">
+    
+  
+    Voice Volume Tracker Parte 3
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../casos-de-estudio/gestion-gastos-compartidos/">
+<span class="md-ellipsis">
+    
+  
+    Gestión de Gastos Compartidos
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../casos-de-estudio/gestion-gastos-compartidos-implementacion/">
+<span class="md-ellipsis">
+    
+  
+    Gestión de Gastos Compartidos (Implementación)
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_44" type="checkbox"/>
+<label class="md-nav__link" for="__nav_44" id="__nav_44_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Reportes
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_44_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_44">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Reportes
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_44_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_44_1" id="__nav_44_1_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Ejemplos
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_44_1_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_44_1">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Ejemplos
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../reportes/examples/bug-report-example/">
+<span class="md-ellipsis">
+    
+  
+    Bug Report Example
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../reportes/examples/feature-request-example/">
+<span class="md-ellipsis">
+    
+  
+    Feature Request Example
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../reportes/examples/new-feature-example/">
+<span class="md-ellipsis">
+    
+  
+    New Feature Example
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../reportes/examples/post-mortem-example/">
+<span class="md-ellipsis">
+    
+  
+    Post Mortem Example
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../reportes/examples/rfc-example/">
+<span class="md-ellipsis">
+    
+  
+    RFC Example
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_44_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_44_2" id="__nav_44_2_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Plantillas
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_44_2_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_44_2">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Plantillas
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../reportes/templates/bug-report-template/">
+<span class="md-ellipsis">
+    
+  
+    Bug Report Template
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../reportes/templates/feature-request-template/">
+<span class="md-ellipsis">
+    
+  
+    Feature Request Template
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../reportes/templates/new-feature-template/">
+<span class="md-ellipsis">
+    
+  
+    New Feature Template
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../reportes/templates/post-mortem-template/">
+<span class="md-ellipsis">
+    
+  
+    Post Mortem Template
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../reportes/templates/rfc-template/">
+<span class="md-ellipsis">
+    
+  
+    RFC Template
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../recursos-entrevistas/">
+<span class="md-ellipsis">
+    
+  
+    Recursos y Entrevistas
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agradecimientos/">
+<span class="md-ellipsis">
+    
+  
+    Agradecimientos
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../glosario/">
+<span class="md-ellipsis">
+    
+  
+    Glosario
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#documentacion-de-software">1.1 
+<span class="md-ellipsis">
+      
+        📝 Documentación de Software
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#lenguajes-de-documentacion">1.2 
+<span class="md-ellipsis">
+      
+        📖 Lenguajes de Documentación
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#herramientas-de-diagramas">1.3 
+<span class="md-ellipsis">
+      
+        🎨 Herramientas de Diagramas
+      
+    </span>
+</a>
+<nav aria-label="🎨 Herramientas de Diagramas" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#diagramas-como-codigo">1.3.1 
+<span class="md-ellipsis">
+      
+        Diagramas como Código
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#herramientas-visuales">1.3.2 
+<span class="md-ellipsis">
+      
+        Herramientas Visuales
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#tipos-de-diagramas">1.4 
+<span class="md-ellipsis">
+      
+        📊 Tipos de Diagramas
+      
+    </span>
+</a>
+<nav aria-label="📊 Tipos de Diagramas" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#diagrama-de-flujo-flowchart">1.4.1 
+<span class="md-ellipsis">
+      
+        Diagrama de Flujo (Flowchart)
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#c4-model-context-containers-components-code">1.4.2 
+<span class="md-ellipsis">
+      
+        C4 Model (Context, Containers, Components, Code)
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#diagrama-entidad-relacion-er">1.4.3 
+<span class="md-ellipsis">
+      
+        Diagrama Entidad-Relación (ER)
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#diagrama-de-clases-uml">1.4.4 
+<span class="md-ellipsis">
+      
+        Diagrama de Clases (UML)
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#diagrama-de-secuencia">1.4.5 
+<span class="md-ellipsis">
+      
+        Diagrama de Secuencia
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#diagrama-de-componentes">1.4.6 
+<span class="md-ellipsis">
+      
+        Diagrama de Componentes
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#diagrama-de-estados-state-machine">1.4.7 
+<span class="md-ellipsis">
+      
+        Diagrama de Estados (State Machine)
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#diagrama-de-arquitectura-system-design">1.4.8 
+<span class="md-ellipsis">
+      
+        Diagrama de Arquitectura (System Design)
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#diagrama-de-despliegue">1.4.9 
+<span class="md-ellipsis">
+      
+        Diagrama de Despliegue
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#tipos-de-documentacion">1.5 
+<span class="md-ellipsis">
+      
+        📚 Tipos de Documentación
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#best-practices-documentacion">1.6 
+<span class="md-ellipsis">
+      
+        ✍️ Best Practices Documentación
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#anti-patrones">1.7 
+<span class="md-ellipsis">
+      
+        🚫 Anti-patrones
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#recursos">1.8 
+<span class="md-ellipsis">
+      
+        📚 Recursos
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<h1 id="documentacion-y-diagramas"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.</span> Documentación y Diagramas</h1>
+<blockquote>
+<p>Lenguajes, herramientas y tipos de diagramas para documentar sistemas de software efectivamente.</p>
+</blockquote>
+<hr/>
+<h2 id="documentacion-de-software"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.1</span> 📝 Documentación de Software</h2>
+<p><strong>Qué:</strong> Información escrita o visual que explica cómo funciona, se usa o se mantiene un sistema.</p>
+<p><strong>Por qué:</strong> Código se lee 10x más de lo que se escribe. Buena doc = onboarding rápido, menos bugs, mejor mantenimiento.</p>
+<p><strong>Quién:</strong> Developers, technical writers, architects.</p>
+<p><strong>Cuándo:</strong> Continuo, como parte del desarrollo (no después).</p>
+<p><strong>Esfuerzo:</strong> 15% del tiempo de desarrollo, paga dividendos en mantenimiento.</p>
+<hr/>
+<h2 id="lenguajes-de-documentacion"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.2</span> 📖 Lenguajes de Documentación</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Lenguaje</th>
+<th style="text-align: left;">Qué</th>
+<th style="text-align: left;">Cuándo</th>
+<th style="text-align: left;">Ejemplo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><a href="https://www.markdownguide.org/">Markdown</a></td>
+<td style="text-align: left;">Formato texto plano ligero</td>
+<td style="text-align: left;">READMEs, wikis, docs generales</td>
+<td style="text-align: left;"><code># Título\n**negrita**</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="https://asciidoc.org/">AsciiDoc</a></td>
+<td style="text-align: left;">Markdown con esteroides</td>
+<td style="text-align: left;">Docs técnicas complejas, libros</td>
+<td style="text-align: left;">Soporte tablas, includes</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="https://docutils.sourceforge.io/rst.html">reStructuredText</a></td>
+<td style="text-align: left;">Formato Python docs</td>
+<td style="text-align: left;">Sphinx, docs Python</td>
+<td style="text-align: left;"><code>.. code-block:: python</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="https://www.latex-project.org/">LaTeX</a></td>
+<td style="text-align: left;">Typesetting matemático/científico</td>
+<td style="text-align: left;">Papers, tesis, documentación científica</td>
+<td style="text-align: left;">Ecuaciones, referencias</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="https://mdxjs.com/">MDX</a></td>
+<td style="text-align: left;">Markdown + JSX components</td>
+<td style="text-align: left;">Docs interactivas</td>
+<td style="text-align: left;">Markdown con React components</td>
+</tr>
+</tbody>
+</table>
+<hr/>
+<h2 id="herramientas-de-diagramas"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.3</span> 🎨 Herramientas de Diagramas</h2>
+<h3 id="diagramas-como-codigo"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.3.1</span> Diagramas como Código</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Herramienta</th>
+<th style="text-align: left;">Qué</th>
+<th style="text-align: left;">Sintaxis</th>
+<th style="text-align: left;">Caso de Uso</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><a href="https://mermaid.js.org/">Mermaid</a></td>
+<td style="text-align: left;">Diagramas en Markdown</td>
+<td style="text-align: left;">Texto declarativo</td>
+<td style="text-align: left;">Flowcharts, secuencia, Gantt, ER</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="https://plantuml.com/">PlantUML</a></td>
+<td style="text-align: left;">UML y más</td>
+<td style="text-align: left;">Texto declarativo</td>
+<td style="text-align: left;">Clases, secuencia, componentes</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="https://d2lang.com/">D2</a></td>
+<td style="text-align: left;">Diagramas declarativos modernos</td>
+<td style="text-align: left;">Texto declarativo</td>
+<td style="text-align: left;">Arquitectura, diagramas técnicos</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="https://graphviz.org/">Graphviz</a></td>
+<td style="text-align: left;">Layout automático de grafos</td>
+<td style="text-align: left;">DOT language</td>
+<td style="text-align: left;">Dependencias, grafos</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Ventajas diagrams-as-code:</strong></p>
+<ul>
+<li>✅ Versionado en Git</li>
+<li>✅ Diffs legibles</li>
+<li>✅ CI/CD automation</li>
+<li>✅ No desincroniza con código</li>
+</ul>
+<h3 id="herramientas-visuales"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.3.2</span> Herramientas Visuales</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Herramienta</th>
+<th style="text-align: left;">Qué</th>
+<th style="text-align: left;">Cuándo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><a href="https://www.draw.io/">draw.io</a></td>
+<td style="text-align: left;">Diagramas drag-and-drop free</td>
+<td style="text-align: left;">Prototipado rápido</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="https://www.lucidchart.com/">Lucidchart</a></td>
+<td style="text-align: left;">Diagramas profesionales</td>
+<td style="text-align: left;">Colaboración, org charts</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="https://excalidraw.com/">Excalidraw</a></td>
+<td style="text-align: left;">Sketch-style diagramas</td>
+<td style="text-align: left;">Brainstorming, wireframes</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="https://miro.com/">Miro</a></td>
+<td style="text-align: left;">Whiteboard colaborativo</td>
+<td style="text-align: left;">Workshops, planning</td>
+</tr>
+<tr>
+<td style="text-align: left;"><a href="https://www.figma.com/figjam/">FigJam</a></td>
+<td style="text-align: left;">Whiteboard Figma</td>
+<td style="text-align: left;">Diseño + diagramas</td>
+</tr>
+</tbody>
+</table>
+<hr/>
+<h2 id="tipos-de-diagramas"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.4</span> 📊 Tipos de Diagramas</h2>
+<h3 id="diagrama-de-flujo-flowchart"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.4.1</span> Diagrama de Flujo (Flowchart)</h3>
+<p><strong>Qué:</strong> Representa proceso con pasos y decisiones.</p>
+<p><strong>Cuándo:</strong> Algoritmos, procesos de negocio, workflows.</p>
+<p><strong>Mermaid:</strong></p>
+<pre class="mermaid"><code>graph TD
+    A[Start] --&gt; B{Usuario autenticado?}
+    B --&gt;|Sí| C[Mostrar dashboard]
+    B --&gt;|No| D[Redirigir a login]
+    C --&gt; E[End]
+    D --&gt; E</code></pre>
+<p><strong>Símbolos:</strong></p>
+<ul>
+<li>Óvalo: Inicio/Fin</li>
+<li>Rectángulo: Proceso</li>
+<li>Rombo: Decisión</li>
+<li>Paralelogramo: Input/Output</li>
+</ul>
+<hr/>
+<h3 id="c4-model-context-containers-components-code"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.4.2</span> C4 Model (Context, Containers, Components, Code)</h3>
+<p><strong>Qué:</strong> Niveles de abstracción para arquitectura de software.</p>
+<p><strong>Por qué:</strong> Comunicar arquitectura a diferentes audiencias.</p>
+<p><strong>Niveles:</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Nivel</th>
+<th style="text-align: left;">Audiencia</th>
+<th style="text-align: left;">Detalle</th>
+<th style="text-align: left;">Ejemplo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>C1: Context</strong></td>
+<td style="text-align: left;">Todos (non-tech inclusive)</td>
+<td style="text-align: left;">Sistema y usuarios/sistemas externos</td>
+<td style="text-align: left;">"E-commerce interactúa con Payment Gateway"</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>C2: Containers</strong></td>
+<td style="text-align: left;">Tech leads, architects</td>
+<td style="text-align: left;">Apps, DBs, servicios</td>
+<td style="text-align: left;">"Web App (React) → API (FastAPI) → PostgreSQL"</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>C3: Components</strong></td>
+<td style="text-align: left;">Developers</td>
+<td style="text-align: left;">Módulos dentro de container</td>
+<td style="text-align: left;">"UserController, AuthService, UserRepository"</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>C4: Code</strong></td>
+<td style="text-align: left;">Developers</td>
+<td style="text-align: left;">Clases, métodos</td>
+<td style="text-align: left;">UML class diagram</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Ejemplo C2 (Mermaid):</strong></p>
+<pre class="mermaid"><code>C4Container
+    Person(user, "Usuario", "Cliente de e-commerce")
+    Container_Boundary(system, "Sistema E-commerce") {
+        Container(web, "Web App", "React", "SPA")
+        Container(api, "API", "FastAPI", "REST API")
+        Container(db, "Database", "PostgreSQL", "Datos")
+    }
+    System_Ext(payment, "Payment Gateway", "Stripe")
+
+    Rel(user, web, "Usa", "HTTPS")
+    Rel(web, api, "Llama", "JSON/HTTPS")
+    Rel(api, db, "Lee/Escribe", "SQL")
+    Rel(api, payment, "Procesa pagos", "HTTPS")</code></pre>
+<p><strong>Herramientas:</strong> <a href="https://structurizr.com/">Structurizr</a>, <a href="https://github.com/plantuml-stdlib/C4-PlantUML">C4-PlantUML</a></p>
+<hr/>
+<h3 id="diagrama-entidad-relacion-er"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.4.3</span> Diagrama Entidad-Relación (ER)</h3>
+<p><strong>Qué:</strong> Modela entidades, atributos y relaciones de base de datos.</p>
+<p><strong>Cuándo:</strong> Diseñar schema de BD, documentar modelo de datos.</p>
+<p><strong>Mermaid:</strong></p>
+<pre class="mermaid"><code>erDiagram
+    USER || -- o{ ORDER : places
+    USER {
+        int id PK
+        string email
+        string name
+    }
+    ORDER || -- |{ ORDER_ITEM : contains
+    ORDER {
+        int id PK
+        int user_id FK
+        datetime created_at
+        string status
+    }
+    ORDER_ITEM {
+        int id PK
+        int order_id FK
+        int product_id FK
+        int quantity
+    }
+    PRODUCT || -- o{ ORDER_ITEM : "ordered in"
+    PRODUCT {
+        int id PK
+        string name
+        decimal price
+    }</code></pre>
+<p><strong>Cardinalidad:</strong></p>
+<ul>
+<li><code>|| -- ||</code>: One-to-one</li>
+<li><code>|| -- o{</code>: One-to-many</li>
+<li><code>}o--o{</code>: Many-to-many</li>
+</ul>
+<hr/>
+<h3 id="diagrama-de-clases-uml"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.4.4</span> Diagrama de Clases (UML)</h3>
+<p><strong>Qué:</strong> Muestra clases, atributos, métodos y relaciones OOP.</p>
+<p><strong>Cuándo:</strong> Diseñar arquitectura OOP, refactoring.</p>
+<p><strong>PlantUML:</strong></p>
+<div class="puml-container"><div class="puml light" style=""><svg class="diagram" contentstyletype="text/css" data-diagram-type="CLASS" height="507px" preserveaspectratio="xMidYMid meet" style="width:205px;height:507px;background:#FFFFFF;" version="1.1" viewbox="0 0 205 507" width="205px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" zoomandpan="magnify"><defs></defs><g><g class="entity" data-qualified-name="User" data-source-line="2" id="ent0002"><rect fill="#F1F1F1" height="129.4844" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="191.1221" x="7" y="7"></rect><ellipse cx="82.356" cy="23" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1;"></ellipse><path d="M85.3247,28.6406 Q84.7466,28.9375 84.106,29.0781 Q83.4653,29.2344 82.7622,29.2344 Q80.2622,29.2344 78.9341,27.5938 Q77.6216,25.9375 77.6216,22.8125 Q77.6216,19.6875 78.9341,18.0313 Q80.2622,16.375 82.7622,16.375 Q83.4653,16.375 84.106,16.5313 Q84.7622,16.6875 85.3247,16.9844 L85.3247,19.7031 Q84.6997,19.125 84.106,18.8594 Q83.5122,18.5781 82.8872,18.5781 Q81.5435,18.5781 80.856,19.6563 Q80.1685,20.7188 80.1685,22.8125 Q80.1685,24.9063 80.856,25.9844 Q81.5435,27.0469 82.8872,27.0469 Q83.5122,27.0469 84.106,26.7813 Q84.6997,26.5 85.3247,25.9219 L85.3247,28.6406 Z " fill="#000000"></path><text fill="#000000" font-family="sans-serif" font-size="14" lengthadjust="spacing" textlength="31.9102" x="102.856" y="27.8467">User</text><line style="stroke:#181818;stroke-width:0.5;" x1="8" x2="197.1221" y1="39" y2="39"></line><g data-visibility-modifier="PRIVATE_FIELD"><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1;" width="6" x="15" y="49.6484"></rect></g><text fill="#000000" font-family="sans-serif" font-size="14" lengthadjust="spacing" textlength="57.3467" x="27" y="55.9951">id: UUID</text><g data-visibility-modifier="PRIVATE_FIELD"><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1;" width="6" x="15" y="65.9453"></rect></g><text fill="#000000" font-family="sans-serif" font-size="14" lengthadjust="spacing" textlength="89.5576" x="27" y="72.292">email: String</text><g data-visibility-modifier="PRIVATE_FIELD"><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1;" width="6" x="15" y="82.2422"></rect></g><text fill="#000000" font-family="sans-serif" font-size="14" lengthadjust="spacing" textlength="117.6602" x="27" y="88.5889">password: String</text><line style="stroke:#181818;stroke-width:0.5;" x1="8" x2="197.1221" y1="95.8906" y2="95.8906"></line><g data-visibility-modifier="PUBLIC_METHOD"><ellipse cx="18" cy="109.5391" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1;"></ellipse></g><text fill="#000000" font-family="sans-serif" font-size="14" lengthadjust="spacing" textlength="165.1221" x="27" y="112.8857">authenticate(): boolean</text><g data-visibility-modifier="PUBLIC_METHOD"><ellipse cx="18" cy="125.8359" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1;"></ellipse></g><text fill="#000000" font-family="sans-serif" font-size="14" lengthadjust="spacing" textlength="151.751" x="27" y="129.1826">resetPassword(): void</text></g><g class="entity" data-qualified-name="Order" data-source-line="10" id="ent0003"><rect fill="#F1F1F1" height="129.4844" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="162.8281" x="21.15" y="213.48"></rect><ellipse cx="78.2984" cy="229.48" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1;"></ellipse><path d="M81.2672,235.1206 Q80.6891,235.4175 80.0484,235.5581 Q79.4078,235.7144 78.7047,235.7144 Q76.2047,235.7144 74.8766,234.0738 Q73.5641,232.4175 73.5641,229.2925 Q73.5641,226.1675 74.8766,224.5113 Q76.2047,222.855 78.7047,222.855 Q79.4078,222.855 80.0484,223.0113 Q80.7047,223.1675 81.2672,223.4644 L81.2672,226.1831 Q80.6422,225.605 80.0484,225.3394 Q79.4547,225.0581 78.8297,225.0581 Q77.4859,225.0581 76.7984,226.1363 Q76.1109,227.1988 76.1109,229.2925 Q76.1109,231.3863 76.7984,232.4644 Q77.4859,233.5269 78.8297,233.5269 Q79.4547,233.5269 80.0484,233.2613 Q80.6422,232.98 81.2672,232.4019 L81.2672,235.1206 Z " fill="#000000"></path><text fill="#000000" font-family="sans-serif" font-size="14" lengthadjust="spacing" textlength="40.0313" x="98.7984" y="234.3267">Order</text><line style="stroke:#181818;stroke-width:0.5;" x1="22.15" x2="182.9781" y1="245.48" y2="245.48"></line><g data-visibility-modifier="PRIVATE_FIELD"><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1;" width="6" x="29.15" y="256.1284"></rect></g><text fill="#000000" font-family="sans-serif" font-size="14" lengthadjust="spacing" textlength="57.3467" x="41.15" y="262.4751">id: UUID</text><g data-visibility-modifier="PRIVATE_FIELD"><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1;" width="6" x="29.15" y="272.4253"></rect></g><text fill="#000000" font-family="sans-serif" font-size="14" lengthadjust="spacing" textlength="88.1221" x="41.15" y="278.772">userId: UUID</text><g data-visibility-modifier="PRIVATE_FIELD"><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1;" width="6" x="29.15" y="288.7222"></rect></g><text fill="#000000" font-family="sans-serif" font-size="14" lengthadjust="spacing" textlength="136.8281" x="41.15" y="295.0689">status: OrderStatus</text><line style="stroke:#181818;stroke-width:0.5;" x1="22.15" x2="182.9781" y1="302.3706" y2="302.3706"></line><g data-visibility-modifier="PUBLIC_METHOD"><ellipse cx="32.15" cy="316.0191" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1;"></ellipse></g><text fill="#000000" font-family="sans-serif" font-size="14" lengthadjust="spacing" textlength="95.0674" x="41.15" y="319.3657">cancel(): void</text><g data-visibility-modifier="PUBLIC_METHOD"><ellipse cx="32.15" cy="332.3159" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1;"></ellipse></g><text fill="#000000" font-family="sans-serif" font-size="14" lengthadjust="spacing" textlength="115.1104" x="41.15" y="335.6626">complete(): void</text></g><g class="entity" data-qualified-name="OrderItem" data-source-line="18" id="ent0004"><rect fill="#F1F1F1" height="80.5938" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="127.0967" x="39.01" y="419.97"></rect><ellipse cx="64.4483" cy="435.97" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1;"></ellipse><path d="M67.4171,441.6106 Q66.839,441.9075 66.1983,442.0481 Q65.5577,442.2044 64.8546,442.2044 Q62.3546,442.2044 61.0265,440.5637 Q59.714,438.9075 59.714,435.7825 Q59.714,432.6575 61.0265,431.0012 Q62.3546,429.345 64.8546,429.345 Q65.5577,429.345 66.1983,429.5012 Q66.8546,429.6575 67.4171,429.9544 L67.4171,432.6731 Q66.7921,432.095 66.1983,431.8294 Q65.6046,431.5481 64.9796,431.5481 Q63.6358,431.5481 62.9483,432.6262 Q62.2608,433.6887 62.2608,435.7825 Q62.2608,437.8762 62.9483,438.9544 Q63.6358,440.0169 64.9796,440.0169 Q65.6046,440.0169 66.1983,439.7512 Q66.7921,439.47 67.4171,438.8919 L67.4171,441.6106 Z " fill="#000000"></path><text fill="#000000" font-family="sans-serif" font-size="14" lengthadjust="spacing" textlength="71.9004" x="80.768" y="440.8167">OrderItem</text><line style="stroke:#181818;stroke-width:0.5;" x1="40.01" x2="165.1067" y1="451.97" y2="451.97"></line><g data-visibility-modifier="PRIVATE_FIELD"><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1;" width="6" x="47.01" y="462.6184"></rect></g><text fill="#000000" font-family="sans-serif" font-size="14" lengthadjust="spacing" textlength="85.7842" x="59.01" y="468.9651">quantity: int</text><g data-visibility-modifier="PRIVATE_FIELD"><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1;" width="6" x="47.01" y="478.9153"></rect></g><text fill="#000000" font-family="sans-serif" font-size="14" lengthadjust="spacing" textlength="101.0967" x="59.01" y="485.262">price: Decimal</text><line style="stroke:#181818;stroke-width:0.5;" x1="40.01" x2="165.1067" y1="492.5637" y2="492.5637"></line></g><g class="link" data-entity-1="ent0002" data-entity-2="ent0003" data-link-type="dependency" data-source-line="23" id="lnk5"><path codeline="23" d="M102.56,136.88 C102.56,161.24 102.56,182.97 102.56,207.31" fill="none" id="User-to-Order" style="stroke:#181818;stroke-width:1;"></path><polygon fill="#181818" points="102.56,213.31,106.56,204.31,102.56,208.31,98.56,204.31,102.56,213.31" style="stroke:#181818;stroke-width:1;"></polygon><text fill="#000000" font-family="sans-serif" font-size="13" lengthadjust="spacing" textlength="41.7485" x="103.56" y="179.5469">places</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthadjust="spacing" textlength="8.271" x="94.1614" y="156.4445">1</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthadjust="spacing" textlength="6.5" x="96.2588" y="202.4641">*</text></g><g class="link" data-entity-1="ent0003" data-entity-2="ent0004" data-link-type="composition" data-source-line="24" id="lnk6"><path codeline="24" d="M102.56,355.46 C102.56,380.91 102.56,397.36 102.56,419.69" fill="none" id="Order-backto-OrderItem" style="stroke:#181818;stroke-width:1;"></path><polygon fill="#181818" points="102.56,343.46,98.56,349.46,102.56,355.46,106.56,349.46,102.56,343.46" style="stroke:#181818;stroke-width:1;"></polygon><text fill="#000000" font-family="sans-serif" font-size="13" lengthadjust="spacing" textlength="55.0278" x="103.56" y="386.0369">contains</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthadjust="spacing" textlength="8.271" x="94.1611" y="363.0348">1</text><text fill="#000000" font-family="sans-serif" font-size="13" lengthadjust="spacing" textlength="6.5" x="96.1048" y="408.8052">*</text></g><?plantuml-src RP4_JmCn3CNt-nJc9YYwHgmPc5WgX42gEYCtCRse-NF4JYk4-ExSvKxGeQEVd_rxJcvSDBvOWbvaOArKnlFwuAGl-yAKJOf2KTOc1VNYZZqw_vpnHC8g76qo_3wKu5L05ifAUWh4oj875Y_AkqClwydG68_Ci1itmdS3q86p6dQxpLCjA8nxDMmbktYeoZ3QpodR2_4Ui8o0ACwWqEsTXdrAdZ3MNYOcULkcfkOfETlyD0lvDTlhwEd8pQN0Wb9OpnFRMbI0mMZ8_sskKWg3fpdB5Tn6A2p8pu9ZRldIuABC1sPdICCJ6HVGJvFrSTg75hhk4TfLksJMC7WqnCrSJePLr_qRAaN3z57e8ly2?></g></svg></div><div class="puml dark" style=""><svg class="diagram" contentstyletype="text/css" data-diagram-type="CLASS" height="507px" preserveaspectratio="xMidYMid meet" style="width:205px;height:507px;background:#1B1B1B;" version="1.1" viewbox="0 0 205 507" width="205px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" zoomandpan="magnify"><defs></defs><g><rect fill="#1B1B1B" height="507" style="stroke:none;stroke-width:1;" width="205" x="0" y="0"></rect><g class="entity" data-qualified-name="User" data-source-line="2" id="ent0002"><rect fill="#313139" height="129.4844" rx="2.5" ry="2.5" style="stroke:#E7E7E7;stroke-width:0.5;" width="191.1221" x="7" y="7"></rect><ellipse cx="82.356" cy="23" fill="#2E5233" rx="11" ry="11" style="stroke:#E7E7E7;stroke-width:1;"></ellipse><path d="M85.3247,28.6406 Q84.7466,28.9375 84.106,29.0781 Q83.4653,29.2344 82.7622,29.2344 Q80.2622,29.2344 78.9341,27.5938 Q77.6216,25.9375 77.6216,22.8125 Q77.6216,19.6875 78.9341,18.0313 Q80.2622,16.375 82.7622,16.375 Q83.4653,16.375 84.106,16.5313 Q84.7622,16.6875 85.3247,16.9844 L85.3247,19.7031 Q84.6997,19.125 84.106,18.8594 Q83.5122,18.5781 82.8872,18.5781 Q81.5435,18.5781 80.856,19.6563 Q80.1685,20.7188 80.1685,22.8125 Q80.1685,24.9063 80.856,25.9844 Q81.5435,27.0469 82.8872,27.0469 Q83.5122,27.0469 84.106,26.7813 Q84.6997,26.5 85.3247,25.9219 L85.3247,28.6406 Z " fill="#FFFFFF"></path><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthadjust="spacing" textlength="31.9102" x="102.856" y="27.8467">User</text><line style="stroke:#E7E7E7;stroke-width:0.5;" x1="8" x2="197.1221" y1="39" y2="39"></line><g data-visibility-modifier="PRIVATE_FIELD"><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1;" width="6" x="15" y="49.6484"></rect></g><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthadjust="spacing" textlength="57.3467" x="27" y="55.9951">id: UUID</text><g data-visibility-modifier="PRIVATE_FIELD"><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1;" width="6" x="15" y="65.9453"></rect></g><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthadjust="spacing" textlength="89.5576" x="27" y="72.292">email: String</text><g data-visibility-modifier="PRIVATE_FIELD"><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1;" width="6" x="15" y="82.2422"></rect></g><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthadjust="spacing" textlength="117.6602" x="27" y="88.5889">password: String</text><line style="stroke:#E7E7E7;stroke-width:0.5;" x1="8" x2="197.1221" y1="95.8906" y2="95.8906"></line><g data-visibility-modifier="PUBLIC_METHOD"><ellipse cx="18" cy="109.5391" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1;"></ellipse></g><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthadjust="spacing" textlength="165.1221" x="27" y="112.8857">authenticate(): boolean</text><g data-visibility-modifier="PUBLIC_METHOD"><ellipse cx="18" cy="125.8359" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1;"></ellipse></g><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthadjust="spacing" textlength="151.751" x="27" y="129.1826">resetPassword(): void</text></g><g class="entity" data-qualified-name="Order" data-source-line="10" id="ent0003"><rect fill="#313139" height="129.4844" rx="2.5" ry="2.5" style="stroke:#E7E7E7;stroke-width:0.5;" width="162.8281" x="21.15" y="213.48"></rect><ellipse cx="78.2984" cy="229.48" fill="#2E5233" rx="11" ry="11" style="stroke:#E7E7E7;stroke-width:1;"></ellipse><path d="M81.2672,235.1206 Q80.6891,235.4175 80.0484,235.5581 Q79.4078,235.7144 78.7047,235.7144 Q76.2047,235.7144 74.8766,234.0738 Q73.5641,232.4175 73.5641,229.2925 Q73.5641,226.1675 74.8766,224.5113 Q76.2047,222.855 78.7047,222.855 Q79.4078,222.855 80.0484,223.0113 Q80.7047,223.1675 81.2672,223.4644 L81.2672,226.1831 Q80.6422,225.605 80.0484,225.3394 Q79.4547,225.0581 78.8297,225.0581 Q77.4859,225.0581 76.7984,226.1363 Q76.1109,227.1988 76.1109,229.2925 Q76.1109,231.3863 76.7984,232.4644 Q77.4859,233.5269 78.8297,233.5269 Q79.4547,233.5269 80.0484,233.2613 Q80.6422,232.98 81.2672,232.4019 L81.2672,235.1206 Z " fill="#FFFFFF"></path><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthadjust="spacing" textlength="40.0313" x="98.7984" y="234.3267">Order</text><line style="stroke:#E7E7E7;stroke-width:0.5;" x1="22.15" x2="182.9781" y1="245.48" y2="245.48"></line><g data-visibility-modifier="PRIVATE_FIELD"><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1;" width="6" x="29.15" y="256.1284"></rect></g><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthadjust="spacing" textlength="57.3467" x="41.15" y="262.4751">id: UUID</text><g data-visibility-modifier="PRIVATE_FIELD"><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1;" width="6" x="29.15" y="272.4253"></rect></g><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthadjust="spacing" textlength="88.1221" x="41.15" y="278.772">userId: UUID</text><g data-visibility-modifier="PRIVATE_FIELD"><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1;" width="6" x="29.15" y="288.7222"></rect></g><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthadjust="spacing" textlength="136.8281" x="41.15" y="295.0689">status: OrderStatus</text><line style="stroke:#E7E7E7;stroke-width:0.5;" x1="22.15" x2="182.9781" y1="302.3706" y2="302.3706"></line><g data-visibility-modifier="PUBLIC_METHOD"><ellipse cx="32.15" cy="316.0191" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1;"></ellipse></g><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthadjust="spacing" textlength="95.0674" x="41.15" y="319.3657">cancel(): void</text><g data-visibility-modifier="PUBLIC_METHOD"><ellipse cx="32.15" cy="332.3159" fill="#84BE84" rx="3" ry="3" style="stroke:#038048;stroke-width:1;"></ellipse></g><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthadjust="spacing" textlength="115.1104" x="41.15" y="335.6626">complete(): void</text></g><g class="entity" data-qualified-name="OrderItem" data-source-line="18" id="ent0004"><rect fill="#313139" height="80.5938" rx="2.5" ry="2.5" style="stroke:#E7E7E7;stroke-width:0.5;" width="127.0967" x="39.01" y="419.97"></rect><ellipse cx="64.4483" cy="435.97" fill="#2E5233" rx="11" ry="11" style="stroke:#E7E7E7;stroke-width:1;"></ellipse><path d="M67.4171,441.6106 Q66.839,441.9075 66.1983,442.0481 Q65.5577,442.2044 64.8546,442.2044 Q62.3546,442.2044 61.0265,440.5637 Q59.714,438.9075 59.714,435.7825 Q59.714,432.6575 61.0265,431.0012 Q62.3546,429.345 64.8546,429.345 Q65.5577,429.345 66.1983,429.5012 Q66.8546,429.6575 67.4171,429.9544 L67.4171,432.6731 Q66.7921,432.095 66.1983,431.8294 Q65.6046,431.5481 64.9796,431.5481 Q63.6358,431.5481 62.9483,432.6262 Q62.2608,433.6887 62.2608,435.7825 Q62.2608,437.8762 62.9483,438.9544 Q63.6358,440.0169 64.9796,440.0169 Q65.6046,440.0169 66.1983,439.7512 Q66.7921,439.47 67.4171,438.8919 L67.4171,441.6106 Z " fill="#FFFFFF"></path><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthadjust="spacing" textlength="71.9004" x="80.768" y="440.8167">OrderItem</text><line style="stroke:#E7E7E7;stroke-width:0.5;" x1="40.01" x2="165.1067" y1="451.97" y2="451.97"></line><g data-visibility-modifier="PRIVATE_FIELD"><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1;" width="6" x="47.01" y="462.6184"></rect></g><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthadjust="spacing" textlength="85.7842" x="59.01" y="468.9651">quantity: int</text><g data-visibility-modifier="PRIVATE_FIELD"><rect fill="none" height="6" style="stroke:#C82930;stroke-width:1;" width="6" x="47.01" y="478.9153"></rect></g><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthadjust="spacing" textlength="101.0967" x="59.01" y="485.262">price: Decimal</text><line style="stroke:#E7E7E7;stroke-width:0.5;" x1="40.01" x2="165.1067" y1="492.5637" y2="492.5637"></line></g><g class="link" data-entity-1="ent0002" data-entity-2="ent0003" data-link-type="dependency" data-source-line="23" id="lnk5"><path codeline="23" d="M102.56,136.88 C102.56,161.24 102.56,182.97 102.56,207.31" fill="none" id="User-to-Order" style="stroke:#E7E7E7;stroke-width:1;"></path><polygon fill="#E7E7E7" points="102.56,213.31,106.56,204.31,102.56,208.31,98.56,204.31,102.56,213.31" style="stroke:#E7E7E7;stroke-width:1;"></polygon><text fill="#FFFFFF" font-family="sans-serif" font-size="13" lengthadjust="spacing" textlength="41.7485" x="103.56" y="179.5469">places</text><text fill="#FFFFFF" font-family="sans-serif" font-size="13" lengthadjust="spacing" textlength="8.271" x="94.1614" y="156.4445">1</text><text fill="#FFFFFF" font-family="sans-serif" font-size="13" lengthadjust="spacing" textlength="6.5" x="96.2588" y="202.4641">*</text></g><g class="link" data-entity-1="ent0003" data-entity-2="ent0004" data-link-type="composition" data-source-line="24" id="lnk6"><path codeline="24" d="M102.56,355.46 C102.56,380.91 102.56,397.36 102.56,419.69" fill="none" id="Order-backto-OrderItem" style="stroke:#E7E7E7;stroke-width:1;"></path><polygon fill="#E7E7E7" points="102.56,343.46,98.56,349.46,102.56,355.46,106.56,349.46,102.56,343.46" style="stroke:#E7E7E7;stroke-width:1;"></polygon><text fill="#FFFFFF" font-family="sans-serif" font-size="13" lengthadjust="spacing" textlength="55.0278" x="103.56" y="386.0369">contains</text><text fill="#FFFFFF" font-family="sans-serif" font-size="13" lengthadjust="spacing" textlength="8.271" x="94.1611" y="363.0348">1</text><text fill="#FFFFFF" font-family="sans-serif" font-size="13" lengthadjust="spacing" textlength="6.5" x="96.1048" y="408.8052">*</text></g><?plantuml-src RL6xJWCn4EplAvQh8EXYqRgWeeaG0YbAZJRsahFYn-5T9qA8V-VETu8KANTcTcRMld7H-689Uf61jL8Pp-k3axxi2rCsAGf5MPiKr8ixzkZySyOJ2QjmjCdm-r22Lm5PA2lfAH0hInzOl2YB-RYU-CPuP8RTQ0ZV3K07pchOxJPFTQ0mschOIdRnK95Xb9zJjXVWFM0P_QCuWqAtTnhsANd2MBbCJFAsR4taAJdR_3HBycksrwEd6pUN00jAOJrlREjG0mn6G_xFkK8f39xcBbVYDa9XYVmiEFQMBmqkodnWTeOqF95n0VsqMH-dVMYXwnwXNRLBPms3HqFSpECaM7NTlw2cQ9Z-2LtaNm00?></g></svg></div></div>
+<p><strong>Relaciones:</strong></p>
+<ul>
+<li><code>--&gt;</code>: Asociación</li>
+<li><code>*--</code>: Composición</li>
+<li><code>o--</code>: Agregación</li>
+<li><code>&lt;| --</code>: Herencia</li>
+<li><code>&lt;..</code>: Dependencia</li>
+</ul>
+<hr/>
+<h3 id="diagrama-de-secuencia"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.4.5</span> Diagrama de Secuencia</h3>
+<p><strong>Qué:</strong> Muestra interacciones entre objetos en el tiempo.</p>
+<p><strong>Cuándo:</strong> Documentar flujos complejos, API calls, async operations.</p>
+<p><strong>Mermaid:</strong></p>
+<pre class="mermaid"><code>sequenceDiagram
+    participant U as Usuario
+    participant W as Web App
+    participant A as API
+    participant D as Database
+    participant P as Payment Gateway
+
+    U-&gt;&gt;W: Click "Comprar"
+    W-&gt;&gt;A: POST /orders
+    A-&gt;&gt;D: INSERT order
+    D--&gt;&gt;A: order_id
+    A-&gt;&gt;P: POST /charge
+    P--&gt;&gt;A: success
+    A-&gt;&gt;D: UPDATE order status
+    A--&gt;&gt;W: 201 Created
+    W--&gt;&gt;U: Confirmación</code></pre>
+<p><strong>Símbolos:</strong></p>
+<ul>
+<li><code>-&gt;</code>: Llamada síncrona</li>
+<li><code>--&gt;</code>: Respuesta</li>
+<li><code>-&gt;&gt;</code>: Llamada asíncrona</li>
+<li><code>--&gt;&gt;</code>: Respuesta asíncrona</li>
+</ul>
+<hr/>
+<h3 id="diagrama-de-componentes"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.4.6</span> Diagrama de Componentes</h3>
+<p><strong>Qué:</strong> Muestra organización y dependencias entre componentes del sistema.</p>
+<p><strong>Cuándo:</strong> Arquitectura modular, microservicios.</p>
+<p><strong>PlantUML:</strong></p>
+<div class="puml-container"><div class="puml light" style=""><svg class="diagram" contentstyletype="text/css" data-diagram-type="DESCRIPTION" height="458px" preserveaspectratio="xMidYMid meet" style="width:509px;height:458px;background:#FFFFFF;" version="1.1" viewbox="0 0 509 458" width="509px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" zoomandpan="magnify"><defs></defs><g><g class="cluster" data-qualified-name="Frontend" data-source-line="2" id="ent0002"><path d="M181.5,6 L254.7285,6 A3.75,3.75 0 0 1 257.2285,8.5 L264.2285,28.2969 L481.5,28.2969 A2.5,2.5 0 0 1 484,30.7969 L484,100.8 A2.5,2.5 0 0 1 481.5,103.3 L181.5,103.3 A2.5,2.5 0 0 1 179,100.8 L179,8.5 A2.5,2.5 0 0 1 181.5,6" fill="none" style="stroke:#000000;stroke-width:1.5;"></path><line style="stroke:#000000;stroke-width:1.5;" x1="179" x2="264.2285" y1="28.2969" y2="28.2969"></line><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthadjust="spacing" textlength="72.2285" x="183" y="20.9951">Frontend</text></g><g class="cluster" data-qualified-name="Backend" data-source-line="7" id="ent0005"><path d="M8.5,127.3 L76.7109,127.3 A3.75,3.75 0 0 1 79.2109,129.8 L86.2109,149.5969 L499.5,149.5969 A2.5,2.5 0 0 1 502,152.0969 L502,328.39 A2.5,2.5 0 0 1 499.5,330.89 L8.5,330.89 A2.5,2.5 0 0 1 6,328.39 L6,129.8 A2.5,2.5 0 0 1 8.5,127.3" fill="none" style="stroke:#000000;stroke-width:1.5;"></path><line style="stroke:#000000;stroke-width:1.5;" x1="6" x2="86.2109" y1="149.5969" y2="149.5969"></line><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthadjust="spacing" textlength="67.2109" x="10" y="142.2951">Backend</text></g><g class="cluster" data-qualified-name="Data" data-source-line="14" id="ent0010"><path d="M93.5,354.89 L131.708,354.89 A3.75,3.75 0 0 1 134.208,357.39 L141.208,377.1869 L314.5,377.1869 A2.5,2.5 0 0 1 317,379.6869 L317,448.69 A2.5,2.5 0 0 1 314.5,451.19 L93.5,451.19 A2.5,2.5 0 0 1 91,448.69 L91,357.39 A2.5,2.5 0 0 1 93.5,354.89" fill="none" style="stroke:#000000;stroke-width:1.5;"></path><line style="stroke:#000000;stroke-width:1.5;" x1="91" x2="141.208" y1="377.1869" y2="377.1869"></line><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthadjust="spacing" textlength="37.208" x="95" y="369.8851">Data</text></g><g class="entity" data-qualified-name="Frontend.React App" data-source-line="3" id="ent0003"><rect fill="#F1F1F1" height="46.2969" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="111.9072" x="195.05" y="41"></rect><rect fill="#F1F1F1" height="10" style="stroke:#181818;stroke-width:0.5;" width="15" x="286.9572" y="46"></rect><rect fill="#F1F1F1" height="2" style="stroke:#181818;stroke-width:0.5;" width="4" x="284.9572" y="48"></rect><rect fill="#F1F1F1" height="2" style="stroke:#181818;stroke-width:0.5;" width="4" x="284.9572" y="52"></rect><text fill="#000000" font-family="sans-serif" font-size="14" lengthadjust="spacing" textlength="71.9072" x="210.05" y="73.9951">React App</text></g><g class="entity" data-qualified-name="Frontend.Redux Store" data-source-line="4" id="ent0004"><rect fill="#F1F1F1" height="46.2969" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="126.1465" x="341.93" y="41"></rect><rect fill="#F1F1F1" height="10" style="stroke:#181818;stroke-width:0.5;" width="15" x="448.0765" y="46"></rect><rect fill="#F1F1F1" height="2" style="stroke:#181818;stroke-width:0.5;" width="4" x="446.0765" y="48"></rect><rect fill="#F1F1F1" height="2" style="stroke:#181818;stroke-width:0.5;" width="4" x="446.0765" y="52"></rect><text fill="#000000" font-family="sans-serif" font-size="14" lengthadjust="spacing" textlength="86.1465" x="356.93" y="73.9951">Redux Store</text></g><g class="entity" data-qualified-name="Backend.API Gateway" data-source-line="8" id="ent0006"><rect fill="#F1F1F1" height="46.2969" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="128.4434" x="186.78" y="162.3"></rect><rect fill="#F1F1F1" height="10" style="stroke:#181818;stroke-width:0.5;" width="15" x="295.2234" y="167.3"></rect><rect fill="#F1F1F1" height="2" style="stroke:#181818;stroke-width:0.5;" width="4" x="293.2234" y="169.3"></rect><rect fill="#F1F1F1" height="2" style="stroke:#181818;stroke-width:0.5;" width="4" x="293.2234" y="173.3"></rect><text fill="#000000" font-family="sans-serif" font-size="14" lengthadjust="spacing" textlength="88.4434" x="201.78" y="195.2951">API Gateway</text></g><g class="entity" data-qualified-name="Backend.Auth Service" data-source-line="9" id="ent0007"><rect fill="#F1F1F1" height="46.2969" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="129.0039" x="22.5" y="268.6"></rect><rect fill="#F1F1F1" height="10" style="stroke:#181818;stroke-width:0.5;" width="15" x="131.5039" y="273.6"></rect><rect fill="#F1F1F1" height="2" style="stroke:#181818;stroke-width:0.5;" width="4" x="129.5039" y="275.6"></rect><rect fill="#F1F1F1" height="2" style="stroke:#181818;stroke-width:0.5;" width="4" x="129.5039" y="279.6"></rect><text fill="#000000" font-family="sans-serif" font-size="14" lengthadjust="spacing" textlength="89.0039" x="37.5" y="301.5951">Auth Service</text></g><g class="entity" data-qualified-name="Backend.User Service" data-source-line="10" id="ent0008"><rect fill="#F1F1F1" height="46.2969" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="128.1016" x="186.95" y="268.6"></rect><rect fill="#F1F1F1" height="10" style="stroke:#181818;stroke-width:0.5;" width="15" x="295.0516" y="273.6"></rect><rect fill="#F1F1F1" height="2" style="stroke:#181818;stroke-width:0.5;" width="4" x="293.0516" y="275.6"></rect><rect fill="#F1F1F1" height="2" style="stroke:#181818;stroke-width:0.5;" width="4" x="293.0516" y="279.6"></rect><text fill="#000000" font-family="sans-serif" font-size="14" lengthadjust="spacing" textlength="88.1016" x="201.95" y="301.5951">User Service</text></g><g class="entity" data-qualified-name="Backend.Order Service" data-source-line="11" id="ent0009"><rect fill="#F1F1F1" height="46.2969" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="136.2227" x="349.89" y="268.6"></rect><rect fill="#F1F1F1" height="10" style="stroke:#181818;stroke-width:0.5;" width="15" x="466.1127" y="273.6"></rect><rect fill="#F1F1F1" height="2" style="stroke:#181818;stroke-width:0.5;" width="4" x="464.1127" y="275.6"></rect><rect fill="#F1F1F1" height="2" style="stroke:#181818;stroke-width:0.5;" width="4" x="464.1127" y="279.6"></rect><text fill="#000000" font-family="sans-serif" font-size="14" lengthadjust="spacing" textlength="96.2227" x="364.89" y="301.5951">Order Service</text></g><g class="entity" data-qualified-name="Data.PostgreSQL" data-source-line="15" id="ent0011"><path d="M200.62,399.89 C200.62,389.89 250.9965,389.89 250.9965,389.89 C250.9965,389.89 301.3729,389.89 301.3729,399.89 L301.3729,425.1869 C301.3729,435.1869 250.9965,435.1869 250.9965,435.1869 C250.9965,435.1869 200.62,435.1869 200.62,425.1869 L200.62,399.89" fill="#F1F1F1" style="stroke:#181818;stroke-width:0.5;"></path><path d="M200.62,399.89 C200.62,409.89 250.9965,409.89 250.9965,409.89 C250.9965,409.89 301.3729,409.89 301.3729,399.89" fill="none" style="stroke:#181818;stroke-width:0.5;"></path><text fill="#000000" font-family="sans-serif" font-size="14" lengthadjust="spacing" textlength="80.7529" x="210.62" y="426.8851">PostgreSQL</text></g><g class="entity" data-qualified-name="Data.Redis" data-source-line="16" id="ent0012"><path d="M106.79,399.89 C106.79,389.89 135.9956,389.89 135.9956,389.89 C135.9956,389.89 165.2011,389.89 165.2011,399.89 L165.2011,425.1869 C165.2011,435.1869 135.9956,435.1869 135.9956,435.1869 C135.9956,435.1869 106.79,435.1869 106.79,425.1869 L106.79,399.89" fill="#F1F1F1" style="stroke:#181818;stroke-width:0.5;"></path><path d="M106.79,399.89 C106.79,409.89 135.9956,409.89 135.9956,409.89 C135.9956,409.89 165.2011,409.89 165.2011,399.89" fill="none" style="stroke:#181818;stroke-width:0.5;"></path><text fill="#000000" font-family="sans-serif" font-size="14" lengthadjust="spacing" textlength="38.4111" x="116.79" y="426.8851">Redis</text></g><g class="link" data-entity-1="ent0003" data-entity-2="ent0006" data-link-type="dependency" data-source-line="19" id="lnk13"><path d="M251,87.59 C251,108.92 251,134.81 251,156.11" fill="none" id="React App-to-API Gateway" style="stroke:#181818;stroke-width:1;"></path><polygon fill="#181818" points="251,162.11,255,153.11,251,157.11,247,153.11,251,162.11" style="stroke:#181818;stroke-width:1;"></polygon></g><g class="link" data-entity-1="ent0006" data-entity-2="ent0007" data-link-type="dependency" data-source-line="20" id="lnk14"><path d="M215.41,209.08 C187.91,226.57 155.0731,247.4605 127.5831,264.9405" fill="none" id="API Gateway-to-Auth Service" style="stroke:#181818;stroke-width:1;"></path><polygon fill="#181818" points="122.52,268.16,132.261,266.7062,126.7393,265.4771,127.9683,259.9554,122.52,268.16" style="stroke:#181818;stroke-width:1;"></polygon></g><g class="link" data-entity-1="ent0006" data-entity-2="ent0008" data-link-type="dependency" data-source-line="21" id="lnk15"><path d="M251,209.08 C251,226.57 251,244.68 251,262.16" fill="none" id="API Gateway-to-User Service" style="stroke:#181818;stroke-width:1;"></path><polygon fill="#181818" points="251,268.16,255,259.16,251,263.16,247,259.16,251,268.16" style="stroke:#181818;stroke-width:1;"></polygon></g><g class="link" data-entity-1="ent0006" data-entity-2="ent0009" data-link-type="dependency" data-source-line="22" id="lnk16"><path d="M287.24,209.08 C315.25,226.57 348.7509,247.5018 376.7409,264.9818" fill="none" id="API Gateway-to-Order Service" style="stroke:#181818;stroke-width:1;"></path><polygon fill="#181818" points="381.83,268.16,376.3151,260,377.5891,265.5115,372.0775,266.7854,381.83,268.16" style="stroke:#181818;stroke-width:1;"></polygon></g><g class="link" data-entity-1="ent0007" data-entity-2="ent0012" data-link-type="dependency" data-source-line="23" id="lnk17"><path d="M96.33,315.37 C105.11,336.64 115.8715,362.7436 124.5815,383.8536" fill="none" id="Auth Service-to-Redis" style="stroke:#181818;stroke-width:1;"></path><polygon fill="#181818" points="126.87,389.4,127.1349,379.5547,124.9629,384.778,119.7397,382.606,126.87,389.4" style="stroke:#181818;stroke-width:1;"></polygon></g><g class="link" data-entity-1="ent0008" data-entity-2="ent0011" data-link-type="dependency" data-source-line="24" id="lnk18"><path d="M251,315.37 C251,336.64 251,362.29 251,383.4" fill="none" id="User Service-to-PostgreSQL" style="stroke:#181818;stroke-width:1;"></path><polygon fill="#181818" points="251,389.4,255,380.4,251,384.4,247,380.4,251,389.4" style="stroke:#181818;stroke-width:1;"></polygon></g><g class="link" data-entity-1="ent0009" data-entity-2="ent0011" data-link-type="dependency" data-source-line="25" id="lnk19"><path d="M386.2,315.37 C356.29,336.64 316.6894,364.8124 287.0094,385.9224" fill="none" id="Order Service-to-PostgreSQL" style="stroke:#181818;stroke-width:1;"></path><polygon fill="#181818" points="282.12,389.4,291.7725,387.4432,286.1945,386.502,287.1357,380.924,282.12,389.4" style="stroke:#181818;stroke-width:1;"></polygon></g><?plantuml-src ROz1IyGm48Nl_HMnzstk7eIAAABYQl4aYymciqrequHaigk8_zriAxHPzpRptfl7DnTw47sKo1IH2vUSUpXKhIOLjp6W5tOW7AWIrl0dtIdG_OE7FLBWffDMX0yNJSyD14BFIQ71m2Nk8FR4Uzqggew1me7ee4LMtlgnKPRiks3i_HL14AkTsqoRZ9-i8UjnK_mKyzLr6kQZUdtFxe3m05_ZMHr9iGRzNWiSXRT4dWdFNYwLPVKD44ozCarR24bRsq2jn-RbiSpqnAT3UJnVWBFLwkg4ATl-_8pnJ21dFXCu-I5ld28ZNxAohicQNqf-NlKly0i0?></g></svg></div><div class="puml dark" style=""><svg class="diagram" contentstyletype="text/css" data-diagram-type="DESCRIPTION" height="458px" preserveaspectratio="xMidYMid meet" style="width:509px;height:458px;background:#1B1B1B;" version="1.1" viewbox="0 0 509 458" width="509px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" zoomandpan="magnify"><defs></defs><g><rect fill="#1B1B1B" height="458" style="stroke:none;stroke-width:1;" width="509" x="0" y="0"></rect><g class="cluster" data-qualified-name="Frontend" data-source-line="2" id="ent0002"><path d="M181.5,6 L254.7285,6 A3.75,3.75 0 0 1 257.2285,8.5 L264.2285,28.2969 L481.5,28.2969 A2.5,2.5 0 0 1 484,30.7969 L484,100.8 A2.5,2.5 0 0 1 481.5,103.3 L181.5,103.3 A2.5,2.5 0 0 1 179,100.8 L179,8.5 A2.5,2.5 0 0 1 181.5,6" fill="none" style="stroke:#FFFFFF;stroke-width:1.5;"></path><line style="stroke:#FFFFFF;stroke-width:1.5;" x1="179" x2="264.2285" y1="28.2969" y2="28.2969"></line><text fill="#FFFFFF" font-family="sans-serif" font-size="14" font-weight="bold" lengthadjust="spacing" textlength="72.2285" x="183" y="20.9951">Frontend</text></g><g class="cluster" data-qualified-name="Backend" data-source-line="7" id="ent0005"><path d="M8.5,127.3 L76.7109,127.3 A3.75,3.75 0 0 1 79.2109,129.8 L86.2109,149.5969 L499.5,149.5969 A2.5,2.5 0 0 1 502,152.0969 L502,328.39 A2.5,2.5 0 0 1 499.5,330.89 L8.5,330.89 A2.5,2.5 0 0 1 6,328.39 L6,129.8 A2.5,2.5 0 0 1 8.5,127.3" fill="none" style="stroke:#FFFFFF;stroke-width:1.5;"></path><line style="stroke:#FFFFFF;stroke-width:1.5;" x1="6" x2="86.2109" y1="149.5969" y2="149.5969"></line><text fill="#FFFFFF" font-family="sans-serif" font-size="14" font-weight="bold" lengthadjust="spacing" textlength="67.2109" x="10" y="142.2951">Backend</text></g><g class="cluster" data-qualified-name="Data" data-source-line="14" id="ent0010"><path d="M93.5,354.89 L131.708,354.89 A3.75,3.75 0 0 1 134.208,357.39 L141.208,377.1869 L314.5,377.1869 A2.5,2.5 0 0 1 317,379.6869 L317,448.69 A2.5,2.5 0 0 1 314.5,451.19 L93.5,451.19 A2.5,2.5 0 0 1 91,448.69 L91,357.39 A2.5,2.5 0 0 1 93.5,354.89" fill="none" style="stroke:#FFFFFF;stroke-width:1.5;"></path><line style="stroke:#FFFFFF;stroke-width:1.5;" x1="91" x2="141.208" y1="377.1869" y2="377.1869"></line><text fill="#FFFFFF" font-family="sans-serif" font-size="14" font-weight="bold" lengthadjust="spacing" textlength="37.208" x="95" y="369.8851">Data</text></g><g class="entity" data-qualified-name="Frontend.React App" data-source-line="3" id="ent0003"><rect fill="#313139" height="46.2969" rx="2.5" ry="2.5" style="stroke:#E7E7E7;stroke-width:0.5;" width="111.9072" x="195.05" y="41"></rect><rect fill="#313139" height="10" style="stroke:#E7E7E7;stroke-width:0.5;" width="15" x="286.9572" y="46"></rect><rect fill="#313139" height="2" style="stroke:#E7E7E7;stroke-width:0.5;" width="4" x="284.9572" y="48"></rect><rect fill="#313139" height="2" style="stroke:#E7E7E7;stroke-width:0.5;" width="4" x="284.9572" y="52"></rect><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthadjust="spacing" textlength="71.9072" x="210.05" y="73.9951">React App</text></g><g class="entity" data-qualified-name="Frontend.Redux Store" data-source-line="4" id="ent0004"><rect fill="#313139" height="46.2969" rx="2.5" ry="2.5" style="stroke:#E7E7E7;stroke-width:0.5;" width="126.1465" x="341.93" y="41"></rect><rect fill="#313139" height="10" style="stroke:#E7E7E7;stroke-width:0.5;" width="15" x="448.0765" y="46"></rect><rect fill="#313139" height="2" style="stroke:#E7E7E7;stroke-width:0.5;" width="4" x="446.0765" y="48"></rect><rect fill="#313139" height="2" style="stroke:#E7E7E7;stroke-width:0.5;" width="4" x="446.0765" y="52"></rect><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthadjust="spacing" textlength="86.1465" x="356.93" y="73.9951">Redux Store</text></g><g class="entity" data-qualified-name="Backend.API Gateway" data-source-line="8" id="ent0006"><rect fill="#313139" height="46.2969" rx="2.5" ry="2.5" style="stroke:#E7E7E7;stroke-width:0.5;" width="128.4434" x="186.78" y="162.3"></rect><rect fill="#313139" height="10" style="stroke:#E7E7E7;stroke-width:0.5;" width="15" x="295.2234" y="167.3"></rect><rect fill="#313139" height="2" style="stroke:#E7E7E7;stroke-width:0.5;" width="4" x="293.2234" y="169.3"></rect><rect fill="#313139" height="2" style="stroke:#E7E7E7;stroke-width:0.5;" width="4" x="293.2234" y="173.3"></rect><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthadjust="spacing" textlength="88.4434" x="201.78" y="195.2951">API Gateway</text></g><g class="entity" data-qualified-name="Backend.Auth Service" data-source-line="9" id="ent0007"><rect fill="#313139" height="46.2969" rx="2.5" ry="2.5" style="stroke:#E7E7E7;stroke-width:0.5;" width="129.0039" x="22.5" y="268.6"></rect><rect fill="#313139" height="10" style="stroke:#E7E7E7;stroke-width:0.5;" width="15" x="131.5039" y="273.6"></rect><rect fill="#313139" height="2" style="stroke:#E7E7E7;stroke-width:0.5;" width="4" x="129.5039" y="275.6"></rect><rect fill="#313139" height="2" style="stroke:#E7E7E7;stroke-width:0.5;" width="4" x="129.5039" y="279.6"></rect><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthadjust="spacing" textlength="89.0039" x="37.5" y="301.5951">Auth Service</text></g><g class="entity" data-qualified-name="Backend.User Service" data-source-line="10" id="ent0008"><rect fill="#313139" height="46.2969" rx="2.5" ry="2.5" style="stroke:#E7E7E7;stroke-width:0.5;" width="128.1016" x="186.95" y="268.6"></rect><rect fill="#313139" height="10" style="stroke:#E7E7E7;stroke-width:0.5;" width="15" x="295.0516" y="273.6"></rect><rect fill="#313139" height="2" style="stroke:#E7E7E7;stroke-width:0.5;" width="4" x="293.0516" y="275.6"></rect><rect fill="#313139" height="2" style="stroke:#E7E7E7;stroke-width:0.5;" width="4" x="293.0516" y="279.6"></rect><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthadjust="spacing" textlength="88.1016" x="201.95" y="301.5951">User Service</text></g><g class="entity" data-qualified-name="Backend.Order Service" data-source-line="11" id="ent0009"><rect fill="#313139" height="46.2969" rx="2.5" ry="2.5" style="stroke:#E7E7E7;stroke-width:0.5;" width="136.2227" x="349.89" y="268.6"></rect><rect fill="#313139" height="10" style="stroke:#E7E7E7;stroke-width:0.5;" width="15" x="466.1127" y="273.6"></rect><rect fill="#313139" height="2" style="stroke:#E7E7E7;stroke-width:0.5;" width="4" x="464.1127" y="275.6"></rect><rect fill="#313139" height="2" style="stroke:#E7E7E7;stroke-width:0.5;" width="4" x="464.1127" y="279.6"></rect><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthadjust="spacing" textlength="96.2227" x="364.89" y="301.5951">Order Service</text></g><g class="entity" data-qualified-name="Data.PostgreSQL" data-source-line="15" id="ent0011"><path d="M200.62,399.89 C200.62,389.89 250.9965,389.89 250.9965,389.89 C250.9965,389.89 301.3729,389.89 301.3729,399.89 L301.3729,425.1869 C301.3729,435.1869 250.9965,435.1869 250.9965,435.1869 C250.9965,435.1869 200.62,435.1869 200.62,425.1869 L200.62,399.89" fill="#313139" style="stroke:#E7E7E7;stroke-width:0.5;"></path><path d="M200.62,399.89 C200.62,409.89 250.9965,409.89 250.9965,409.89 C250.9965,409.89 301.3729,409.89 301.3729,399.89" fill="none" style="stroke:#E7E7E7;stroke-width:0.5;"></path><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthadjust="spacing" textlength="80.7529" x="210.62" y="426.8851">PostgreSQL</text></g><g class="entity" data-qualified-name="Data.Redis" data-source-line="16" id="ent0012"><path d="M106.79,399.89 C106.79,389.89 135.9956,389.89 135.9956,389.89 C135.9956,389.89 165.2011,389.89 165.2011,399.89 L165.2011,425.1869 C165.2011,435.1869 135.9956,435.1869 135.9956,435.1869 C135.9956,435.1869 106.79,435.1869 106.79,425.1869 L106.79,399.89" fill="#313139" style="stroke:#E7E7E7;stroke-width:0.5;"></path><path d="M106.79,399.89 C106.79,409.89 135.9956,409.89 135.9956,409.89 C135.9956,409.89 165.2011,409.89 165.2011,399.89" fill="none" style="stroke:#E7E7E7;stroke-width:0.5;"></path><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthadjust="spacing" textlength="38.4111" x="116.79" y="426.8851">Redis</text></g><g class="link" data-entity-1="ent0003" data-entity-2="ent0006" data-link-type="dependency" data-source-line="19" id="lnk13"><path d="M251,87.59 C251,108.92 251,134.81 251,156.11" fill="none" id="React App-to-API Gateway" style="stroke:#E7E7E7;stroke-width:1;"></path><polygon fill="#E7E7E7" points="251,162.11,255,153.11,251,157.11,247,153.11,251,162.11" style="stroke:#E7E7E7;stroke-width:1;"></polygon></g><g class="link" data-entity-1="ent0006" data-entity-2="ent0007" data-link-type="dependency" data-source-line="20" id="lnk14"><path d="M215.41,209.08 C187.91,226.57 155.0731,247.4605 127.5831,264.9405" fill="none" id="API Gateway-to-Auth Service" style="stroke:#E7E7E7;stroke-width:1;"></path><polygon fill="#E7E7E7" points="122.52,268.16,132.261,266.7062,126.7393,265.4771,127.9683,259.9554,122.52,268.16" style="stroke:#E7E7E7;stroke-width:1;"></polygon></g><g class="link" data-entity-1="ent0006" data-entity-2="ent0008" data-link-type="dependency" data-source-line="21" id="lnk15"><path d="M251,209.08 C251,226.57 251,244.68 251,262.16" fill="none" id="API Gateway-to-User Service" style="stroke:#E7E7E7;stroke-width:1;"></path><polygon fill="#E7E7E7" points="251,268.16,255,259.16,251,263.16,247,259.16,251,268.16" style="stroke:#E7E7E7;stroke-width:1;"></polygon></g><g class="link" data-entity-1="ent0006" data-entity-2="ent0009" data-link-type="dependency" data-source-line="22" id="lnk16"><path d="M287.24,209.08 C315.25,226.57 348.7509,247.5018 376.7409,264.9818" fill="none" id="API Gateway-to-Order Service" style="stroke:#E7E7E7;stroke-width:1;"></path><polygon fill="#E7E7E7" points="381.83,268.16,376.3151,260,377.5891,265.5115,372.0775,266.7854,381.83,268.16" style="stroke:#E7E7E7;stroke-width:1;"></polygon></g><g class="link" data-entity-1="ent0007" data-entity-2="ent0012" data-link-type="dependency" data-source-line="23" id="lnk17"><path d="M96.33,315.37 C105.11,336.64 115.8715,362.7436 124.5815,383.8536" fill="none" id="Auth Service-to-Redis" style="stroke:#E7E7E7;stroke-width:1;"></path><polygon fill="#E7E7E7" points="126.87,389.4,127.1349,379.5547,124.9629,384.778,119.7397,382.606,126.87,389.4" style="stroke:#E7E7E7;stroke-width:1;"></polygon></g><g class="link" data-entity-1="ent0008" data-entity-2="ent0011" data-link-type="dependency" data-source-line="24" id="lnk18"><path d="M251,315.37 C251,336.64 251,362.29 251,383.4" fill="none" id="User Service-to-PostgreSQL" style="stroke:#E7E7E7;stroke-width:1;"></path><polygon fill="#E7E7E7" points="251,389.4,255,380.4,251,384.4,247,380.4,251,389.4" style="stroke:#E7E7E7;stroke-width:1;"></polygon></g><g class="link" data-entity-1="ent0009" data-entity-2="ent0011" data-link-type="dependency" data-source-line="25" id="lnk19"><path d="M386.2,315.37 C356.29,336.64 316.6894,364.8124 287.0094,385.9224" fill="none" id="Order Service-to-PostgreSQL" style="stroke:#E7E7E7;stroke-width:1;"></path><polygon fill="#E7E7E7" points="282.12,389.4,291.7725,387.4432,286.1945,386.502,287.1357,380.924,282.12,389.4" style="stroke:#E7E7E7;stroke-width:1;"></polygon></g><?plantuml-src ROz1IyGm48Nl_HMnzstk7eIAAABYQl4aYymciqrequHaigk8_zriAxHPzpRptfl7DnTw47sKo1IH2vUSUpXKhIOLjp6W5tOW7AWIrl0dtIdG_OE7FLBWffDMX0yNJSyD14BFIQ71m2Nk8FR49VYkElg50z51YwoyzMEXBDbtmTZxAu8WLZktcJOPFrb3rkEc-2dcg-iqp4Vr-fxT0U41liQpEf9Y3Vgz5ZWARmay4vwzN2hBwXiWc7fbchOGahQsWLgFpSjZcUc9JuVoUBu0PwlLrGbJjltv6UEPGCvy9d3oGzuuHKQ-P6LTapM_bFoywb_W5m00?></g></svg></div></div>
+<hr/>
+<h3 id="diagrama-de-estados-state-machine"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.4.7</span> Diagrama de Estados (State Machine)</h3>
+<p><strong>Qué:</strong> Muestra estados posibles de un objeto y transiciones.</p>
+<p><strong>Cuándo:</strong> Workflows, FSM, ciclos de vida.</p>
+<p><strong>Mermaid:</strong></p>
+<pre class="mermaid"><code>stateDiagram-v2
+    [*] --&gt; Draft
+    Draft --&gt; Review: submit()
+    Review --&gt; Approved: approve()
+    Review --&gt; Rejected: reject()
+    Approved --&gt; Published: publish()
+    Rejected --&gt; Draft: revise()
+    Published --&gt; Archived: archive()
+    Archived --&gt; [*]</code></pre>
+<hr/>
+<h3 id="diagrama-de-arquitectura-system-design"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.4.8</span> Diagrama de Arquitectura (System Design)</h3>
+<p><strong>Qué:</strong> Vista de alto nivel de arquitectura del sistema.</p>
+<p><strong>Cuándo:</strong> Onboarding, design reviews, documentación.</p>
+<p><strong>Ejemplo (texto Mermaid):</strong></p>
+<pre class="mermaid"><code>graph TB
+    subgraph "Client Layer"
+        Web[Web App&lt;br/&gt;React]
+        Mobile[Mobile App&lt;br/&gt;React Native]
+    end
+
+    subgraph "API Layer"
+        Gateway[API Gateway&lt;br/&gt;Kong]
+        Auth[Auth Service]
+        Users[Users Service]
+        Orders[Orders Service]
+    end
+
+    subgraph "Data Layer"
+        PG[(PostgreSQL)]
+        Redis[(Redis)]
+        S3[(S3)]
+    end
+
+    Web --&gt; Gateway
+    Mobile --&gt; Gateway
+    Gateway --&gt; Auth
+    Gateway --&gt; Users
+    Gateway --&gt; Orders
+    Auth --&gt; Redis
+    Users --&gt; PG
+    Orders --&gt; PG
+    Orders --&gt; S3</code></pre>
+<hr/>
+<h3 id="diagrama-de-despliegue"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.4.9</span> Diagrama de Despliegue</h3>
+<p><strong>Qué:</strong> Muestra infraestructura física/lógica donde corre el sistema.</p>
+<p><strong>Cuándo:</strong> DevOps, infraestructura, deployment planning.</p>
+<p><strong>PlantUML:</strong></p>
+<div class="puml-container"><div class="puml light" style=""><svg class="diagram" contentstyletype="text/css" data-diagram-type="DESCRIPTION" height="511px" preserveaspectratio="xMidYMid meet" style="width:325px;height:511px;background:#FFFFFF;" version="1.1" viewbox="0 0 325 511" width="325px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" zoomandpan="magnify"><defs></defs><g><g class="cluster" data-qualified-name="AWS" data-source-line="2" id="ent0002"><polygon fill="none" points="16,142.3,26,132.3,308,132.3,308,484.19,298,494.19,16,494.19,16,142.3" style="stroke:#181818;stroke-width:1;"></polygon><line style="stroke:#181818;stroke-width:1;" x1="298" x2="308" y1="142.3" y2="132.3"></line><line style="stroke:#181818;stroke-width:1;" x1="16" x2="298" y1="142.3" y2="142.3"></line><line style="stroke:#181818;stroke-width:1;" x1="298" x2="298" y1="142.3" y2="494.19"></line><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthadjust="spacing" textlength="36.3604" x="139.8198" y="158.2951">AWS</text></g><g class="cluster" data-qualified-name="AWS.EKS Cluster" data-source-line="3" id="ent0003"><polygon fill="none" points="76,190.3,86,180.3,248,180.3,248,378.89,238,388.89,76,388.89,76,190.3" style="stroke:#181818;stroke-width:1;"></polygon><line style="stroke:#181818;stroke-width:1;" x1="238" x2="248" y1="190.3" y2="180.3"></line><line style="stroke:#181818;stroke-width:1;" x1="76" x2="238" y1="190.3" y2="190.3"></line><line style="stroke:#181818;stroke-width:1;" x1="238" x2="238" y1="190.3" y2="388.89"></line><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthadjust="spacing" textlength="91.834" x="112.083" y="206.2951">EKS Cluster</text></g><g class="cluster" data-qualified-name="Cloudflare" data-source-line="11" id="ent0008"><polygon fill="none" points="84,16,94,6,241,6,241,98.3,231,108.3,84,108.3,84,16" style="stroke:#181818;stroke-width:1;"></polygon><line style="stroke:#181818;stroke-width:1;" x1="231" x2="241" y1="16" y2="6"></line><line style="stroke:#181818;stroke-width:1;" x1="84" x2="231" y1="16" y2="16"></line><line style="stroke:#181818;stroke-width:1;" x1="231" x2="231" y1="16" y2="108.3"></line><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthadjust="spacing" textlength="81.416" x="117.792" y="31.9951">Cloudflare</text></g><g class="entity" data-qualified-name="AWS.db" data-source-line="7" id="ent0006"><path d="M31.7,442.89 C31.7,432.89 98.9988,432.89 98.9988,432.89 C98.9988,432.89 166.2977,432.89 166.2977,442.89 L166.2977,468.1869 C166.2977,478.1869 98.9988,478.1869 98.9988,478.1869 C98.9988,478.1869 31.7,478.1869 31.7,468.1869 L31.7,442.89" fill="#F1F1F1" style="stroke:#181818;stroke-width:0.5;"></path><path d="M31.7,442.89 C31.7,452.89 98.9988,452.89 98.9988,452.89 C98.9988,452.89 166.2977,452.89 166.2977,442.89" fill="none" style="stroke:#181818;stroke-width:0.5;"></path><text fill="#000000" font-family="sans-serif" font-size="14" lengthadjust="spacing" textlength="114.5977" x="41.7" y="469.8851">RDS PostgreSQL</text></g><g class="entity" data-qualified-name="AWS.s3" data-source-line="8" id="ent0007"><rect fill="#F1F1F1" height="36.2969" rx="35" ry="35" style="stroke:#181818;stroke-width:0.5;" width="90.6289" x="201.69" y="437.39"></rect><text fill="#000000" font-family="sans-serif" font-size="14" lengthadjust="spacing" textlength="70.6289" x="211.69" y="460.3851">S3 Bucket</text></g><g class="entity" data-qualified-name="AWS.EKS Cluster.fe" data-source-line="4" id="ent0004"><rect fill="#F1F1F1" height="46.2969" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="140.748" x="91.63" y="220.3"></rect><rect fill="#F1F1F1" height="10" style="stroke:#181818;stroke-width:0.5;" width="15" x="212.378" y="225.3"></rect><rect fill="#F1F1F1" height="2" style="stroke:#181818;stroke-width:0.5;" width="4" x="210.378" y="227.3"></rect><rect fill="#F1F1F1" height="2" style="stroke:#181818;stroke-width:0.5;" width="4" x="210.378" y="231.3"></rect><text fill="#000000" font-family="sans-serif" font-size="14" lengthadjust="spacing" textlength="100.748" x="106.63" y="253.2951">Frontend Pods</text></g><g class="entity" data-qualified-name="AWS.EKS Cluster.be" data-source-line="5" id="ent0005"><rect fill="#F1F1F1" height="46.2969" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="138" x="93" y="326.6"></rect><rect fill="#F1F1F1" height="10" style="stroke:#181818;stroke-width:0.5;" width="15" x="211" y="331.6"></rect><rect fill="#F1F1F1" height="2" style="stroke:#181818;stroke-width:0.5;" width="4" x="209" y="333.6"></rect><rect fill="#F1F1F1" height="2" style="stroke:#181818;stroke-width:0.5;" width="4" x="209" y="337.6"></rect><text fill="#000000" font-family="sans-serif" font-size="14" lengthadjust="spacing" textlength="98" x="108" y="359.5951">Backend Pods</text></g><g class="entity" data-qualified-name="Cloudflare.cdn" data-source-line="12" id="ent0009"><rect fill="#F1F1F1" height="46.2969" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="71.0283" x="126.49" y="46"></rect><rect fill="#F1F1F1" height="10" style="stroke:#181818;stroke-width:0.5;" width="15" x="177.5183" y="51"></rect><rect fill="#F1F1F1" height="2" style="stroke:#181818;stroke-width:0.5;" width="4" x="175.5183" y="53"></rect><rect fill="#F1F1F1" height="2" style="stroke:#181818;stroke-width:0.5;" width="4" x="175.5183" y="57"></rect><text fill="#000000" font-family="sans-serif" font-size="14" lengthadjust="spacing" textlength="31.0283" x="141.49" y="78.9951">CDN</text></g><g class="link" data-entity-1="ent0009" data-entity-2="ent0004" data-link-type="dependency" data-source-line="15" id="lnk10"><path d="M162,92.68 C162,125.7 162,180.89 162,213.92" fill="none" id="cdn-to-fe" style="stroke:#181818;stroke-width:1;"></path><polygon fill="#181818" points="162,219.92,166,210.92,162,214.92,158,210.92,162,219.92" style="stroke:#181818;stroke-width:1;"></polygon></g><g class="link" data-entity-1="ent0004" data-entity-2="ent0005" data-link-type="dependency" data-source-line="16" id="lnk11"><path d="M162,267.08 C162,284.57 162,302.68 162,320.16" fill="none" id="fe-to-be" style="stroke:#181818;stroke-width:1;"></path><polygon fill="#181818" points="162,326.16,166,317.16,162,321.16,158,317.16,162,326.16" style="stroke:#181818;stroke-width:1;"></polygon></g><g class="link" data-entity-1="ent0005" data-entity-2="ent0006" data-link-type="dependency" data-source-line="17" id="lnk12"><path d="M148.33,373.27 C137.69,390.8 126.1112,409.8596 115.5412,427.2896" fill="none" id="be-to-db" style="stroke:#181818;stroke-width:1;"></path><polygon fill="#181818" points="112.43,432.42,120.517,426.7986,115.0227,428.1447,113.6765,422.6503,112.43,432.42" style="stroke:#181818;stroke-width:1;"></polygon></g><g class="link" data-entity-1="ent0005" data-entity-2="ent0007" data-link-type="dependency" data-source-line="18" id="lnk13"><path d="M180.44,373.27 C196.17,392.47 214.6391,415.0174 228.9991,432.5574" fill="none" id="be-to-s3" style="stroke:#181818;stroke-width:1;"></path><polygon fill="#181818" points="232.8,437.2,230.1937,427.7022,229.6326,433.3312,224.0037,432.7701,232.8,437.2" style="stroke:#181818;stroke-width:1;"></polygon></g><?plantuml-src NOuzJyCm48Rt_8eZU-iX6mCIJUbIG406HdI9Bn-AOqU-Cmoe_vrBqW4OBB_sFVRptWo-SSaIz28ptneJyMlV3TAdEZ759dWXB_icJEPf67iSt3dY9mcRQRIXuOyvJSvCo4BHI4yJiR7KOd9YtD3rib-0p0TLvFVlLGxV6S1sV3XNKBgqFDsk0TGp1wz6o4znTLju2PPpG8QM_ZC7RCO_IBqW5rqM1MjajRmTAvspT96gryULihKIB25Yfq1Lm27fFxBEkCWksRLlwKAohSD8MxzVvlBulEADzGkl6-nsTql5bjQaJUejgUsQkFW1?></g></svg></div><div class="puml dark" style=""><svg class="diagram" contentstyletype="text/css" data-diagram-type="DESCRIPTION" height="511px" preserveaspectratio="xMidYMid meet" style="width:325px;height:511px;background:#1B1B1B;" version="1.1" viewbox="0 0 325 511" width="325px" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" zoomandpan="magnify"><defs></defs><g><rect fill="#1B1B1B" height="511" style="stroke:none;stroke-width:1;" width="325" x="0" y="0"></rect><g class="cluster" data-qualified-name="AWS" data-source-line="2" id="ent0002"><polygon fill="none" points="16,142.3,26,132.3,308,132.3,308,484.19,298,494.19,16,494.19,16,142.3" style="stroke:#E7E7E7;stroke-width:1;"></polygon><line style="stroke:#E7E7E7;stroke-width:1;" x1="298" x2="308" y1="142.3" y2="132.3"></line><line style="stroke:#E7E7E7;stroke-width:1;" x1="16" x2="298" y1="142.3" y2="142.3"></line><line style="stroke:#E7E7E7;stroke-width:1;" x1="298" x2="298" y1="142.3" y2="494.19"></line><text fill="#FFFFFF" font-family="sans-serif" font-size="14" font-weight="bold" lengthadjust="spacing" textlength="36.3604" x="139.8198" y="158.2951">AWS</text></g><g class="cluster" data-qualified-name="AWS.EKS Cluster" data-source-line="3" id="ent0003"><polygon fill="none" points="76,190.3,86,180.3,248,180.3,248,378.89,238,388.89,76,388.89,76,190.3" style="stroke:#E7E7E7;stroke-width:1;"></polygon><line style="stroke:#E7E7E7;stroke-width:1;" x1="238" x2="248" y1="190.3" y2="180.3"></line><line style="stroke:#E7E7E7;stroke-width:1;" x1="76" x2="238" y1="190.3" y2="190.3"></line><line style="stroke:#E7E7E7;stroke-width:1;" x1="238" x2="238" y1="190.3" y2="388.89"></line><text fill="#FFFFFF" font-family="sans-serif" font-size="14" font-weight="bold" lengthadjust="spacing" textlength="91.834" x="112.083" y="206.2951">EKS Cluster</text></g><g class="cluster" data-qualified-name="Cloudflare" data-source-line="11" id="ent0008"><polygon fill="none" points="84,16,94,6,241,6,241,98.3,231,108.3,84,108.3,84,16" style="stroke:#E7E7E7;stroke-width:1;"></polygon><line style="stroke:#E7E7E7;stroke-width:1;" x1="231" x2="241" y1="16" y2="6"></line><line style="stroke:#E7E7E7;stroke-width:1;" x1="84" x2="231" y1="16" y2="16"></line><line style="stroke:#E7E7E7;stroke-width:1;" x1="231" x2="231" y1="16" y2="108.3"></line><text fill="#FFFFFF" font-family="sans-serif" font-size="14" font-weight="bold" lengthadjust="spacing" textlength="81.416" x="117.792" y="31.9951">Cloudflare</text></g><g class="entity" data-qualified-name="AWS.db" data-source-line="7" id="ent0006"><path d="M31.7,442.89 C31.7,432.89 98.9988,432.89 98.9988,432.89 C98.9988,432.89 166.2977,432.89 166.2977,442.89 L166.2977,468.1869 C166.2977,478.1869 98.9988,478.1869 98.9988,478.1869 C98.9988,478.1869 31.7,478.1869 31.7,468.1869 L31.7,442.89" fill="#313139" style="stroke:#E7E7E7;stroke-width:0.5;"></path><path d="M31.7,442.89 C31.7,452.89 98.9988,452.89 98.9988,452.89 C98.9988,452.89 166.2977,452.89 166.2977,442.89" fill="none" style="stroke:#E7E7E7;stroke-width:0.5;"></path><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthadjust="spacing" textlength="114.5977" x="41.7" y="469.8851">RDS PostgreSQL</text></g><g class="entity" data-qualified-name="AWS.s3" data-source-line="8" id="ent0007"><rect fill="#313139" height="36.2969" rx="35" ry="35" style="stroke:#E7E7E7;stroke-width:0.5;" width="90.6289" x="201.69" y="437.39"></rect><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthadjust="spacing" textlength="70.6289" x="211.69" y="460.3851">S3 Bucket</text></g><g class="entity" data-qualified-name="AWS.EKS Cluster.fe" data-source-line="4" id="ent0004"><rect fill="#313139" height="46.2969" rx="2.5" ry="2.5" style="stroke:#E7E7E7;stroke-width:0.5;" width="140.748" x="91.63" y="220.3"></rect><rect fill="#313139" height="10" style="stroke:#E7E7E7;stroke-width:0.5;" width="15" x="212.378" y="225.3"></rect><rect fill="#313139" height="2" style="stroke:#E7E7E7;stroke-width:0.5;" width="4" x="210.378" y="227.3"></rect><rect fill="#313139" height="2" style="stroke:#E7E7E7;stroke-width:0.5;" width="4" x="210.378" y="231.3"></rect><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthadjust="spacing" textlength="100.748" x="106.63" y="253.2951">Frontend Pods</text></g><g class="entity" data-qualified-name="AWS.EKS Cluster.be" data-source-line="5" id="ent0005"><rect fill="#313139" height="46.2969" rx="2.5" ry="2.5" style="stroke:#E7E7E7;stroke-width:0.5;" width="138" x="93" y="326.6"></rect><rect fill="#313139" height="10" style="stroke:#E7E7E7;stroke-width:0.5;" width="15" x="211" y="331.6"></rect><rect fill="#313139" height="2" style="stroke:#E7E7E7;stroke-width:0.5;" width="4" x="209" y="333.6"></rect><rect fill="#313139" height="2" style="stroke:#E7E7E7;stroke-width:0.5;" width="4" x="209" y="337.6"></rect><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthadjust="spacing" textlength="98" x="108" y="359.5951">Backend Pods</text></g><g class="entity" data-qualified-name="Cloudflare.cdn" data-source-line="12" id="ent0009"><rect fill="#313139" height="46.2969" rx="2.5" ry="2.5" style="stroke:#E7E7E7;stroke-width:0.5;" width="71.0283" x="126.49" y="46"></rect><rect fill="#313139" height="10" style="stroke:#E7E7E7;stroke-width:0.5;" width="15" x="177.5183" y="51"></rect><rect fill="#313139" height="2" style="stroke:#E7E7E7;stroke-width:0.5;" width="4" x="175.5183" y="53"></rect><rect fill="#313139" height="2" style="stroke:#E7E7E7;stroke-width:0.5;" width="4" x="175.5183" y="57"></rect><text fill="#FFFFFF" font-family="sans-serif" font-size="14" lengthadjust="spacing" textlength="31.0283" x="141.49" y="78.9951">CDN</text></g><g class="link" data-entity-1="ent0009" data-entity-2="ent0004" data-link-type="dependency" data-source-line="15" id="lnk10"><path d="M162,92.68 C162,125.7 162,180.89 162,213.92" fill="none" id="cdn-to-fe" style="stroke:#E7E7E7;stroke-width:1;"></path><polygon fill="#E7E7E7" points="162,219.92,166,210.92,162,214.92,158,210.92,162,219.92" style="stroke:#E7E7E7;stroke-width:1;"></polygon></g><g class="link" data-entity-1="ent0004" data-entity-2="ent0005" data-link-type="dependency" data-source-line="16" id="lnk11"><path d="M162,267.08 C162,284.57 162,302.68 162,320.16" fill="none" id="fe-to-be" style="stroke:#E7E7E7;stroke-width:1;"></path><polygon fill="#E7E7E7" points="162,326.16,166,317.16,162,321.16,158,317.16,162,326.16" style="stroke:#E7E7E7;stroke-width:1;"></polygon></g><g class="link" data-entity-1="ent0005" data-entity-2="ent0006" data-link-type="dependency" data-source-line="17" id="lnk12"><path d="M148.33,373.27 C137.69,390.8 126.1112,409.8596 115.5412,427.2896" fill="none" id="be-to-db" style="stroke:#E7E7E7;stroke-width:1;"></path><polygon fill="#E7E7E7" points="112.43,432.42,120.517,426.7986,115.0227,428.1447,113.6765,422.6503,112.43,432.42" style="stroke:#E7E7E7;stroke-width:1;"></polygon></g><g class="link" data-entity-1="ent0005" data-entity-2="ent0007" data-link-type="dependency" data-source-line="18" id="lnk13"><path d="M180.44,373.27 C196.17,392.47 214.6391,415.0174 228.9991,432.5574" fill="none" id="be-to-s3" style="stroke:#E7E7E7;stroke-width:1;"></path><polygon fill="#E7E7E7" points="232.8,437.2,230.1937,427.7022,229.6326,433.3312,224.0037,432.7701,232.8,437.2" style="stroke:#E7E7E7;stroke-width:1;"></polygon></g><?plantuml-src NOuzJyCm48Rt_8eZU-iX6mCIJUbIG406HdI9Bn-AOqU-Cmoe_vrBqW4OB9_zFlRptWo-SSaIz28ptneJyMlV3TAdEZ759dWXB_icJEPf67iSt3dY9mcRQRIXuOyvJSvCo4BHI4yJiR7KOd9YBCPnl-IP3sh8xz-h7BupWEtuSAwWT6bvkLq3g6OENeMGd-Agjl0IBEU032tzPmxOZ7-GUa4kkYmAriXgUJjMchDqaQhNnvMojH8i8MAdG5N08Ua_icPSP9VishTq8TdMOQIjtozpUNnUySRwXTSDThkxfM9BwwHDwcrIstNYuWS0?></g></svg></div></div>
+<hr/>
+<h2 id="tipos-de-documentacion"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.5</span> 📚 Tipos de Documentación</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Tipo</th>
+<th style="text-align: left;">Audiencia</th>
+<th style="text-align: left;">Contenido</th>
+<th style="text-align: left;">Ejemplo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>README</strong></td>
+<td style="text-align: left;">Developers</td>
+<td style="text-align: left;">Qué es, setup, uso básico</td>
+<td style="text-align: left;"><code>README.md</code> en root</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>API Docs</strong></td>
+<td style="text-align: left;">API consumers</td>
+<td style="text-align: left;">Endpoints, schemas, auth</td>
+<td style="text-align: left;">Swagger UI, Redoc</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Architecture Decision Records (ADR)</strong></td>
+<td style="text-align: left;">Team</td>
+<td style="text-align: left;">Por qué tomamos decisión X</td>
+<td style="text-align: left;"><code>docs/adr/0use-postgres.md</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Runbooks</strong></td>
+<td style="text-align: left;">DevOps, on-call</td>
+<td style="text-align: left;">Cómo responder a incidents</td>
+<td style="text-align: left;">"Qué hacer si DB está lenta"</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>User Guides</strong></td>
+<td style="text-align: left;">End users</td>
+<td style="text-align: left;">Cómo usar el producto</td>
+<td style="text-align: left;">Tutorials, FAQs</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Code Comments</strong></td>
+<td style="text-align: left;">Developers</td>
+<td style="text-align: left;">Por qué existe código complejo</td>
+<td style="text-align: left;"><code>// Workaround for bug X</code></td>
+</tr>
+</tbody>
+</table>
+<hr/>
+<h2 id="best-practices-documentacion"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.6</span> ✍️ Best Practices Documentación</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Práctica</th>
+<th style="text-align: left;">Por qué</th>
+<th style="text-align: left;">Cómo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Docs como código</strong></td>
+<td style="text-align: left;">Versionado, CI/CD</td>
+<td style="text-align: left;">Markdown en repo, auto-deploy</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Single Source of Truth</strong></td>
+<td style="text-align: left;">Evitar duplicación</td>
+<td style="text-align: left;">Una ubicación canónica</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Living Documentation</strong></td>
+<td style="text-align: left;">Actualizado con código</td>
+<td style="text-align: left;">PR incluye doc changes</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Progresive Disclosure</strong></td>
+<td style="text-align: left;">No overwhelming</td>
+<td style="text-align: left;">Overview → detalles on-demand</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Examples First</strong></td>
+<td style="text-align: left;">Más fácil entender</td>
+<td style="text-align: left;">Code snippets antes de teoría</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Search-Friendly</strong></td>
+<td style="text-align: left;">Encontrar rápido</td>
+<td style="text-align: left;">Headings claros, keywords</td>
+</tr>
+</tbody>
+</table>
+<hr/>
+<h2 id="anti-patrones"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.7</span> 🚫 Anti-patrones</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Anti-patrón</th>
+<th style="text-align: left;">Problema</th>
+<th style="text-align: left;">Solución</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Docs desactualizadas</strong></td>
+<td style="text-align: left;">Peor que no tener docs</td>
+<td style="text-align: left;">CI checks, code+docs juntos</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Over-documentation</strong></td>
+<td style="text-align: left;">Nadie lee 100 páginas</td>
+<td style="text-align: left;">Conciso, TL;DR sections</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Documentar obvio</strong></td>
+<td style="text-align: left;">Ruido</td>
+<td style="text-align: left;">Documentar el "por qué", no el "qué"</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Diagramas en binarios</strong></td>
+<td style="text-align: left;">No versionables</td>
+<td style="text-align: left;">Diagrams-as-code</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Solo comentarios en código</strong></td>
+<td style="text-align: left;">No discoverable</td>
+<td style="text-align: left;">README, wiki para overview</td>
+</tr>
+</tbody>
+</table>
+<hr/>
+<h2 id="recursos"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.8</span> 📚 Recursos</h2>
+<ul>
+<li><a href="https://mermaid.live/">Mermaid Live Editor</a></li>
+<li><a href="https://plantuml.com/">PlantUML Documentation</a></li>
+<li><a href="https://c4model.com/">C4 Model</a></li>
+<li><a href="https://www.writethedocs.org/">Write the Docs</a></li>
+<li><a href="https://diataxis.fr/">Diátaxis Framework</a> - Docs structure</li>
+</ul>
+<aside class="md-source-file">
+<span class="md-source-file__fact">
+<span class="md-icon" title="Last update">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"></path></svg>
+</span>
+<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="22 de enero de 2026 23:13:04 UTC">22 de enero de 2026</span>
+</span>
+</aside>
+</article>
+</div>
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+</div>
+<button class="md-top md-icon" data-md-component="top" hidden="" type="button">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"></path></svg>
+  Back to top
+</button>
+</main>
+<footer class="md-footer">
+<nav aria-label="Footer" class="md-footer__inner md-grid">
+<a aria-label="Previous: Colaboración y Cultura" class="md-footer__link md-footer__link--prev" href="../colaboracion-cultura/">
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+</div>
+<div class="md-footer__title">
+<span class="md-footer__direction">
+                Previous
+              </span>
+<div class="md-ellipsis">
+                Colaboración y Cultura
+              </div>
+</div>
+</a>
+<a aria-label="Next: Convenciones" class="md-footer__link md-footer__link--next" href="../convenciones/">
+<div class="md-footer__title">
+<span class="md-footer__direction">
+                Next
+              </span>
+<div class="md-ellipsis">
+                Convenciones
+              </div>
+</div>
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"></path></svg>
+</div>
+</a>
+</nav>
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
+      Material for MkDocs
+    </a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["content.code.copy", "navigation.footer", "navigation.top", "search.highlight", "navigation.indexes"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+<script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+<script src="../../assets/mkdocs_puml/puml.js"></script>
+<script src="https://unpkg.com/@panzoom/panzoom@4.5.1/dist/panzoom.min.js"></script>
+<script src="../../assets/mkdocs_puml/interaction.js"></script>
+</body>
+</html>

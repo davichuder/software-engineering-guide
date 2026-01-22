@@ -1,0 +1,3786 @@
+
+<!DOCTYPE html>
+
+<html class="no-js" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="../arquitectura-patrones/" rel="prev"/>
+<link href="../devops/" rel="next"/>
+<link href="../../assets/images/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.6.1, mkdocs-material-9.7.1" name="generator"/>
+<title>Sesgos y Falacias - Guía Integral de Ingeniería de Software</title>
+<link href="../../assets/stylesheets/main.484c7ddc.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/palette.ab4e12ef.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
+<style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+<link href="../../assets/mkdocs_puml/puml.css" rel="stylesheet"/>
+<link href="../../assets/mkdocs_puml/interaction.css" rel="stylesheet"/>
+<script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+</head>
+<body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#sesgos-cognitivos-falacias-y-leyes-a-evitar">1. 
+          Skip to content
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+<header class="md-header md-header--shadow" data-md-component="header">
+<nav aria-label="Header" class="md-header__inner md-grid">
+<a aria-label="Guía Integral de Ingeniería de Software" class="md-header__button md-logo" data-md-component="logo" href="../.." title="Guía Integral de Ingeniería de Software">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            Guía Integral de Ingeniería de Software
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+            
+              Sesgos y Falacias
+            
+          </span>
+</div>
+</div>
+</div>
+<form class="md-header__option" data-md-component="palette">
+<input aria-label="Switch to light mode" class="md-option" data-md-color-accent="indigo" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-primary="indigo" data-md-color-scheme="default" id="__palette_0" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_1" hidden="" title="Switch to light mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
+</label>
+<input aria-label="Switch to dark mode" class="md-option" data-md-color-accent="indigo" data-md-color-media="(prefers-color-scheme: light)" data-md-color-primary="indigo" data-md-color-scheme="slate" id="__palette_1" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_0" hidden="" title="Switch to dark mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
+</label>
+</form>
+<script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+<label class="md-header__button md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+</label>
+<div class="md-search" data-md-component="search" role="dialog">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="Search" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="Search" required="" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+</label>
+<nav aria-label="Search" class="md-search__options">
+<button aria-label="Clear" class="md-search__icon md-icon" tabindex="-1" title="Clear" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+</button>
+</nav>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="" tabindex="0">
+<div class="md-search-result" data-md-component="search-result">
+<div class="md-search-result__meta">
+            Initializing search
+          </div>
+<ol class="md-search-result__list" role="presentation"></ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Navigation" class="md-nav md-nav--primary" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="Guía Integral de Ingeniería de Software" class="md-nav__button md-logo" data-md-component="logo" href="../.." title="Guía Integral de Ingeniería de Software">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"></path></svg>
+</a>
+    Guía Integral de Ingeniería de Software
+  </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../indice/">
+<span class="md-ellipsis">
+    
+  
+    Índice
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../fundamentos/">
+<span class="md-ellipsis">
+    
+  
+    Fundamentos
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../onboarding/">
+<span class="md-ellipsis">
+    
+  
+    Onboarding
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../disciplinas-desarrollo/">
+<span class="md-ellipsis">
+    
+  
+    Disciplinas de Desarrollo
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../testing/">
+<span class="md-ellipsis">
+    
+  
+    Testing
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../gestion-calidad/">
+<span class="md-ellipsis">
+    
+  
+    Gestión de Calidad
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../arquitectura-patrones/">
+<span class="md-ellipsis">
+    
+  
+    Arquitectura y Patrones
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+<span class="md-ellipsis">
+    
+  
+    Sesgos y Falacias
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
+<span class="md-ellipsis">
+    
+  
+    Sesgos y Falacias
+  
+
+    
+  </span>
+</a>
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#por-que-importan-los-sesgos">1.1 
+<span class="md-ellipsis">
+      
+        🧠 ¿Por qué importan los Sesgos?
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#leyes-fundamentales-en-tecnologia">1.2 
+<span class="md-ellipsis">
+      
+        📐 Leyes Fundamentales en Tecnología
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#sesgos-de-decision-y-juicio">1.3 
+<span class="md-ellipsis">
+      
+        🎯 Sesgos de Decisión y Juicio
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#sesgos-en-datos-y-analisis">1.4 
+<span class="md-ellipsis">
+      
+        📊 Sesgos en Datos y Análisis
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#sesgos-sociales-y-de-grupo">1.5 
+<span class="md-ellipsis">
+      
+        👥 Sesgos Sociales y de Grupo
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#sesgos-perceptuales-y-de-evaluacion">1.6 
+<span class="md-ellipsis">
+      
+        🔍 Sesgos Perceptuales y de Evaluación
+      
+    </span>
+</a>
+<nav aria-label="🔍 Sesgos Perceptuales y de Evaluación" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#sesgos-adicionales-de-percepcion-y-memoria">1.6.1 
+<span class="md-ellipsis">
+      
+        Sesgos Adicionales de Percepción y Memoria
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#falacias-logicas-criticas">1.7 
+<span class="md-ellipsis">
+      
+        ⚖️ Falacias Lógicas Críticas
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#leyes-y-efectos-paradojicos">1.8 
+<span class="md-ellipsis">
+      
+        ⚠️ Leyes y Efectos Paradójicos
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#sesgos-en-data-science-y-ml">1.9 
+<span class="md-ellipsis">
+      
+        📊 Sesgos en Data Science y ML
+      
+    </span>
+</a>
+<nav aria-label="📊 Sesgos en Data Science y ML" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ejemplo-de-codigo-anti-sesgo-en-ml">1.9.1 
+<span class="md-ellipsis">
+      
+        Ejemplo de Código Anti-Sesgo en ML
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#estrategias-de-mitigacion">1.10 
+<span class="md-ellipsis">
+      
+        🛡️ Estrategias de Mitigación
+      
+    </span>
+</a>
+<nav aria-label="🛡️ Estrategias de Mitigación" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#1-pre-mortem">1.10.1 
+<span class="md-ellipsis">
+      
+        1. Pre-Mortem
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#2-red-team-devils-advocate">1.10.2 
+<span class="md-ellipsis">
+      
+        2. Red Team / Devil's Advocate
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#3-decision-journal">1.10.3 
+<span class="md-ellipsis">
+      
+        3. Decision Journal
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#4-checklists-anti-sesgos">1.10.4 
+<span class="md-ellipsis">
+      
+        4. Checklists Anti-sesgos
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#5-diverse-teams">1.10.5 
+<span class="md-ellipsis">
+      
+        5. Diverse Teams
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#6-base-rates-first">1.10.6 
+<span class="md-ellipsis">
+      
+        6. Base Rates First
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#7-prospective-hindsight">1.10.7 
+<span class="md-ellipsis">
+      
+        7. Prospective Hindsight
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#8-blind-reviews">1.10.8 
+<span class="md-ellipsis">
+      
+        8. Blind Reviews
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#9-calibration-sessions">1.10.9 
+<span class="md-ellipsis">
+      
+        9. Calibration Sessions
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#10-multiple-perspectives">1.10.10 
+<span class="md-ellipsis">
+      
+        10. Multiple Perspectives
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#senales-de-alerta-como-reconocer-estas-sesgado">1.11 
+<span class="md-ellipsis">
+      
+        🚫 Señales de Alerta: Cómo Reconocer Estás Sesgado
+      
+    </span>
+</a>
+<nav aria-label="🚫 Señales de Alerta: Cómo Reconocer Estás Sesgado" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#red-flags-cognitivas-individual">1.11.1 
+<span class="md-ellipsis">
+      
+        Red Flags Cognitivas (Individual)
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#red-flags-en-equipos">1.11.2 
+<span class="md-ellipsis">
+      
+        Red Flags en Equipos
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#checklist-anti-sesgos">1.12 
+<span class="md-ellipsis">
+      
+        ✅ Checklist Anti-Sesgos
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#template-para-rfcs-anti-sesgo">1.13 
+<span class="md-ellipsis">
+      
+        🎯 Template para RFCs Anti-Sesgo
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#casos-practicos-en-tecnologia">1.14 
+<span class="md-ellipsis">
+      
+        🎯 Casos Prácticos en Tecnología
+      
+    </span>
+</a>
+<nav aria-label="🎯 Casos Prácticos en Tecnología" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#caso-1-migracion-de-monolito-a-microservicios">1.14.1 
+<span class="md-ellipsis">
+      
+        Caso 1: Migración de Monolito a Microservicios
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#caso-2-seleccion-de-framework-para-ia">1.14.2 
+<span class="md-ellipsis">
+      
+        Caso 2: Selección de Framework para IA
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#caso-3-priorizacion-de-features-con-rice">1.14.3 
+<span class="md-ellipsis">
+      
+        Caso 3: Priorización de Features con RICE
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#recursos">1.15 
+<span class="md-ellipsis">
+      
+        📚 Recursos
+      
+    </span>
+</a>
+<nav aria-label="📚 Recursos" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#libros-fundamentales">1.15.1 
+<span class="md-ellipsis">
+      
+        Libros Fundamentales
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#recursos-online">1.15.2 
+<span class="md-ellipsis">
+      
+        Recursos Online
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#clave-para-semi-seniors">1.16 
+<span class="md-ellipsis">
+      
+        💡 Clave para Semi-Seniors
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../devops/">
+<span class="md-ellipsis">
+    
+  
+    DevOps
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../seguridad/">
+<span class="md-ellipsis">
+    
+  
+    Seguridad
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../observabilidad/">
+<span class="md-ellipsis">
+    
+  
+    Observabilidad
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../herramientas-problemas/">
+<span class="md-ellipsis">
+    
+  
+    Herramientas y Problemas
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../mejora-continua/">
+<span class="md-ellipsis">
+    
+  
+    Mejora Continua
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../performance/">
+<span class="md-ellipsis">
+    
+  
+    Performance
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../checklist-produccion/">
+<span class="md-ellipsis">
+    
+  
+    Checklist Producción
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../bases-datos/">
+<span class="md-ellipsis">
+    
+  
+    Bases de Datos
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../apis-protocolos/">
+<span class="md-ellipsis">
+    
+  
+    APIs y Protocolos
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../mobile-ui-ux/">
+<span class="md-ellipsis">
+    
+  
+    Mobile / UI / UX
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../infraestructura-cloud/">
+<span class="md-ellipsis">
+    
+  
+    Infraestructura Cloud
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../cost-optimization/">
+<span class="md-ellipsis">
+    
+  
+    Cost Optimization
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../machine-learning/">
+<span class="md-ellipsis">
+    
+  
+    Machine Learning
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../ciencia-datos/">
+<span class="md-ellipsis">
+    
+  
+    Ciencia de Datos
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../data-governance/">
+<span class="md-ellipsis">
+    
+  
+    Data Governance
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../analisis-estrategico/">
+<span class="md-ellipsis">
+    
+  
+    Análisis Estratégico
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../product-management/">
+<span class="md-ellipsis">
+    
+  
+    Product Management
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../metricas-kpis/">
+<span class="md-ellipsis">
+    
+  
+    Métricas y KPIs
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../roles-responsabilidades/">
+<span class="md-ellipsis">
+    
+  
+    Roles y Responsabilidades
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../colaboracion-cultura/">
+<span class="md-ellipsis">
+    
+  
+    Colaboración y Cultura
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../documentacion-diagramas/">
+<span class="md-ellipsis">
+    
+  
+    Documentación y Diagramas
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../convenciones/">
+<span class="md-ellipsis">
+    
+  
+    Convenciones
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../estrategia-ia-automatizacion/">
+<span class="md-ellipsis">
+    
+  
+    Estrategia IA y Automatización
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../etica-gobernanza-ia/">
+<span class="md-ellipsis">
+    
+  
+    Ética y Gobernanza IA
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../comunicacion-contenido/">
+<span class="md-ellipsis">
+    
+  
+    Comunicación y Contenido
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../plantillas-artefactos/">
+<span class="md-ellipsis">
+    
+  
+    Plantillas y Artefactos
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../dependencias-deuda-tecnica/">
+<span class="md-ellipsis">
+    
+  
+    Dependencias y Deuda Técnica
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../priorizacion-roadmapping/">
+<span class="md-ellipsis">
+    
+  
+    Priorización y Roadmapping
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../gestion-secretos/">
+<span class="md-ellipsis">
+    
+  
+    Gestión de Secretos
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../chaos-engineering/">
+<span class="md-ellipsis">
+    
+  
+    Chaos Engineering
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../data-literacy/">
+<span class="md-ellipsis">
+    
+  
+    Data Literacy
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../lowcode-nocode/">
+<span class="md-ellipsis">
+    
+  
+    LowCode / NoCode
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../casos-de-estudio/">
+<span class="md-ellipsis">
+    
+  
+    Casos de Estudio
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_42" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../agentes/">
+<span class="md-ellipsis">
+    
+  
+    Agentes
+  
+
+    
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_42" id="__nav_42_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_42_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_42">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Agentes
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/the-gentleman/">
+<span class="md-ellipsis">
+    
+  
+    The Gentleman
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_42_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_42_2" id="__nav_42_2_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Architecture &amp; DevOps
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_42_2_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_42_2">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Architecture &amp; DevOps
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/architecture-devops/api-design-expert/">
+<span class="md-ellipsis">
+    
+  
+    API Design Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/architecture-devops/cicd-expert/">
+<span class="md-ellipsis">
+    
+  
+    CICD Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/architecture-devops/event-driven-expert/">
+<span class="md-ellipsis">
+    
+  
+    Event Driven Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/architecture-devops/iac-expert/">
+<span class="md-ellipsis">
+    
+  
+    IaC Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/architecture-devops/kubernetes-expert/">
+<span class="md-ellipsis">
+    
+  
+    Kubernetes Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/architecture-devops/microservices-expert/">
+<span class="md-ellipsis">
+    
+  
+    Microservices Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/architecture-devops/observability-expert/">
+<span class="md-ellipsis">
+    
+  
+    Observability Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/architecture-devops/security-expert/">
+<span class="md-ellipsis">
+    
+  
+    Security Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/architecture-devops/software-architecture-expert/">
+<span class="md-ellipsis">
+    
+  
+    Software Architecture Expert
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_42_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_42_3" id="__nav_42_3_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Backend
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_42_3_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_42_3">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Backend
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/backend/django-expert/">
+<span class="md-ellipsis">
+    
+  
+    Django Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/backend/express-expert/">
+<span class="md-ellipsis">
+    
+  
+    Express Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/backend/fastapi-expert/">
+<span class="md-ellipsis">
+    
+  
+    FastAPI Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/backend/java-expert/">
+<span class="md-ellipsis">
+    
+  
+    Java Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/backend/nestjs-expert/">
+<span class="md-ellipsis">
+    
+  
+    NestJS Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/backend/nodejs-expert/">
+<span class="md-ellipsis">
+    
+  
+    NodeJS Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/backend/python-expert/">
+<span class="md-ellipsis">
+    
+  
+    Python Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/backend/spring-expert/">
+<span class="md-ellipsis">
+    
+  
+    Spring Expert
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_42_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_42_4" id="__nav_42_4_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Business Roles
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_42_4_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_42_4">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Business Roles
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/business-roles/devrel-developer-advocate/">
+<span class="md-ellipsis">
+    
+  
+    DevRel / Developer Advocate
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/business-roles/pm-po-advisor/">
+<span class="md-ellipsis">
+    
+  
+    PM / PO Advisor
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/business-roles/scrum-master-agile-coach/">
+<span class="md-ellipsis">
+    
+  
+    Scrum Master / Agile Coach
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/business-roles/sre-advisor/">
+<span class="md-ellipsis">
+    
+  
+    SRE Advisor
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/business-roles/tech-lead-em-advisor/">
+<span class="md-ellipsis">
+    
+  
+    Tech Lead / EM Advisor
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/business-roles/ux-research-expert/">
+<span class="md-ellipsis">
+    
+  
+    UX Research Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/business-roles/ux-ui-designer/">
+<span class="md-ellipsis">
+    
+  
+    UX/UI Designer
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_42_5" type="checkbox"/>
+<label class="md-nav__link" for="__nav_42_5" id="__nav_42_5_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Compliance
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_42_5_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_42_5">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Compliance
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/compliance/accessibility-expert/">
+<span class="md-ellipsis">
+    
+  
+    Accessibility Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/compliance/compliance-governance-expert/">
+<span class="md-ellipsis">
+    
+  
+    Compliance &amp; Governance Expert
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_42_6" type="checkbox"/>
+<label class="md-nav__link" for="__nav_42_6" id="__nav_42_6_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Data / ML / Finance
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_42_6_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_42_6">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Data / ML / Finance
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/data-ml-finance/computer-vision-expert/">
+<span class="md-ellipsis">
+    
+  
+    Computer Vision Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/data-ml-finance/data-science-expert/">
+<span class="md-ellipsis">
+    
+  
+    Data Science Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/data-ml-finance/data-visualization-expert/">
+<span class="md-ellipsis">
+    
+  
+    Data Visualization Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/data-ml-finance/ml-dl-expert/">
+<span class="md-ellipsis">
+    
+  
+    ML/DL Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/data-ml-finance/nlp-expert/">
+<span class="md-ellipsis">
+    
+  
+    NLP Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/data-ml-finance/quant-finance-expert/">
+<span class="md-ellipsis">
+    
+  
+    Quant Finance Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/data-ml-finance/rl-expert/">
+<span class="md-ellipsis">
+    
+  
+    RL Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/data-ml-finance/trading-systems-expert/">
+<span class="md-ellipsis">
+    
+  
+    Trading Systems Expert
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_42_7" type="checkbox"/>
+<label class="md-nav__link" for="__nav_42_7" id="__nav_42_7_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Databases
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_42_7_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_42_7">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Databases
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/databases/mongodb-expert/">
+<span class="md-ellipsis">
+    
+  
+    MongoDB Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/databases/mssql-expert/">
+<span class="md-ellipsis">
+    
+  
+    MSSQL Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/databases/postgresql-expert/">
+<span class="md-ellipsis">
+    
+  
+    PostgreSQL Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/databases/redis-expert/">
+<span class="md-ellipsis">
+    
+  
+    Redis Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/databases/sqlite-expert/">
+<span class="md-ellipsis">
+    
+  
+    SQLite Expert
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_42_8" type="checkbox"/>
+<label class="md-nav__link" for="__nav_42_8" id="__nav_42_8_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Debugging
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_42_8_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_42_8">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Debugging
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/debugging/code-review-expert/">
+<span class="md-ellipsis">
+    
+  
+    Code Review Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/debugging/debugging-root-cause-expert/">
+<span class="md-ellipsis">
+    
+  
+    Debugging Root Cause Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/debugging/migration-specialist/">
+<span class="md-ellipsis">
+    
+  
+    Migration Specialist
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_42_9" type="checkbox"/>
+<label class="md-nav__link" for="__nav_42_9" id="__nav_42_9_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Documentation
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_42_9_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_42_9">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Documentation
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/documentation/api-documentation-expert/">
+<span class="md-ellipsis">
+    
+  
+    API Documentation Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/documentation/content-creator-expert/">
+<span class="md-ellipsis">
+    
+  
+    Content Creator Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/documentation/diagram-expert/">
+<span class="md-ellipsis">
+    
+  
+    Diagram Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/documentation/technical-writer-expert/">
+<span class="md-ellipsis">
+    
+  
+    Technical Writer Expert
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_42_10" type="checkbox"/>
+<label class="md-nav__link" for="__nav_42_10" id="__nav_42_10_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Frontend
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_42_10_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_42_10">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Frontend
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/frontend/angular-expert/">
+<span class="md-ellipsis">
+    
+  
+    Angular Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/frontend/css-styling-expert/">
+<span class="md-ellipsis">
+    
+  
+    CSS Styling Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/frontend/nextjs-expert/">
+<span class="md-ellipsis">
+    
+  
+    NextJS Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/frontend/react-expert/">
+<span class="md-ellipsis">
+    
+  
+    React Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/frontend/typescript-expert/">
+<span class="md-ellipsis">
+    
+  
+    TypeScript Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/frontend/vue-expert/">
+<span class="md-ellipsis">
+    
+  
+    Vue Expert
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_42_11" type="checkbox"/>
+<label class="md-nav__link" for="__nav_42_11" id="__nav_42_11_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Testing
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_42_11_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_42_11">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Testing
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/testing/bdd-expert/">
+<span class="md-ellipsis">
+    
+  
+    BDD Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/testing/e2e-testing-expert/">
+<span class="md-ellipsis">
+    
+  
+    E2E Testing Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/testing/performance-testing-expert/">
+<span class="md-ellipsis">
+    
+  
+    Performance Testing Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/testing/qa-automation-expert/">
+<span class="md-ellipsis">
+    
+  
+    QA Automation Expert
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agentes/testing/tdd-expert/">
+<span class="md-ellipsis">
+    
+  
+    TDD Expert
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_43" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../casos-de-estudio/">
+<span class="md-ellipsis">
+    
+  
+    Casos de Estudio
+  
+
+    
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_43" id="__nav_43_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_43_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_43">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Casos de Estudio
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../casos-de-estudio/portafolio-personal-ts-angular/">
+<span class="md-ellipsis">
+    
+  
+    Portafolio Personal TS Angular
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../casos-de-estudio/diario-emociones-mood-tracker/">
+<span class="md-ellipsis">
+    
+  
+    Diario de Emociones
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../casos-de-estudio/geofencing-alarm-mobile/">
+<span class="md-ellipsis">
+    
+  
+    Geofencing Alarm Mobile
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../casos-de-estudio/voice-volume-tracker-windows/">
+<span class="md-ellipsis">
+    
+  
+    Voice Volume Tracker Windows
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../casos-de-estudio/voice-volume-tracker-parte2/">
+<span class="md-ellipsis">
+    
+  
+    Voice Volume Tracker Parte 2
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../casos-de-estudio/voice-volume-tracker-parte3/">
+<span class="md-ellipsis">
+    
+  
+    Voice Volume Tracker Parte 3
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../casos-de-estudio/gestion-gastos-compartidos/">
+<span class="md-ellipsis">
+    
+  
+    Gestión de Gastos Compartidos
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../casos-de-estudio/gestion-gastos-compartidos-implementacion/">
+<span class="md-ellipsis">
+    
+  
+    Gestión de Gastos Compartidos (Implementación)
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_44" type="checkbox"/>
+<label class="md-nav__link" for="__nav_44" id="__nav_44_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Reportes
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_44_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_44">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Reportes
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_44_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_44_1" id="__nav_44_1_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Ejemplos
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_44_1_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_44_1">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Ejemplos
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../reportes/examples/bug-report-example/">
+<span class="md-ellipsis">
+    
+  
+    Bug Report Example
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../reportes/examples/feature-request-example/">
+<span class="md-ellipsis">
+    
+  
+    Feature Request Example
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../reportes/examples/new-feature-example/">
+<span class="md-ellipsis">
+    
+  
+    New Feature Example
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../reportes/examples/post-mortem-example/">
+<span class="md-ellipsis">
+    
+  
+    Post Mortem Example
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../reportes/examples/rfc-example/">
+<span class="md-ellipsis">
+    
+  
+    RFC Example
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_44_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_44_2" id="__nav_44_2_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Plantillas
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_44_2_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_44_2">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Plantillas
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../reportes/templates/bug-report-template/">
+<span class="md-ellipsis">
+    
+  
+    Bug Report Template
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../reportes/templates/feature-request-template/">
+<span class="md-ellipsis">
+    
+  
+    Feature Request Template
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../reportes/templates/new-feature-template/">
+<span class="md-ellipsis">
+    
+  
+    New Feature Template
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../reportes/templates/post-mortem-template/">
+<span class="md-ellipsis">
+    
+  
+    Post Mortem Template
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../reportes/templates/rfc-template/">
+<span class="md-ellipsis">
+    
+  
+    RFC Template
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../recursos-entrevistas/">
+<span class="md-ellipsis">
+    
+  
+    Recursos y Entrevistas
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../agradecimientos/">
+<span class="md-ellipsis">
+    
+  
+    Agradecimientos
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../glosario/">
+<span class="md-ellipsis">
+    
+  
+    Glosario
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#por-que-importan-los-sesgos">1.1 
+<span class="md-ellipsis">
+      
+        🧠 ¿Por qué importan los Sesgos?
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#leyes-fundamentales-en-tecnologia">1.2 
+<span class="md-ellipsis">
+      
+        📐 Leyes Fundamentales en Tecnología
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#sesgos-de-decision-y-juicio">1.3 
+<span class="md-ellipsis">
+      
+        🎯 Sesgos de Decisión y Juicio
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#sesgos-en-datos-y-analisis">1.4 
+<span class="md-ellipsis">
+      
+        📊 Sesgos en Datos y Análisis
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#sesgos-sociales-y-de-grupo">1.5 
+<span class="md-ellipsis">
+      
+        👥 Sesgos Sociales y de Grupo
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#sesgos-perceptuales-y-de-evaluacion">1.6 
+<span class="md-ellipsis">
+      
+        🔍 Sesgos Perceptuales y de Evaluación
+      
+    </span>
+</a>
+<nav aria-label="🔍 Sesgos Perceptuales y de Evaluación" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#sesgos-adicionales-de-percepcion-y-memoria">1.6.1 
+<span class="md-ellipsis">
+      
+        Sesgos Adicionales de Percepción y Memoria
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#falacias-logicas-criticas">1.7 
+<span class="md-ellipsis">
+      
+        ⚖️ Falacias Lógicas Críticas
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#leyes-y-efectos-paradojicos">1.8 
+<span class="md-ellipsis">
+      
+        ⚠️ Leyes y Efectos Paradójicos
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#sesgos-en-data-science-y-ml">1.9 
+<span class="md-ellipsis">
+      
+        📊 Sesgos en Data Science y ML
+      
+    </span>
+</a>
+<nav aria-label="📊 Sesgos en Data Science y ML" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ejemplo-de-codigo-anti-sesgo-en-ml">1.9.1 
+<span class="md-ellipsis">
+      
+        Ejemplo de Código Anti-Sesgo en ML
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#estrategias-de-mitigacion">1.10 
+<span class="md-ellipsis">
+      
+        🛡️ Estrategias de Mitigación
+      
+    </span>
+</a>
+<nav aria-label="🛡️ Estrategias de Mitigación" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#1-pre-mortem">1.10.1 
+<span class="md-ellipsis">
+      
+        1. Pre-Mortem
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#2-red-team-devils-advocate">1.10.2 
+<span class="md-ellipsis">
+      
+        2. Red Team / Devil's Advocate
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#3-decision-journal">1.10.3 
+<span class="md-ellipsis">
+      
+        3. Decision Journal
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#4-checklists-anti-sesgos">1.10.4 
+<span class="md-ellipsis">
+      
+        4. Checklists Anti-sesgos
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#5-diverse-teams">1.10.5 
+<span class="md-ellipsis">
+      
+        5. Diverse Teams
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#6-base-rates-first">1.10.6 
+<span class="md-ellipsis">
+      
+        6. Base Rates First
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#7-prospective-hindsight">1.10.7 
+<span class="md-ellipsis">
+      
+        7. Prospective Hindsight
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#8-blind-reviews">1.10.8 
+<span class="md-ellipsis">
+      
+        8. Blind Reviews
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#9-calibration-sessions">1.10.9 
+<span class="md-ellipsis">
+      
+        9. Calibration Sessions
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#10-multiple-perspectives">1.10.10 
+<span class="md-ellipsis">
+      
+        10. Multiple Perspectives
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#senales-de-alerta-como-reconocer-estas-sesgado">1.11 
+<span class="md-ellipsis">
+      
+        🚫 Señales de Alerta: Cómo Reconocer Estás Sesgado
+      
+    </span>
+</a>
+<nav aria-label="🚫 Señales de Alerta: Cómo Reconocer Estás Sesgado" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#red-flags-cognitivas-individual">1.11.1 
+<span class="md-ellipsis">
+      
+        Red Flags Cognitivas (Individual)
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#red-flags-en-equipos">1.11.2 
+<span class="md-ellipsis">
+      
+        Red Flags en Equipos
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#checklist-anti-sesgos">1.12 
+<span class="md-ellipsis">
+      
+        ✅ Checklist Anti-Sesgos
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#template-para-rfcs-anti-sesgo">1.13 
+<span class="md-ellipsis">
+      
+        🎯 Template para RFCs Anti-Sesgo
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#casos-practicos-en-tecnologia">1.14 
+<span class="md-ellipsis">
+      
+        🎯 Casos Prácticos en Tecnología
+      
+    </span>
+</a>
+<nav aria-label="🎯 Casos Prácticos en Tecnología" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#caso-1-migracion-de-monolito-a-microservicios">1.14.1 
+<span class="md-ellipsis">
+      
+        Caso 1: Migración de Monolito a Microservicios
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#caso-2-seleccion-de-framework-para-ia">1.14.2 
+<span class="md-ellipsis">
+      
+        Caso 2: Selección de Framework para IA
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#caso-3-priorizacion-de-features-con-rice">1.14.3 
+<span class="md-ellipsis">
+      
+        Caso 3: Priorización de Features con RICE
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#recursos">1.15 
+<span class="md-ellipsis">
+      
+        📚 Recursos
+      
+    </span>
+</a>
+<nav aria-label="📚 Recursos" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#libros-fundamentales">1.15.1 
+<span class="md-ellipsis">
+      
+        Libros Fundamentales
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#recursos-online">1.15.2 
+<span class="md-ellipsis">
+      
+        Recursos Online
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#clave-para-semi-seniors">1.16 
+<span class="md-ellipsis">
+      
+        💡 Clave para Semi-Seniors
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<h1 id="sesgos-cognitivos-falacias-y-leyes-a-evitar"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.</span> Sesgos Cognitivos, Falacias y Leyes a Evitar</h1>
+<blockquote>
+<p>Trampas mentales, errores de razonamiento y leyes que impactan toma de decisiones en tecnología, producto y negocio.</p>
+</blockquote>
+<hr/>
+<h2 id="por-que-importan-los-sesgos"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.1</span> 🧠 ¿Por qué importan los Sesgos?</h2>
+<p><strong>Qué:</strong> Atajos mentales (heurísticos) que sistemáticamente desvían el juicio de la racionalidad.</p>
+<p><strong>Por qué:</strong> Todos tenemos sesgos. Reconocerlos previene malas decisiones en producto, inversión, arquitectura y management.</p>
+<p><strong>Quién:</strong> Product Managers, founders, investors, developers, leaders.</p>
+<p><strong>Cuándo:</strong> Diseño de producto, decisiones de inversión, evaluación de performance, priorización.</p>
+<p><strong>Cómo:</strong> Awareness, procesos estructurados, devil's advocate, datos sobre intuición.</p>
+<p><strong>Costo:</strong> Un sesgo no detectado puede costar millones en producto fallido o inversión perdida.</p>
+<hr/>
+<h2 id="leyes-fundamentales-en-tecnologia"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.2</span> 📐 Leyes Fundamentales en Tecnología</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Ley</th>
+<th style="text-align: left;">Definición</th>
+<th style="text-align: left;">Aplicación en Tech/Negocio</th>
+<th style="text-align: left;">Ejemplo Real</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Ley de Murphy</strong></td>
+<td style="text-align: left;">"Si algo puede salir mal, saldrá mal"</td>
+<td style="text-align: left;">Siempre tener plan B, runbooks, rollback plan</td>
+<td style="text-align: left;">Deploy sin rollback → caída total del sistema</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Ley de Kiddlin</strong></td>
+<td style="text-align: left;">"Si escribes el problema con suficiente claridad, ya tienes la mitad de la solución"</td>
+<td style="text-align: left;">5W2H, SCQA framework, documentar problemas claramente</td>
+<td style="text-align: left;">Documentar bug con contexto completo acelera resolución</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Ley de Gilbert</strong></td>
+<td style="text-align: left;">"Cuando actúas, el éxito no está garantizado. Pero cuando no actúas, el fracaso sí lo está"</td>
+<td style="text-align: left;">Bias to action, MVPs, fail fast</td>
+<td style="text-align: left;">No lanzar MVP por miedo = oportunidad perdida</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Ley de Wilson</strong></td>
+<td style="text-align: left;">"Si priorizas el conocimiento sobre la sabiduría, el progreso te hará más estúpido"</td>
+<td style="text-align: left;">Balance entre learning y wisdom, senior judgement</td>
+<td style="text-align: left;">Adoptar frameworks sin criterio de cuándo usarlos</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Ley de Faulkland</strong></td>
+<td style="text-align: left;">"Cuando no necesites tomar una decisión, no la tomes"</td>
+<td style="text-align: left;">Reversible decisions, defer until necessary</td>
+<td style="text-align: left;">Decisiones de arquitectura: esperar hasta tener más información</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Primera Ley de Newton</strong></td>
+<td style="text-align: left;">"Un objeto en movimiento permanece en movimiento"</td>
+<td style="text-align: left;">Momentum matters, consistency beats intensity</td>
+<td style="text-align: left;">Daily commits consistentes &gt; sprints intensos esporádicos</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Principio de Pareto (80/20)</strong></td>
+<td style="text-align: left;">80% resultados de 20% esfuerzo</td>
+<td style="text-align: left;">Identificar y optimizar el 20% crítico</td>
+<td style="text-align: left;">20% de features generan 80% del valor</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Ley de Parkinson</strong></td>
+<td style="text-align: left;">"El trabajo se expande para llenar el tiempo disponible"</td>
+<td style="text-align: left;">Timeboxing, sprints cortos (1-2 semanas)</td>
+<td style="text-align: left;">Sprint de 4 semanas → scope creep inevitable</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Ley de Hick</strong></td>
+<td style="text-align: left;">"Tiempo de decisión aumenta logarítmicamente con opciones"</td>
+<td style="text-align: left;">Limitar opciones en UI, simplificar decisiones</td>
+<td style="text-align: left;">Dropdown con 50 opciones vs búsqueda con autocompletado</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Navaja de Ockham</strong></td>
+<td style="text-align: left;">"La explicación más simple suele ser la correcta"</td>
+<td style="text-align: left;">KISS principle, evitar over-engineering</td>
+<td style="text-align: left;">Debugging: buscar causas simples primero</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Ley de Conway</strong></td>
+<td style="text-align: left;">"Sistemas reflejan estructura de comunicación organizacional"</td>
+<td style="text-align: left;">Diseñar equipos y comunicación antes que arquitectura</td>
+<td style="text-align: left;">Equipos aislados → arquitectura monolítica</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Goodhart's Law</strong></td>
+<td style="text-align: left;">"Cuando una medida se convierte en objetivo, deja de ser buena medida"</td>
+<td style="text-align: left;">Medir múltiples dimensiones, cambiar métricas</td>
+<td style="text-align: left;">Optimizar lines of code → código inflado</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Cobra Effect</strong></td>
+<td style="text-align: left;">"Solución al problema empeora el problema"</td>
+<td style="text-align: left;">Anticipar incentivos perversos</td>
+<td style="text-align: left;">Pagar por bugs reportados → crear bugs ficticios</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>💡 <strong>Patrón anti-sesgo:</strong> Implementar "pre-mortem" antes de cada release: <em>"Es 3 meses después, el feature falló. ¿Por qué?"</em></p>
+</blockquote>
+<hr/>
+<h2 id="sesgos-de-decision-y-juicio"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.3</span> 🎯 Sesgos de Decisión y Juicio</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Sesgo</th>
+<th style="text-align: left;">Qué</th>
+<th style="text-align: left;">Causa</th>
+<th style="text-align: left;">Apariciones</th>
+<th style="text-align: left;">Impacto</th>
+<th style="text-align: left;">Cómo Mitigar</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Confirmation Bias (Confirmación)</strong></td>
+<td style="text-align: left;">Buscar solo evidencia que confirme creencias pre-existentes</td>
+<td style="text-align: left;">Cerebro busca coherencia y evita disonancia cognitiva</td>
+<td style="text-align: left;">Evaluar nuevas tecnologías, revisar métricas, code review</td>
+<td style="text-align: left;">Ignorar señales de que el producto no funciona, mantener código legacy innecesariamente</td>
+<td style="text-align: left;">Pre-mortem: "¿Por qué podría fallar esto?", buscar evidencia contradictoria activamente</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Anchoring Bias (Anclaje)</strong></td>
+<td style="text-align: left;">Sobre-ponderar la primera información recibida</td>
+<td style="text-align: left;">La información inicial establece un punto de referencia mental</td>
+<td style="text-align: left;">Estimaciones de tiempo, negociaciones salariales, planning de sprints</td>
+<td style="text-align: left;">Estimaciones sesgadas por número inicial, presupuestos irreales</td>
+<td style="text-align: left;">Múltiples estimaciones independientes, usar base rates históricos</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Availability Bias (Disponibilidad)</strong></td>
+<td style="text-align: left;">Sobrevalorar información fácilmente recordable (reciente, dramática)</td>
+<td style="text-align: left;">Memoria privilegia eventos vívidos y recientes</td>
+<td style="text-align: left;">Evaluar riesgos después de un incidente, priorizar features</td>
+<td style="text-align: left;">Temer riesgos raros pero visibles, ignorar problemas comunes pero menos dramáticos</td>
+<td style="text-align: left;">Datos estadísticos en lugar de anécdotas, mantener registros históricos</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Recency Bias (Actualidad)</strong></td>
+<td style="text-align: left;">Ponderar más eventos recientes</td>
+<td style="text-align: left;">Memoria de trabajo tiene capacidad limitada</td>
+<td style="text-align: left;">Después de un deploy fallido, evaluación trimestral</td>
+<td style="text-align: left;">"Última release falló" → evitar deploys por miedo injustificado</td>
+<td style="text-align: left;">Analizar tendencias a largo plazo, no eventos aislados</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Hindsight Bias (Retrospectiva)</strong></td>
+<td style="text-align: left;">"Yo lo sabía desde el principio" después del hecho</td>
+<td style="text-align: left;">Cerebro reescribe recuerdos para ser consistente</td>
+<td style="text-align: left;">Post-mortems, revisiones de decisiones pasadas</td>
+<td style="text-align: left;">No aprender de errores reales, sobrestimar capacidad predictiva</td>
+<td style="text-align: left;">Documentar predicciones antes de conocer resultados, blameless postmortems</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Overconfidence Bias (Exceso de confianza)</strong></td>
+<td style="text-align: left;">Sobreestimar habilidades y probabilidad de éxito</td>
+<td style="text-align: left;">Falta de feedback inmediato sobre errores de juicio</td>
+<td style="text-align: left;">Estimaciones de proyectos, evaluación de habilidades técnicas</td>
+<td style="text-align: left;">Estimaciones optimistas, no preparar contingencias, bugs en producción</td>
+<td style="text-align: left;">Calibración con track record histórico, revisiones por pares</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Planning Fallacy</strong></td>
+<td style="text-align: left;">Subestimar tiempo/costo, sobrestimar beneficios</td>
+<td style="text-align: left;">Enfoque en escenario ideal sin considerar imprevistos</td>
+<td style="text-align: left;">Planning de sprints, roadmap de producto</td>
+<td style="text-align: left;">Proyectos tarde y sobre presupuesto, equipos sobrecargados</td>
+<td style="text-align: left;">Reference class forecasting, buffer time basado en histórico (25%)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Sunk Cost Fallacy (Costo hundido)</strong></td>
+<td style="text-align: left;">Continuar invirtiendo porque ya invertiste mucho</td>
+<td style="text-align: left;">Aversión a admitir pérdidas, deseo de justificar decisiones pasadas</td>
+<td style="text-align: left;">Mantener proyectos fallidos, seguir con tecnología obsoleta</td>
+<td style="text-align: left;">Mantener proyectos fallidos mucho tiempo, waste de recursos</td>
+<td style="text-align: left;">Decisiones basadas en valor futuro, no pasado; kill criteria definidas</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Status Quo Bias</strong></td>
+<td style="text-align: left;">Preferir estado actual, resistir cambio</td>
+<td style="text-align: left;">Conservación de energía mental, miedo a lo desconocido</td>
+<td style="text-align: left;">Adopción de nuevas tecnologías, cambios de proceso</td>
+<td style="text-align: left;">No adoptar mejores tecnologías/procesos, estancamiento técnico</td>
+<td style="text-align: left;">Forzar justificación del status quo también, experimentos controlados</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Loss Aversion (Aversión a pérdida)</strong></td>
+<td style="text-align: left;">Pérdidas duelen 2x más que ganancias equivalentes</td>
+<td style="text-align: left;">Mecanismo evolutivo de supervivencia</td>
+<td style="text-align: left;">Decisiones de refactoring, inversión en tech debt</td>
+<td style="text-align: left;">Evitar riesgos necesarios, no innovar, acumulación de tech debt</td>
+<td style="text-align: left;">Enmarcar como pérdida de oportunidad si no actúas, dividir en pasos pequeños</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Regret Aversion (Aversión al arrepentimiento)</strong></td>
+<td style="text-align: left;">Evitar decisiones que podrían causar arrepentimiento</td>
+<td style="text-align: left;">Miedo a consecuencias emocionales de errores</td>
+<td style="text-align: left;">Cambios arquitectónicos grandes, hiring/firing</td>
+<td style="text-align: left;">Parálisis por análisis, no tomar decisiones reversibles</td>
+<td style="text-align: left;">Distinguir decisiones reversibles vs irreversibles, timeboxing de decisiones</td>
+</tr>
+</tbody>
+</table>
+<hr/>
+<h2 id="sesgos-en-datos-y-analisis"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.4</span> 📊 Sesgos en Datos y Análisis</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Sesgo</th>
+<th style="text-align: left;">Qué</th>
+<th style="text-align: left;">Causa</th>
+<th style="text-align: left;">Impacto</th>
+<th style="text-align: left;">Ejemplo</th>
+<th style="text-align: left;">Cómo Mitigar</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Survivorship Bias (Supervivencia)</strong></td>
+<td style="text-align: left;">Analizar solo lo que "sobrevivió", ignorar lo que falló</td>
+<td style="text-align: left;">Los fracasos son menos visibles y se olvidan</td>
+<td style="text-align: left;">Conclusiones erróneas sobre causas de éxito</td>
+<td style="text-align: left;">Estudiar startups exitosas sin analizar las que fallaron</td>
+<td style="text-align: left;">Incluir data de failures, buscar casos de estudio negativos</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Selection Bias (Selección)</strong></td>
+<td style="text-align: left;">Muestra no representativa de población</td>
+<td style="text-align: left;">Acceso limitado a ciertos grupos de datos</td>
+<td style="text-align: left;">Decisiones basadas en data sesgada</td>
+<td style="text-align: left;">User surveys solo responden los muy satisfechos/insatisfechos</td>
+<td style="text-align: left;">Random sampling, analizar non-responders, múltiples fuentes</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Cherry Picking</strong></td>
+<td style="text-align: left;">Seleccionar data que apoya tu argumento</td>
+<td style="text-align: left;">Sesgo de confirmación en análisis de datos</td>
+<td style="text-align: left;">Validar hipótesis falsas</td>
+<td style="text-align: left;">Mostrar solo trimestres de crecimiento, ocultar los malos</td>
+<td style="text-align: left;">Pre-registrar análisis, third-party review, análisis ciego</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Sampling Bias</strong></td>
+<td style="text-align: left;">Muestra no aleatoria de la población</td>
+<td style="text-align: left;">Métodos de recolección imperfectos</td>
+<td style="text-align: left;">Resultados no generalizables</td>
+<td style="text-align: left;">A/B test solo en power users, ignorando nuevos usuarios</td>
+<td style="text-align: left;">Stratified sampling, randomización, tamaño muestral adecuado</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Response Bias</strong></td>
+<td style="text-align: left;">Respondientes difieren de no-respondientes</td>
+<td style="text-align: left;">Características que afectan disposición a responder</td>
+<td style="text-align: left;">Survey results sesgados</td>
+<td style="text-align: left;">Solo usuarios muy engaged responden NPS</td>
+<td style="text-align: left;">Follow-up con non-responders, incentivos balanceados</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Base Rate Neglect (Negación ratio base)</strong></td>
+<td style="text-align: left;">Ignorar probabilidades base, foco en caso específico</td>
+<td style="text-align: left;">Casos específicos son más memorables</td>
+<td style="text-align: left;">Sobreestimar probabilidad de eventos raros</td>
+<td style="text-align: left;">"Este startup es el próximo Google" (ignorando que 90% fallan)</td>
+<td style="text-align: left;">Siempre empezar con base rates, usar estadística bayesiana</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Volatility Bias</strong></td>
+<td style="text-align: left;">Confundir volatilidad con riesgo</td>
+<td style="text-align: left;">Aversión a variabilidad sin analizar dirección</td>
+<td style="text-align: left;">Evitar inversiones volátiles pero rentables</td>
+<td style="text-align: left;">Evitar crypto por volatilidad, no por fundamentos</td>
+<td style="text-align: left;">Separar volatilidad de riesgo direccional</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Evaluator Bias (Del evaluador)</strong></td>
+<td style="text-align: left;">Quien evalúa afecta resultado</td>
+<td style="text-align: left;">Diferentes estándares entre evaluadores</td>
+<td style="text-align: left;">Performance reviews inconsistentes</td>
+<td style="text-align: left;">Manager laxo vs estricto</td>
+<td style="text-align: left;">Calibración, múltiples evaluadores</td>
+</tr>
+</tbody>
+</table>
+<hr/>
+<h2 id="sesgos-sociales-y-de-grupo"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.5</span> 👥 Sesgos Sociales y de Grupo</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Sesgo</th>
+<th style="text-align: left;">What</th>
+<th style="text-align: left;">Why ocurre</th>
+<th style="text-align: left;">Impacto</th>
+<th style="text-align: left;">Cómo Mitigar</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Authority Bias (Autoridad)</strong></td>
+<td style="text-align: left;">Confiar excesivamente en "expertos"</td>
+<td style="text-align: left;">Estructura social jerárquica, deferencia a experiencia</td>
+<td style="text-align: left;">Seguir malas ideas de seniors, falta de pensamiento crítico</td>
+<td style="text-align: left;">Question everything, "disagree and commit", meritocracia de ideas</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Halo Effect (Efecto halo)</strong></td>
+<td style="text-align: left;">Atributo positivo influye juicio general</td>
+<td style="text-align: left;">Generalización de impresiones</td>
+<td style="text-align: left;">Sobrevalorar a persona por un logro aislado</td>
+<td style="text-align: left;">Evaluar dimensiones independientemente, rubricas estructuradas</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Horn Effect (Efecto cuerno)</strong></td>
+<td style="text-align: left;">Atributo negativo contamina todo</td>
+<td style="text-align: left;">Generalización negativa por primera impresión</td>
+<td style="text-align: left;">Subestimar por error pasado, oportunidades perdidas</td>
+<td style="text-align: left;">Separar evaluaciones, fresh start mentality, focus en mejora</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>False Consensus (Falso consenso)</strong></td>
+<td style="text-align: left;">Asumir que otros piensan como tú</td>
+<td style="text-align: left;">Proyección de propias creencias</td>
+<td style="text-align: left;">Diseñar para ti, no para usuarios, features no usadas</td>
+<td style="text-align: left;">User research, diverse team, testing con usuarios reales</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Similarity Bias (Afinidad)</strong></td>
+<td style="text-align: left;">Favorecer personas similares a ti</td>
+<td style="text-align: left;">Comfort con lo familiar, validación social</td>
+<td style="text-align: left;">Homogeneidad en contratación, groupthink</td>
+<td style="text-align: left;">Structured interviews, diverse panels, criterios objetivos</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Contrast Effect (Contraste)</strong></td>
+<td style="text-align: left;">Juzgar por comparación reciente, no absoluto</td>
+<td style="text-align: left;">Procesamiento relativo vs absoluto</td>
+<td style="text-align: left;">Candidato mediocre después de malo parece excelente</td>
+<td style="text-align: left;">Rubric de evaluación absoluto</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Social Proof (Prueba social)</strong></td>
+<td style="text-align: left;">Hacer lo que otros hacen</td>
+<td style="text-align: left;">Validación social, miedo a perderse oportunidades (FOMO)</td>
+<td style="text-align: left;">Adoptar tech hype sin evaluar, arquitectura de rebaño</td>
+<td style="text-align: left;">Evaluate technical fit, no popularity; proof of concepts</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Framing Effect (Enmarcado)</strong></td>
+<td style="text-align: left;">Decisión cambia según cómo se presente</td>
+<td style="text-align: left;">Procesamiento emocional de información</td>
+<td style="text-align: left;">"90% sobrevive" vs "10% muere" generan decisiones diferentes</td>
+<td style="text-align: left;">Present both frames, analizar desde múltiples perspectivas</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Bandwagon Effect (Arrastre)</strong></td>
+<td style="text-align: left;">"Todos lo hacen, debe ser correcto"</td>
+<td style="text-align: left;">Presión social, validación grupal</td>
+<td style="text-align: left;">Adoptar tecnologías sin evaluar fit</td>
+<td style="text-align: left;">Revisar fit con contexto específico, no popularidad</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Efecto Espectador</strong></td>
+<td style="text-align: left;">No actuar cuando hay más gente</td>
+<td style="text-align: left;">Difusión de responsabilidad</td>
+<td style="text-align: left;">"Alguien más lo reportará" → bugs no reportados</td>
+<td style="text-align: left;">Asignar responsabilidades explícitas</td>
+</tr>
+</tbody>
+</table>
+<hr/>
+<h2 id="sesgos-perceptuales-y-de-evaluacion"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.6</span> 🔍 Sesgos Perceptuales y de Evaluación</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Sesgo</th>
+<th style="text-align: left;">What</th>
+<th style="text-align: left;">Why ocurre</th>
+<th style="text-align: left;">Impacto</th>
+<th style="text-align: left;">Cómo Mitigar</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Dunning-Kruger Effect</strong></td>
+<td style="text-align: left;">Incompetentes sobrestiman habilidad, expertos subestiman</td>
+<td style="text-align: left;">Falta de metacognición en novatos, conciencia de complejidad en expertos</td>
+<td style="text-align: left;">Juniors overconfident, seniors con impostor syndrome</td>
+<td style="text-align: left;">Calibración con feedback objetivo, rubricas de evaluación claras</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Observer-Expectancy Effect</strong></td>
+<td style="text-align: left;">Expectativas influencian observación</td>
+<td style="text-align: left;">Profecía autocumplida, procesamiento selectivo</td>
+<td style="text-align: left;">Self-fulfilling prophecies en testing y métricas</td>
+<td style="text-align: left;">Blind testing, double-blind reviews, procesos estandarizados</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Outcome Bias (Por resultados)</strong></td>
+<td style="text-align: left;">Juzgar decisión por resultado, no por proceso</td>
+<td style="text-align: left;">Atajo mental para evaluar calidad decisión</td>
+<td style="text-align: left;">Validar mal proceso porque tuvo suerte, castigar buena decisión con mal resultado</td>
+<td style="text-align: left;">Evaluar decisión con info disponible en momento, análisis de proceso</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Focus Effect (Efecto foco)</strong></td>
+<td style="text-align: left;">Sobre-ponderar un aspecto, ignorar el resto</td>
+<td style="text-align: left;">Atención limitada, saliencia de ciertas métricas</td>
+<td style="text-align: left;">Obsesionarse con una métrica, optimización local vs global</td>
+<td style="text-align: left;">Scorecards balanceadas, múltiples métricas, perspectiva sistémica</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Apophenia</strong></td>
+<td style="text-align: left;">Ver patrones donde no existen</td>
+<td style="text-align: left;">Cerebro busca patrones incluso en ruido</td>
+<td style="text-align: left;">Trading en ruido random, ver "señal" en chart patterns aleatorios</td>
+<td style="text-align: left;">Análisis estadístico riguroso, tests de significancia</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Representativeness Bias (Representatividad)</strong></td>
+<td style="text-align: left;">Juzgar probabilidad por similitud con estereotipo</td>
+<td style="text-align: left;">Atajos mentales basados en prototipos</td>
+<td style="text-align: left;">Ignorar base rates, "Parece fundador exitoso" → invertir sin due diligence</td>
+<td style="text-align: left;">Siempre empezar con base rates, no con similitudes</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Illusion of Control (Ilusión de control)</strong></td>
+<td style="text-align: left;">Sobrestimar capacidad de controlar eventos</td>
+<td style="text-align: left;">Necesidad psicológica de control</td>
+<td style="text-align: left;">Tomar riesgos excesivos, "Puedo time el mercado"</td>
+<td style="text-align: left;">Reconocer límites de control, focus en lo controlable</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Optimism Bias (Optimismo)</strong></td>
+<td style="text-align: left;">Sobrestimar probabilidad de eventos positivos</td>
+<td style="text-align: left;">Mecanismo de protección psicológica</td>
+<td style="text-align: left;">Underestimate riesgos, "A nosotros no nos pasará"</td>
+<td style="text-align: left;">Reference class forecasting, análisis de riesgos sistemático</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Negativity Bias (Negatividad)</strong></td>
+<td style="text-align: left;">Ponderar más eventos negativos</td>
+<td style="text-align: left;">Mecanismo evolutivo de supervivencia</td>
+<td style="text-align: left;">Evitar riesgos necesarios, un review malo pesa más que 10 buenos</td>
+<td style="text-align: left;">Análisis balanceado, métricas objetivas</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Denomination Effect</strong></td>
+<td style="text-align: left;">Menos dispuesto a gastar billetes grandes vs pequeños</td>
+<td style="text-align: left;">Percepción psicológica del valor</td>
+<td style="text-align: left;">Subestimar gastos pequeños recurrentes, $5/mes parece barato, $60/año parece caro</td>
+<td style="text-align: left;">Analizar en términos anuales o lifetime value</td>
+</tr>
+</tbody>
+</table>
+<h3 id="sesgos-adicionales-de-percepcion-y-memoria"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.6.1</span> Sesgos Adicionales de Percepción y Memoria</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Sesgo</th>
+<th style="text-align: left;">Qué</th>
+<th style="text-align: left;">Ejemplo</th>
+<th style="text-align: left;">Mitigación</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Sesgo de Atención</strong></td>
+<td style="text-align: left;">Atender selectivamente a ciertos estímulos</td>
+<td style="text-align: left;">Notar solo bugs en framework que no te gusta</td>
+<td style="text-align: left;">Systematic observation, checklists</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Sesgo de Distinción</strong></td>
+<td style="text-align: left;">Valorar más cuando comparamos opciones lado a lado</td>
+<td style="text-align: left;">Feature parece mejor en comparación directa</td>
+<td style="text-align: left;">Evaluar absolutamente también</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Sesgo Egocéntrico</strong></td>
+<td style="text-align: left;">Sobrevalorar propio rol en eventos</td>
+<td style="text-align: left;">"El proyecto fue exitoso gracias a mí"</td>
+<td style="text-align: left;">Reconocer contribuciones del equipo</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Efecto de Primacía</strong></td>
+<td style="text-align: left;">Recordar más lo primero</td>
+<td style="text-align: left;">Primera impresión en entrevista domina evaluación</td>
+<td style="text-align: left;">Tomar notas, evaluar al final</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Efecto de Retrospección "Color de Rosa"</strong></td>
+<td style="text-align: left;">Recordar pasado mejor de lo que fue</td>
+<td style="text-align: left;">"Los viejos tiempos eran mejores"</td>
+<td style="text-align: left;">Consultar registros históricos</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Sesgo de Punto Ciego</strong></td>
+<td style="text-align: left;">No ver propios sesgos</td>
+<td style="text-align: left;">"Yo soy objetivo, los demás están sesgados"</td>
+<td style="text-align: left;">Humildad intelectual, feedback externo</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Efecto del Lago Wobegon</strong></td>
+<td style="text-align: left;">Creer que estás por encima del promedio</td>
+<td style="text-align: left;">"Soy mejor developer que la media" (todos creen eso)</td>
+<td style="text-align: left;">Calibración con métricas objetivas</td>
+</tr>
+</tbody>
+</table>
+<hr/>
+<h2 id="falacias-logicas-criticas"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.7</span> ⚖️ Falacias Lógicas Críticas</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Falacia</th>
+<th style="text-align: left;">Qué</th>
+<th style="text-align: left;">Ejemplo en Tech</th>
+<th style="text-align: left;">Por qué es problema</th>
+<th style="text-align: left;">Cómo Refutar</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Straw Man (Hombre de paja)</strong></td>
+<td style="text-align: left;">Distorsionar argumento del oponente para refutarlo fácil</td>
+<td style="text-align: left;">"¿Quieres microservicios? ¿Quieres 100 repos imposibles de mantener?"</td>
+<td style="text-align: left;">Evita discusión real, crea conflictos artificiales</td>
+<td style="text-align: left;">"Estoy proponiendo servicios bounded context, no microservicios extremos"</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Ad Hominem</strong></td>
+<td style="text-align: left;">Atacar a la persona, no al argumento</td>
+<td style="text-align: left;">"No le hagas caso, es junior/no tiene experiencia"</td>
+<td style="text-align: left;">Ignora méritos del argumento</td>
+<td style="text-align: left;">"Evaluemos la idea por sus méritos técnicos"</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Appeal to Authority (Verecundiam)</strong></td>
+<td style="text-align: left;">"X lo dice, debe ser verdad"</td>
+<td style="text-align: left;">"Google usa microservicios, nosotros también debemos"</td>
+<td style="text-align: left;">Ignora contexto específico</td>
+<td style="text-align: left;">"Context matters, evaluemos fit con nuestras necesidades"</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>False Dichotomy (Falso dilema)</strong></td>
+<td style="text-align: left;">Presentar solo 2 opciones cuando hay más</td>
+<td style="text-align: left;">"O usamos Agile o Waterfall"</td>
+<td style="text-align: left;">Limita opciones creativas, fuerza elecciones subóptimas</td>
+<td style="text-align: left;">"Hay múltiples enfoques: híbridos, ScrumBan, enfoques adaptativos"</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Slippery Slope (Pendiente resbaladiza)</strong></td>
+<td style="text-align: left;">"Si hacemos A, inevitablemente pasará Z"</td>
+<td style="text-align: left;">"Si permitimos TypeScript, pronto usaremos 10 lenguajes"</td>
+<td style="text-align: left;">Paraliza progreso con miedos exagerados</td>
+<td style="text-align: left;">"Podemos establecer governance y criterios para adopción controlada"</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Post Hoc Ergo Propter Hoc</strong></td>
+<td style="text-align: left;">"Después de esto, entonces a causa de esto"</td>
+<td style="text-align: left;">"Deploy en viernes → incidente, entonces no deployar viernes"</td>
+<td style="text-align: left;">Atribución incorrecta de causas, correlación ≠ causación</td>
+<td style="text-align: left;">Analizar causas reales con datos</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Red Herring (Pista falsa)</strong></td>
+<td style="text-align: left;">Desviar la atención con tema irrelevante</td>
+<td style="text-align: left;">"Sí, el código tiene bugs, pero mira esta nueva feature"</td>
+<td style="text-align: left;">Evita resolver problemas reales</td>
+<td style="text-align: left;">Volver a tópico original</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Begging the Question (Petición de principio)</strong></td>
+<td style="text-align: left;">Razonamiento circular, conclusión asumida en premisa</td>
+<td style="text-align: left;">"Este framework es mejor porque es superior"</td>
+<td style="text-align: left;">Falta de evidencia real</td>
+<td style="text-align: left;">Proveer evidencia externa, benchmarks</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>False Analogy (Falsa analogía)</strong></td>
+<td style="text-align: left;">Comparación engañosa entre cosas no comparables</td>
+<td style="text-align: left;">"Construir software es como construir un edificio"</td>
+<td style="text-align: left;">Modelos mentales incorrectos</td>
+<td style="text-align: left;">"Software se re-construye constantemente, edificios no"</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Tu Quoque</strong></td>
+<td style="text-align: left;">"Tú también lo haces"</td>
+<td style="text-align: left;">"Me dices que no copie código, pero tú lo haces"</td>
+<td style="text-align: left;">Evita responsabilidad personal</td>
+<td style="text-align: left;">"Hipocresía no invalida el argumento"</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Appeal to Emotion (Patético)</strong></td>
+<td style="text-align: left;">Apelar a emociones en lugar de razón</td>
+<td style="text-align: left;">"Si no hacemos esto, la empresa quebrará"</td>
+<td style="text-align: left;">Decide por miedo, no por datos</td>
+<td style="text-align: left;">Evaluar lógica y datos objetivamente</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Appeal to Tradition</strong></td>
+<td style="text-align: left;">"Siempre se ha hecho así"</td>
+<td style="text-align: left;">"Siempre usamos MySQL, no necesitamos evaluar otras DB"</td>
+<td style="text-align: left;">Impide innovación y mejora continua</td>
+<td style="text-align: left;">"Las necesidades evolucionan, debemos evaluar según requisitos actuales"</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Hasty Generalization (Generalización precipitada)</strong></td>
+<td style="text-align: left;">Generalización apresurada con muestra pequeña</td>
+<td style="text-align: left;">"Los dos primeros usuarios se quejaron, entonces a todos les disgusta"</td>
+<td style="text-align: left;">Decisiones basadas en data insuficiente</td>
+<td style="text-align: left;">"Necesitamos muestra estadísticamente significativa"</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Bandwagon (Carro)</strong></td>
+<td style="text-align: left;">"Todos lo hacen, debe ser correcto"</td>
+<td style="text-align: left;">Adoptar hype sin evaluar</td>
+<td style="text-align: left;">Seguir modas sin análisis</td>
+<td style="text-align: left;">Revisar fit con negocio específico</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Carga de la Prueba</strong></td>
+<td style="text-align: left;">Invertir quien debe probar</td>
+<td style="text-align: left;">"Demuestra que NO funciona"</td>
+<td style="text-align: left;">Evita responsabilidad de probar afirmaciones</td>
+<td style="text-align: left;">"Quien afirma debe probar"</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Appeal to Ignorance (Ignorantiam)</strong></td>
+<td style="text-align: left;">"No se probó falso → es verdadero"</td>
+<td style="text-align: left;">"No hay evidencia contra esta arquitectura → debe ser buena"</td>
+<td style="text-align: left;">Carga de prueba invertida</td>
+<td style="text-align: left;">Ausencia de evidencia ≠ evidencia de ausencia</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Envenenar el Pozo</strong></td>
+<td style="text-align: left;">Descalificar antes de hablar</td>
+<td style="text-align: left;">"Todo lo que dice X es mentira"</td>
+<td style="text-align: left;">Pre-emptive ad hominem</td>
+<td style="text-align: left;">Evaluar cada argumento por mérito</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Equívoco</strong></td>
+<td style="text-align: left;">Cambiar significado de término en argumento</td>
+<td style="text-align: left;">"Banco" (institución vs asiento) en diferentes premisas</td>
+<td style="text-align: left;">Confusión conceptual</td>
+<td style="text-align: left;">Definiciones consistentes</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Non Sequitur</strong></td>
+<td style="text-align: left;">Conclusión no sigue de premisas</td>
+<td style="text-align: left;">"Es martes → debemos usar Python"</td>
+<td style="text-align: left;">No hay conexión lógica</td>
+<td style="text-align: left;">Mostrar falta de conexión</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Afirmación del Consecuente</strong></td>
+<td style="text-align: left;">"Si llueve, hay nubes. Hay nubes → llueve"</td>
+<td style="text-align: left;">Confundir suficiente con necesario</td>
+<td style="text-align: left;">Lógica inválida</td>
+<td style="text-align: left;">Mostrar contraejemplos</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Negación del Antecedente</strong></td>
+<td style="text-align: left;">"Si llueve, uso paraguas. No llueve → no uso paraguas"</td>
+<td style="text-align: left;">Confundir necesario con suficiente</td>
+<td style="text-align: left;">Lógica inválida</td>
+<td style="text-align: left;">Mostrar contraejemplos</td>
+</tr>
+</tbody>
+</table>
+<hr/>
+<h2 id="leyes-y-efectos-paradojicos"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.8</span> ⚠️ Leyes y Efectos Paradójicos</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Efecto/Ley</th>
+<th style="text-align: left;">Qué</th>
+<th style="text-align: left;">Por qué es paradójico</th>
+<th style="text-align: left;">Ejemplo en Tech</th>
+<th style="text-align: left;">Mitigación</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Goodhart's Law</strong></td>
+<td style="text-align: left;">"Cuando una medida se convierte en objetivo, deja de ser buena medida"</td>
+<td style="text-align: left;">Optimizar métricas corrompe su validez</td>
+<td style="text-align: left;">Optimizar lines of code → código inflado</td>
+<td style="text-align: left;">Métricas múltiples, auditorías, qualitative + quantitative</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Campbell's Law</strong></td>
+<td style="text-align: left;">Similar a Goodhart: indicador social bajo presión corrompe procesos</td>
+<td style="text-align: left;">Medición bajo presión se corrompe</td>
+<td style="text-align: left;">Teaching to the test, gaming de KPIs</td>
+<td style="text-align: left;">Auditorías, métricas difíciles de gamear</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Cobra Effect</strong></td>
+<td style="text-align: left;">Solución al problema empeora el problema</td>
+<td style="text-align: left;">Incentivos mal diseñados crean comportamientos no deseados</td>
+<td style="text-align: left;">Pagar por bugs reportados → crear bugs ficticios</td>
+<td style="text-align: left;">Diseñar incentivos alineados, métricas balanceadas</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Streisand Effect</strong></td>
+<td style="text-align: left;">Intentar suprimir información la hace más popular</td>
+<td style="text-align: left;">Censura atrae atención</td>
+<td style="text-align: left;">Ocultar security issues → mayor escrutinio cuando se descubren</td>
+<td style="text-align: left;">Transparencia controlada, comunicación proactiva</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Peter Principle</strong></td>
+<td style="text-align: left;">"En jerarquía, cada empleado tiende a ascender hasta su nivel de incompetencia"</td>
+<td style="text-align: left;">Promoción basada en performance actual, no en habilidades para nuevo rol</td>
+<td style="text-align: left;">Excelente IC → mal manager</td>
+<td style="text-align: left;">Dual track (IC y management), evaluar habilidades específicas</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Iron Law of Bureaucracy</strong></td>
+<td style="text-align: left;">Burocracia crece independientemente de su utilidad</td>
+<td style="text-align: left;">Procesos se vuelven fines en sí mismos</td>
+<td style="text-align: left;">Process overload en grandes organizaciones</td>
+<td style="text-align: left;">Regular review de procesos, eliminar redundancias</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Efecto de Sobrejustificación</strong></td>
+<td style="text-align: left;">Motivación externa reduce intrínseca</td>
+<td style="text-align: left;">Recompensas externas matan motivación interna</td>
+<td style="text-align: left;">"Pagar por hobby lo vuelve trabajo"</td>
+<td style="text-align: left;">Preservar motivación intrínseca</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Efecto de Polarización</strong></td>
+<td style="text-align: left;">Evidencia fortalece creencias opuestas</td>
+<td style="text-align: left;">Backfire effect</td>
+<td style="text-align: left;">Datos que contradicen creencias las refuerzan</td>
+<td style="text-align: left;">Presentar info de forma no amenazante</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Profecía Autocumplida (Pigmalión)</strong></td>
+<td style="text-align: left;">Expectativas influyen resultado</td>
+<td style="text-align: left;">Creencias crean realidad</td>
+<td style="text-align: left;">Esperar que feature falle → no promoverla → falla</td>
+<td style="text-align: left;">Awareness de expectativas, testing objetivo</td>
+</tr>
+</tbody>
+</table>
+<hr/>
+<h2 id="sesgos-en-data-science-y-ml"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.9</span> 📊 Sesgos en Data Science y ML</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Sesgo</th>
+<th style="text-align: left;">Qué</th>
+<th style="text-align: left;">Fase del proceso</th>
+<th style="text-align: left;">Impacto</th>
+<th style="text-align: left;">Mitigación</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Training Data Bias</strong></td>
+<td style="text-align: left;">Data no representa población real</td>
+<td style="text-align: left;">Data collection</td>
+<td style="text-align: left;">Modelo discrimina grupos subrepresentados</td>
+<td style="text-align: left;">Audit datasets, fairness metrics, data augmentation</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Label Bias</strong></td>
+<td style="text-align: left;">Labels incorrectos o sesgados</td>
+<td style="text-align: left;">Data labeling</td>
+<td style="text-align: left;">Modelo aprende sesgos humanos</td>
+<td style="text-align: left;">Multiple labelers, blind labeling, consensus protocols</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Confirmation in EDA</strong></td>
+<td style="text-align: left;">Buscar patrones que confirman hipótesis</td>
+<td style="text-align: left;">Exploratory analysis</td>
+<td style="text-align: left;">Overfitting a narrativa preexistente</td>
+<td style="text-align: left;">Pre-register hypotheses, análisis ciego</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>P-hacking</strong></td>
+<td style="text-align: left;">Probar hasta encontrar p&lt;0.05</td>
+<td style="text-align: left;">Statistical testing</td>
+<td style="text-align: left;">False positives, resultados no reproducibles</td>
+<td style="text-align: left;">Bonferroni correction, pre-registration, replication</td>
+</tr>
+</tbody>
+</table>
+<h3 id="ejemplo-de-codigo-anti-sesgo-en-ml"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.9.1</span> Ejemplo de Código Anti-Sesgo en ML</h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Mitigación de sesgos en pipeline de ML</span>
+
+<span class="c1"># 1. Survivorship Bias: Incluir usuarios churned</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">load_full_cohort</span><span class="p">(</span><span class="n">include_churned</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># 2. Base Rate: Siempre reportar métricas por clase</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.metrics</span><span class="w"> </span><span class="kn">import</span> <span class="n">classification_report</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">classification_report</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">))</span>
+
+<span class="c1"># 3. Fairness Audits pre-deploy</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">aif360</span><span class="w"> </span><span class="kn">import</span> <span class="n">metrics</span>
+<span class="n">fairness_metric</span> <span class="o">=</span> <span class="n">metrics</span><span class="o">.</span><span class="n">ClassificationMetric</span><span class="p">(</span>
+    <span class="n">dataset_true</span><span class="p">,</span> <span class="n">dataset_pred</span><span class="p">,</span>
+    <span class="n">unprivileged_groups</span><span class="o">=</span><span class="p">[{</span><span class="s1">'gender'</span><span class="p">:</span> <span class="mi">0</span><span class="p">}],</span>
+    <span class="n">privileged_groups</span><span class="o">=</span><span class="p">[{</span><span class="s1">'gender'</span><span class="p">:</span> <span class="mi">1</span><span class="p">}]</span>
+<span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Disparate Impact: </span><span class="si">{</span><span class="n">fairness_metric</span><span class="o">.</span><span class="n">disparate_impact</span><span class="p">()</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+
+<span class="c1"># 4. Selection Bias: Muestreo estratificado</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.model_selection</span><span class="w"> </span><span class="kn">import</span> <span class="n">train_test_split</span>
+<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span>
+    <span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">stratify</span><span class="o">=</span><span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span>
+<span class="p">)</span>
+</code></pre></div>
+<hr/>
+<h2 id="estrategias-de-mitigacion"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.10</span> 🛡️ Estrategias de Mitigación</h2>
+<h3 id="1-pre-mortem"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.10.1</span> 1. Pre-Mortem</h3>
+<p><strong>Qué:</strong> Antes de decidir, asumir que falló y explicar por qué.</p>
+<p><strong>When:</strong> Planning de proyectos, decisiones arquitectónicas grandes.</p>
+<p><strong>How:</strong></p>
+<ol>
+<li>"Es un año después, el proyecto falló. ¿Por qué?"</li>
+<li>Equipo genera razones de fallo</li>
+<li>Mitigar top 3 razones identificadas</li>
+</ol>
+<h3 id="2-red-team-devils-advocate"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.10.2</span> 2. Red Team / Devil's Advocate</h3>
+<p><strong>Qué:</strong> Asignar persona/equipo para atacar plan.</p>
+<p><strong>When:</strong> Decisiones críticas, cambios arquitectónicos.</p>
+<p><strong>How:</strong> Rotar rol, requiere argumentos contra con evidencia, no solo opinión.</p>
+<h3 id="3-decision-journal"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.10.3</span> 3. Decision Journal</h3>
+<p><strong>Qué:</strong> Documentar decisiones antes de conocer outcomes.</p>
+<p><strong>How:</strong> Registrar:</p>
+<ul>
+<li>Decisión tomada</li>
+<li>Razones y contexto</li>
+<li>Expectativas y predicciones</li>
+<li>Alternativas consideradas</li>
+<li>Métricas de éxito</li>
+</ul>
+<h3 id="4-checklists-anti-sesgos"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.10.4</span> 4. Checklists Anti-sesgos</h3>
+<p><strong>What:</strong> Forzar considerar múltiples factores antes de decidir.</p>
+<p><strong>How:</strong> Checklist pre-decisión con preguntas desafiantes (ver abajo).</p>
+<h3 id="5-diverse-teams"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.10.5</span> 5. Diverse Teams</h3>
+<p><strong>Qué:</strong> Equipos heterogéneos cuestionan assumptions.</p>
+<p><strong>How:</strong> Diversidad cognitiva, backgrounds, experiencias, perspectivas.</p>
+<h3 id="6-base-rates-first"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.10.6</span> 6. Base Rates First</h3>
+<p><strong>Qué:</strong> Siempre empezar con probabilidad base.</p>
+<p><strong>How:</strong> "De 100 startups similares, ¿cuántos tienen éxito?" antes de evaluar caso específico.</p>
+<h3 id="7-prospective-hindsight"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.10.7</span> 7. Prospective Hindsight</h3>
+<p><strong>Qué:</strong> Imaginar futuro como si fuera pasado.</p>
+<p><strong>How:</strong> "Es 2026, ¿cómo llegamos aquí?" más concreto que "¿Qué haremos?"</p>
+<h3 id="8-blind-reviews"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.10.8</span> 8. Blind Reviews</h3>
+<p><strong>Qué:</strong> Evaluaciones sin conocer identidad del autor.</p>
+<p><strong>How:</strong> Anonymous RFCs, code reviews ciegos, evaluaciones de candidatos sin CV.</p>
+<h3 id="9-calibration-sessions"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.10.9</span> 9. Calibration Sessions</h3>
+<p><strong>Qué:</strong> Comparar predicciones con resultados reales.</p>
+<p><strong>How:</strong> Mensual, comparar estimaciones vs real en retrospectivas.</p>
+<h3 id="10-multiple-perspectives"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.10.10</span> 10. Multiple Perspectives</h3>
+<p><strong>Qué:</strong> Analizar desde diferentes ángulos.</p>
+<p><strong>How:</strong> Framing positivo y negativo, diferentes stakeholders, múltiples métricas.</p>
+<hr/>
+<h2 id="senales-de-alerta-como-reconocer-estas-sesgado"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.11</span> 🚫 Señales de Alerta: Cómo Reconocer Estás Sesgado</h2>
+<h3 id="red-flags-cognitivas-individual"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.11.1</span> Red Flags Cognitivas (Individual)</h3>
+<ul>
+<li>❌ Buscar solo evidencia que confirme tu creencia</li>
+<li>❌ Justificar decisión post-hoc (racionalizando)</li>
+<li>❌ "Todos piensan como yo" (sin verificar)</li>
+<li>❌ Decisión rápida sin considerar alternativas</li>
+<li>❌ Emocional ante cuestionamiento de idea</li>
+<li>❌ "Esto es diferente" (special pleading)</li>
+<li>❌ Ignorar base rates históricos</li>
+<li>❌ No documentar predicciones antes de saber resultado</li>
+</ul>
+<h3 id="red-flags-en-equipos"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.11.2</span> Red Flags en Equipos</h3>
+<ul>
+<li>❌ Groupthink - consenso rápido sin debate</li>
+<li>❌ Síndrome del "not invented here"</li>
+<li>❌ Cultura de "siempre lo hicimos así"</li>
+<li>❌ Falta de diversidad cognitiva</li>
+<li>❌ Miedo a experimentar o fallar</li>
+<li>❌ Decisiones basadas en HiPPO (Highest Paid Person's Opinion)</li>
+</ul>
+<hr/>
+<h2 id="checklist-anti-sesgos"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.12</span> ✅ Checklist Anti-Sesgos</h2>
+<p>Antes de decisión importante:</p>
+<ul>
+<li>[ ] <strong>Pre-mortem:</strong> ¿Por qué podría fallar esta decisión?</li>
+<li>[ ] <strong>Devil's advocate:</strong> ¿Qué argumentos hay en contra?</li>
+<li>[ ] <strong>Base rate:</strong> ¿Cuál es probabilidad histórica de éxito en casos similares?</li>
+<li>[ ] <strong>Alternativas:</strong> ¿Consideré mínimo 3 opciones diferentes?</li>
+<li>[ ] <strong>Diverse input:</strong> ¿Consulté perspectivas de diferentes roles/experiencias?</li>
+<li>[ ] <strong>Decision journal:</strong> ¿Documenté razones, expectativas y métricas de éxito?</li>
+<li>[ ] <strong>Reversibilidad:</strong> ¿Es reversible? ¿Puedo testear pequeño primero?</li>
+<li>[ ] <strong>Data vs intuition:</strong> ¿Tengo datos objetivos o solo "gut feeling"?</li>
+<li>[ ] <strong>Incentivos:</strong> ¿Qué comportamientos podría incentivar esta decisión (explícita e implícitamente)?</li>
+<li>[ ] <strong>Future regret:</strong> ¿De qué me podría arrepentirme en 6 meses?</li>
+<li>[ ] <strong>Framing:</strong> ¿Analicé desde perspectivas positiva y negativa?</li>
+<li>[ ] <strong>Sunk cost:</strong> ¿Estoy decidiendo por valor futuro o por inversión pasada?</li>
+</ul>
+<hr/>
+<h2 id="template-para-rfcs-anti-sesgo"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.13</span> 🎯 Template para RFCs Anti-Sesgo</h2>
+<div class="highlight"><pre><span></span><code><span class="gu">## [RFC-XXX] Título de la Decisión Técnica</span>
+
+<span class="gu">### Contexto</span>
+[Descripción del problema y contexto]
+
+<span class="gu">### Hipótesis</span>
+[Qué creemos que mejorará y por qué]
+
+<span class="gu">### Base Rates</span>
+[Datos históricos relevantes de decisiones similares]
+
+<span class="gu">### Alternativas Consideradas</span>
+<span class="k">1.</span> <span class="gs">**Opción A:**</span> [Pros/Cons]
+<span class="k">2.</span> <span class="gs">**Opción B:**</span> [Pros/Cons]
+<span class="k">3.</span> <span class="gs">**Opción C:**</span> [Pros/Cons]
+
+<span class="gu">### Decisión Propuesta</span>
+[Opción elegida y justificación]
+
+<span class="gu">### Pre-mortem</span>
+[¿Por qué podría fallar esta decisión?]
+<span class="k">1.</span> Riesgo 1 y mitigación
+<span class="k">2.</span> Riesgo 2 y mitigación
+<span class="k">3.</span> Riesgo 3 y mitigación
+
+<span class="gu">### Métricas de Éxito</span>
+[Cómo mediremos si funcionó]
+<span class="k">-</span><span class="w"> </span>Métrica 1: [valor actual] → [valor objetivo]
+<span class="k">-</span><span class="w"> </span>Métrica 2: [valor actual] → [valor objetivo]
+
+<span class="gu">### Criterios de Reversión</span>
+[En qué condiciones revertiremos la decisión]
+
+<span class="gu">### Reversibilidad</span>
+<span class="k">- [ ]</span> Reversible (Type 2 decision)
+<span class="k">- [ ]</span> Irreversible (Type 1 decision)
+
+<span class="gu">### Timeline</span>
+[Cuándo implementar, cuándo evaluar]
+</code></pre></div>
+<hr/>
+<h2 id="casos-practicos-en-tecnologia"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.14</span> 🎯 Casos Prácticos en Tecnología</h2>
+<h3 id="caso-1-migracion-de-monolito-a-microservicios"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.14.1</span> Caso 1: Migración de Monolito a Microservicios</h3>
+<p><strong>Sesgos detectados:</strong></p>
+<ul>
+<li>Optimismo en estimaciones (Planning Fallacy)</li>
+<li>Anclaje a arquitectura anterior</li>
+<li>Aversión a pérdida de control centralizado</li>
+<li>Social proof ("todos usan microservicios")</li>
+</ul>
+<p><strong>Estrategia anti-sesgo aplicada:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Enfoque basado en datos, no opiniones</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">migration_strategy</span><span class="p">():</span>
+    <span class="c1"># 1. Medir métricas base</span>
+    <span class="n">baseline</span> <span class="o">=</span> <span class="n">measure_monolith_metrics</span><span class="p">()</span>
+
+    <span class="c1"># 2. Pre-mortem documentado</span>
+    <span class="n">risks</span> <span class="o">=</span> <span class="n">document_failure_scenarios</span><span class="p">()</span>
+
+    <span class="c1"># 3. Piloto con límites claros</span>
+    <span class="n">pilot</span> <span class="o">=</span> <span class="n">run_pilot</span><span class="p">(</span>
+        <span class="n">service</span><span class="o">=</span><span class="s2">"payment_processing"</span><span class="p">,</span>
+        <span class="n">max_duration</span><span class="o">=</span><span class="s2">"6 weeks"</span><span class="p">,</span>
+        <span class="n">rollback_criteria</span><span class="o">=</span><span class="p">[</span>
+            <span class="s2">"latency_increase &gt; 20%"</span><span class="p">,</span>
+            <span class="s2">"error_rate &gt; 1%"</span>
+        <span class="p">]</span>
+    <span class="p">)</span>
+
+    <span class="c1"># 4. Decisión basada en datos</span>
+    <span class="k">return</span> <span class="n">decide_based_on</span><span class="p">(</span><span class="n">pilot</span><span class="o">.</span><span class="n">metrics</span><span class="p">,</span> <span class="n">baseline</span><span class="p">,</span> <span class="n">risks</span><span class="p">)</span>
+</code></pre></div>
+<h3 id="caso-2-seleccion-de-framework-para-ia"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.14.2</span> Caso 2: Selección de Framework para IA</h3>
+<p><strong>Sesgos evitados:</strong></p>
+<ul>
+<li>Efecto halo por hype (ej: "todos usan PyTorch")</li>
+<li>Autoridad (opinión de un senior sin pruebas)</li>
+<li>Falso consenso ("todos en el equipo están de acuerdo")</li>
+</ul>
+<p><strong>Proceso seguido:</strong></p>
+<ol>
+<li>Definir requisitos técnicos específicos (latencia, escalabilidad, habilidades del equipo)</li>
+<li>Ejecutar benchmarks objetivos con datos reales</li>
+<li>Calcular TCO (Total Cost of Ownership) incluyendo mantenimiento</li>
+<li>Documentar decisión en RFC con pre-mortem incluido</li>
+</ol>
+<h3 id="caso-3-priorizacion-de-features-con-rice"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.14.3</span> Caso 3: Priorización de Features con RICE</h3>
+<p><strong>Sesgos mitigados:</strong></p>
+<ul>
+<li>Voz del cliente ruidosa (un cliente enterprise pide feature compleja)</li>
+<li>Sunk cost en features</li>
+<li>Efecto de encuadre</li>
+</ul>
+<p><strong>Framework aplicado:</strong></p>
+<div class="highlight"><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">rice_score</span><span class="p">(</span><span class="n">feature</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""</span>
+<span class="sd">    RICE = (Reach × Impact × Confidence) / Effort</span>
+<span class="sd">    """</span>
+    <span class="n">reach</span> <span class="o">=</span> <span class="n">estimate_users_affected</span><span class="p">()</span>  <span class="c1"># Usuarios impactados</span>
+    <span class="n">impact</span> <span class="o">=</span> <span class="n">estimate_impact_per_user</span><span class="p">()</span>  <span class="c1"># 0.25, 0.5, 1, 2, 3</span>
+    <span class="n">confidence</span> <span class="o">=</span> <span class="n">estimate_confidence</span><span class="p">()</span>  <span class="c1"># 0-100%</span>
+    <span class="n">effort</span> <span class="o">=</span> <span class="n">estimate_person_months</span><span class="p">()</span>
+
+    <span class="k">return</span> <span class="p">(</span><span class="n">reach</span> <span class="o">*</span> <span class="n">impact</span> <span class="o">*</span> <span class="n">confidence</span><span class="p">)</span> <span class="o">/</span> <span class="n">effort</span>
+</code></pre></div>
+<hr/>
+<h2 id="recursos"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.15</span> 📚 Recursos</h2>
+<h3 id="libros-fundamentales"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.15.1</span> Libros Fundamentales</h3>
+<ul>
+<li><a href="https://www.amazon.com/Thinking-Fast-Slow-Daniel-Kahneman/dp/0374533555">Thinking, Fast and Slow - Daniel Kahneman</a> - Fundamentos de sesgos cognitivos</li>
+<li><a href="https://www.amazon.com/Predictably-Irrational-Revised-Expanded-Decisions/dp/0061353248">Predictably Irrational - Dan Ariely</a> - Economía del comportamiento</li>
+<li><a href="https://www.amazon.com/Art-Thinking-Clearly-Rolf-Dobelli/dp/0062219693">The Art of Thinking Clearly - Rolf Dobelli</a> - 99 sesgos explicados</li>
+<li><a href="https://www.amazon.com/Thinking-Bets-Making-Smarter-Decisions/dp/0735216355">Thinking in Bets - Annie Duke</a> - Tomar decisiones bajo incertidumbre</li>
+<li><a href="https://www.amazon.com/Psychology-Computer-Programming-Silver-Anniversary/dp/0932633420">The Psychology of Computer Programming - Gerald Weinberg</a> - Sesgos en desarrollo de software</li>
+<li><a href="https://www.amazon.com/Weapons-Math-Destruction-Increases-Inequality/dp/0553418815">Weapons of Math Destruction - Cathy O'Neil</a> - Ética en algoritmos</li>
+</ul>
+<h3 id="recursos-online"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.15.2</span> Recursos Online</h3>
+<ul>
+<li><a href="https://es.wikipedia.org/wiki/Anexo:Sesgos_cognitivos">Wikipedia: List of Cognitive Biases</a></li>
+<li><a href="https://fs.blog/mental-models/">Farnam Street - Mental Models</a></li>
+<li><a href="https://ml-ops.org">ML Checklist by Google</a></li>
+<li><a href="https://github.com/bugout-dev/awesome-cognitive-biases">Awesome Cognitive Bias</a></li>
+<li><a href="https://github.com/davidklaing/decision-journal">Decision Journal Template</a></li>
+</ul>
+<hr/>
+<h2 id="clave-para-semi-seniors"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.16</span> 💡 Clave para Semi-Seniors</h2>
+<p>Reconocer sesgos y falacias no es teoría abstracta: <strong>es lo que evita bugs estratégicos en producto, arquitectura y negocio.</strong></p>
+<p>Los mejores tech leads y PMs no son los que no tienen sesgos (todos los tenemos), sino los que:</p>
+<ol>
+<li><strong>Reconocen</strong> sus propios sesgos</li>
+<li><strong>Implementan procesos</strong> para mitigarlos</li>
+<li><strong>Crean cultura</strong> donde cuestionar assumptions es valorado</li>
+<li><strong>Deciden con datos</strong> sobre intuición cuando es posible</li>
+<li><strong>Documentan decisiones</strong> para aprender de aciertos y errores</li>
+</ol>
+<aside class="md-source-file">
+<span class="md-source-file__fact">
+<span class="md-icon" title="Last update">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21 13.1c-.1 0-.3.1-.4.2l-1 1 2.1 2.1 1-1c.2-.2.2-.6 0-.8l-1.3-1.3c-.1-.1-.2-.2-.4-.2m-1.9 1.8-6.1 6V23h2.1l6.1-6.1zM12.5 7v5.2l4 2.4-1 1L11 13V7zM11 21.9c-5.1-.5-9-4.8-9-9.9C2 6.5 6.5 2 12 2c5.3 0 9.6 4.1 10 9.3-.3-.1-.6-.2-1-.2s-.7.1-1 .2C19.6 7.2 16.2 4 12 4c-4.4 0-8 3.6-8 8 0 4.1 3.1 7.5 7.1 7.9l-.1.2z"></path></svg>
+</span>
+<span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date" title="22 de enero de 2026 23:13:04 UTC">22 de enero de 2026</span>
+</span>
+</aside>
+</article>
+</div>
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+</div>
+<button class="md-top md-icon" data-md-component="top" hidden="" type="button">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"></path></svg>
+  Back to top
+</button>
+</main>
+<footer class="md-footer">
+<nav aria-label="Footer" class="md-footer__inner md-grid">
+<a aria-label="Previous: Arquitectura y Patrones" class="md-footer__link md-footer__link--prev" href="../arquitectura-patrones/">
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+</div>
+<div class="md-footer__title">
+<span class="md-footer__direction">
+                Previous
+              </span>
+<div class="md-ellipsis">
+                Arquitectura y Patrones
+              </div>
+</div>
+</a>
+<a aria-label="Next: DevOps" class="md-footer__link md-footer__link--next" href="../devops/">
+<div class="md-footer__title">
+<span class="md-footer__direction">
+                Next
+              </span>
+<div class="md-ellipsis">
+                DevOps
+              </div>
+</div>
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"></path></svg>
+</div>
+</a>
+</nav>
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
+      Material for MkDocs
+    </a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["content.code.copy", "navigation.footer", "navigation.top", "search.highlight", "navigation.indexes"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+<script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+<script src="../../assets/mkdocs_puml/puml.js"></script>
+<script src="https://unpkg.com/@panzoom/panzoom@4.5.1/dist/panzoom.min.js"></script>
+<script src="../../assets/mkdocs_puml/interaction.js"></script>
+</body>
+</html>
