@@ -40,8 +40,6 @@ nav:
   - Data Literacy: manuales/data-literacy.md
   - LowCode / NoCode: manuales/lowcode-nocode.md
   - Casos de Estudio: casos-de-estudio/README.md
-  - Recursos y Entrevistas: manuales/recursos-entrevistas.md
-  - Glosario: glosario.md
 
   - Agentes:
       - agentes/README.md
@@ -138,3 +136,7 @@ nav:
           - New Feature Template: reportes/templates/new-feature-template.md
           - Post Mortem Template: reportes/templates/post-mortem-template.md
           - RFC Template: reportes/templates/rfc-template.md
+
+  - Recursos y Entrevistas: manuales/recursos-entrevistas.md
+  - Agradecimientos: agradecimientos.md
+  - Glosario: glosario.md
