@@ -12,6 +12,12 @@ Esta es una **Guía Integral de Ingeniería de Software** diseñada como un comp
 
 La documentación abarca todo el ciclo de vida del desarrollo de software, desde los fundamentos del código limpio hasta estrategias avanzadas de arquitectura, DevOps, seguridad y gestión de producto.
 
+## 📄 Documentación Online
+
+La guía está publicada en GitHub Pages y se puede consultar aquí:
+
+👉 **[Ver la Guía Online](https://davichuder.github.io/software-engineering-guide/)**
+
 ## ✨ Características
 
 - 📚 **28+ secciones temáticas** cubriendo todos los aspectos de ingeniería de software
@@ -174,11 +180,11 @@ git push origin feature/mi-mejora
 
 ## 📝 Niveles de Criticidad
 
-| Criticidad | Emoji | Explicación |
-| ------------ | ------- | ------------- |
-| Crítico | 🔴 | Incumplimiento = bug de seguridad o caída |
-| Alto | 🟠 | Afecta mantenibilidad o rendimiento |
-| Estilo | 🟢 | Preferencia de equipo, sin impacto funcional |
+| Criticidad | Emoji | Explicación                                  |
+| ---------- | ----- | -------------------------------------------- |
+| Crítico    | 🔴    | Incumplimiento = bug de seguridad o caída    |
+| Alto       | 🟠    | Afecta mantenibilidad o rendimiento          |
+| Estilo     | 🟢    | Preferencia de equipo, sin impacto funcional |
 
 ## 📄 Licencia
 
@@ -202,6 +208,6 @@ Gracias a todos los contribuidores que han ayudado a hacer de esta guía un recu
 
 ---
 
-> *"La excelencia no es un acto, sino un hábito."* - Aristóteles
+> _"La excelencia no es un acto, sino un hábito."_ - Aristóteles
 
 **¿Listo para comenzar?** 👉 [Ver Getting Started](GETTING_STARTED.md)
